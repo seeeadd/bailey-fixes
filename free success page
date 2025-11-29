@@ -1097,10 +1097,20 @@
         display: none;
     }
 
-    @media (max-width: 768px) {
-        /* Hide add-to-calendar-button on mobile */
-        .free-page .cal-wrap add-to-calendar-button {
+    @media (max-width: 1024px) {
+        /* Hide add-to-calendar-button completely on mobile/tablet */
+        .free-page .cal-wrap add-to-calendar-button,
+        .cal-wrap add-to-calendar-button,
+        add-to-calendar-button {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
         }
 
         /* Show custom button on mobile */
