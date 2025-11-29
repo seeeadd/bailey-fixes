@@ -1064,14 +1064,14 @@
        CALENDAR BUTTON STYLES - NOW IN STEP 2
        (Using same approach as VIP success page)
        ============================================ */
-    .cal-wrap {
+    .free-page .cal-wrap {
         display: flex;
         justify-content: center;
         position: relative;
         z-index: 100;
     }
 
-    .cal-wrap add-to-calendar-button {
+    .free-page .cal-wrap add-to-calendar-button {
         --btn-background: var(--coral);
         --btn-background-hover: var(--coral-hot);
         --btn-text: #ffffff;
@@ -1091,33 +1091,24 @@
         --backdrop: none;
     }
 
-    .cal-wrap add-to-calendar-button::part(atcb-list) {
+    .free-page .cal-wrap add-to-calendar-button::part(atcb-list) {
         z-index: 10000 !important;
         position: fixed !important;
     }
 
-    /* Ensure popup is above everything */
-    .step-card-2 {
-        overflow: visible !important;
-    }
-
-    .step-card-2:hover {
-        z-index: 200;
-    }
-
     /* Mobile calendar fix - use component's built-in lightbox mode */
     @media (max-width: 768px) {
-        .cal-wrap add-to-calendar-button {
+        .free-page .cal-wrap add-to-calendar-button {
             --overlay-background: rgba(0, 0, 0, 0.6);
             --overlay-cursor: pointer;
         }
 
-        .cal-wrap {
+        .free-page .cal-wrap {
             position: static;
             z-index: auto;
         }
 
-        .step-card-2 {
+        .free-page .step-card-2 {
             position: static !important;
             overflow: visible !important;
             z-index: auto !important;
@@ -2323,7 +2314,6 @@
                             <p>Block these times before life takes over!</p>
 
                             <div class="cal-wrap">
-                                <!-- Desktop: Original add-to-calendar-button -->
                                 <add-to-calendar-button
                                     name="Bailey's 3-Day Etsy Challenge"
                                     description="Day 1: The 90-Minute Etsy Reset | Day 2: AI Design Lab | Day 3: The Empire System"
