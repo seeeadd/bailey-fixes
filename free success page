@@ -1135,9 +1135,6 @@
     body.cal-overlay-open,
     html.cal-overlay-open {
         overflow: hidden !important;
-        height: 100% !important;
-        position: fixed !important;
-        width: 100% !important;
     }
 
     #calendarOverlay {
@@ -2427,7 +2424,7 @@
                                     lightMode="bodyScheme"
                                 ></add-to-calendar-button>
                                 <!-- Mobile: Custom button (hidden on desktop) -->
-                                <button type="button" class="cal-mobile-trigger" onclick="window.calScrollPos=window.scrollY;document.body.classList.add('cal-overlay-open');document.documentElement.classList.add('cal-overlay-open');document.getElementById('calendarOverlay').classList.add('open')">
+                                <button type="button" class="cal-mobile-trigger" onclick="window.calScrollPos=window.scrollY;window.scrollTo(0,0);document.body.classList.add('cal-overlay-open');document.documentElement.classList.add('cal-overlay-open');document.getElementById('calendarOverlay').classList.add('open')">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                         <line x1="16" y1="2" x2="16" y2="6"></line>
