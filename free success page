@@ -1137,13 +1137,14 @@
         overflow: hidden !important;
     }
 
-    /* Calendar overlay – works inside Framer embed + mobile */
+    /* Calendar overlay – fixed positioning, no scroll hacks */
     #calendarOverlay {
         display: none;
-        position: absolute;
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100%;
-        height: 100vh;
+        right: 0;
+        bottom: 0;
         z-index: 999999;
     }
 
@@ -1154,8 +1155,11 @@
     }
 
     #calendarOverlay .cal-backdrop {
-        position: absolute;
-        inset: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: rgba(0, 0, 0, 0.8);
     }
 
@@ -1163,7 +1167,7 @@
         position: relative;
         z-index: 1;
         width: min(320px, 90vw);
-        max-height: 90vh;
+        max-height: 80vh;
         overflow-y: auto;
         background: #fff;
         border-radius: 20px;
@@ -2786,30 +2790,13 @@
 // CALENDAR OVERLAY - Open/Close Functions
 // ============================================
 window.openCalOverlay = function() {
-    var overlay = document.getElementById('calendarOverlay');
-    if (!overlay) return;
-
-    // Get current scroll position
-    var scrollTop = window.pageYOffset
-        || document.documentElement.scrollTop
-        || document.body.scrollTop
-        || 0;
-
-    // Pin overlay's top to the visible viewport
-    overlay.style.top = scrollTop + 'px';
-
-    overlay.classList.add('open');
+    document.getElementById('calendarOverlay').classList.add('open');
     document.body.classList.add('cal-overlay-open');
     document.documentElement.classList.add('cal-overlay-open');
 };
 
 window.closeCalOverlay = function() {
-    var overlay = document.getElementById('calendarOverlay');
-    if (!overlay) return;
-
-    overlay.classList.remove('open');
-    overlay.style.top = '';
-
+    document.getElementById('calendarOverlay').classList.remove('open');
     document.body.classList.remove('cal-overlay-open');
     document.documentElement.classList.remove('cal-overlay-open');
 };
