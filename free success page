@@ -2334,7 +2334,8 @@
                                     timeZone="US/Eastern"
                                     location="Online"
                                     options="'Apple','Google','iCal'"
-                                    buttonStyle="round"
+                                    buttonStyle="flat"
+                                    listStyle="modal"
                                     trigger="click"
                                     hideCheckmark
                                     size="4"
