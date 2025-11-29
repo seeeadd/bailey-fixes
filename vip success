@@ -1,0 +1,1324 @@
+<!-- VIP Success Page - Framer Embed Version -->
+<!-- Add these to Framer's custom code in Site Settings > General > Custom Code > Head -->
+<!--
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+-->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+    @font-face {
+        font-family: 'Ogg';
+        src: url('https://cdn.jsdelivr.net/gh/nicxvan/ogg-font@master/fonts/Ogg-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    .vip-page {
+        --rose-gold: #C9A87C;
+        --rose-gold-dark: #B8956A;
+        --champagne: #F5EBE0;
+        --deep-teal: #1A3D3B;
+        --teal: #4ECDC4;
+        --soft-pink: #FFD1DC;
+        --cream: #FDFCF9;
+        --warm-cream: #FAF7F2;
+        --warm-gray: #5A5A5A;
+        --light-gray: #8A8A8A;
+        --peach: #FFE5D4;
+        font-family: 'Satoshi', -apple-system, sans-serif;
+        font-weight: 400;
+        color: #2c2c2c;
+        line-height: 1.6;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .vip-page * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Hide scrollbar for Framer embeds (prevents double scrollbar) */
+    :root, html, body {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    ::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .vip-page h1, .vip-page h2, .vip-page h3 {
+        font-family: 'Ogg', Georgia, serif;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    /* Scroll-triggered animations */
+    .vip-page .fade-in-section {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .vip-page .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .vip-page .action-section.fade-in-section.visible {
+        transform: none;
+    }
+
+    /* VIP Badge */
+    .vip-page .vip-badge {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 64px;
+        height: 64px;
+        z-index: 1000;
+        animation: vipBadgeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+    }
+
+    .vip-page .vip-badge::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+        border-radius: 50%;
+        animation: vipShimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes vipBadgeIn {
+        from { opacity: 0; transform: scale(0.5) rotate(-15deg); }
+        to { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes vipShimmer {
+        0%, 100% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
+        50% { transform: translateX(100%) rotate(45deg); opacity: 1; }
+    }
+
+    /* Hero Section - Centered */
+    .vip-page .hero {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 80px 24px;
+        background: linear-gradient(180deg, var(--cream) 0%, var(--warm-cream) 100%);
+    }
+
+    .vip-page .hero::before {
+        content: '';
+        position: absolute;
+        top: 60px;
+        left: 40px;
+        width: 120px;
+        height: 120px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M10 60 Q35 30, 60 60 T110 60" stroke="%23C9A87C" stroke-width="1.2" fill="none" opacity="0.3"/><path d="M60 10 Q30 35, 60 60 T60 110" stroke="%23C9A87C" stroke-width="1.2" fill="none" opacity="0.2"/><circle cx="60" cy="60" r="4" fill="%23FFD1DC" opacity="0.4"/></svg>');
+        background-size: contain;
+        pointer-events: none;
+    }
+
+    .vip-page .hero-container {
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+
+    .vip-page .hero-text {
+        animation: vipFadeUp 0.8s ease-out both;
+    }
+
+    @keyframes vipFadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .vip-page .hero-eyebrow {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--rose-gold);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .vip-page .hero-eyebrow::before,
+    .vip-page .hero-eyebrow::after {
+        content: '';
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--rose-gold));
+    }
+
+    .vip-page .hero-eyebrow::after {
+        background: linear-gradient(90deg, var(--rose-gold), transparent);
+    }
+
+    .vip-page .hero h1 {
+        font-size: 72px;
+        color: var(--deep-teal);
+        margin-bottom: 24px;
+        letter-spacing: -2px;
+        line-height: 0.95;
+    }
+
+    .vip-page .hero h1 .vip-highlight {
+        color: var(--rose-gold);
+        position: relative;
+        display: inline-block;
+    }
+
+    .vip-page .hero h1 .vip-highlight::after {
+        content: '';
+        position: absolute;
+        inset: -8px -16px;
+        background: radial-gradient(ellipse at center, rgba(201, 168, 124, 0.25), transparent 70%);
+        filter: blur(8px);
+        z-index: -1;
+        animation: vipGlowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes vipGlowPulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .vip-page .hero-subtitle {
+        font-size: 18px;
+        color: var(--warm-gray);
+        max-width: 480px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    /* Action Section */
+    .vip-page .action-section {
+        padding: 80px 24px;
+        background: var(--warm-cream);
+        position: relative;
+        overflow: visible !important;
+    }
+
+    .vip-page .action-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+    }
+
+    .vip-page .action-container {
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: visible !important;
+    }
+
+    .vip-page .section-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .vip-page .section-header h2 {
+        font-size: 48px;
+        color: var(--deep-teal);
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+    }
+
+    .vip-page .section-header p {
+        font-size: 17px;
+        color: var(--light-gray);
+    }
+
+    .vip-page .action-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        overflow: visible !important;
+    }
+
+    .vip-page .action-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 32px;
+        position: relative;
+        border: 1px solid rgba(201, 168, 124, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        overflow: visible !important;
+    }
+
+    .vip-page .action-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(201, 168, 124, 0.08);
+        border-color: rgba(201, 168, 124, 0.2);
+    }
+
+    .vip-page .action-number {
+        position: absolute;
+        top: -12px;
+        left: 28px;
+        width: 32px;
+        height: 32px;
+        background: var(--deep-teal);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        box-shadow: 0 2px 8px rgba(26, 61, 59, 0.2);
+    }
+
+    .vip-page .action-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--rose-gold);
+        margin-bottom: 8px;
+    }
+
+    .vip-page .action-card h3 {
+        font-size: 22px;
+        color: var(--deep-teal);
+        margin-bottom: 12px;
+        line-height: 1.2;
+    }
+
+    .vip-page .action-card p {
+        font-size: 15px;
+        color: var(--light-gray);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .vip-page .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--deep-teal);
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(26, 61, 59, 0.2);
+    }
+
+    .vip-page .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(26, 61, 59, 0.25);
+    }
+
+    .vip-page .calendar-btn-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        position: relative;
+        z-index: 100;
+    }
+
+    .vip-page .calendar-btn-wrapper add-to-calendar-button {
+        --btn-background: #1A3D3B;
+        --btn-background-hover: #234d4a;
+        --btn-text: #ffffff;
+        --btn-text-hover: #ffffff;
+        --font: 'Satoshi', -apple-system, sans-serif;
+        --btn-shadow: 0 2px 8px rgba(26, 61, 59, 0.2);
+        --btn-shadow-hover: 0 4px 16px rgba(26, 61, 59, 0.25);
+        --list-background: #ffffff;
+        --list-text: #333333;
+        --list-background-hover: #f5f5f5;
+        --list-text-hover: #1A3D3B;
+        --list-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        --btn-border: none;
+        --checkmark-background: #4ECDC4;
+        --overlay-background: rgba(0,0,0,0);
+        --overlay-cursor: default;
+        --backdrop: none;
+    }
+
+    .vip-page .calendar-btn-wrapper add-to-calendar-button::part(atcb-list) {
+        z-index: 10000 !important;
+        position: fixed !important;
+    }
+
+    /* Mobile calendar fix */
+    @media (max-width: 768px) {
+        .vip-page .calendar-btn-wrapper add-to-calendar-button {
+            --overlay-background: rgba(0, 0, 0, 0.6);
+            --overlay-cursor: pointer;
+        }
+
+        .vip-page .calendar-btn-wrapper {
+            position: static;
+            z-index: auto;
+        }
+
+        .vip-page .action-card {
+            position: static !important;
+            overflow: visible !important;
+            z-index: auto !important;
+        }
+
+        .atcb-modal,
+        .atcb-modal-box,
+        .atcb-list,
+        .atcb-list-wrapper,
+        [class*="atcb-modal"],
+        [class*="atcb-list"] {
+            position: fixed !important;
+            z-index: 999999 !important;
+        }
+
+        .atcb-bgoverlay,
+        [class*="atcb-bgoverlay"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 999998 !important;
+            background: rgba(0, 0, 0, 0.6) !important;
+        }
+
+        .atcb-modal-box,
+        [class*="atcb-modal-box"] {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            max-width: 90vw !important;
+            max-height: 80vh !important;
+            background: #fff !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+        }
+    }
+
+    /* Registration Progress Bar */
+    .vip-page .registration-complete-bar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: linear-gradient(135deg, #FFFBF5 0%, #FFF8EE 50%, #FFF5E6 100%);
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        box-shadow: 0 2px 20px rgba(201, 168, 124, 0.15), 0 4px 40px rgba(201, 168, 124, 0.1);
+        border-bottom: 1px solid rgba(201, 168, 124, 0.15);
+    }
+
+    .vip-page .registration-complete-bar .check-icon {
+        width: 26px;
+        height: 26px;
+        background: linear-gradient(135deg, #4ECDC4, #3DBDB5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3), 0 0 20px rgba(78, 205, 196, 0.2);
+        animation: vipCheckPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes vipCheckPulse {
+        0%, 100% { box-shadow: 0 2px 8px rgba(78, 205, 196, 0.3), 0 0 20px rgba(78, 205, 196, 0.2); }
+        50% { box-shadow: 0 2px 12px rgba(78, 205, 196, 0.5), 0 0 30px rgba(78, 205, 196, 0.3); }
+    }
+
+    .vip-page .registration-complete-bar .check-icon svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .vip-page .registration-complete-bar .progress-info {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .vip-page .registration-complete-bar .progress-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--deep-teal);
+        letter-spacing: 0.3px;
+    }
+
+    .vip-page .registration-complete-bar .mini-progress {
+        width: 140px;
+        height: 8px;
+        background: linear-gradient(90deg, rgba(201, 168, 124, 0.15), rgba(201, 168, 124, 0.25));
+        border-radius: 10px;
+        overflow: visible;
+        position: relative;
+    }
+
+    .vip-page .registration-complete-bar .mini-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #D4AF37, #E8C547, #F0D860, #E8C547, #D4AF37);
+        background-size: 200% 100%;
+        border-radius: 10px;
+        animation: vipProgressComplete 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards, vipGoldShimmer 2s ease-in-out infinite 1.5s;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    @keyframes vipProgressComplete {
+        from { width: 0%; opacity: 0.5; }
+        to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes vipGoldShimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .vip-page .registration-complete-bar .percentage {
+        font-size: 14px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #D4AF37, #B8860B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Timeline Section */
+    .vip-page .timeline-section {
+        padding: 80px 24px;
+        background: var(--cream);
+    }
+
+    .vip-page .timeline-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .vip-page .timeline-header {
+        text-align: center;
+        margin-bottom: 56px;
+    }
+
+    .vip-page .timeline-header h2 {
+        font-size: 44px;
+        color: var(--deep-teal);
+        position: relative;
+        display: inline-block;
+    }
+
+    .vip-page .timeline-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--rose-gold), var(--teal));
+    }
+
+    .vip-page .timeline {
+        position: relative;
+        padding-left: 32px;
+    }
+
+    .vip-page .timeline::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 8px;
+        bottom: 8px;
+        width: 1px;
+        background: linear-gradient(180deg, var(--rose-gold), var(--teal), var(--soft-pink), var(--rose-gold));
+    }
+
+    .vip-page .timeline-item {
+        position: relative;
+        padding-bottom: 36px;
+    }
+
+    .vip-page .timeline-item:last-child { padding-bottom: 0; }
+
+    .vip-page .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -32px;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        background: #fff;
+        border: 2px solid var(--rose-gold);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(201, 168, 124, 0.1);
+    }
+
+    .vip-page .timeline-item:nth-child(2)::before { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1); }
+    .vip-page .timeline-item:nth-child(3)::before { border-color: var(--soft-pink); box-shadow: 0 0 0 4px rgba(255, 209, 220, 0.15); }
+    .vip-page .timeline-item:nth-child(4)::before { border-color: var(--rose-gold); }
+
+    .vip-page .timeline-content {
+        background: #fff;
+        padding: 24px 28px;
+        border-radius: 12px;
+        border: 1px solid rgba(201, 168, 124, 0.08);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        transition: all 0.3s ease;
+    }
+
+    .vip-page .timeline-content:hover {
+        box-shadow: 0 4px 16px rgba(201, 168, 124, 0.08);
+        border-color: rgba(201, 168, 124, 0.15);
+    }
+
+    .vip-page .timeline-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--rose-gold);
+        margin-bottom: 6px;
+    }
+
+    .vip-page .timeline-content h3 {
+        font-size: 20px;
+        color: var(--deep-teal);
+        margin-bottom: 8px;
+    }
+
+    .vip-page .timeline-content p {
+        font-size: 15px;
+        color: var(--light-gray);
+        line-height: 1.65;
+    }
+
+    /* Checklist Section */
+    .vip-page .checklist-section {
+        padding: 80px 24px;
+        background: var(--warm-cream);
+    }
+
+    .vip-page .checklist-container {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .vip-page .checklist-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .vip-page .checklist-header h2 {
+        font-size: 36px;
+        color: var(--deep-teal);
+        margin-bottom: 8px;
+    }
+
+    .vip-page .checklist-header p {
+        font-size: 16px;
+        color: var(--light-gray);
+    }
+
+    .vip-page .checklist-card {
+        background: #fff;
+        padding: 36px;
+        border-radius: 16px;
+        border: 1px solid rgba(201, 168, 124, 0.1);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    }
+
+    .vip-page .progress-wrapper {
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .vip-page .progress-text {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--deep-teal);
+        margin-bottom: 12px;
+    }
+
+    .vip-page .progress-bar {
+        height: 4px;
+        background: rgba(201, 168, 124, 0.15);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .vip-page .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--teal), var(--rose-gold));
+        border-radius: 2px;
+        width: 0%;
+        transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vip-page .checklist-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .vip-page .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px 20px;
+        background: var(--cream);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .vip-page .check-item:hover {
+        background: #fff;
+        border-color: rgba(201, 168, 124, 0.15);
+        transform: translateX(4px);
+    }
+
+    .vip-page .check-box {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .vip-page .check-circle {
+        width: 24px;
+        height: 24px;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .vip-page .check-item:hover .check-circle { border-color: var(--rose-gold); }
+
+    .vip-page .check-tick {
+        position: absolute;
+        inset: 0;
+        background: var(--deep-teal);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vip-page .check-item.completed .check-tick { transform: scale(1); }
+    .vip-page .check-item.completed .check-circle { border-color: var(--deep-teal); }
+
+    .vip-page .check-text {
+        flex: 1;
+        font-size: 15px;
+        color: #444;
+        line-height: 1.5;
+        transition: opacity 0.3s ease;
+    }
+
+    .vip-page .check-text strong {
+        color: var(--deep-teal);
+        font-weight: 600;
+    }
+
+    .vip-page .check-item.completed .check-text {
+        opacity: 0.5;
+        text-decoration: line-through;
+        text-decoration-color: rgba(201, 168, 124, 0.4);
+    }
+
+    .vip-page .completion-message {
+        margin-top: 24px;
+        padding: 20px;
+        background: linear-gradient(135deg, #FFF9F5, #FFF5F0);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--deep-teal);
+        border: 1px solid rgba(201, 168, 124, 0.2);
+        display: none;
+        animation: vipMessageIn 0.5s ease both;
+    }
+
+    @keyframes vipMessageIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .vip-page .completion-message.show { display: block; }
+
+    /* Closing Section */
+    .vip-page .closing-section {
+        padding: 80px 24px 100px;
+        background: var(--deep-teal);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .vip-page .closing-section::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(201, 168, 124, 0.08), transparent 60%);
+        pointer-events: none;
+    }
+
+    .vip-page .closing-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .vip-page .closing-section h2 {
+        font-size: 38px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .vip-page .closing-text {
+        font-size: 17px;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.75;
+        margin-bottom: 40px;
+    }
+
+    .vip-page .closing-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #fff;
+        color: var(--deep-teal);
+        font-size: 16px;
+        font-weight: 600;
+        padding: 18px 36px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .vip-page .closing-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .vip-page .signature {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .vip-page .signature-text {
+        font-family: 'Caveat', cursive;
+        font-size: 28px;
+        color: var(--rose-gold);
+        margin-bottom: 4px;
+    }
+
+    .vip-page .signature-name {
+        font-size: 14px;
+        color: rgba(255,255,255,0.5);
+    }
+
+    /* Mobile CTA */
+    .vip-page .mobile-cta {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 998;
+        display: none;
+        padding: 16px 20px;
+        background: linear-gradient(180deg, transparent 0%, var(--cream) 30%);
+    }
+
+    .vip-page .mobile-cta a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--deep-teal);
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 16px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(26, 61, 59, 0.35);
+    }
+
+    /* Confetti */
+    .vip-page .confetti {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        pointer-events: none;
+        z-index: 9998;
+        border-radius: 50%;
+    }
+
+    @keyframes vipBurst {
+        0% { transform: translate(0, 0) scale(1); opacity: 1; }
+        100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .vip-page .hero { min-height: auto; padding: 100px 20px 60px; }
+        .vip-page .hero h1 { font-size: 42px !important; }
+        .vip-page .vip-badge { width: 52px; height: 52px; top: 62px; right: 16px; }
+        .vip-page .action-cards { grid-template-columns: 1fr; }
+        .vip-page .action-card { padding: 28px 24px; }
+        .vip-page .timeline { padding-left: 28px; }
+        .vip-page .timeline::before { left: 4px; }
+        .vip-page .timeline-item::before { left: -28px; width: 10px; height: 10px; }
+        .vip-page .timeline-content { padding: 20px; }
+        .vip-page .checklist-card { padding: 28px 20px; }
+        .vip-page .mobile-cta { display: block; }
+        .vip-page .calendar-btn-wrapper { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+        .vip-page .hero h1 { font-size: 38px !important; }
+        .vip-page .hero-subtitle { font-size: 16px !important; }
+        .vip-page .section-header h2 { font-size: 30px !important; }
+        .vip-page .action-card h3 { font-size: 20px; }
+        .vip-page .btn-primary { width: 100%; justify-content: center; padding: 16px 24px; }
+        .vip-page .registration-complete-bar { padding: 12px 16px; gap: 10px; }
+        .vip-page .registration-complete-bar .progress-label { font-size: 12px; }
+        .vip-page .registration-complete-bar .mini-progress { width: 90px; height: 6px; }
+        .vip-page .registration-complete-bar .percentage { font-size: 12px; }
+        .vip-page .registration-complete-bar .check-icon { width: 22px; height: 22px; }
+    }
+
+    @media (max-width: 350px) {
+        .vip-page .hero { padding: 60px 10px 30px !important; }
+        .vip-page .hero h1 { font-size: 26px !important; }
+        .vip-page .hero-eyebrow { font-size: 7px !important; }
+        .vip-page .hero-eyebrow::before, .vip-page .hero-eyebrow::after { display: none !important; }
+        .vip-page .hero-subtitle { font-size: 12px !important; }
+        .vip-page .vip-badge { width: 32px !important; height: 32px !important; top: 36px !important; right: 6px !important; }
+        .vip-page .registration-complete-bar { padding: 6px 6px !important; gap: 4px !important; }
+        .vip-page .registration-complete-bar .progress-label { font-size: 8px !important; }
+        .vip-page .registration-complete-bar .mini-progress { width: 40px !important; height: 3px !important; }
+        .vip-page .registration-complete-bar .percentage { font-size: 8px !important; }
+        .vip-page .registration-complete-bar .check-icon { width: 14px !important; height: 14px !important; }
+        .vip-page .section-header h2 { font-size: 22px !important; }
+        .vip-page .action-section { padding: 40px 10px !important; }
+        .vip-page .action-card { padding: 20px 14px !important; }
+        .vip-page .action-card h3 { font-size: 17px !important; }
+        .vip-page .action-card p { font-size: 12px !important; }
+        .vip-page .btn-primary { padding: 12px 16px !important; font-size: 12px !important; }
+        .vip-page .timeline-section { padding: 40px 10px !important; }
+        .vip-page .timeline-header h2 { font-size: 26px !important; }
+        .vip-page .timeline-content h3 { font-size: 15px !important; }
+        .vip-page .timeline-content p { font-size: 12px !important; }
+        .vip-page .checklist-section { padding: 40px 10px !important; }
+        .vip-page .checklist-header h2 { font-size: 24px !important; }
+        .vip-page .checklist-card { padding: 20px 14px !important; }
+        .vip-page .check-text { font-size: 12px !important; }
+        .vip-page .closing-section { padding: 50px 14px 60px !important; }
+        .vip-page .closing-section h2 { font-size: 24px !important; }
+        .vip-page .closing-text { font-size: 13px !important; }
+        .vip-page .closing-cta { padding: 14px 24px !important; font-size: 13px !important; }
+        .vip-page .signature-text { font-size: 22px !important; }
+    }
+
+    @media (max-width: 320px) {
+        .vip-page .hero { padding: 55px 8px 25px !important; }
+        .vip-page .hero h1 { font-size: 22px !important; }
+        .vip-page .hero-eyebrow { font-size: 6px !important; }
+        .vip-page .hero-subtitle { font-size: 11px !important; }
+        .vip-page .vip-badge { width: 28px !important; height: 28px !important; }
+        .vip-page .registration-complete-bar { padding: 5px 4px !important; }
+        .vip-page .registration-complete-bar .progress-label { font-size: 7px !important; }
+        .vip-page .section-header h2 { font-size: 20px !important; }
+        .vip-page .action-card h3 { font-size: 15px !important; }
+        .vip-page .action-card p { font-size: 11px !important; }
+        .vip-page .btn-primary { padding: 10px 14px !important; font-size: 11px !important; }
+        .vip-page .timeline-header h2 { font-size: 24px !important; }
+        .vip-page .timeline-content h3 { font-size: 14px !important; }
+        .vip-page .timeline-content p { font-size: 11px !important; }
+        .vip-page .checklist-header h2 { font-size: 22px !important; }
+        .vip-page .check-text { font-size: 11px !important; }
+        .vip-page .closing-section h2 { font-size: 22px !important; }
+        .vip-page .closing-text { font-size: 12px !important; }
+        .vip-page .closing-cta { padding: 12px 20px !important; font-size: 12px !important; }
+        .vip-page .signature-text { font-size: 20px !important; }
+    }
+</style>
+
+<!-- Load Calendar Button Script -->
+<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+
+<div class="vip-page">
+    <!-- Registration Complete Progress Bar -->
+    <div class="registration-complete-bar">
+        <div class="check-icon">
+            <svg viewBox="0 0 12 10" fill="none">
+                <path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="progress-info">
+            <span class="progress-label">100% Registration Complete</span>
+            <div class="mini-progress">
+                <div class="mini-progress-fill"></div>
+            </div>
+            <span class="percentage">100%</span>
+        </div>
+    </div>
+
+    <!-- VIP Badge -->
+    <div class="vip-badge">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="30" fill="url(#vip-grad-embed)" stroke="#C9A87C" stroke-width="1.5"/>
+            <circle cx="32" cy="32" r="24" stroke="#1A3D3B" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.3"/>
+            <text x="32" y="30" font-family="Satoshi, sans-serif" font-size="11" font-weight="700" fill="#1A3D3B" text-anchor="middle">VIP</text>
+            <text x="32" y="40" font-family="Satoshi, sans-serif" font-size="6" font-weight="500" fill="#1A3D3B" text-anchor="middle" opacity="0.6">ACCESS</text>
+            <defs>
+                <radialGradient id="vip-grad-embed" cx="0.3" cy="0.3" r="0.8">
+                    <stop offset="0%" stop-color="#E8D5B7"/>
+                    <stop offset="100%" stop-color="#C9A87C"/>
+                </radialGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HERO - Centered, No Video -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-eyebrow">Welcome to the Inner Circle</div>
+                <h1>You're <span class="vip-highlight">VIP</span> Now.</h1>
+                <p class="hero-subtitle">You just did the thing most people talk themselves out of. That already tells me a lot about you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTION SECTION -->
+    <section class="action-section fade-in-section">
+        <div class="action-container">
+            <div class="section-header">
+                <h2>Do This Right Now</h2>
+                <p>Two steps. Do them before you close this page.</p>
+            </div>
+
+            <div class="action-cards">
+                <div class="action-card">
+                    <div class="action-number">1</div>
+                    <div class="action-label">Required</div>
+                    <h3>Join the VIP WhatsApp</h3>
+                    <p>This is where the magic happens. Real questions, real answers, the Quick Start Kit — all in here.</p>
+                    <a href="https://chat.whatsapp.com/L7h8LwQaEF5LkgnDIL3Mn6" target="_blank" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5l-1.4 5 5.2-1.3c1.5.9 3.2 1.4 5 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2z" fill="currentColor"/>
+                        </svg>
+                        Join WhatsApp Now
+                    </a>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-number">2</div>
+                    <div class="action-label">Required</div>
+                    <h3>Block Your Call Times</h3>
+                    <p>VIP Q&A after Day 2. Implementation Call on Day 4. Protect these times like appointments.</p>
+                    <div class="calendar-btn-wrapper">
+                        <add-to-calendar-button
+                            name="Bailey's 3-DAY CHALLENGE - VIP Training"
+                            description="Your VIP access to the 3-Day Challenge![br][br]Day 1-3: Live Training Sessions[br]After Day 2: VIP Q&A Call[br]Day 4: Implementation Call[br][br]Join VIP WhatsApp: https://chat.whatsapp.com/L7h8LwQaEF5LkgnDIL3Mn6"
+                            startDate="2025-12-09"
+                            startTime="19:00"
+                            endDate="2025-12-11"
+                            endTime="20:00"
+                            timeZone="US/Eastern"
+                            location="World Wide Web"
+                            options="'Apple','Google','iCal'"
+                            buttonStyle="flat"
+                            trigger="click"
+                            hideCheckmark
+                            size="4"
+                            label="Add to Calendar"
+                            lightMode="bodyScheme"
+                        ></add-to-calendar-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>What's Coming</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-label">Before Day 1</span>
+                        <h3>Quick Start Kit</h3>
+                        <p>My $1M shop walkthrough, 50 product examples, and a framework for what needs to go. Start exploring before we kick off.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-label">Day 1</span>
+                        <h3>Challenge Starts</h3>
+                        <p>Everything's recorded — so when life happens, you're covered. No stress, just progress.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-label">After Day 2</span>
+                        <h3>VIP-Only Q&A</h3>
+                        <p>Your time. Your questions about your actual shop. Real listings, real stuck points. I'll answer.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-label">Day 4</span>
+                        <h3>Implementation Call</h3>
+                        <p>My favorite. This is where we DO the thing together. Not learn. Do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="checklist-section fade-in-section">
+        <div class="checklist-container">
+            <div class="checklist-header">
+                <h2>Your VIP Checklist</h2>
+                <p>You already did the hardest part. These are the easy ones.</p>
+            </div>
+
+            <div class="checklist-card">
+                <div class="progress-wrapper">
+                    <div class="progress-text" id="progressText">0 of 4 complete</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="checklist-items">
+                    <div class="check-item" data-index="0">
+                        <div class="check-box">
+                            <div class="check-circle"></div>
+                            <div class="check-tick">
+                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                    <path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="check-text"><strong>Join the VIP WhatsApp</strong> — Seriously, do this right now</div>
+                    </div>
+
+                    <div class="check-item" data-index="1">
+                        <div class="check-box">
+                            <div class="check-circle"></div>
+                            <div class="check-tick">
+                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                    <path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="check-text"><strong>Watch for the Quick Start Kit</strong> — Landing before Day 1</div>
+                    </div>
+
+                    <div class="check-item" data-index="2">
+                        <div class="check-box">
+                            <div class="check-circle"></div>
+                            <div class="check-tick">
+                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                    <path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="check-text"><strong>Block time for VIP Q&A</strong> — After Day 2</div>
+                    </div>
+
+                    <div class="check-item" data-index="3">
+                        <div class="check-box">
+                            <div class="check-circle"></div>
+                            <div class="check-tick">
+                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                    <path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="check-text"><strong>Block time for Implementation Call</strong> — Day 4</div>
+                    </div>
+                </div>
+
+                <div class="completion-message" id="completionMessage">
+                    You're all set. Let's make this challenge count.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-section fade-in-section">
+        <div class="closing-container">
+            <h2>You're Not Here to Watch.</h2>
+            <p class="closing-text">
+                VIPs walk out with tangible results. A cleaned-up shop. An actual plan. Real listings ready to go. That's exactly what we're gonna make happen together.
+            </p>
+
+            <a href="https://chat.whatsapp.com/L7h8LwQaEF5LkgnDIL3Mn6" target="_blank" class="closing-cta">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5l-1.4 5 5.2-1.3c1.5.9 3.2 1.4 5 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2z" fill="currentColor"/>
+                </svg>
+                Join VIP WhatsApp Now
+            </a>
+
+            <div class="signature">
+                <p class="signature-text">See you inside!</p>
+                <p class="signature-name">— Bailey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="https://chat.whatsapp.com/L7h8LwQaEF5LkgnDIL3Mn6" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5l-1.4 5 5.2-1.3c1.5.9 3.2 1.4 5 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2z" fill="currentColor"/>
+            </svg>
+            Join VIP WhatsApp
+        </a>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Scroll-triggered fade-in
+    const fadeElements = document.querySelectorAll('.vip-page .fade-in-section');
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    fadeElements.forEach(el => fadeObserver.observe(el));
+
+    // Checklist
+    const items = document.querySelectorAll('.vip-page .check-item');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const completionMessage = document.getElementById('completionMessage');
+    let checkedCount = 0;
+    const totalItems = items.length;
+    const savedState = JSON.parse(localStorage.getItem('vipChecklist') || '{}');
+
+    items.forEach((item, index) => {
+        if (savedState[index]) { item.classList.add('completed'); checkedCount++; }
+        item.addEventListener('click', function() {
+            const isChecked = item.classList.contains('completed');
+            if (!isChecked) { item.classList.add('completed'); checkedCount++; createConfetti(item); savedState[index] = true; }
+            else { item.classList.remove('completed'); checkedCount--; savedState[index] = false; }
+            localStorage.setItem('vipChecklist', JSON.stringify(savedState));
+            updateProgress();
+        });
+    });
+
+    function updateProgress() {
+        const percentage = (checkedCount / totalItems) * 100;
+        progressFill.style.width = percentage + '%';
+        progressText.textContent = `${checkedCount} of ${totalItems} complete`;
+        if (checkedCount === totalItems) { completionMessage.classList.add('show'); createBigConfetti(); }
+        else { completionMessage.classList.remove('show'); }
+    }
+
+    function createConfetti(element) {
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + 20, y = rect.top + rect.height / 2;
+        const colors = ['#C9A87C', '#4ECDC4', '#FFD1DC', '#1A3D3B'];
+        for (let i = 0; i < 12; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.cssText = `left:${x}px;top:${y}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation:vipBurst 0.6s ease-out forwards;`;
+            const angle = (i/12)*Math.PI*2, distance = 40+Math.random()*30;
+            confetti.style.setProperty('--tx', Math.cos(angle)*distance+'px');
+            confetti.style.setProperty('--ty', Math.sin(angle)*distance+'px');
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 600);
+        }
+    }
+
+    function createBigConfetti() {
+        const colors = ['#C9A87C', '#4ECDC4', '#FFD1DC', '#1A3D3B'];
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.cssText = `left:${window.innerWidth/2}px;top:${window.innerHeight/2}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation:vipBurst 0.8s ease-out forwards;`;
+                const angle = (i/30)*Math.PI*2, distance = 80+Math.random()*100;
+                confetti.style.setProperty('--tx', Math.cos(angle)*distance+'px');
+                confetti.style.setProperty('--ty', Math.sin(angle)*distance+'px');
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 800);
+            }, i*20);
+        }
+    }
+
+    updateProgress();
+})();
+</script>
