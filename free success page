@@ -2322,6 +2322,7 @@
                                     options="'Apple','Google','iCal'"
                                     buttonStyle="flat"
                                     trigger="click"
+                                    listStyle="modal"
                                     hideCheckmark
                                     size="4"
                                     label="Add All 3 Days"
