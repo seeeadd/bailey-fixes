@@ -1088,35 +1088,109 @@
     }
 
     /* ============================================
-       FORCE Add-to-Calendar modal to center in viewport
-       (Uses ::part() to pierce Shadow DOM)
+       MOBILE CALENDAR: Custom overlay (bypasses Shadow DOM)
        ============================================ */
-    add-to-calendar-button::part(atcb-list-wrapper) {
-        position: fixed !important;
-        inset: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 16px !important;
-        background: rgba(11, 7, 6, 0.38) !important;
-        backdrop-filter: blur(8px) !important;
-        z-index: 9999 !important;
+
+    /* Hide custom elements on desktop */
+    .cal-mobile-btn,
+    .cal-overlay {
+        display: none;
     }
 
-    /* The actual white card */
-    add-to-calendar-button::part(atcb-modal-box) {
-        max-width: 360px !important;
-        width: 100% !important;
-        max-height: 80vh !important;
-        margin: 0 !important;
-        border-radius: 16px !important;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22) !important;
-        overflow: auto !important;
-    }
+    @media (max-width: 768px) {
+        /* Hide add-to-calendar-button on mobile */
+        .free-page .cal-wrap add-to-calendar-button {
+            display: none !important;
+        }
 
-    /* Keep the list inside the card tidy on tiny screens */
-    add-to-calendar-button::part(atcb-list) {
-        width: 100% !important;
+        /* Show custom button on mobile */
+        .cal-mobile-btn {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 28px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--coral), var(--coral-hot));
+            color: #fff;
+            font-family: 'Satoshi', -apple-system, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Overlay - hidden by default, shown when .open */
+        .cal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cal-overlay.open {
+            display: flex !important;
+        }
+
+        .cal-overlay .modal {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .cal-overlay .modal h3 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .cal-overlay .modal p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cal-overlay .modal a {
+            display: block;
+            padding: 14px;
+            margin-bottom: 10px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .cal-overlay .modal a:last-child {
+            margin-bottom: 0;
+        }
+
+        .cal-overlay .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
     }
 
     /* ============================================
@@ -2301,6 +2375,15 @@
                                     label="Add All 3 Days"
                                     lightMode="bodyScheme"
                                 ></add-to-calendar-button>
+
+                                <!-- Mobile: Custom button (shown only on mobile) -->
+                                <button class="cal-mobile-btn" onclick="openCalOverlay()">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Add All 3 Days
+                                </button>
                             </div>
                         </div>
 
@@ -2746,5 +2829,163 @@
         if (fill) fill.style.width = percentages[step] + '%';
     }
     window.updateProgressStep = updateProgress;
+})();
+</script>
+
+<!-- Mobile Calendar Overlay (position: fixed, always in viewport) -->
+<div class="cal-overlay" id="calOverlay">
+    <button class="close-btn" onclick="closeCalOverlay()">&times;</button>
+    <div class="modal">
+        <h3>Add to Calendar</h3>
+        <p>Choose your calendar app</p>
+        <a href="#" onclick="addToAppleCalendar(); return false;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle;margin-right:8px;">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#333"/>
+            </svg>
+            Apple Calendar
+        </a>
+        <a href="#" onclick="addToGoogleCalendar(); return false;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle;margin-right:8px;">
+                <path d="M19.5 3h-15C3.12 3 2 4.12 2 5.5v13C2 19.88 3.12 21 4.5 21h15c1.38 0 2.5-1.12 2.5-2.5v-13C22 4.12 20.88 3 19.5 3z" fill="#4285F4"/>
+                <path d="M12 17a5 5 0 100-10 5 5 0 000 10z" fill="#fff"/>
+                <path d="M12 8v4l2.5 2.5" stroke="#4285F4" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Google Calendar
+        </a>
+        <a href="#" onclick="downloadICSFile(); return false;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle;margin-right:8px;">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="#333" stroke-width="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18M12 14v4M10 16l2 2 2-2" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download .ics File
+        </a>
+    </div>
+</div>
+
+<script>
+// ============================================
+// MOBILE CALENDAR OVERLAY FUNCTIONS
+// ============================================
+(function() {
+    // Event details (matching the add-to-calendar-button)
+    const EVENT = {
+        title: "Bailey's 3-Day Etsy Challenge",
+        description: "Day 1: The 90-Minute Etsy Reset | Day 2: AI Design Lab | Day 3: The Empire System",
+        location: "Online",
+        startDate: "2025-12-09",
+        startTime: "19:00",
+        endDate: "2025-12-11",
+        endTime: "20:00",
+        timezone: "America/New_York"
+    };
+
+    // Open overlay
+    window.openCalOverlay = function() {
+        const overlay = document.getElementById('calOverlay');
+        if (overlay) {
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    // Close overlay
+    window.closeCalOverlay = function() {
+        const overlay = document.getElementById('calOverlay');
+        if (overlay) {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Close on backdrop click
+    document.getElementById('calOverlay')?.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeCalOverlay();
+        }
+    });
+
+    // Add to Google Calendar
+    window.addToGoogleCalendar = function() {
+        const start = EVENT.startDate.replace(/-/g, '') + 'T' + EVENT.startTime.replace(':', '') + '00';
+        const end = EVENT.endDate.replace(/-/g, '') + 'T' + EVENT.endTime.replace(':', '') + '00';
+
+        const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+            '&text=' + encodeURIComponent(EVENT.title) +
+            '&details=' + encodeURIComponent(EVENT.description) +
+            '&location=' + encodeURIComponent(EVENT.location) +
+            '&dates=' + start + '/' + end +
+            '&ctz=' + encodeURIComponent(EVENT.timezone);
+
+        window.open(url, '_blank');
+        closeCalOverlay();
+    };
+
+    // Generate ICS content
+    function generateICS() {
+        const start = EVENT.startDate.replace(/-/g, '') + 'T' + EVENT.startTime.replace(':', '') + '00';
+        const end = EVENT.endDate.replace(/-/g, '') + 'T' + EVENT.endTime.replace(':', '') + '00';
+        const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+        return [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Bailey Challenge//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            'BEGIN:VTIMEZONE',
+            'TZID:America/New_York',
+            'BEGIN:STANDARD',
+            'DTSTART:19701101T020000',
+            'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU',
+            'TZOFFSETFROM:-0400',
+            'TZOFFSETTO:-0500',
+            'END:STANDARD',
+            'BEGIN:DAYLIGHT',
+            'DTSTART:19700308T020000',
+            'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU',
+            'TZOFFSETFROM:-0500',
+            'TZOFFSETTO:-0400',
+            'END:DAYLIGHT',
+            'END:VTIMEZONE',
+            'BEGIN:VEVENT',
+            'UID:' + now + '@bailey-challenge',
+            'DTSTAMP:' + now,
+            'DTSTART;TZID=America/New_York:' + start,
+            'DTEND;TZID=America/New_York:' + end,
+            'SUMMARY:' + EVENT.title,
+            'DESCRIPTION:' + EVENT.description.replace(/\n/g, '\\n'),
+            'LOCATION:' + EVENT.location,
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+    }
+
+    // Add to Apple Calendar (download ICS)
+    window.addToAppleCalendar = function() {
+        downloadICSFile();
+    };
+
+    // Download ICS file (works on iOS Safari)
+    window.downloadICSFile = function() {
+        const icsContent = generateICS();
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+
+        // Use Blob URL approach (works better on iOS)
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'bailey-etsy-challenge.ics';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+
+        // Cleanup
+        setTimeout(function() {
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }, 100);
+
+        closeCalOverlay();
+    };
 })();
 </script>
