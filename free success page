@@ -3074,9 +3074,27 @@
         const icsContent = generateICS();
 
         if (isIOS()) {
-            // iOS: open as data URL so Calendar sheet pops up
+            // iOS in embed: try multiple approaches
             const dataUrl = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsContent);
-            window.location.href = dataUrl;
+
+            // Method 1: Create anchor and click it
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Method 2: Fallback - try window.open after small delay
+            setTimeout(function() {
+                try {
+                    window.open(dataUrl, '_blank');
+                } catch(e) {
+                    // Method 3: Last resort - direct location change
+                    window.location.href = dataUrl;
+                }
+            }, 100);
         } else {
             // Desktop / Android: normal blob download
             const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
