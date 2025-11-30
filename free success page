@@ -2956,34 +2956,35 @@
 // MOBILE CALENDAR OVERLAY FUNCTIONS
 // ============================================
 (function() {
-    // Event details (matching the add-to-calendar-button)
+    // 3-day recurring event: 7–8pm EST, Dec 9–11
     const EVENT = {
         title: "Bailey's 3-Day Etsy Challenge",
         description: "Day 1: The 90-Minute Etsy Reset | Day 2: AI Design Lab | Day 3: The Empire System",
         location: "Online",
-        startDate: "2025-12-09",
-        startTime: "19:00",
-        endDate: "2025-12-11",
-        endTime: "20:00",
-        timezone: "America/New_York"
+        // First session only; recurrence handles the other 2
+        start: "20251209T190000", // 7:00 PM EST
+        end:   "20251209T200000", // 8:00 PM EST
+        timezone: "America/New_York",
+        rrule: "FREQ=DAILY;COUNT=3" // 3 days in a row
     };
 
-    // Open overlay anchored around the button position
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent);
+    }
+
+    // Open overlay anchored roughly near the button
     window.openCalOverlay = function() {
         const overlay = document.getElementById('calOverlay');
         if (!overlay) return;
 
-        // Button we want to anchor around
         const btn = document.querySelector('.cal-mobile-btn');
 
         let paddingTop;
         if (btn) {
             const rect = btn.getBoundingClientRect();
-            // put modal a bit above the button
-            const targetTop = rect.top - 120; // tweak this number to taste
-            paddingTop = Math.max(40, targetTop); // don't go too close to top
+            const targetTop = rect.top - 120;
+            paddingTop = Math.max(40, targetTop);
         } else {
-            // fallback: roughly 15% from top
             paddingTop = Math.max(40, window.innerHeight * 0.15);
         }
 
@@ -3009,26 +3010,23 @@
         }
     });
 
-    // Add to Google Calendar
+    // Add to Google Calendar (creates a 3-day recurring event)
     window.addToGoogleCalendar = function() {
-        const start = EVENT.startDate.replace(/-/g, '') + 'T' + EVENT.startTime.replace(':', '') + '00';
-        const end = EVENT.endDate.replace(/-/g, '') + 'T' + EVENT.endTime.replace(':', '') + '00';
-
-        const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        const url =
+            'https://calendar.google.com/calendar/render?action=TEMPLATE' +
             '&text=' + encodeURIComponent(EVENT.title) +
             '&details=' + encodeURIComponent(EVENT.description) +
             '&location=' + encodeURIComponent(EVENT.location) +
-            '&dates=' + start + '/' + end +
-            '&ctz=' + encodeURIComponent(EVENT.timezone);
+            '&dates=' + EVENT.start + '/' + EVENT.end +
+            '&ctz=' + encodeURIComponent(EVENT.timezone) +
+            (EVENT.rrule ? '&recur=' + encodeURIComponent('RRULE:' + EVENT.rrule) : '');
 
         window.open(url, '_blank');
         closeCalOverlay();
     };
 
-    // Generate ICS content
+    // Generate ICS content (3-day recurring event)
     function generateICS() {
-        const start = EVENT.startDate.replace(/-/g, '') + 'T' + EVENT.startTime.replace(':', '') + '00';
-        const end = EVENT.endDate.replace(/-/g, '') + 'T' + EVENT.endTime.replace(':', '') + '00';
         const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
         return [
@@ -3038,7 +3036,7 @@
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
             'BEGIN:VTIMEZONE',
-            'TZID:America/New_York',
+            'TZID:' + EVENT.timezone,
             'BEGIN:STANDARD',
             'DTSTART:19701101T020000',
             'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU',
@@ -3055,8 +3053,9 @@
             'BEGIN:VEVENT',
             'UID:' + now + '@bailey-challenge',
             'DTSTAMP:' + now,
-            'DTSTART;TZID=America/New_York:' + start,
-            'DTEND;TZID=America/New_York:' + end,
+            'DTSTART;TZID=' + EVENT.timezone + ':' + EVENT.start,
+            'DTEND;TZID=' + EVENT.timezone + ':' + EVENT.end,
+            (EVENT.rrule ? 'RRULE:' + EVENT.rrule : ''),
             'SUMMARY:' + EVENT.title,
             'DESCRIPTION:' + EVENT.description.replace(/\n/g, '\\n'),
             'LOCATION:' + EVENT.location,
@@ -3065,30 +3064,33 @@
         ].join('\r\n');
     }
 
-    // Add to Apple Calendar (download ICS)
+    // Apple Calendar button – just calls the ICS flow
     window.addToAppleCalendar = function() {
         downloadICSFile();
     };
 
-    // Download ICS file (works on iOS Safari)
+    // Download / open ICS in a way that works on iPhone
     window.downloadICSFile = function() {
         const icsContent = generateICS();
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
 
-        // Use Blob URL approach (works better on iOS)
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'bailey-etsy-challenge.ics';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-
-        // Cleanup
-        setTimeout(function() {
+        if (isIOS()) {
+            // iOS: open as data URL so Calendar sheet pops up
+            const dataUrl = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsContent);
+            window.location.href = dataUrl;
+        } else {
+            // Desktop / Android: normal blob download
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'bailey-etsy-challenge.ics';
+            document.body.appendChild(link);
+            link.click();
             document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-        }, 100);
+            setTimeout(function() {
+                URL.revokeObjectURL(url);
+            }, 1000);
+        }
 
         closeCalOverlay();
     };
