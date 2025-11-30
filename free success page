@@ -1095,19 +1095,18 @@
         box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
     }
 
-    /* Overlay - pinned to current scroll position via JS */
+    /* Overlay - fixed to viewport, vertical position via JS */
     .cal-overlay {
         display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
+        position: fixed;
+        inset: 0; /* top/right/bottom/left = 0 */
         background: rgba(0, 0, 0, 0.6);
         z-index: 999999;
 
-        /* Push modal higher instead of dead-center */
+        /* We'll control vertical position via JS */
         align-items: flex-start;
         justify-content: center;
-        padding: 15vh 20px 20px; /* 15% of viewport from top */
+        padding: 0 20px 20px;
     }
 
     /* When JS adds .open, it becomes a flexbox centered overlay */
@@ -2834,23 +2833,28 @@
         timezone: "America/New_York"
     };
 
-    // Open overlay pinned to current viewport area
+    // Open overlay anchored around the button position
     window.openCalOverlay = function() {
         const overlay = document.getElementById('calOverlay');
-        if (overlay) {
-            const scrollY =
-                window.scrollY ||
-                document.documentElement.scrollTop ||
-                document.body.scrollTop ||
-                0;
+        if (!overlay) return;
 
-            // Pin overlay to where the user currently is
-            overlay.style.top = scrollY + 'px';
-            overlay.style.height = window.innerHeight + 'px';
+        // Button we want to anchor around
+        const btn = document.querySelector('.cal-mobile-btn');
 
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
+        let paddingTop;
+        if (btn) {
+            const rect = btn.getBoundingClientRect();
+            // put modal a bit above the button
+            const targetTop = rect.top - 120; // tweak this number to taste
+            paddingTop = Math.max(40, targetTop); // don't go too close to top
+        } else {
+            // fallback: roughly 15% from top
+            paddingTop = Math.max(40, window.innerHeight * 0.15);
         }
+
+        overlay.style.paddingTop = paddingTop + 'px';
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
     };
 
     // Close overlay and reset styles
@@ -2858,8 +2862,7 @@
         const overlay = document.getElementById('calOverlay');
         if (overlay) {
             overlay.classList.remove('open');
-            overlay.style.top = '';
-            overlay.style.height = '';
+            overlay.style.paddingTop = '';
             document.body.style.overflow = '';
         }
     };
