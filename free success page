@@ -1116,58 +1116,103 @@
 
     .cal-overlay .modal {
         background: #fff;
-        border-radius: 16px;
-        padding: 24px;
+        border-radius: 20px;
+        padding: 28px 24px;
         width: 100%;
         max-width: 320px;
         text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        animation: modalPop 0.25s ease-out;
+    }
+
+    @keyframes modalPop {
+        from {
+            opacity: 0;
+            transform: scale(0.9) translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
     }
 
     .cal-overlay .modal h3 {
         font-family: 'Satoshi', sans-serif;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 700;
         color: var(--navy);
+        margin-bottom: 6px;
+    }
+
+    .cal-overlay .modal h3::before {
+        content: '📅';
+        display: block;
+        font-size: 32px;
         margin-bottom: 8px;
     }
 
     .cal-overlay .modal p {
         font-size: 14px;
-        color: #666;
+        color: #888;
         margin-bottom: 20px;
     }
 
     .cal-overlay .modal a {
-        display: block;
-        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 16px;
         margin-bottom: 10px;
-        background: #f5f5f5;
-        border-radius: 10px;
+        background: linear-gradient(135deg, #fafafa, #f5f5f5);
+        border-radius: 12px;
         text-decoration: none;
         color: #333;
         font-weight: 600;
-        transition: background 0.2s;
+        font-size: 15px;
+        transition: all 0.2s ease;
+        border: 1px solid #eee;
     }
 
     .cal-overlay .modal a:hover {
-        background: #eee;
+        background: linear-gradient(135deg, var(--pink-pale), #fff5f5);
+        border-color: var(--coral);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
     }
 
-    .cal-overlay .modal a:last-child {
+    .cal-overlay .modal a:active {
+        transform: translateY(0);
+    }
+
+    .cal-overlay .modal a:last-of-type {
         margin-bottom: 0;
     }
 
     .cal-overlay .close-btn {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 36px;
-        height: 36px;
+        top: -12px;
+        right: -12px;
+        width: 32px;
+        height: 32px;
         border: none;
-        background: rgba(255,255,255,0.9);
+        background: var(--navy);
+        color: #fff;
         border-radius: 50%;
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 1;
         cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cal-overlay .close-btn:hover {
+        background: var(--coral);
+        transform: scale(1.1);
     }
 
     /* ============================================
