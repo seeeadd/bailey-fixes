@@ -1095,14 +1095,12 @@
         box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
     }
 
-    /* Overlay - hidden by default, shown when .open */
+    /* Overlay - pinned to current scroll position via JS */
     .cal-overlay {
         display: none;
-        position: fixed;
-        top: 0;
+        position: absolute;
         left: 0;
         right: 0;
-        bottom: 0;
         background: rgba(0, 0, 0, 0.6);
         z-index: 999999;
         align-items: center;
@@ -2834,20 +2832,32 @@
         timezone: "America/New_York"
     };
 
-    // Open overlay
+    // Open overlay pinned to current viewport area
     window.openCalOverlay = function() {
         const overlay = document.getElementById('calOverlay');
         if (overlay) {
+            const scrollY =
+                window.scrollY ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0;
+
+            // Pin overlay to where the user currently is
+            overlay.style.top = scrollY + 'px';
+            overlay.style.height = window.innerHeight + 'px';
+
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
     };
 
-    // Close overlay
+    // Close overlay and reset styles
     window.closeCalOverlay = function() {
         const overlay = document.getElementById('calOverlay');
         if (overlay) {
             overlay.classList.remove('open');
+            overlay.style.top = '';
+            overlay.style.height = '';
             document.body.style.overflow = '';
         }
     };
