@@ -1103,9 +1103,11 @@
         right: 0;
         background: rgba(0, 0, 0, 0.6);
         z-index: 999999;
-        align-items: center;
+
+        /* Push modal higher instead of dead-center */
+        align-items: flex-start;
         justify-content: center;
-        padding: 20px;
+        padding: 15vh 20px 20px; /* 15% of viewport from top */
     }
 
     /* When JS adds .open, it becomes a flexbox centered overlay */
