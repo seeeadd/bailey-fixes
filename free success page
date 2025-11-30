@@ -1164,29 +1164,33 @@
 
     /* Custom calendar icon */
     .cal-overlay .modal-icon {
-        width: 56px;
-        height: 56px;
+        width: 64px;
+        height: 64px;
         margin: 0 auto 16px;
-        background: linear-gradient(135deg, var(--coral), var(--coral-hot));
-        border-radius: 14px;
+        background: linear-gradient(135deg, #FF6B6B, #FF5252);
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 8px 20px rgba(255, 107, 107, 0.35);
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
         position: relative;
     }
     .cal-overlay .modal-icon::before {
         content: '';
         position: absolute;
-        top: -4px;
-        left: 12px;
-        right: 12px;
-        height: 8px;
-        background: var(--navy);
-        border-radius: 4px;
+        top: -5px;
+        left: 14px;
+        right: 14px;
+        height: 10px;
+        background: #1a2b4a;
+        border-radius: 5px;
     }
     .cal-overlay .modal-icon svg {
-        color: #fff;
+        width: 32px;
+        height: 32px;
+    }
+    .cal-overlay .modal-icon svg path {
+        stroke: #fff;
     }
 
     .cal-overlay .modal h3 {
@@ -1237,13 +1241,13 @@
         flex-shrink: 0;
     }
 
-    .cal-overlay .modal a:nth-child(1) .link-icon {
+    .cal-overlay .modal-options a:nth-child(1) .link-icon {
         background: linear-gradient(135deg, #333, #000);
     }
-    .cal-overlay .modal a:nth-child(2) .link-icon {
+    .cal-overlay .modal-options a:nth-child(2) .link-icon {
         background: linear-gradient(135deg, #4285f4, #34a853);
     }
-    .cal-overlay .modal a:nth-child(3) .link-icon {
+    .cal-overlay .modal-options a:nth-child(3) .link-icon {
         background: linear-gradient(135deg, var(--mint), #3dbaa2);
     }
 
