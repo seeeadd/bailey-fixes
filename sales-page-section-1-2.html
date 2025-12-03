@@ -1,0 +1,1043 @@
+<!-- 90-Day Etsy Empire Accelerator Sales Page -->
+<!-- Section 1: Sticky Header + Section 2: Hero -->
+<!-- Framer Embed Ready -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    @font-face {
+        font-family: 'Ogg';
+        src: url('https://cdn.jsdelivr.net/gh/nicxvan/ogg-font@master/fonts/Ogg-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-display: swap;
+    }
+
+    /* FRAMER EMBED FIX */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        min-height: auto !important;
+        overflow-x: hidden;
+        overflow-y: visible !important;
+    }
+
+    .sales-page {
+        /* PRIMARY - The Foundation */
+        --chiffon-white: #FAF9F7;
+        --dark-aqua: #1B4D4A;
+        --light-aqua: #2D7A75;
+
+        /* SECONDARY - Bailey's Warmth */
+        --matured-pink: #C17B7B;
+        --soft-coral: #E8A598;
+        --blush: #F5E6E0;
+
+        /* ACCENT - Exclusive Feel */
+        --champagne: #F7E7CE;
+        --soft-gold: #D4AF37;
+
+        /* FUNCTIONAL */
+        --text-primary: #1B4D4A;
+        --text-secondary: #5A7A78;
+        --text-muted: #8FA5A3;
+
+        font-family: 'Satoshi', -apple-system, sans-serif;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.6;
+        background: var(--chiffon-white);
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+    }
+
+    .sales-page * { margin: 0; padding: 0; box-sizing: border-box; }
+    .sales-page h1, .sales-page h2, .sales-page h3 { font-family: 'Ogg', Georgia, serif; font-weight: 700; line-height: 1.1; }
+    .sales-page .handwritten { font-family: 'Caveat', cursive; }
+    .sales-page .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* ============================================
+       SECTION 1: STICKY HEADER BAR
+       Job: Create urgency + exclusivity without being salesy
+       ============================================ */
+    .sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: var(--dark-aqua);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .sticky-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 80% 50% at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 40% at 80% 50%, rgba(193, 123, 123, 0.06) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .sticky-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    /* Founding Cohort Badge */
+    .cohort-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 100px;
+        padding: 6px 14px;
+        animation: badgeGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeGlow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        50% { box-shadow: 0 0 20px -5px rgba(212, 175, 55, 0.3); }
+    }
+
+    .cohort-badge svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+    }
+
+    .cohort-badge span {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--soft-gold);
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Info Items */
+    .header-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-divider {
+        width: 1px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.2);
+        display: none;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .info-item .icon {
+        width: 18px;
+        height: 18px;
+        opacity: 0.7;
+    }
+
+    .spots-pulse {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--soft-coral);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
+    /* Deadline styling */
+    .deadline-text {
+        color: var(--champagne);
+        font-weight: 600;
+    }
+
+    /* CTA Button in Header */
+    .header-cta {
+        background: linear-gradient(135deg, var(--champagne) 0%, #EED9A8 100%);
+        color: var(--dark-aqua);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 100px;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #FFF0D6 0%, var(--champagne) 100%);
+    }
+
+    .header-cta svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.3s;
+    }
+
+    .header-cta:hover svg {
+        transform: translateX(3px);
+    }
+
+    /* Mobile adjustments for header */
+    @media (max-width: 768px) {
+        .sticky-inner {
+            padding: 10px 16px;
+            gap: 8px;
+        }
+
+        .cohort-badge {
+            padding: 5px 10px;
+        }
+
+        .cohort-badge span {
+            font-size: 10px;
+        }
+
+        .header-info {
+            gap: 12px;
+        }
+
+        .info-item {
+            font-size: 12px;
+        }
+
+        .info-item .icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        .header-cta {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .header-divider {
+            display: block;
+        }
+    }
+
+    /* ============================================
+       SECTION 2: HERO
+       Job: Resonate with pain + present the relief
+       ============================================ */
+    .hero-section {
+        min-height: 100vh;
+        padding: 120px 20px 80px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Layered background */
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .hero-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 100% 70% at 0% 0%, rgba(45, 122, 117, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse 80% 60% at 100% 100%, rgba(193, 123, 123, 0.05) 0%, transparent 50%),
+            radial-gradient(ellipse 50% 50% at 70% 20%, rgba(247, 231, 206, 0.15) 0%, transparent 40%);
+    }
+
+    /* Ambient organic shapes */
+    .hero-shape-1 {
+        position: absolute;
+        top: 10%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(ellipse at center, rgba(193, 123, 123, 0.04) 0%, transparent 70%);
+        border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+        animation: floatShape 20s ease-in-out infinite;
+    }
+
+    .hero-shape-2 {
+        position: absolute;
+        bottom: -20%;
+        left: -15%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(ellipse at center, rgba(45, 122, 117, 0.03) 0%, transparent 70%);
+        border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%;
+        animation: floatShape 25s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatShape {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(20px, -20px) rotate(5deg); }
+        50% { transform: translate(-10px, 10px) rotate(-3deg); }
+        75% { transform: translate(15px, 5px) rotate(2deg); }
+    }
+
+    /* Grid pattern overlay */
+    .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(27, 77, 74, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(27, 77, 74, 0.02) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 70%);
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+        .hero-container {
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+        }
+    }
+
+    /* Hero Content */
+    .hero-content {
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Pre-headline tag */
+    .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 24px;
+        animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+
+    .hero-tag-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--light-aqua);
+        background: linear-gradient(135deg, rgba(45, 122, 117, 0.1) 0%, rgba(45, 122, 117, 0.05) 100%);
+        padding: 8px 16px;
+        border-radius: 4px;
+        border-left: 3px solid var(--light-aqua);
+    }
+
+    /* Main Headline */
+    .hero-headline {
+        margin-bottom: 28px;
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .headline-setup {
+        font-family: 'Ogg', Georgia, serif;
+        font-size: clamp(28px, 5vw, 42px);
+        color: var(--text-secondary);
+        display: block;
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+    /* Strikethrough effect on "another course" */
+    .strikethrough {
+        position: relative;
+        display: inline-block;
+    }
+
+    .strikethrough::after {
+        content: '';
+        position: absolute;
+        left: -4px;
+        right: -4px;
+        top: 50%;
+        height: 3px;
+        background: var(--matured-pink);
+        transform: rotate(-2deg);
+        opacity: 0.7;
+    }
+
+    .headline-punch {
+        font-family: 'Ogg', Georgia, serif;
+        font-size: clamp(36px, 6vw, 56px);
+        color: var(--dark-aqua);
+        display: block;
+        line-height: 1.05;
+    }
+
+    .headline-emphasis {
+        color: var(--matured-pink);
+        position: relative;
+        white-space: nowrap;
+    }
+
+    /* Hand-drawn underline */
+    .headline-emphasis::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 12px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8C40 3 80 10 120 5C160 0 180 8 198 6' stroke='%23C17B7B' stroke-width='3' stroke-linecap='round' stroke-opacity='0.4'/%3E%3C/svg%3E") no-repeat center;
+        background-size: 100% 100%;
+    }
+
+    /* Subheadline */
+    .hero-subhead {
+        margin-bottom: 36px;
+        animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .product-name {
+        font-family: 'Ogg', Georgia, serif;
+        font-size: clamp(20px, 3vw, 26px);
+        color: var(--dark-aqua);
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .product-name-text {
+        background: linear-gradient(135deg, var(--dark-aqua) 0%, var(--light-aqua) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: clamp(17px, 2vw, 19px);
+        line-height: 1.7;
+        color: var(--text-secondary);
+        max-width: 540px;
+    }
+
+    .hero-description strong {
+        color: var(--dark-aqua);
+        font-weight: 600;
+    }
+
+    /* Bullet Points */
+    .hero-bullets {
+        list-style: none;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero-bullet {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px 20px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+        border-radius: 12px;
+        border: 1px solid rgba(27, 77, 74, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .hero-bullet:hover {
+        transform: translateX(8px);
+        border-color: rgba(27, 77, 74, 0.15);
+        box-shadow: 0 4px 20px rgba(27, 77, 74, 0.06);
+    }
+
+    .bullet-icon {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-bullet:nth-child(1) .bullet-icon svg { color: var(--light-aqua); }
+    .hero-bullet:nth-child(2) .bullet-icon svg { color: var(--matured-pink); }
+    .hero-bullet:nth-child(3) .bullet-icon svg { color: var(--soft-gold); }
+
+    .bullet-text {
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--text-primary);
+    }
+
+    /* CTA Button */
+    .hero-cta-wrap {
+        animation: fadeInUp 0.8s ease-out 0.5s both;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(135deg, var(--dark-aqua) 0%, #234E4B 100%);
+        color: white;
+        padding: 18px 36px;
+        border-radius: 12px;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow:
+            0 4px 15px rgba(27, 77, 74, 0.25),
+            0 0 0 0 rgba(27, 77, 74, 0);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+    }
+
+    .hero-cta:hover::before {
+        transform: translateX(100%);
+    }
+
+    .hero-cta:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 12px 35px rgba(27, 77, 74, 0.3),
+            0 0 0 4px rgba(27, 77, 74, 0.1);
+    }
+
+    .hero-cta svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+    }
+
+    .hero-cta:hover svg {
+        transform: translateX(4px);
+    }
+
+    .cta-subtext {
+        font-size: 13px;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .cta-subtext svg {
+        width: 14px;
+        height: 14px;
+        opacity: 0.6;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+        position: relative;
+        animation: fadeInRight 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .hero-illustration {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* Custom Compass/Path Illustration */
+    .compass-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+    }
+
+    /* Decorative elements around illustration */
+    .hero-decor-1 {
+        position: absolute;
+        top: -20px;
+        right: 10%;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-decor-2 {
+        position: absolute;
+        bottom: 10%;
+        left: -10px;
+        animation: float 5s ease-in-out infinite 1s;
+    }
+
+    .hero-decor-3 {
+        position: absolute;
+        top: 40%;
+        right: -20px;
+        animation: float 6s ease-in-out infinite 0.5s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    /* Hand-written annotation */
+    .hero-annotation {
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        font-family: 'Caveat', cursive;
+        font-size: 20px;
+        color: var(--matured-pink);
+        transform: rotate(-3deg);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hero-annotation svg {
+        width: 40px;
+        height: 30px;
+    }
+
+    /* Mobile specific */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 100px 20px 60px;
+            min-height: auto;
+        }
+
+        .hero-visual {
+            order: -1;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .hero-bullets {
+            gap: 12px;
+        }
+
+        .hero-bullet {
+            padding: 14px 16px;
+        }
+
+        .hero-cta {
+            width: 100%;
+            justify-content: center;
+            padding: 16px 28px;
+        }
+
+        .hero-annotation {
+            display: none;
+        }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0.5;
+        animation: fadeInUp 0.8s ease-out 1s both;
+    }
+
+    .scroll-indicator span {
+        font-size: 11px;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    .scroll-mouse {
+        width: 24px;
+        height: 40px;
+        border: 2px solid var(--text-muted);
+        border-radius: 12px;
+        position: relative;
+    }
+
+    .scroll-wheel {
+        width: 4px;
+        height: 8px;
+        background: var(--text-muted);
+        border-radius: 2px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: scrollWheel 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollWheel {
+        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+        50% { transform: translateX(-50%) translateY(10px); opacity: 0.3; }
+    }
+
+    @media (max-width: 768px) {
+        .scroll-indicator {
+            display: none;
+        }
+    }
+</style>
+
+<div class="sales-page">
+
+    <!-- ============================================
+         SECTION 1: STICKY HEADER BAR
+         ============================================ -->
+    <header class="sticky-header">
+        <div class="sticky-inner">
+            <!-- Founding Cohort Badge -->
+            <div class="cohort-badge">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L14.5 9H22L16 14L18.5 21L12 17L5.5 21L8 14L2 9H9.5L12 2Z" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"/>
+                </svg>
+                <span>Founding Cohort</span>
+            </div>
+
+            <div class="header-info">
+                <div class="header-divider"></div>
+
+                <!-- Spots Available -->
+                <div class="info-item">
+                    <div class="spots-pulse">
+                        <span class="pulse-dot"></span>
+                    </div>
+                    <span>~100 Spots</span>
+                </div>
+
+                <div class="header-divider"></div>
+
+                <!-- Deadline -->
+                <div class="info-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span>Black Friday Pricing Ends <span class="deadline-text">Dec 13</span></span>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#offer" class="header-cta">
+                See If It's a Fit
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================
+         SECTION 2: HERO
+         Job: Resonate with the pain of decision paralysis
+         and present Bailey as the guide
+         ============================================ -->
+    <section class="hero-section">
+        <!-- Background Layers -->
+        <div class="hero-bg">
+            <div class="hero-shape-1"></div>
+            <div class="hero-shape-2"></div>
+            <div class="hero-grid"></div>
+        </div>
+
+        <div class="hero-container">
+            <!-- Content Column -->
+            <div class="hero-content">
+                <!-- Pre-headline Tag -->
+                <div class="hero-tag">
+                    <span class="hero-tag-text">The 90-Day Accelerator</span>
+                </div>
+
+                <!-- Main Headline -->
+                <div class="hero-headline">
+                    <span class="headline-setup">
+                        You don't need <span class="strikethrough">another course</span>.
+                    </span>
+                    <span class="headline-punch">
+                        You need Bailey to tell you <span class="headline-emphasis">exactly what to do</span> for the next 90 days.
+                    </span>
+                </div>
+
+                <!-- Subheadline -->
+                <div class="hero-subhead">
+                    <span class="product-name">
+                        <span class="product-name-text">The 90-Day Etsy Empire Accelerator.</span>
+                    </span>
+                    <p class="hero-description">
+                        A clear plan to put your Etsy shop on track for an extra <strong>$3K–$5K/month</strong> in income. I tell you what to do. You do it. That's the whole thing. Built for <strong>60–90 minutes a day</strong> because that's probably all you've got.
+                    </p>
+                </div>
+
+                <!-- Bullet Points with Custom Icons -->
+                <ul class="hero-bullets">
+                    <li class="hero-bullet">
+                        <span class="bullet-icon">
+                            <!-- Custom sunrise/clarity icon -->
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="16" r="6" fill="currentColor" fill-opacity="0.15"/>
+                                <path d="M14 10V4M14 4L11 7M14 4L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 16H2M26 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 10L5.5 7.5M20 10L22.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 22H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <span class="bullet-text">Wake up knowing exactly what to work on today (and stop wasting hours deciding)</span>
+                    </li>
+                    <li class="hero-bullet">
+                        <span class="bullet-icon">
+                            <!-- Custom feedback/eyes icon -->
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 8C8 8 4 14 4 14C4 14 8 20 14 20C20 20 24 14 24 14C24 14 20 8 14 8Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="14" cy="14" r="3" fill="currentColor"/>
+                                <path d="M19 5L21 3M21 3L23 5M21 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="bullet-text">Bailey looks at your work and says "yes, keep going" or "no, try this instead"</span>
+                    </li>
+                    <li class="hero-bullet">
+                        <span class="bullet-icon">
+                            <!-- Custom heart/support icon -->
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 24L13.4 23.5C7 18 4 15 4 11C4 7.5 6.5 5 10 5C12 5 13.5 6 14 7C14.5 6 16 5 18 5C21.5 5 24 7.5 24 11C24 15 21 18 14.6 23.5L14 24Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 11V16M11.5 13.5H16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <span class="bullet-text">Actually follow through on something for once, with someone in your corner the whole way</span>
+                    </li>
+                </ul>
+
+                <!-- CTA Button -->
+                <div class="hero-cta-wrap">
+                    <a href="#offer" class="hero-cta">
+                        Join the 90-Day Accelerator
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <span class="cta-subtext">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        Founding cohort pricing · Risk-free guarantee
+                    </span>
+                </div>
+            </div>
+
+            <!-- Visual Column -->
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <div class="compass-container">
+                        <!-- Main Compass/Path Illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Circle -->
+                            <circle cx="200" cy="200" r="180" fill="#F5E6E0" fill-opacity="0.5"/>
+                            <circle cx="200" cy="200" r="150" fill="white" stroke="#1B4D4A" stroke-width="2" stroke-opacity="0.1"/>
+
+                            <!-- Compass Rose Background -->
+                            <circle cx="200" cy="200" r="120" fill="url(#compassGradient)" stroke="#1B4D4A" stroke-width="3"/>
+
+                            <!-- Decorative Ring -->
+                            <circle cx="200" cy="200" r="100" fill="none" stroke="#2D7A75" stroke-width="1" stroke-dasharray="8 4" stroke-opacity="0.3"/>
+
+                            <!-- Day Markers (like a watch) -->
+                            <g stroke="#1B4D4A" stroke-width="2" stroke-opacity="0.2">
+                                <line x1="200" y1="90" x2="200" y2="100"/>
+                                <line x1="200" y1="300" x2="200" y2="310"/>
+                                <line x1="90" y1="200" x2="100" y2="200"/>
+                                <line x1="300" y1="200" x2="310" y2="200"/>
+                            </g>
+
+                            <!-- "90 DAYS" Arc Text Path -->
+                            <path id="textArc" d="M 80 200 A 120 120 0 0 1 320 200" fill="none"/>
+                            <text font-family="JetBrains Mono, monospace" font-size="11" fill="#8FA5A3" letter-spacing="0.15em">
+                                <textPath href="#textArc" startOffset="50%" text-anchor="middle">90 DAYS OF CLARITY</textPath>
+                            </text>
+
+                            <!-- Inner compass detail -->
+                            <circle cx="200" cy="200" r="60" fill="white" stroke="#1B4D4A" stroke-width="2"/>
+                            <circle cx="200" cy="200" r="45" fill="#FAF9F7" stroke="#E8A598" stroke-width="1" stroke-opacity="0.5"/>
+
+                            <!-- Compass Needle (pointing to success) -->
+                            <g transform="rotate(-30, 200, 200)">
+                                <!-- North (teal - direction) -->
+                                <path d="M200 200 L200 130 L210 160 L200 150 L190 160 Z" fill="#1B4D4A"/>
+                                <!-- South (pink - warmth) -->
+                                <path d="M200 200 L200 270 L210 240 L200 250 L190 240 Z" fill="#C17B7B" fill-opacity="0.6"/>
+                            </g>
+
+                            <!-- Center pin -->
+                            <circle cx="200" cy="200" r="12" fill="#1B4D4A"/>
+                            <circle cx="200" cy="200" r="6" fill="#D4AF37"/>
+
+                            <!-- Path/Journey Line -->
+                            <path d="M200 200 Q 280 150 320 100" stroke="#2D7A75" stroke-width="3" stroke-linecap="round" stroke-dasharray="0" fill="none">
+                                <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="2s" fill="freeze" begin="0.5s"/>
+                            </path>
+
+                            <!-- Destination Star -->
+                            <g transform="translate(320, 100)" opacity="0">
+                                <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="2s"/>
+                                <path d="M0 -12L3 -4L12 -4L5 2L7 10L0 5L-7 10L-5 2L-12 -4L-3 -4Z" fill="#D4AF37"/>
+                            </g>
+
+                            <!-- Step markers along path -->
+                            <circle cx="230" cy="185" r="4" fill="#2D7A75" opacity="0">
+                                <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1s"/>
+                            </circle>
+                            <circle cx="260" cy="160" r="4" fill="#2D7A75" opacity="0">
+                                <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.3s"/>
+                            </circle>
+                            <circle cx="290" cy="130" r="4" fill="#2D7A75" opacity="0">
+                                <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="1.6s"/>
+                            </circle>
+
+                            <!-- Dollar signs representing income -->
+                            <g font-family="Satoshi, sans-serif" font-weight="700" fill="#2D7A75">
+                                <text x="340" y="85" font-size="14" opacity="0">
+                                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" fill="freeze" begin="2.3s"/>
+                                    $3K
+                                </text>
+                                <text x="355" y="65" font-size="16" opacity="0">
+                                    <animate attributeName="opacity" from="0" to="0.8" dur="0.5s" fill="freeze" begin="2.5s"/>
+                                    $5K
+                                </text>
+                            </g>
+
+                            <!-- Gradient definitions -->
+                            <defs>
+                                <radialGradient id="compassGradient" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FAF9F7"/>
+                                    <stop offset="100%" stop-color="#F5E6E0"/>
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <!-- Floating decorative elements -->
+                    <div class="hero-decor-1">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 0L23 17L40 20L23 23L20 40L17 23L0 20L17 17L20 0Z" fill="#D4AF37" fill-opacity="0.4"/>
+                        </svg>
+                    </div>
+
+                    <div class="hero-decor-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="#C17B7B" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+                        </svg>
+                    </div>
+
+                    <div class="hero-decor-3">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4L18 14L28 16L18 18L16 28L14 18L4 16L14 14L16 4Z" fill="#2D7A75" fill-opacity="0.2"/>
+                        </svg>
+                    </div>
+
+                    <!-- Hand-written annotation -->
+                    <div class="hero-annotation">
+                        <svg viewBox="0 0 50 30" fill="none">
+                            <path d="M2 25 Q 10 5 25 15 T 48 5" stroke="#C17B7B" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M45 2 L48 5 L44 7" stroke="#C17B7B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Your path starts here</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+</div>
