@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Friday — Bailey's Etsy Accelerator</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/nicxvan/ogg-font@main/stylesheet.css" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES — BRAND SYSTEM
+    ============================================ */
+    :root {
+      /* PRIMARY - The Foundation */
+      --chiffon-white: #FAF9F7;
+      --dark-aqua: #1B4D4A;
+      --light-aqua: #2D7A75;
+
+      /* SECONDARY - Bailey's Warmth */
+      --matured-pink: #C17B7B;
+      --soft-coral: #E8A598;
+      --blush: #F5E6E0;
+
+      /* ACCENT - Exclusive Feel */
+      --champagne: #F7E7CE;
+      --soft-gold: #D4AF37;
+
+      /* FUNCTIONAL */
+      --text-primary: #1B4D4A;
+      --text-secondary: #5A7A78;
+      --text-muted: #8FA5A3;
+
+      /* TYPOGRAPHY */
+      --font-headline: 'Ogg', serif;
+      --font-body: 'Satoshi', sans-serif;
+      --font-handwritten: 'Caveat', cursive;
+      --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+    }
+
+    /* ============================================
+       RESET & BASE STYLES
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--chiffon-white);
+      overflow-x: hidden;
+    }
+
+    /* Framer embed overrides */
+    body, html {
+      min-height: 100% !important;
+      height: auto !important;
+    }
+
+    /* ============================================
+       SECTION 1: STICKY HEADER
+       Job: Ambient urgency without stealing attention
+    ============================================ */
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--dark-aqua);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Editorial badge treatment */
+    .bf-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .bf-badge-star {
+      width: 14px;
+      height: 14px;
+      fill: var(--soft-gold);
+      animation: subtle-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes subtle-pulse {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .bf-badge-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      font-weight: 500;
+    }
+
+    /* Divider dot */
+    .header-divider {
+      width: 4px;
+      height: 4px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    /* Countdown section */
+    .countdown-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .countdown-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+
+    .countdown-timer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 38px;
+    }
+
+    .countdown-number {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .countdown-text {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    .countdown-separator {
+      font-size: 16px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      margin-top: -8px;
+    }
+
+    /* Mobile header adjustments */
+    @media (max-width: 768px) {
+      .sticky-header {
+        padding: 10px 16px;
+      }
+
+      .header-content {
+        gap: 12px;
+      }
+
+      .bf-badge {
+        padding: 5px 10px;
+      }
+
+      .bf-badge-text {
+        font-size: 10px;
+      }
+
+      .countdown-label {
+        display: none;
+      }
+
+      .countdown-unit {
+        min-width: 32px;
+      }
+
+      .countdown-number {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-divider {
+        display: none;
+      }
+
+      .header-content {
+        justify-content: space-between;
+        padding: 0 4px;
+      }
+    }
+
+    /* ============================================
+       SECTION 2: HERO
+       Job: Stop the scroll, pattern interrupt
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 24px 80px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Background treatment - layered organic shapes */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+    }
+
+    .hero-bg-shape-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--blush);
+      top: -200px;
+      right: -150px;
+    }
+
+    .hero-bg-shape-2 {
+      width: 500px;
+      height: 500px;
+      background: var(--champagne);
+      bottom: -150px;
+      left: -100px;
+      opacity: 0.4;
+    }
+
+    .hero-bg-shape-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--soft-coral);
+      top: 40%;
+      left: 20%;
+      opacity: 0.3;
+    }
+
+    /* Texture overlay */
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    /* Content container */
+    .hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Left column - Copy */
+    .hero-copy {
+      max-width: 580px;
+    }
+
+    /* The pattern interrupt line */
+    .hero-dismiss {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-dismiss-text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--matured-pink);
+      text-decoration-thickness: 2px;
+    }
+
+    .hero-dismiss-x {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-dismiss-x svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--matured-pink);
+      stroke-width: 2.5;
+    }
+
+    /* Main headline */
+    .hero-headline {
+      font-family: var(--font-headline);
+      font-size: clamp(42px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--dark-aqua);
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.7s ease-out forwards;
+      animation-delay: 0.4s;
+    }
+
+    .hero-headline-emphasis {
+      position: relative;
+      display: inline;
+    }
+
+    /* Hand-drawn underline */
+    .hero-headline-emphasis::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 12px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M2 8 Q50 2, 100 7 T198 5' stroke='%23C17B7B' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      background-size: 100% 100%;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* The handwritten annotation */
+    .hero-annotation {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 8px;
+      margin-left: 20px;
+      opacity: 0;
+      transform: translateY(20px) rotate(-2deg);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 0.7s;
+    }
+
+    .hero-annotation-arrow {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .hero-annotation-arrow svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: var(--matured-pink);
+      stroke-width: 2;
+    }
+
+    .hero-annotation-text {
+      font-family: var(--font-handwritten);
+      font-size: 24px;
+      color: var(--matured-pink);
+      line-height: 1.2;
+    }
+
+    /* Subheadline */
+    .hero-subhead {
+      font-family: var(--font-body);
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-top: 28px;
+      margin-bottom: 36px;
+      max-width: 480px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 0.9s;
+    }
+
+    /* Feature points - NOT checkmarks */
+    .hero-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 1.1s;
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .hero-feature-bullet {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .hero-feature-bullet svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .hero-feature-text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-feature-text strong {
+      font-weight: 700;
+      color: var(--dark-aqua);
+    }
+
+    /* 90 Days Badge */
+    .hero-time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--dark-aqua) 0%, var(--light-aqua) 100%);
+      padding: 14px 22px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(27, 77, 74, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 1.3s;
+    }
+
+    .hero-time-number {
+      font-family: var(--font-headline);
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .hero-time-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.3;
+    }
+
+    .hero-time-text strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 2s;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--text-muted), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50% { transform: scaleY(0.6); opacity: 0.2; }
+    }
+
+    /* Right column - Illustration */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateX(40px);
+      animation: fadeInRight 0.8s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+
+    .hero-illustration {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* Custom illustration - Chaos to Clarity transformation */
+    .illustration-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    /* Floating elements around illustration */
+    .float-element {
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .float-element:nth-child(2) { animation-delay: -2s; }
+    .float-element:nth-child(3) { animation-delay: -4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    .float-star {
+      top: 5%;
+      right: 10%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .float-dollar {
+      bottom: 15%;
+      left: 5%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .float-heart {
+      top: 20%;
+      left: 0%;
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ============================================
+       RESPONSIVE — MOBILE FIRST
+    ============================================ */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+      }
+
+      .hero-copy {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .hero-annotation {
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .hero-subhead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-features {
+        align-items: center;
+      }
+
+      .hero-time-badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-visual {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+
+      .hero-headline {
+        font-size: 36px;
+      }
+
+      .hero-annotation-text {
+        font-size: 20px;
+      }
+
+      .hero-subhead {
+        font-size: 17px;
+      }
+
+      .hero-feature-text {
+        font-size: 16px;
+      }
+
+      .hero-time-badge {
+        padding: 12px 18px;
+      }
+
+      .hero-time-number {
+        font-size: 30px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .hero-visual {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 90px 16px 50px;
+      }
+
+      .hero-headline {
+        font-size: 30px;
+      }
+
+      .hero-dismiss-text {
+        font-size: 15px;
+      }
+
+      .hero-features {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .hero-feature {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SECTION 1: STICKY HEADER
+  ============================================ -->
+  <header class="sticky-header">
+    <div class="header-content">
+      <!-- Black Friday Badge -->
+      <div class="bf-badge">
+        <svg class="bf-badge-star" viewBox="0 0 24 24">
+          <path d="M12 2L14.09 8.26L21 9.27L16 14.14L17.18 21.02L12 17.77L6.82 21.02L8 14.14L3 9.27L9.91 8.26L12 2Z"/>
+        </svg>
+        <span class="bf-badge-text">Black Friday Exclusive</span>
+      </div>
+
+      <div class="header-divider"></div>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-wrapper">
+        <span class="countdown-label">Offer ends in</span>
+        <div class="countdown-timer">
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-days">02</span>
+            <span class="countdown-text">Days</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-hours">14</span>
+            <span class="countdown-text">Hrs</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-minutes">32</span>
+            <span class="countdown-text">Min</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="countdown-seconds">45</span>
+            <span class="countdown-text">Sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       SECTION 2: HERO
+  ============================================ -->
+  <section class="hero">
+    <!-- Background layers -->
+    <div class="hero-bg">
+      <div class="hero-bg-shape hero-bg-shape-1"></div>
+      <div class="hero-bg-shape hero-bg-shape-2"></div>
+      <div class="hero-bg-shape hero-bg-shape-3"></div>
+      <div class="hero-texture"></div>
+    </div>
+
+    <div class="hero-container">
+      <!-- Left: Copy -->
+      <div class="hero-copy">
+        <!-- Pattern interrupt -->
+        <div class="hero-dismiss">
+          <span class="hero-dismiss-text">You don't need another course</span>
+          <span class="hero-dismiss-x">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="hero-headline">
+          You need <span class="hero-headline-emphasis">Bailey</span> to tell you exactly what to do.
+        </h1>
+
+        <!-- Handwritten annotation -->
+        <div class="hero-annotation">
+          <span class="hero-annotation-arrow">
+            <svg viewBox="0 0 30 30">
+              <path d="M5 20 Q10 10, 20 8 L18 4 M20 8 L24 10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="hero-annotation-text">(Finally, someone who gets it)</span>
+        </div>
+
+        <!-- Subheadline -->
+        <p class="hero-subhead">
+          Stop drowning in generic Etsy advice. Get a proven system, personal guidance, and a clear path to consistent sales—in just 90 days.
+        </p>
+
+        <!-- Feature points with custom bullets -->
+        <div class="hero-features">
+          <div class="hero-feature">
+            <span class="hero-feature-bullet">
+              <!-- Custom arrow bullet -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--light-aqua)"/>
+              </svg>
+            </span>
+            <span class="hero-feature-text">Week-by-week action plans <strong>tailored to your shop</strong></span>
+          </div>
+          <div class="hero-feature">
+            <span class="hero-feature-bullet">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--light-aqua)"/>
+              </svg>
+            </span>
+            <span class="hero-feature-text">Direct access to Bailey when you're stuck</span>
+          </div>
+          <div class="hero-feature">
+            <span class="hero-feature-bullet">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--light-aqua)"/>
+              </svg>
+            </span>
+            <span class="hero-feature-text">A community that <strong>actually sells on Etsy</strong></span>
+          </div>
+        </div>
+
+        <!-- 90 Days visual anchor -->
+        <div class="hero-time-badge">
+          <span class="hero-time-number">90</span>
+          <span class="hero-time-text">
+            <strong>Days</strong>
+            to transform your shop
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Illustration -->
+      <div class="hero-visual">
+        <div class="hero-illustration">
+          <div class="illustration-container">
+            <!-- Main SVG Illustration: Chaos to Clarity -->
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background circle -->
+              <circle cx="200" cy="200" r="180" fill="var(--blush)" opacity="0.5"/>
+
+              <!-- Chaos side (left) -->
+              <g opacity="0.4">
+                <!-- Scattered papers -->
+                <rect x="40" y="120" width="60" height="80" rx="4" fill="var(--chiffon-white)" stroke="var(--text-muted)" stroke-width="1.5" transform="rotate(-15 40 120)"/>
+                <rect x="60" y="140" width="60" height="80" rx="4" fill="var(--chiffon-white)" stroke="var(--text-muted)" stroke-width="1.5" transform="rotate(10 60 140)"/>
+                <rect x="30" y="200" width="60" height="80" rx="4" fill="var(--chiffon-white)" stroke="var(--text-muted)" stroke-width="1.5" transform="rotate(-8 30 200)"/>
+
+                <!-- Scribbled lines on papers -->
+                <path d="M50 140 L80 140 M50 150 L90 150 M50 160 L70 160" stroke="var(--text-muted)" stroke-width="1" opacity="0.5"/>
+                <path d="M75 160 L100 160 M75 170 L110 170" stroke="var(--text-muted)" stroke-width="1" opacity="0.5"/>
+
+                <!-- Question marks -->
+                <text x="45" y="260" font-family="var(--font-headline)" font-size="28" fill="var(--matured-pink)" opacity="0.6">?</text>
+                <text x="80" y="290" font-family="var(--font-headline)" font-size="22" fill="var(--matured-pink)" opacity="0.4">?</text>
+              </g>
+
+              <!-- Transformation arrow -->
+              <path d="M150 200 C180 200, 200 180, 230 200 C260 220, 270 200, 280 200" stroke="var(--soft-gold)" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="8 4"/>
+              <path d="M275 195 L285 200 L275 205" stroke="var(--soft-gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+              <!-- Clarity side (right) - Organized shop visualization -->
+              <g>
+                <!-- Main shop window frame -->
+                <rect x="260" y="100" width="120" height="160" rx="12" fill="var(--chiffon-white)" stroke="var(--dark-aqua)" stroke-width="2.5"/>
+
+                <!-- Shop header bar -->
+                <rect x="260" y="100" width="120" height="30" rx="12" fill="var(--dark-aqua)"/>
+                <rect x="260" y="118" width="120" height="12" fill="var(--dark-aqua)"/>
+
+                <!-- Header dots -->
+                <circle cx="278" cy="115" r="4" fill="var(--matured-pink)"/>
+                <circle cx="292" cy="115" r="4" fill="var(--champagne)"/>
+                <circle cx="306" cy="115" r="4" fill="var(--light-aqua)"/>
+
+                <!-- Product grid -->
+                <rect x="272" y="142" width="44" height="44" rx="6" fill="var(--blush)" stroke="var(--soft-coral)" stroke-width="1.5"/>
+                <rect x="324" y="142" width="44" height="44" rx="6" fill="var(--champagne)" stroke="var(--soft-gold)" stroke-width="1.5"/>
+                <rect x="272" y="196" width="44" height="44" rx="6" fill="var(--champagne)" stroke="var(--soft-gold)" stroke-width="1.5"/>
+                <rect x="324" y="196" width="44" height="44" rx="6" fill="var(--blush)" stroke="var(--soft-coral)" stroke-width="1.5"/>
+
+                <!-- Little icons in product boxes -->
+                <circle cx="294" cy="164" r="10" fill="var(--soft-coral)" opacity="0.6"/>
+                <path d="M340 158 L352 170 M352 158 L340 170" stroke="var(--soft-gold)" stroke-width="2" opacity="0.6"/>
+                <rect x="286" y="210" width="16" height="16" rx="2" fill="var(--soft-gold)" opacity="0.6"/>
+                <circle cx="346" cy="218" r="10" fill="var(--soft-coral)" opacity="0.6"/>
+              </g>
+
+              <!-- Success indicators -->
+              <!-- Sales notification -->
+              <g transform="translate(310, 70)">
+                <rect x="0" y="0" width="80" height="32" rx="16" fill="var(--dark-aqua)"/>
+                <text x="12" y="21" font-family="var(--font-body)" font-size="11" fill="white" font-weight="600">+ Sale!</text>
+                <circle cx="62" cy="16" r="10" fill="var(--soft-gold)"/>
+                <text x="58" y="20" font-family="var(--font-body)" font-size="10" fill="var(--dark-aqua)" font-weight="700">$</text>
+              </g>
+
+              <!-- Growth chart mini -->
+              <g transform="translate(280, 280)">
+                <rect x="0" y="0" width="90" height="50" rx="8" fill="var(--chiffon-white)" stroke="var(--light-aqua)" stroke-width="1.5"/>
+                <path d="M15 35 L30 28 L45 32 L60 20 L75 12" stroke="var(--light-aqua)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="75" cy="12" r="4" fill="var(--light-aqua)"/>
+              </g>
+
+              <!-- Sparkles -->
+              <g fill="var(--soft-gold)">
+                <path d="M350 140 L352 146 L358 148 L352 150 L350 156 L348 150 L342 148 L348 146 Z"/>
+                <path d="M240 90 L241.5 94 L246 96 L241.5 98 L240 102 L238.5 98 L234 96 L238.5 94 Z" opacity="0.7"/>
+                <path d="M380 200 L381 203 L384 204 L381 205 L380 208 L379 205 L376 204 L379 203 Z" opacity="0.5"/>
+              </g>
+
+              <!-- Bailey's guiding hand (subtle) -->
+              <g opacity="0.15">
+                <path d="M180 300 Q200 280, 250 285" stroke="var(--dark-aqua)" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+              </g>
+
+              <!-- "With Bailey" label -->
+              <g transform="translate(290, 340)">
+                <text font-family="var(--font-handwritten)" font-size="18" fill="var(--matured-pink)">With Bailey →</text>
+              </g>
+            </svg>
+
+            <!-- Floating decorative elements -->
+            <div class="float-element float-star">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 4L23.5 14.5L34 16L26 24L28 35L20 29L12 35L14 24L6 16L16.5 14.5L20 4Z" fill="var(--soft-gold)" opacity="0.8"/>
+              </svg>
+            </div>
+
+            <div class="float-element float-dollar">
+              <svg viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="22" fill="var(--champagne)" stroke="var(--soft-gold)" stroke-width="2"/>
+                <text x="25" y="32" font-family="var(--font-headline)" font-size="24" fill="var(--dark-aqua)" text-anchor="middle">$</text>
+              </svg>
+            </div>
+
+            <div class="float-element float-heart">
+              <svg viewBox="0 0 35 35" fill="none">
+                <path d="M17.5 30L15.1 27.8C8.5 21.8 4 17.7 4 12.8C4 8.7 7.2 5.5 11.3 5.5C13.6 5.5 15.8 6.6 17.5 8.3C19.2 6.6 21.4 5.5 23.7 5.5C27.8 5.5 31 8.7 31 12.8C31 17.7 26.5 21.8 19.9 27.8L17.5 30Z" fill="var(--soft-coral)" opacity="0.7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       JAVASCRIPT
+  ============================================ -->
+  <script>
+    // Countdown Timer
+    (function() {
+      // Set end date to Black Friday end (adjust as needed)
+      const endDate = new Date();
+      endDate.setDate(endDate.getDate() + 2); // 2 days from now
+      endDate.setHours(23, 59, 59, 999);
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = endDate - now;
+
+        if (diff <= 0) {
+          // Countdown finished
+          document.getElementById('countdown-days').textContent = '00';
+          document.getElementById('countdown-hours').textContent = '00';
+          document.getElementById('countdown-minutes').textContent = '00';
+          document.getElementById('countdown-seconds').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+    // Scroll-triggered animations using Intersection Observer
+    (function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements that should animate on scroll
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+</html>
