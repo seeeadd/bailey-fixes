@@ -3846,7 +3846,31 @@
             <div class="checklist-item" onclick="toggleCheck('dgc9')"><div class="checkbox" id="check-dgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
           </div>
 
-          <!-- Where You'll Get Stuck -->
+          <!-- Prompts - MOVED BEFORE Stuck -->
+          <div class="accordion" id="acc-design-prompts">
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
+            </div></div>
+          </div>
+
+          <!-- Bailey's Rules - MOVED BEFORE Stuck -->
+          <div class="accordion" id="acc-design-rules">
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="rules-list">
+                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
+                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
+                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
+                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
+                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- Where You'll Get Stuck - MOVED AFTER Prompts and Rules -->
           <div class="stuck-section">
             <div class="stuck-section-header">
               <div class="stuck-section-icon">
@@ -3928,30 +3952,6 @@
                 <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Set a timer. 60 minutes.</strong> When it goes off, hit publish, whatever state it's in. Done is better than perfect. You can always edit later.</div></div>
               </div>
             </div>
-          </div>
-
-          <!-- Prompts -->
-          <div class="accordion" id="acc-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
-            </div></div>
-          </div>
-
-          <!-- Bailey's Rules -->
-          <div class="accordion" id="acc-design-rules">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="rules-list">
-                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
-                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
-                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
-                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
-                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
-              </div>
-            </div></div>
           </div>
 
           <!-- Design Complete Button -->
@@ -6409,6 +6409,30 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
             <div class="checklist-item" onclick="toggleCheck('rdgc9')"><div class="checkbox" id="check-rdgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
           </div>
 
+          <!-- Prompts -->
+          <div class="accordion" id="acc-ref-design-prompts">
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
+            </div></div>
+          </div>
+
+          <!-- Bailey's Rules -->
+          <div class="accordion" id="acc-ref-design-rules">
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="rules-list">
+                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
+                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
+                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
+                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
+                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+              </div>
+            </div></div>
+          </div>
+
           <!-- Where You'll Get Stuck -->
           <div class="stuck-section">
             <div class="stuck-section-header">
@@ -6459,30 +6483,6 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
                 <div class="stuck-item-a"><div class="stuck-item-answer">Bailey duplicates and keeps the old SEO intact. <strong>If you edit the original, don't touch the keywords that were already ranking.</strong></div></div>
               </div>
             </div>
-          </div>
-
-          <!-- Prompts -->
-          <div class="accordion" id="acc-ref-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
-            </div></div>
-          </div>
-
-          <!-- Bailey's Rules -->
-          <div class="accordion" id="acc-ref-design-rules">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="rules-list">
-                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
-                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
-                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
-                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
-                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
-              </div>
-            </div></div>
           </div>
         </div>
 
