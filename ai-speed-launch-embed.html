@@ -36,18 +36,15 @@
     /* ========================================
        CSS ISOLATION - Blocks Framer styles
        ======================================== */
-    .sl-embed, .sl-embed * {
-      all: revert;
-      box-sizing: border-box !important;
-    }
-
     .sl-embed {
-      font-family: var(--font-body) !important;
+      all: initial;
+      display: block;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-weight: 500 !important;
       font-size: 18px !important;
       line-height: 1.7 !important;
-      color: var(--text-dark) !important;
-      background: var(--white) !important;
+      color: #2D2D2D !important;
+      background: #FFFFFF !important;
       -webkit-font-smoothing: antialiased !important;
       width: 100% !important;
       max-width: 100% !important;
@@ -62,6 +59,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box !important;
+      font-family: inherit;
     }
 
     html, body {
@@ -94,11 +92,11 @@
        TYPOGRAPHY
        ======================================== */
     .sl-embed h1, .sl-embed h2, .sl-embed h3 {
-      font-family: var(--font-heading) !important;
+      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
       font-weight: 700 !important;
       letter-spacing: -0.02em !important;
       line-height: 1.25 !important;
-      color: var(--text-dark) !important;
+      color: #2D2D2D !important;
       margin-bottom: 0.5rem !important;
     }
 
@@ -107,28 +105,28 @@
     .sl-embed h3 { font-size: 1.35rem !important; }
 
     .sl-embed .label {
-      font-family: var(--font-body) !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 700 !important;
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
       letter-spacing: 0.12em !important;
-      color: var(--text-light) !important;
+      color: #888888 !important;
       display: block !important;
       margin-bottom: 0.25rem !important;
     }
 
     .sl-embed p {
       margin-bottom: 1rem !important;
-      color: var(--text-medium) !important;
-      font-family: var(--font-body) !important;
+      color: #5A5A5A !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 500 !important;
-      font-size: 1rem !important;
+      font-size: 1.05rem !important;
       line-height: 1.7 !important;
     }
 
     .sl-embed strong {
       font-weight: 700 !important;
-      color: var(--text-dark) !important;
+      color: #2D2D2D !important;
     }
 
     /* ========================================
@@ -177,8 +175,8 @@
       border-radius: 50px !important;
       border: none !important;
       background: transparent !important;
-      color: var(--text-medium) !important;
-      font-family: var(--font-body) !important;
+      color: #5A5A5A !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 600 !important;
       font-size: 1rem !important;
       cursor: pointer !important;
@@ -186,13 +184,13 @@
     }
 
     .mode-btn.active-coral {
-      background: var(--coral) !important;
-      color: var(--white) !important;
+      background: #E8927C !important;
+      color: #FFFFFF !important;
     }
 
     .mode-btn.active-teal {
-      background: var(--teal) !important;
-      color: var(--white) !important;
+      background: #2D8B8B !important;
+      color: #FFFFFF !important;
     }
 
     /* ========================================
@@ -209,11 +207,11 @@
     }
 
     .rule-box p {
-      font-family: var(--font-heading) !important;
+      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
       font-weight: 500 !important;
-      font-size: 1.15rem !important;
+      font-size: 1.2rem !important;
       line-height: 1.6 !important;
-      color: var(--text-dark) !important;
+      color: #2D2D2D !important;
       margin: 0 !important;
       font-style: italic !important;
     }
@@ -367,10 +365,10 @@
     }
 
     .checklist-text {
-      font-size: 1.05rem;
-      color: var(--text-dark);
+      font-size: 1.05rem !important;
+      color: #2D2D2D !important;
       flex: 1;
-      font-family: var(--font-body);
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
     }
 
     /* ========================================
@@ -546,24 +544,24 @@
     }
 
     .step-time {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--coral-dark);
-      font-weight: 500;
+      font-family: 'JetBrains Mono', 'SF Mono', Monaco, monospace !important;
+      font-size: 0.85rem !important;
+      color: #D4735D !important;
+      font-weight: 500 !important;
       min-width: 65px;
       padding-top: 2px;
     }
 
     .step-time.teal {
-      color: var(--teal-dark);
+      color: #1F6B6B !important;
     }
 
     .step-content {
       flex: 1;
-      font-size: 1rem;
-      color: var(--text-dark);
-      line-height: 1.5;
-      font-family: var(--font-body);
+      font-size: 1rem !important;
+      color: #2D2D2D !important;
+      line-height: 1.5 !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
     }
 
     .step-num {
@@ -572,18 +570,18 @@
       justify-content: center;
       width: 22px;
       height: 22px;
-      background: var(--coral-light);
-      color: var(--coral-dark);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
+      background: #FCE8E4;
+      color: #D4735D;
+      font-family: 'JetBrains Mono', 'SF Mono', Monaco, monospace !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
       border-radius: 50%;
       margin-right: 0.5rem;
     }
 
     .step-num.teal {
-      background: var(--teal-light);
-      color: var(--teal-dark);
+      background: #E8F5F0;
+      color: #1F6B6B;
     }
 
     .step-check {
@@ -632,10 +630,10 @@
     }
 
     .prompt-text {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-dark);
+      font-family: 'JetBrains Mono', 'SF Mono', Monaco, monospace !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      color: #2D2D2D !important;
       word-break: break-word;
     }
 
@@ -863,11 +861,11 @@
       justify-content: center !important;
       gap: 0.5rem !important;
       padding: 1rem 2rem !important;
-      background: var(--coral) !important;
-      color: var(--white) !important;
+      background: #E8927C !important;
+      color: #FFFFFF !important;
       border: none !important;
       border-radius: 50px !important;
-      font-family: var(--font-body) !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 700 !important;
       font-size: 1.1rem !important;
       cursor: pointer !important;
@@ -947,22 +945,22 @@
     }
 
     .wf-title {
-      font-family: var(--font-heading) !important;
+      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
       font-weight: 700 !important;
       font-size: 1.35rem !important;
-      color: var(--text-dark) !important;
+      color: #2D2D2D !important;
       line-height: 1.2 !important;
     }
 
     .wf-desc {
       font-size: 0.95rem !important;
-      color: var(--text-medium) !important;
+      color: #5A5A5A !important;
       margin: 0.25rem 0 0 0 !important;
-      font-family: var(--font-body) !important;
+      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
     }
 
     .wf-time {
-      font-family: var(--font-mono) !important;
+      font-family: 'JetBrains Mono', 'SF Mono', Monaco, monospace !important;
       font-size: 0.85rem !important;
       color: var(--coral-dark);
       background: var(--coral-light);
