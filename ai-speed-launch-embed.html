@@ -1106,21 +1106,18 @@
 
     /* ========================================
        CELEBRATION - Works in Framer embed
-       Using absolute positioning for iframe compat
+       Using absolute positioning relative to button
        ======================================== */
     .celebration {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100vh;
-      background: rgba(45, 45, 45, 0.85);
+      position: absolute;
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 999999;
       padding: 1.5rem;
+      background: rgba(45, 45, 45, 0.9);
+      border-radius: 24px;
+      transform: translate(-50%, -50%);
     }
 
     .celebration.show {
@@ -1181,8 +1178,8 @@
     }
 
     @keyframes celebrationPop {
-      0% { transform: scale(0.85) translateY(20px); opacity: 0; }
-      100% { transform: scale(1) translateY(0); opacity: 1; }
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     /* ========================================
@@ -1446,7 +1443,7 @@
           <div class="checklist-item" onclick="toggleCheck('f6')"><div class="checkbox" id="check-f6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published to Etsy</span></div>
         </div>
 
-        <button class="btn" onclick="completeStep(2)">I Published It! →</button>
+        <button class="btn" onclick="completeStep(2,this)">I Published It! →</button>
       </div>
     </div>
 
@@ -1688,12 +1685,20 @@ function copyPrompt(btn,txt){
   });
 }
 
-function completeStep(s){
+function completeStep(s,btn){
   completed[s]=true;
-  if(s===2){
-    // Scroll to top first, then show celebration
-    window.scrollTo({top:0,behavior:'smooth'});
-    setTimeout(()=>{document.getElementById('celebration').classList.add('show');},300);
+  if(s===2 && btn){
+    // Position celebration at the button location
+    const cel=document.getElementById('celebration');
+    const rect=btn.getBoundingClientRect();
+    const wrapper=document.querySelector('.sl-embed');
+    const wrapperRect=wrapper.getBoundingClientRect();
+    // Calculate position relative to wrapper
+    const centerX=rect.left-wrapperRect.left+(rect.width/2);
+    const centerY=rect.top-wrapperRect.top+(rect.height/2);
+    cel.style.left=centerX+'px';
+    cel.style.top=centerY+'px';
+    cel.classList.add('show');
   }
   if(s<3)step=s+1;
   updateProgress();save();
@@ -1703,8 +1708,6 @@ function completeStep(s){
 function closeCelebration(e){
   e.stopPropagation();
   document.getElementById('celebration').classList.remove('show');
-  // After closing, scroll to step 3
-  setTimeout(()=>document.getElementById('step-3')?.scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
 function goToStep(s){
