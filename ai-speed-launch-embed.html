@@ -5358,39 +5358,190 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
       </div>
     </div>
 
-    <!-- Workflow: Glow-Up -->
+    <!-- Workflow: Glow-Up (Reference Mode) -->
     <div class="section hidden" id="wf-glowup">
       <div class="section-inner">
         <span class="badge badge-coral">WORKFLOW 2</span>
-        <h2>Glow-Up</h2>
-        <p>Same SEO, new art, more sales.</p>
+        <h2>⭐ Glow-Up</h2>
 
-        <div class="video-embed">
-          <div class="video-embed-label">WORKFLOW 2 — GLOW-UP WALKTHROUGH</div>
-          <div class="video-embed-wrapper">
-            <iframe src="https://share.descript.com/embed/7LNESaojmr9" allowfullscreen></iframe>
+        <!-- PATH SELECTOR (Reference Mode) -->
+        <div class="path-selector" id="ref-path-selector">
+          <div class="path-cards">
+            <div class="path-card design" onclick="selectRefGlowupPath('design')">
+              <div class="path-card-icon">🎨</div>
+              <div class="path-card-title">DESIGN GLOW-UP</div>
+              <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
+              <div class="path-card-time">⏱ 30-60 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
+
+            <div class="path-card listing" onclick="selectRefGlowupPath('listing')">
+              <div class="path-card-icon">📋</div>
+              <div class="path-card-title">LISTING GLOW-UP</div>
+              <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
+              <div class="path-card-time">⏱ 60 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
+
+            <div class="path-card full" onclick="selectRefGlowupPath('full')">
+              <div class="path-card-icon">🔥</div>
+              <div class="path-card-title">FULL GLOW-UP</div>
+              <div class="path-card-desc">Do both. New design + full listing optimization.</div>
+              <div class="path-card-time">⏱ 90 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
           </div>
         </div>
 
-        <div class="speed-card">
-          <div class="speed-header"><h3>Speed Card</h3><span class="speed-badge">30-60 min</span></div>
-          <div class="speed-body">
-            <div class="step-row"><span class="step-time">0-5</span><span class="step-content"><span class="step-num">1</span>Pick listing with sales</span><div class="checkbox step-check teal" onclick="toggleCheck('rg1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time">5-10</span><span class="step-content"><span class="step-num">2</span>Screenshot → 10 variations</span><div class="checkbox step-check" onclick="toggleCheck('rg2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time">10-15</span><span class="step-content"><span class="step-num">3</span>Get full Kittl prompt</span><div class="checkbox step-check" onclick="toggleCheck('rg3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time">15-30</span><span class="step-content"><span class="step-num">4</span>Generate + upscale</span><div class="checkbox step-check" onclick="toggleCheck('rg4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time">30-55</span><span class="step-content"><span class="step-num">5</span>Mockup → Vela → swap</span><div class="checkbox step-check" onclick="toggleCheck('rg5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time">55-60</span><span class="step-content"><span class="step-num">6</span>Publish</span><div class="checkbox step-check" onclick="toggleCheck('rg6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <!-- DESIGN GLOW-UP PATH (Reference) -->
+        <div class="design-glowup-section" id="ref-design-glowup">
+          <button class="back-to-paths" onclick="backToRefPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <div class="design-intro">
+            <p><strong>Upgrade one existing listing with a fresh AI design. Same SEO, new art, more sales.</strong></p>
+            <p>You have listings that sold. They look dated now — old graphics, tired trends, non-AI designs from 2022. The demand is still there. The SEO already works. You duplicate the listing, swap in an upgraded design, and publish. That's it.</p>
+          </div>
+
+          <!-- Video only for Design Glow-Up -->
+          <div class="video-embed">
+            <div class="video-embed-label">▶ WATCH THE LOOM<span class="video-optional">(optional)</span></div>
+            <div class="video-embed-wrapper">
+              <iframe src="https://share.descript.com/embed/7LNESaojmr9" allowfullscreen></iframe>
+            </div>
+          </div>
+          <p class="loom-note text-center">Keep the Loom playing. Follow along in this doc. Don't add steps.</p>
+
+          <!-- Design Glow-Up Speed Card -->
+          <div class="speed-card">
+            <div class="speed-header"><h3>Glow-Up Speed Card</h3><span class="speed-badge">30-60 min</span></div>
+            <p class="speed-note">Bailey can do this in ~30 minutes. Plan for up to 60 the first few times.</p>
+            <div class="speed-body">
+              <div class="step-row"><span class="step-time">0-5 min</span><span class="step-content"><span class="step-num">1</span>Pick one listing with consistent sales but dated design</span><div class="checkbox step-check" onclick="toggleCheck('rdg1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">5-10 min</span><span class="step-content"><span class="step-num">2</span>Screenshot → ChatGPT → get 10 style variations</span><div class="checkbox step-check" onclick="toggleCheck('rdg2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">10-15 min</span><span class="step-content"><span class="step-num">3</span>Pick one → have ChatGPT write the full Kittl prompt</span><div class="checkbox step-check" onclick="toggleCheck('rdg3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">15-25 min</span><span class="step-content"><span class="step-num">4</span>Generate in Kittl (test 2-3 generators)</span><div class="checkbox step-check" onclick="toggleCheck('rdg4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">25-30 min</span><span class="step-content"><span class="step-num">5</span>Add text manually if needed, upscale, download</span><div class="checkbox step-check" onclick="toggleCheck('rdg5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">30-40 min</span><span class="step-content"><span class="step-num">6</span>Make seamless in Photoshop (skip if design doesn't need it)</span><div class="checkbox step-check" onclick="toggleCheck('rdg6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">40-55 min</span><span class="step-content"><span class="step-num">7</span>BulkMockup → Vela → duplicate listing → swap images + files</span><div class="checkbox step-check" onclick="toggleCheck('rdg7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">55-60 min</span><span class="step-content"><span class="step-num">8</span>Final check → publish</span><div class="checkbox step-check" onclick="toggleCheck('rdg8')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            </div>
+          </div>
+
+          <!-- Design Glow-Up Checklist -->
+          <h3 class="mt-2">Checklist</h3>
+          <div class="checklist">
+            <div class="checklist-item" onclick="toggleCheck('rdgc1')"><div class="checkbox" id="check-rdgc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Picked a listing with real sales history (not a dead one)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc2')"><div class="checkbox" id="check-rdgc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Got style variations from ChatGPT</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc3')"><div class="checkbox" id="check-rdgc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Generated upgraded design in Kittl</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc4')"><div class="checkbox" id="check-rdgc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Made seamless (if needed)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc5')"><div class="checkbox" id="check-rdgc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Created mockups</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc6')"><div class="checkbox" id="check-rdgc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Duplicated listing in Vela</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc7')"><div class="checkbox" id="check-rdgc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Swapped images + digital files (kept the SEO)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc8')"><div class="checkbox" id="check-rdgc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Set quantity back to 999</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rdgc9')"><div class="checkbox" id="check-rdgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
+          </div>
+
+          <!-- Where You'll Get Stuck -->
+          <div class="accordion" id="acc-ref-design-stuck">
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-stuck')"><span>Where You'll Get Stuck</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <ul class="stuck-list">
+                <li>"I don't know how to write a good AI prompt."</li>
+                <li>"I'm trying to revive a listing that never sold."</li>
+                <li>"Should I rewrite the SEO?"</li>
+                <li>"The AI messed up the text."</li>
+                <li>"Do I edit the original listing or make a new one?"</li>
+              </ul>
+            </div></div>
+          </div>
+
+          <!-- Prompts -->
+          <div class="accordion" id="acc-ref-design-prompts">
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
+            </div></div>
+          </div>
+
+          <!-- Bailey's Rules -->
+          <div class="accordion" id="acc-ref-design-rules">
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-rules')"><span>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="rules-list">
+                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
+                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
+                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
+                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
+                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+              </div>
+            </div></div>
           </div>
         </div>
 
-        <div class="accordion open" id="acc-rg-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-rg-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-          <div class="accordion-content"><div class="accordion-inner">
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>.</div></div>
-          </div></div>
+        <!-- LISTING GLOW-UP PATH (Reference) -->
+        <div class="listing-glowup-section hidden" id="ref-listing-glowup">
+          <button class="back-to-paths" onclick="backToRefPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <div class="design-intro">
+            <p><strong>Optimize your listing for maximum visibility and sales.</strong></p>
+            <p>Title, tags, images, description, pricing — follow the checklist to improve each element.</p>
+          </div>
+
+          <h3>Listing Optimization Checklist</h3>
+          <div class="checklist">
+            <div class="checklist-item" onclick="toggleCheck('rlc1')"><div class="checkbox teal" id="check-rlc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix thumbnail & images (main mockup, lifestyle, specs)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc2')"><div class="checkbox teal" id="check-rlc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Upgrade title with keywords</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc3')"><div class="checkbox teal" id="check-rlc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix description (what it is, what's included, how to use, what it's NOT)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc4')"><div class="checkbox teal" id="check-rlc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Optimize tags (13 tags, mix of broad + specific)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc5')"><div class="checkbox teal" id="check-rlc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Review pricing (check sweet spot range)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc6')"><div class="checkbox teal" id="check-rlc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Add a simple freebie (optional but recommended)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc7')"><div class="checkbox teal" id="check-rlc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Final review: "Would I buy this?"</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rlc8')"><div class="checkbox teal" id="check-rlc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
+          </div>
+
+          <p class="text-muted mt-1" style="font-style: italic;">For detailed prompts and step-by-step guidance, use the Listing Glow-Up in Challenge Mode.</p>
         </div>
+
+        <!-- FULL GLOW-UP PATH (Reference) -->
+        <div class="full-glowup-section hidden" id="ref-full-glowup">
+          <button class="back-to-paths" onclick="backToRefPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <div class="design-intro">
+            <p><strong>Complete glow-up: new design + fully optimized listing.</strong></p>
+            <p>Work through both phases for maximum impact.</p>
+          </div>
+
+          <h3>🎨 Phase 1: Design Glow-Up</h3>
+          <div class="checklist">
+            <div class="checklist-item" onclick="toggleCheck('rfc1')"><div class="checkbox" id="check-rfc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Pick listing with sales history</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc2')"><div class="checkbox" id="check-rfc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Get style variations from ChatGPT</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc3')"><div class="checkbox" id="check-rfc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Generate upgraded design in Kittl</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc4')"><div class="checkbox" id="check-rfc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Create mockups</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc5')"><div class="checkbox" id="check-rfc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Duplicate listing & swap files</span></div>
+          </div>
+
+          <h3 class="mt-2">📋 Phase 2: Listing Optimization</h3>
+          <div class="checklist">
+            <div class="checklist-item" onclick="toggleCheck('rfc6')"><div class="checkbox teal" id="check-rfc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix thumbnail & images</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc7')"><div class="checkbox teal" id="check-rfc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Upgrade title with keywords</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc8')"><div class="checkbox teal" id="check-rfc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix description</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc9')"><div class="checkbox teal" id="check-rfc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Optimize tags</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc10')"><div class="checkbox teal" id="check-rfc10"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Review pricing</span></div>
+            <div class="checklist-item" onclick="toggleCheck('rfc11')"><div class="checkbox teal" id="check-rfc11"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Final review & publish</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -6007,6 +6158,50 @@ function loadGlowupPath() {
 
 // Call loadGlowupPath after main load
 setTimeout(loadGlowupPath, 100);
+
+// ========================================
+// REFERENCE MODE PATH SELECTOR FUNCTIONS
+// ========================================
+
+function selectRefGlowupPath(path) {
+  localStorage.setItem('sl-ref-glowup-path', path);
+
+  // Hide path selector
+  const selector = document.getElementById('ref-path-selector');
+  if (selector) selector.style.display = 'none';
+
+  // Show appropriate section
+  const designSection = document.getElementById('ref-design-glowup');
+  const listingSection = document.getElementById('ref-listing-glowup');
+  const fullSection = document.getElementById('ref-full-glowup');
+
+  if (designSection) designSection.classList.remove('active');
+  if (listingSection) listingSection.classList.add('hidden');
+  if (fullSection) fullSection.classList.add('hidden');
+
+  if (path === 'design') {
+    if (designSection) designSection.classList.add('active');
+  } else if (path === 'listing') {
+    if (listingSection) listingSection.classList.remove('hidden');
+  } else if (path === 'full') {
+    if (fullSection) fullSection.classList.remove('hidden');
+  }
+}
+
+function backToRefPathSelector() {
+  // Show path selector
+  const selector = document.getElementById('ref-path-selector');
+  if (selector) selector.style.display = 'block';
+
+  // Hide all sections
+  const designSection = document.getElementById('ref-design-glowup');
+  const listingSection = document.getElementById('ref-listing-glowup');
+  const fullSection = document.getElementById('ref-full-glowup');
+
+  if (designSection) designSection.classList.remove('active');
+  if (listingSection) listingSection.classList.add('hidden');
+  if (fullSection) fullSection.classList.add('hidden');
+}
 
 load();
 </script>
