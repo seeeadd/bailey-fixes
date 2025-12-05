@@ -771,21 +771,60 @@
        ======================================== */
     .accordion {
       border: 1px solid var(--cream-dark);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
+      margin-top: 1.75rem;
+    }
+
+    .accordion + .accordion {
       margin-top: 1rem;
+    }
+
+    /* Custom accordion icons */
+    .accordion-visual {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .accordion-visual.prompts {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .accordion-visual.rules {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .accordion-visual.stuck {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+
+    .accordion-visual svg {
+      width: 18px;
+      height: 18px;
     }
 
     .accordion-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 1rem;
+      padding: 1.15rem 1.25rem;
       background: var(--white);
       cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: 700;
+      font-size: 1rem;
       color: var(--text-dark);
+      gap: 1rem;
+    }
+
+    .accordion-header span {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .accordion.open .accordion-header {
@@ -793,8 +832,8 @@
     }
 
     .accordion-icon {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       background: var(--cream-dark);
       border-radius: 50%;
       display: flex;
@@ -2292,29 +2331,30 @@
     .floating-back-btn {
       position: fixed;
       bottom: 24px;
-      left: 24px;
+      left: 50%;
+      transform: translateX(-50%);
       display: none;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.85rem 1.25rem;
+      padding: 1rem 1.5rem;
       background: white;
-      color: var(--text-dark);
-      border: 2px solid var(--cream-dark);
+      color: var(--coral-dark);
+      border: 2px solid var(--coral);
       border-radius: 50px;
       font-family: 'Satoshi', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
+      font-weight: 700;
+      font-size: 0.9rem;
       cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 24px rgba(232,146,124,0.3);
       z-index: 9998;
       transition: all 0.3s ease;
     }
 
     .floating-back-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(0,0,0,0.2);
-      border-color: var(--coral);
-      color: var(--coral-dark);
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 6px 32px rgba(232,146,124,0.4);
+      background: var(--coral);
+      color: white;
     }
 
     .floating-back-btn.visible {
@@ -2322,16 +2362,18 @@
     }
 
     .floating-back-btn svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
     }
 
     @media (max-width: 768px) {
       .floating-back-btn {
         bottom: 16px;
-        left: 16px;
-        padding: 0.75rem 1rem;
-        font-size: 0.8rem;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.85rem;
+      }
+      .floating-back-btn:hover {
+        transform: translateX(-50%) translateY(-2px);
       }
     }
 
@@ -2339,7 +2381,7 @@
        STUCK ITEMS - FAQ Style
        ======================================== */
     .stuck-section {
-      margin: 1.5rem 0;
+      margin: 2.5rem 0;
     }
 
     .stuck-section-header {
@@ -3590,7 +3632,7 @@
 
           <!-- Prompts -->
           <div class="accordion" id="acc-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
             <div class="accordion-content"><div class="accordion-inner">
               <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
               <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
@@ -3600,7 +3642,7 @@
 
           <!-- Bailey's Rules -->
           <div class="accordion" id="acc-design-rules">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
             <div class="accordion-content"><div class="accordion-inner">
               <div class="rules-list">
                 <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
@@ -5815,7 +5857,7 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
 
           <!-- Prompts -->
           <div class="accordion" id="acc-ref-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
             <div class="accordion-content"><div class="accordion-inner">
               <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
               <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
@@ -5825,7 +5867,7 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
 
           <!-- Bailey's Rules -->
           <div class="accordion" id="acc-ref-design-rules">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-rules')"><span>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
             <div class="accordion-content"><div class="accordion-inner">
               <div class="rules-list">
                 <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
@@ -6021,7 +6063,7 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </div>
 
         <div class="accordion" id="acc-trend-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
           <div class="accordion-content"><div class="accordion-inner">
             <div class="prompt-block"><div class="prompt-header"><span class="label">Turn Screenshot Into Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Create an AI art prompt based on this image.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
             <div class="prompt-block"><div class="prompt-header"><span class="label">Get Theme Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div></div>
@@ -6163,7 +6205,7 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </div>
 
         <div class="accordion" id="acc-niche-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-niche-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+          <div class="accordion-header" onclick="toggleAccordion('acc-niche-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
           <div class="accordion-content"><div class="accordion-inner">
             <div class="prompt-block"><div class="prompt-header"><span class="label">Get Style Ideas</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the [NICHE] niche. It should not be word art like this one.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche. It should not be word art like this one.</div></div>
             <div class="prompt-block"><div class="prompt-header"><span class="label">Get All Variation Prompts at Once</span><button class="copy-btn" onclick="copyPrompt(this,'Create 10 AI written prompts for the most widely known [VARIATIONS like \"cancers\" or \"states\" or \"dog breeds\"] for this type of style, with one prompt containing [ALL COLORS/ALL ELEMENTS] that says \"[MAIN TEXT like \'Cancer Comes in Many Colors\']\". The other 9 should have the text \"[INDIVIDUAL TEXT like \'Survivor\']\" along with its [COLOR/THEME].')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create 10 AI written prompts for the most widely known <span class="placeholder">[VARIATIONS like "cancers" or "states" or "dog breeds"]</span> for this type of style, with one prompt containing <span class="placeholder">[ALL COLORS/ALL ELEMENTS]</span> that says "<span class="placeholder">[MAIN TEXT like 'Cancer Comes in Many Colors']</span>". The other 9 should have the text "<span class="placeholder">[INDIVIDUAL TEXT like 'Survivor']</span>" along with its <span class="placeholder">[COLOR/THEME]</span>.</div></div>
