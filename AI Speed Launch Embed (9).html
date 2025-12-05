@@ -76,44 +76,6 @@
     }
 
     /* ========================================
-       HEADER AURORA ANIMATION
-       ======================================== */
-    @keyframes aurora {
-      0%, 100% {
-        background-position: 0% 50%, 100% 50%;
-      }
-      50% {
-        background-position: 100% 50%, 0% 50%;
-      }
-    }
-
-    @keyframes grain {
-      0%, 100% { transform: translate(0, 0); }
-      10% { transform: translate(-5%, -10%); }
-      20% { transform: translate(-15%, 5%); }
-      30% { transform: translate(7%, -25%); }
-      40% { transform: translate(-5%, 25%); }
-      50% { transform: translate(-15%, 10%); }
-      60% { transform: translate(15%, 0%); }
-      70% { transform: translate(0%, 15%); }
-      80% { transform: translate(3%, 35%); }
-      90% { transform: translate(-10%, 10%); }
-    }
-
-    @keyframes titleGlow {
-      0%, 100% {
-        text-shadow:
-          0 4px 30px rgba(232, 146, 124, 0.15),
-          0 2px 10px rgba(45, 139, 139, 0.1);
-      }
-      50% {
-        text-shadow:
-          0 4px 40px rgba(232, 146, 124, 0.25),
-          0 2px 15px rgba(45, 139, 139, 0.15);
-      }
-    }
-
-    /* ========================================
        CSS ISOLATION - Blocks Framer styles
        ======================================== */
     .sl-embed {
@@ -184,20 +146,6 @@
     .sl-embed h2 {
       font-size: 2rem !important;
       margin-bottom: 1.5rem !important;
-      position: relative;
-      display: inline-block;
-    }
-
-    /* Subtle underline accent for h2 */
-    .section-inner h2::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--coral), transparent);
-      border-radius: 1px;
     }
 
     .sl-embed h3 { font-size: 1.5rem !important; margin-top: 2.5rem !important; margin-bottom: 1.25rem !important; }
@@ -262,117 +210,88 @@
     }
 
     /* ========================================
-       HEADER - Premium Product Launch Hero
+       HEADER - Warm Editorial
        ======================================== */
     .header {
       width: 100%;
-      min-height: 420px;
       padding: 5rem 2rem 4rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0f0f12 0%, #1a1a24 50%, #0f1419 100%);
+      background: var(--cream);
     }
 
-    /* Aurora gradient overlay */
-    .header-aurora {
+    /* Soft warm gradient orbs - subtle background interest */
+    .header::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(232, 146, 124, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(45, 139, 139, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 30% at 50% 20%, rgba(255, 200, 180, 0.1) 0%, transparent 50%);
-      animation: aurora 15s ease-in-out infinite;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232, 146, 124, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    /* Animated film grain texture */
-    .header-grain {
+    .header::after {
+      content: '';
       position: absolute;
-      inset: -200%;
-      width: 400%;
-      height: 400%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.03;
-      animation: grain 8s steps(10) infinite;
+      bottom: -30%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(45, 139, 139, 0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    /* Glassmorphic inner panel */
     .header-inner {
       position: relative;
-      z-index: 10;
-      max-width: 640px;
+      z-index: 1;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 3rem 2.5rem;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(40px);
-      -webkit-backdrop-filter: blur(40px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
-    /* Top badge */
-    .header-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-      color: white;
-      font-family: 'Satoshi', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      border-radius: 100px;
-      box-shadow: 0 2px 12px rgba(232, 146, 124, 0.4);
-    }
-
-    /* Premium title with glow */
+    /* Editorial serif title */
     .header h1 {
       font-family: 'Ogg', Georgia, serif !important;
-      font-size: 3.25rem !important;
+      font-size: 3.5rem !important;
       font-weight: 400 !important;
-      letter-spacing: 0.04em !important;
-      color: #ffffff !important;
-      margin: 0 0 1.5rem 0 !important;
-      line-height: 1.15 !important;
-      animation: titleGlow 4s ease-in-out infinite;
+      letter-spacing: 0.02em !important;
+      color: var(--text-dark) !important;
+      margin: 0 0 1.25rem 0 !important;
+      line-height: 1.1 !important;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Tagline on dark */
+    /* Tagline */
     .header-tagline {
       font-family: 'Satoshi', sans-serif !important;
-      font-size: 1.05rem !important;
+      font-size: 1.1rem !important;
       font-weight: 450 !important;
-      color: rgba(255, 255, 255, 0.6) !important;
-      line-height: 1.7 !important;
-      max-width: 480px;
-      margin: 0 auto 2rem auto !important;
-      letter-spacing: 0.01em;
+      color: var(--text-medium) !important;
+      line-height: 1.6 !important;
+      max-width: 520px;
+      margin: 0 auto 2.5rem auto !important;
     }
 
-    /* Mode toggle in header */
+    /* Mode toggle - clean segmented control */
     .header .mode-toggle {
       display: inline-flex;
-      gap: 0.5rem;
-      padding: 0.375rem;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 0;
+      padding: 0.25rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.03);
     }
 
     .header .mode-btn {
-      padding: 0.625rem 1.25rem !important;
-      font-size: 0.875rem !important;
+      padding: 0.75rem 1.5rem !important;
+      font-size: 0.9rem !important;
       border-radius: 8px !important;
       border: none !important;
       background: transparent !important;
-      color: rgba(255, 255, 255, 0.6) !important;
+      color: var(--text-medium) !important;
       font-family: 'Satoshi', sans-serif !important;
       font-weight: 600 !important;
       cursor: pointer !important;
@@ -380,23 +299,20 @@
     }
 
     .header .mode-btn:hover {
-      color: rgba(255, 255, 255, 0.9) !important;
-      background: rgba(255, 255, 255, 0.05) !important;
+      color: var(--text-dark) !important;
     }
 
     .header .mode-btn.active-coral {
       background: var(--coral) !important;
       color: white !important;
-      box-shadow: 0 2px 8px rgba(232, 146, 124, 0.4);
     }
 
     .header .mode-btn.active-teal {
       background: var(--teal) !important;
       color: white !important;
-      box-shadow: 0 2px 8px rgba(45, 139, 139, 0.4);
     }
 
-    /* Rule box is hidden - content moved to header tagline */
+    /* Rule box is hidden */
     .rule-box { display: none; }
 
     /* ========================================
@@ -3519,9 +3435,8 @@
         font-size: 0.85rem;
       }
       /* Header responsive */
-      .header { padding: 4rem 1.5rem 3rem; min-height: 380px; }
-      .header-inner { padding: 2.5rem 2rem; }
-      .header h1 { font-size: 2.5rem !important; }
+      .header { padding: 3.5rem 1.5rem 3rem; }
+      .header h1 { font-size: 2.75rem !important; }
     }
 
     .panel-header {
@@ -3753,12 +3668,11 @@
       h3 { font-size: 1.05rem; }
 
       .section { padding: 1.5rem 0.75rem; }
-      .header { padding: 3rem 1rem 2.5rem; min-height: 320px; }
-      .header-inner { padding: 2rem 1.5rem; }
-      .header h1 { font-size: 2rem !important; }
-      .header-tagline { font-size: 0.95rem !important; }
-      .header .mode-toggle { flex-direction: column; gap: 0.375rem; }
-      .header .mode-btn { width: 100%; text-align: center; padding: 0.5rem 1rem !important; font-size: 0.8rem !important; }
+      .header { padding: 2.5rem 1rem 2rem; }
+      .header h1 { font-size: 2.25rem !important; }
+      .header-tagline { font-size: 1rem !important; }
+      .header .mode-toggle { flex-direction: column; gap: 0.25rem; width: 100%; max-width: 280px; }
+      .header .mode-btn { width: 100%; text-align: center; padding: 0.625rem 1rem !important; font-size: 0.85rem !important; }
 
       .tools-grid { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
       .tool-item { padding: 0.4rem; font-size: 0.7rem; }
@@ -3785,10 +3699,9 @@
       h3 { font-size: 1rem; }
 
       .section { padding: 1.25rem 0.5rem; }
-      .header { padding: 2.5rem 0.75rem 2rem; min-height: 280px; }
-      .header-inner { padding: 1.5rem 1rem; }
-      .header h1 { font-size: 1.75rem !important; }
-      .header-badge { font-size: 0.6rem; padding: 0.3rem 0.75rem; }
+      .header { padding: 2rem 0.75rem 1.5rem; }
+      .header h1 { font-size: 2rem !important; }
+      .header-tagline { font-size: 0.95rem !important; margin-bottom: 2rem !important; }
 
       .progress-bar { flex-direction: column; gap: 0.25rem; }
       .progress-arrow { display: none; }
@@ -4165,19 +4078,11 @@
 
 <div class="sl-embed main-wrapper">
 
-  <!-- HEADER - Premium Product Launch -->
+  <!-- HEADER -->
   <div class="header">
-    <!-- Aurora gradient background -->
-    <div class="header-aurora"></div>
-    <!-- Animated grain texture -->
-    <div class="header-grain"></div>
-    <!-- Glassmorphic content panel -->
     <div class="header-inner">
-      <div class="header-badge">Speed Launch System</div>
-      <h1>AI Speed-Launch</h1>
+      <h1>AI Speed-Launch System</h1>
       <p class="header-tagline">Don't start from zero. Find what's already working and make your version.</p>
-
-      <!-- Mode Toggle - Controls content experience -->
       <div class="mode-toggle">
         <button class="mode-btn active-coral" id="btn-challenge" onclick="setMode('challenge')">Challenge Mode</button>
         <button class="mode-btn" id="btn-reference" onclick="setMode('reference')">Quick Reference</button>
