@@ -188,7 +188,7 @@
     .mode-toggle {
       display: inline-flex;
       background: var(--cream-dark);
-      border-radius: 50px;
+      border-radius: 8px;
       padding: 3px;
       gap: 3px;
       margin-top: 1rem;
@@ -196,7 +196,7 @@
 
     .mode-btn {
       padding: 0.75rem 1.5rem !important;
-      border-radius: 50px !important;
+      border-radius: 8px !important;
       border: none !important;
       background: transparent !important;
       color: #5A5A5A !important;
@@ -260,7 +260,7 @@
       align-items: center;
       gap: 0.25rem;
       padding: 0.4rem 0.75rem;
-      border-radius: 50px;
+      border-radius: 8px;
       background: transparent;
       color: var(--text-light);
       font-family: 'Satoshi', -apple-system, sans-serif;
@@ -310,7 +310,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       padding: 0.3rem 0.6rem;
-      border-radius: 50px;
+      border-radius: 8px;
       margin-bottom: 0.5rem;
     }
 
@@ -539,7 +539,7 @@
       font-size: 0.8rem;
       background: rgba(255,255,255,0.2);
       padding: 0.3rem 0.6rem;
-      border-radius: 50px;
+      border-radius: 8px;
     }
 
     .speed-note {
@@ -1001,7 +1001,7 @@
       color: var(--coral-dark);
       background: var(--coral-light);
       padding: 0.25rem 0.5rem;
-      border-radius: 50px;
+      border-radius: 8px;
       white-space: nowrap;
     }
 
@@ -1116,7 +1116,7 @@
       z-index: 999999;
       padding: 1.5rem;
       background: rgba(45, 45, 45, 0.9);
-      border-radius: 24px;
+      border-radius: 12px;
       transform: translate(-50%, -50%);
     }
 
@@ -1126,7 +1126,7 @@
 
     .celebration-box {
       background: #FFFFFF;
-      border-radius: 20px;
+      border-radius: 12px;
       padding: 2.5rem 2rem;
       text-align: center;
       max-width: 340px;
@@ -1245,7 +1245,7 @@
     /* Intro Banner */
     .glowup-intro {
       background: linear-gradient(135deg, var(--coral-light) 0%, var(--cream) 100%);
-      border-radius: 20px;
+      border-radius: 12px;
       padding: 2rem;
       text-align: center;
       margin-bottom: 2.5rem;
@@ -1273,7 +1273,7 @@
       padding: 8px 16px;
       background: white;
       border: 1px solid var(--cream-dark);
-      border-radius: 20px;
+      border-radius: 12px;
       font-family: 'Satoshi', sans-serif;
       font-size: 0.85rem;
       font-weight: 500;
@@ -1300,7 +1300,7 @@
     /* Progress Bar */
     .glowup-progress {
       background: white;
-      border-radius: 50px;
+      border-radius: 8px;
       padding: 0.5rem 1rem;
       display: inline-flex;
       align-items: center;
@@ -1346,7 +1346,7 @@
     /* Stage Container */
     .stage {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 20px rgba(0,0,0,0.06);
       transition: all 0.3s ease;
@@ -1454,7 +1454,7 @@
       color: white;
       background: var(--teal);
       padding: 0.25rem 0.6rem;
-      border-radius: 50px;
+      border-radius: 8px;
       display: inline-block;
     }
 
@@ -1857,7 +1857,7 @@
     /* Completion Banner */
     .glowup-complete {
       background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-      border-radius: 20px;
+      border-radius: 12px;
       padding: 3rem 2rem;
       text-align: center;
       color: white;
@@ -1875,6 +1875,25 @@
       font-size: 1.1rem !important;
       color: rgba(255,255,255,0.9) !important;
       margin-bottom: 2rem !important;
+    }
+
+    .complete-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .complete-buttons .reset-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+    }
+
+    .complete-buttons .reset-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+      color: white;
     }
 
     .glowup-complete-btns {
@@ -1950,7 +1969,7 @@
        ======================================== */
     .video-section {
       background: linear-gradient(180deg, var(--coral-light) 0%, var(--cream) 100%);
-      border-radius: 20px;
+      border-radius: 12px;
       padding: 2rem;
       margin: 2rem 0;
     }
@@ -1978,7 +1997,7 @@
       color: var(--coral-dark);
       background: white;
       padding: 0.5rem 1.25rem;
-      border-radius: 50px;
+      border-radius: 8px;
       display: inline-block;
     }
 
@@ -2011,7 +2030,7 @@
       background: var(--teal-light);
       color: var(--teal-dark);
       padding: 0.5rem 1rem;
-      border-radius: 50px;
+      border-radius: 8px;
       font-family: 'Satoshi', -apple-system, sans-serif;
       font-weight: 600;
       font-size: 0.8rem;
@@ -2200,7 +2219,7 @@
       color: var(--coral-dark);
       background: white;
       padding: 0.25rem 0.6rem;
-      border-radius: 50px;
+      border-radius: 8px;
     }
 
     .panel-section-icon {
@@ -2516,10 +2535,6 @@
           <div class="glowup-intro">
             <h3>1-Hour Listing Glow-Up</h3>
             <p><strong>Pick ONE listing from your FIX pile. Set a timer. Follow the steps. Don't overthink it.</strong></p>
-            <button class="reset-btn" onclick="resetGlowup()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Start Over
-            </button>
           </div>
 
           <!-- Progress Bar -->
@@ -2981,6 +2996,35 @@ Give me all 13 tags in a numbered list, ready to copy.</pre>
                 </div>
               </div>
 
+              <!-- Expandable: Pricing Helper -->
+              <div class="stage-expand" id="expand-5-prompts">
+                <div class="stage-expand-header" onclick="toggleExpand('expand-5-prompts')">
+                  <span>PRICING HELPER</span>
+                  <svg class="expand-icon" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="stage-expand-body">
+                  <p class="expand-intro">Drop your competitor links and get a pricing recommendation.</p>
+                  <div class="code-block">
+                    <div class="code-label">Copy this into ChatGPT</div>
+                    <pre>I'm pricing a digital product on Etsy. Help me find the sweet spot.
+
+My product: [describe it]
+Product type: [tumbler wrap, t-shirt design, etc.]
+
+Here are 3-5 competitor listings I found:
+[Paste links or prices you saw]
+
+Based on these prices:
+1. What's the price range?
+2. Where should I price to stay competitive but not undervalue?
+3. Should I run a sale? If so, what original/sale price?
+
+Give me a final recommendation I can use right now.</pre>
+                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                  </div>
+                </div>
+              </div>
+
               <button class="stage-complete-btn" onclick="completeStage(5)">Complete Stage →</button>
             </div>
           </div>
@@ -3104,6 +3148,39 @@ Make it something I can generate in under 3 minutes.</pre>
                 <strong>Hit Update.</strong> Stop editing this listing. Any new ideas go on a "Next Week" list.
               </div>
 
+              <!-- Expandable: Final Review Helper -->
+              <div class="stage-expand" id="expand-7-prompts">
+                <div class="stage-expand-header" onclick="toggleExpand('expand-7-prompts')">
+                  <span>FINAL REVIEW HELPER</span>
+                  <svg class="expand-icon" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="stage-expand-body">
+                  <p class="expand-intro">Paste your listing details and get a final check before publishing.</p>
+                  <div class="code-block">
+                    <div class="code-label">Copy this into ChatGPT</div>
+                    <pre>Review my Etsy listing before I hit publish.
+
+TITLE: [paste your title]
+
+DESCRIPTION: [paste your description]
+
+TAGS: [paste your 13 tags]
+
+PRICE: [your price]
+
+Tell me:
+1. Any obvious issues or red flags?
+2. Is the title keyword-stuffed or natural?
+3. Does the description answer the 4 key questions (what is it, what's included, how to use, what it's NOT)?
+4. Are tags relevant and varied enough?
+5. Final verdict: Ready to publish or needs tweaks?
+
+Be quick and direct.</pre>
+                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                  </div>
+                </div>
+              </div>
+
               <button class="stage-complete-btn" onclick="completeStage(7)">Complete Stage →</button>
             </div>
           </div>
@@ -3116,7 +3193,13 @@ Make it something I can generate in under 3 minutes.</pre>
             <h3>You did it.</h3>
             <p>One listing, one hour, actually improved.<br><strong>Now go do it again tomorrow.</strong></p>
             <p class="complete-credit">VIP Implementation Hub • Bailey Vann</p>
-            <button class="btn" onclick="completeStep(2,this)">Continue to What's Next →</button>
+            <div class="complete-buttons">
+              <button class="btn" onclick="completeStep(2,this)">Continue to What's Next →</button>
+              <button class="reset-btn" onclick="resetGlowup()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Do Another Listing
+              </button>
+            </div>
           </div>
 
         </div><!-- end glowup-wrapper -->
