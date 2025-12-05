@@ -29,12 +29,33 @@
     }
 
     /* ========================================
+       CSS ISOLATION - Blocks Framer styles
+       ======================================== */
+    .sl-embed, .sl-embed * {
+      all: revert;
+      box-sizing: border-box !important;
+    }
+
+    .sl-embed {
+      font-family: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-weight: 500 !important;
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+      color: var(--text-dark) !important;
+      background: var(--white) !important;
+      -webkit-font-smoothing: antialiased !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    /* ========================================
        RESET & BASE
        ======================================== */
-    * {
+    .sl-embed *, .sl-embed *::before, .sl-embed *::after {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      box-sizing: border-box !important;
     }
 
     html, body {
@@ -66,34 +87,37 @@
     /* ========================================
        TYPOGRAPHY
        ======================================== */
-    h1, h2, h3 {
-      font-family: 'Ogg', 'Playfair Display', Georgia, serif;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+    .sl-embed h1, .sl-embed h2, .sl-embed h3 {
+      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.2 !important;
+      color: var(--text-dark) !important;
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.15rem; }
+    .sl-embed h1 { font-size: 2rem !important; }
+    .sl-embed h2 { font-size: 1.5rem !important; }
+    .sl-embed h3 { font-size: 1.15rem !important; }
 
-    .label {
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-light);
+    .sl-embed .label {
+      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 0.65rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      color: var(--text-light) !important;
     }
 
-    p {
-      margin-bottom: 0.75rem;
-      color: var(--text-medium);
+    .sl-embed p {
+      margin-bottom: 0.75rem !important;
+      color: var(--text-medium) !important;
+      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-weight: 500 !important;
     }
 
-    strong {
-      font-weight: 700;
-      color: var(--text-dark);
+    .sl-embed strong {
+      font-weight: 700 !important;
+      color: var(--text-dark) !important;
     }
 
     /* ========================================
@@ -138,26 +162,26 @@
     }
 
     .mode-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      border: none;
-      background: transparent;
-      color: var(--text-medium);
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 0.5rem 1rem !important;
+      border-radius: 50px !important;
+      border: none !important;
+      background: transparent !important;
+      color: var(--text-medium) !important;
+      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
     }
 
     .mode-btn.active-coral {
-      background: var(--coral);
-      color: var(--white);
+      background: var(--coral) !important;
+      color: var(--white) !important;
     }
 
     .mode-btn.active-teal {
-      background: var(--teal);
-      color: var(--white);
+      background: var(--teal) !important;
+      color: var(--white) !important;
     }
 
     /* ========================================
@@ -174,12 +198,12 @@
     }
 
     .rule-box p {
-      font-family: 'Ogg', 'Playfair Display', serif;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--text-dark);
-      margin: 0;
+      font-family: 'Ogg', 'Playfair Display', serif !important;
+      font-weight: 700 !important;
+      font-size: 1rem !important;
+      line-height: 1.6 !important;
+      color: var(--text-dark) !important;
+      margin: 0 !important;
     }
 
     /* ========================================
@@ -815,22 +839,23 @@
        BUTTONS
        ======================================== */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--coral);
-      color: var(--white);
-      border: none;
-      border-radius: 50px;
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      margin-top: 1rem;
-      width: 100%;
-      max-width: 300px;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.4rem !important;
+      padding: 0.75rem 1.5rem !important;
+      background: var(--coral) !important;
+      color: var(--white) !important;
+      border: none !important;
+      border-radius: 50px !important;
+      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      cursor: pointer !important;
+      margin-top: 1rem !important;
+      width: 100% !important;
+      max-width: 300px !important;
+      text-decoration: none !important;
     }
 
     .btn.teal {
@@ -897,22 +922,23 @@
     }
 
     .wf-title {
-      font-family: 'Ogg', 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text-dark);
-      line-height: 1.2;
+      font-family: 'Ogg', 'Playfair Display', serif !important;
+      font-weight: 900 !important;
+      font-size: 1.1rem !important;
+      color: var(--text-dark) !important;
+      line-height: 1.2 !important;
     }
 
     .wf-desc {
-      font-size: 0.8rem;
-      color: var(--text-medium);
-      margin: 0;
+      font-size: 0.8rem !important;
+      color: var(--text-medium) !important;
+      margin: 0 !important;
+      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
     }
 
     .wf-time {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.75rem !important;
       color: var(--coral-dark);
       background: var(--coral-light);
       padding: 0.25rem 0.5rem;
@@ -1163,7 +1189,7 @@
 </head>
 <body>
 
-<div class="main-wrapper">
+<div class="sl-embed main-wrapper">
 
   <!-- HEADER -->
   <div class="header">
