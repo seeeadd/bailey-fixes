@@ -1690,15 +1690,21 @@ function copyPrompt(btn,txt){
 
 function completeStep(s){
   completed[s]=true;
-  if(s===2){document.getElementById('celebration').classList.add('show');}
+  if(s===2){
+    // Scroll to top first, then show celebration
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(()=>{document.getElementById('celebration').classList.add('show');},300);
+  }
   if(s<3)step=s+1;
   updateProgress();save();
-  setTimeout(()=>document.getElementById('step-'+(s+1))?.scrollIntoView({behavior:'smooth',block:'start'}),100);
+  if(s!==2){setTimeout(()=>document.getElementById('step-'+(s+1))?.scrollIntoView({behavior:'smooth',block:'start'}),100);}
 }
 
 function closeCelebration(e){
   e.stopPropagation();
   document.getElementById('celebration').classList.remove('show');
+  // After closing, scroll to step 3
+  setTimeout(()=>document.getElementById('step-3')?.scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
 function goToStep(s){
