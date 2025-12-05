@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Speed-Launch System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral: #E8927C;
+      --coral-dark: #D4735D;
+      --coral-light: #FCE8E4;
+      --teal: #2D8B8B;
+      --teal-light: #E8F5F0;
+      --cream: #FFF9F0;
+      --cream-dark: #F5EDE0;
+      --text-dark: #2D2D2D;
+      --text-medium: #5A5A5A;
+      --text-light: #888888;
+      --white: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--white);
+    }
+
+    /* Page setup for print */
+    @media print {
+      .page-break { page-break-after: always; }
+      body { font-size: 14px; }
+    }
+
+    /* Typography */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.1;
+      color: var(--coral-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      color: var(--coral-dark);
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-medium);
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    /* Cover Page */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+      padding: 4rem 2rem;
+    }
+
+    .cover-icon {
+      margin-bottom: 2rem;
+    }
+
+    .cover h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cover-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.25rem;
+      color: var(--text-medium);
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    .cover-rule {
+      background: var(--white);
+      border-left: 4px solid var(--coral);
+      padding: 1.5rem 2rem;
+      max-width: 540px;
+      text-align: left;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .cover-rule p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .section-header h2 {
+      margin: 0;
+    }
+
+    .section-icon {
+      flex-shrink: 0;
+    }
+
+    /* Quick Start Table */
+    .decision-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .decision-table th {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--cream-dark);
+    }
+
+    .decision-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--cream-dark);
+      vertical-align: top;
+    }
+
+    .decision-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .decision-table .workflow-name {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .decision-table .time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--teal);
+    }
+
+    /* Callout Boxes */
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .callout-coral {
+      background: var(--coral-light);
+      border-left: 4px solid var(--coral);
+    }
+
+    .callout-teal {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+    }
+
+    .callout-cream {
+      background: var(--cream);
+      border-left: 4px solid var(--cream-dark);
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    .callout-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--coral-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-teal .callout-label {
+      color: var(--teal);
+    }
+
+    /* Tool List */
+    .tool-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tool-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-medium);
+      padding: 0.5rem 0.75rem;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+
+    /* Speed Card */
+    .speed-card {
+      background: var(--white);
+      border: 2px solid var(--coral);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .speed-card-header {
+      background: var(--coral);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .speed-card-header h3 {
+      color: var(--white);
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .speed-card-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .speed-card-body {
+      padding: 1.5rem;
+    }
+
+    .timeline {
+      margin: 1rem 0;
+    }
+
+    .timeline-row {
+      display: flex;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .timeline-row:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--coral-dark);
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .timeline-task {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      color: var(--text-medium);
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--coral);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Stuck Points */
+    .stuck-point {
+      margin: 1.25rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--cream-dark);
+    }
+
+    .stuck-label {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stuck-solution {
+      color: var(--teal);
+      font-size: 0.95rem;
+    }
+
+    /* Prompt Block */
+    .prompt-block {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .prompt-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .prompt-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+    }
+
+    .prompt-text .placeholder {
+      background: var(--coral-light);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      color: var(--coral-dark);
+    }
+
+    /* Rules List */
+    .rules-list {
+      counter-reset: rules;
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .rules-list li {
+      counter-increment: rules;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .rules-list li::before {
+      content: counter(rules);
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--coral);
+      flex-shrink: 0;
+      width: 1.5rem;
+    }
+
+    .rule-content {
+      padding-top: 0.15rem;
+    }
+
+    .rule-content strong {
+      color: var(--text-dark);
+    }
+
+    /* Loom Links */
+    .loom-links {
+      margin: 1.5rem 0;
+    }
+
+    .loom-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: background 0.2s;
+    }
+
+    .loom-link:hover {
+      background: var(--cream-dark);
+    }
+
+    .loom-link-label {
+      font-weight: 500;
+    }
+
+    .loom-link-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-left: auto;
+    }
+
+    /* Workflow Badge */
+    .workflow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--coral-light);
+      color: var(--coral-dark);
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .workflow-badge-teal {
+      background: var(--teal-light);
+      color: var(--teal);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--cream-dark);
+      margin: 3rem 0;
+    }
+
+    .divider-thick {
+      height: 4px;
+      background: linear-gradient(90deg, var(--coral) 0%, var(--coral-light) 100%);
+      margin: 3rem 0;
+      border-radius: 2px;
+    }
+
+    /* Simple Table */
+    .simple-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .simple-table th {
+      font-weight: 600;
+      text-align: left;
+      padding: 0.75rem;
+      background: var(--cream);
+      border-bottom: 2px solid var(--cream-dark);
+    }
+
+    .simple-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    /* Footer */
+    .doc-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--cream);
+      margin-top: 3rem;
+    }
+
+    .doc-footer p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Note callout */
+    .note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* Time block visual */
+    .time-blocks {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .time-block {
+      text-align: center;
+    }
+
+    .time-block-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .time-block-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--coral-dark);
+    }
+
+    .time-block-unit {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ COVER PAGE ============ -->
+  <div class="cover">
+    <div class="cover-icon">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" stroke="#E8927C" stroke-width="4" fill="none"/>
+        <path d="M40 20V40L52 52" stroke="#E8927C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="40" cy="40" r="4" fill="#E8927C"/>
+      </svg>
+    </div>
+    <h1>AI Speed-Launch System</h1>
+    <p class="cover-subtitle">3 workflows to go from idea → live listing in under 60 minutes</p>
+    
+    <div class="cover-rule">
+      <p>Don't start from zero.<br><br>
+      Find something that's already working — a trend, an old winner, or a niche with built-in variations — and make your version.<br><br>
+      Duplicate listings. Keep the SEO that's already ranking. Swap the art. Ship.</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ QUICK START ============ -->
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="28" height="20" rx="3" stroke="#2D8B8B" stroke-width="2.5" fill="none"/>
+          <path d="M13 12L20 16L13 20V12Z" fill="#2D8B8B"/>
+        </svg>
+      </div>
+      <h2>Quick Start</h2>
+    </div>
+
+    <div class="callout callout-cream">
+      <p><strong>Don't binge all 3 workflows.</strong><br>
+      Pick the one you're using today, open that Loom, and keep this doc beside it.</p>
+    </div>
+
+    <h3>Which workflow do I use?</h3>
+
+    <table class="decision-table">
+      <thead>
+        <tr>
+          <th>I need...</th>
+          <th>Use this</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A brand new product idea</td>
+          <td class="workflow-name">Workflow 1: Trend → Listing</td>
+          <td class="time">45-60 min</td>
+        </tr>
+        <tr>
+          <td>To fix an old listing that's dated</td>
+          <td class="workflow-name">Workflow 2: Glow-Up</td>
+          <td class="time">30-60 min</td>
+        </tr>
+        <tr>
+          <td>To own a niche with multiple products + bundle</td>
+          <td class="workflow-name">Workflow 3: Niche Pack</td>
+          <td class="time">60-90 min</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-coral">
+      <div class="callout-label">For the challenge</div>
+      <p>Start with <strong>Workflow 2 (Glow-Up)</strong> on Day 4. You already tagged your FIX pile in the Shop Autopsy. Pick one listing and upgrade it.</p>
+    </div>
+
+    <h3>Before you start any workflow</h3>
+
+    <h4>Have these tabs open:</h4>
+    <div class="tool-list">
+      <div class="tool-item">Etsy (logged in)</div>
+      <div class="tool-item">ChatGPT</div>
+      <div class="tool-item">Kittl</div>
+      <div class="tool-item">Photoshop</div>
+      <div class="tool-item">BulkMockup</div>
+      <div class="tool-item">Vela</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Tumbler wrap canvas size</div>
+      <div class="prompt-text">2790 × 2460 px, 300 DPI</div>
+    </div>
+
+    <h4>Bailey's 3 favorite Kittl generators:</h4>
+    <p>Nano Banana Pro, Sea Dream 4, Dolly 3</p>
+
+    <h3>Watch the Looms</h3>
+
+    <div class="loom-links">
+      <div class="loom-link">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8" stroke="#E8927C" stroke-width="2" fill="none"/>
+          <path d="M8 7L13 10L8 13V7Z" fill="#E8927C"/>
+        </svg>
+        <span class="loom-link-label">Workflow 1: Trend → Listing</span>
+        <span class="loom-link-url">[link]</span>
+      </div>
+      <div class="loom-link">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8" stroke="#E8927C" stroke-width="2" fill="none"/>
+          <path d="M8 7L13 10L8 13V7Z" fill="#E8927C"/>
+        </svg>
+        <span class="loom-link-label">Workflow 2: Glow-Up</span>
+        <span class="loom-link-url">[link]</span>
+      </div>
+      <div class="loom-link">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8" stroke="#E8927C" stroke-width="2" fill="none"/>
+          <path d="M8 7L13 10L8 13V7Z" fill="#E8927C"/>
+        </svg>
+        <span class="loom-link-label">Workflow 3: Niche Pack</span>
+        <span class="loom-link-url">[link]</span>
+      </div>
+    </div>
+
+    <p class="note">Keep the Loom playing. Follow along in this doc. Don't add steps.</p>
+
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ WORKFLOW 2: GLOW-UP ============ -->
+  <div class="container">
+    <span class="workflow-badge">Workflow 2 — Day 4 of the Challenge</span>
+    
+    <div class="section-header">
+      <div class="section-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4L19 13H28L21 19L24 28L16 22L8 28L11 19L4 13H13L16 4Z" stroke="#E8927C" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Glow-Up</h2>
+    </div>
+
+    <p style="font-size: 1.1rem; color: var(--text-dark);">Upgrade one existing listing with a fresh AI design. Same SEO, new art, more sales.</p>
+
+    <h3>The short version</h3>
+
+    <p>You have listings that sold. They look dated now — old graphics, tired trends, non-AI designs from 2022. The demand is still there. The SEO already works.</p>
+    
+    <p>You duplicate the listing, swap in an upgraded design, and publish. That's it.</p>
+
+    <!-- Speed Card -->
+    <div class="speed-card">
+      <div class="speed-card-header">
+        <h3>Glow-Up Speed Card</h3>
+        <div class="speed-card-time">30-60 min</div>
+      </div>
+      <div class="speed-card-body">
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1rem;">Bailey can do this in ~30 minutes. Plan for up to 60 the first few times.</p>
+        
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-time">0-5 min</div>
+            <div class="timeline-task">Pick one listing with consistent sales but dated design</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">5-10 min</div>
+            <div class="timeline-task">Screenshot → ChatGPT → get 10 style variations</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">10-15 min</div>
+            <div class="timeline-task">Pick one → have ChatGPT write the full Kittl prompt</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">15-25 min</div>
+            <div class="timeline-task">Generate in Kittl (test 2-3 generators)</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">25-30 min</div>
+            <div class="timeline-task">Add text manually if needed, upscale, download</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">30-40 min</div>
+            <div class="timeline-task">Make seamless in Photoshop (skip if design doesn't need it)</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">40-55 min</div>
+            <div class="timeline-task">BulkMockup → Vela → duplicate listing → swap images + files</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time">55-60 min</div>
+            <div class="timeline-task">Final check → publish</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Checklist</h3>
+    <ul class="checklist">
+      <li><div class="checkbox"></div> Picked a listing with real sales history (not a dead one)</li>
+      <li><div class="checkbox"></div> Got style variations from ChatGPT</li>
+      <li><div class="checkbox"></div> Generated upgraded design in Kittl</li>
+      <li><div class="checkbox"></div> Made seamless (if needed)</li>
+      <li><div class="checkbox"></div> Created mockups</li>
+      <li><div class="checkbox"></div> Duplicated listing in Vela</li>
+      <li><div class="checkbox"></div> Swapped images + digital files (kept the SEO)</li>
+      <li><div class="checkbox"></div> Set quantity back to 999</li>
+      <li><div class="checkbox"></div> Published</li>
+    </ul>
+
+    <div class="callout callout-teal">
+      <div class="callout-label">Also use</div>
+      <p>The <strong>1-Hour Glow-Up Checklist</strong> (separate bonus) walks through this minute-by-minute with more detail.</p>
+    </div>
+
+    <h3>Where you'll get stuck</h3>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I don't know how to write a good AI prompt."</div>
+      <div class="stuck-solution">→ Screenshot your old design → upload to ChatGPT → ask for 10 style variations → pick one → ask ChatGPT for the full prompt. It does the work.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I'm trying to revive a listing that never sold."</div>
+      <div class="stuck-solution">→ Stop. Glow-ups are for winners, not losers. Pick something with real sales history.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"Should I rewrite the SEO?"</div>
+      <div class="stuck-solution">→ No. If it ranked before, leave it. Only change images and files.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"The AI messed up the text."</div>
+      <div class="stuck-solution">→ Add text manually in Kittl. Pick a font, type the words, add a stroke/shadow. Done in 2 minutes.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"Do I edit the original listing or make a new one?"</div>
+      <div class="stuck-solution">→ Bailey duplicates the listing and keeps the SEO. If you'd rather edit the original, that's fine — just don't change the keywords.</div>
+    </div>
+
+    <h3>Prompts</h3>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Step 1 — Get style variations</div>
+      <div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche.</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Step 2 — Get the full prompt</div>
+      <div class="prompt-text">Write me a full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE WORDS like "grungy" or "metallic" or "watercolor"]</span>. Do not include the words "tumbler wrap design" — just say "digital design."</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Step 3 — Make it more unique</div>
+      <div class="prompt-text">Rewrite this prompt to be more unique and trendy. Add <span class="placeholder">[ELEMENT like "gold metallic effects" or "camouflage"]</span>. Remove any reference to tumblers.</div>
+    </div>
+
+    <h3>Bailey's rules for Glow-Ups</h3>
+
+    <ol class="rules-list">
+      <li>
+        <div class="rule-content"><strong>Pick listings with consistent sales and high conversion</strong> — even if sales have slowed, if people still buy when they find it, the demand is there.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Cross-niche for broader appeal</strong> — Christian + military + men = 3 audiences instead of 1.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Men prefer realistic, women prefer graphic</strong> — adjust your generator choice accordingly.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Duplicate, don't edit from scratch</strong> — same SEO, new art. That's it.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Check your quantity in Vela</strong> — make sure it's back to 999 after duplicating.</div>
+      </li>
+    </ol>
+
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ WORKFLOW 1: TREND → LISTING ============ -->
+  <div class="container">
+    <span class="workflow-badge workflow-badge-teal">Workflow 1</span>
+    
+    <div class="section-header">
+      <div class="section-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 24L12 16L18 22L28 8" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 8H28V16" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Trend → Listing</h2>
+    </div>
+
+    <p style="font-size: 1.1rem; color: var(--text-dark);">New product from scratch. Find what's selling, make your version, ship it today.</p>
+
+    <h3>The short version</h3>
+
+    <p>You need a new product but you don't know what to make. Instead of guessing, you find something that's already selling right now, reverse-engineer the style, make your own version, and ship it the same day.</p>
+    
+    <p>No guessing. No hoping. Just data.</p>
+
+    <!-- Speed Card -->
+    <div class="speed-card" style="border-color: var(--teal);">
+      <div class="speed-card-header" style="background: var(--teal);">
+        <h3>Trend → Listing Speed Card</h3>
+        <div class="speed-card-time">45-60 min</div>
+      </div>
+      <div class="speed-card-body">
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">0-5 min</div>
+            <div class="timeline-task">Etsy + ProfitTree/EverBee → find listing &lt;3 months old with high sales + badges</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">5-10 min</div>
+            <div class="timeline-task">Screenshot → ChatGPT → get AI prompt → ask for 10 theme variations → pick one</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">10-20 min</div>
+            <div class="timeline-task">Generate in Kittl (2-3 generators) → pick best</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">20-30 min</div>
+            <div class="timeline-task">Make seamless in Photoshop</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">30-32 min</div>
+            <div class="timeline-task">BulkMockup</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">32-55 min</div>
+            <div class="timeline-task">Vela → use template → add images, files, niche tags</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">55-60 min</div>
+            <div class="timeline-task">Publish</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Checklist</h3>
+    <ul class="checklist">
+      <li><div class="checkbox"></div> Found a trending design (&lt;3 months, high sales, badges)</li>
+      <li><div class="checkbox"></div> Screenshot → ChatGPT → got style variations</li>
+      <li><div class="checkbox"></div> Generated design in Kittl</li>
+      <li><div class="checkbox"></div> Made seamless</li>
+      <li><div class="checkbox"></div> Created mockups</li>
+      <li><div class="checkbox"></div> Used Vela template (not from scratch)</li>
+      <li><div class="checkbox"></div> Added niche-specific tags (only 3 needed)</li>
+      <li><div class="checkbox"></div> Published</li>
+    </ul>
+
+    <h3>What to look for in trend research</h3>
+
+    <table class="simple-table">
+      <tr>
+        <th>Signal</th>
+        <th>What it means</th>
+      </tr>
+      <tr>
+        <td><strong>Listing age</strong></td>
+        <td>Less than 3-4 months old (newer = trend is still hot)</td>
+      </tr>
+      <tr>
+        <td><strong>Sales</strong></td>
+        <td>High number relative to age</td>
+      </tr>
+      <tr>
+        <td><strong>Badges</strong></td>
+        <td>Bestseller or Popular Now</td>
+      </tr>
+      <tr>
+        <td><strong>Social proof</strong></td>
+        <td>"6 people bought this in the last 24 hours"</td>
+      </tr>
+    </table>
+
+    <p>If it has 2-3 of these, it's good enough. Stop researching and start creating.</p>
+
+    <h3>Where you'll get stuck</h3>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I've been scrolling for 20 minutes looking for the perfect trend."</div>
+      <div class="stuck-solution">→ Stop at 5 minutes. Pick something with: listing age &lt;3-4 months + high sales + badge. That's enough. Move on.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I don't know what tags to use."</div>
+      <div class="stuck-solution">→ Look at the listing you got inspiration from. Copy their keywords + think like a buyer. Done.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I want to make 5 products."</div>
+      <div class="stuck-solution">→ Make 1. Ship it. Then make the next one.</div>
+    </div>
+
+    <h3>Prompts</h3>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Turn screenshot into prompt</div>
+      <div class="prompt-text">Create an AI art prompt based on this image.</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Get theme variations</div>
+      <div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Rewrite with your chosen style</div>
+      <div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[THEME like "Scandinavian glam gold"]</span>. Have lots of metallic effects. Keep <span class="placeholder">[MAIN ELEMENT]</span> super cute and watercolor. Add a magical matching background.</div>
+    </div>
+
+    <h3>Bailey's rules for Trend → Listing</h3>
+
+    <ol class="rules-list">
+      <li>
+        <div class="rule-content"><strong>Stop at 5 minutes of trend research</strong> — if it has &lt;3-4 months age + high sales + badges, that's enough. Move on.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Don't overthink SEO</strong> — copy keywords from successful listings + think like a buyer. Done.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Ship one, then repeat</strong> — don't build 5 products. Build 1, publish, make the next one.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Use your Vela templates</strong> — you shouldn't be writing descriptions from scratch every time.</div>
+      </li>
+    </ol>
+
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ WORKFLOW 3: NICHE PACK ============ -->
+  <div class="container">
+    <span class="workflow-badge workflow-badge-teal">Workflow 3</span>
+    
+    <div class="section-header">
+      <div class="section-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="10" height="10" rx="2" stroke="#2D8B8B" stroke-width="2.5" fill="none"/>
+          <rect x="18" y="4" width="10" height="10" rx="2" stroke="#2D8B8B" stroke-width="2.5" fill="none"/>
+          <rect x="4" y="18" width="10" height="10" rx="2" stroke="#2D8B8B" stroke-width="2.5" fill="none"/>
+          <rect x="18" y="18" width="10" height="10" rx="2" stroke="#2D8B8B" stroke-width="2.5" fill="none"/>
+        </svg>
+      </div>
+      <h2>Niche Pack</h2>
+    </div>
+
+    <p style="font-size: 1.1rem; color: var(--text-dark);">Own a niche with multiple products + a bundle. One design concept, 10+ listings.</p>
+
+    <h3>The short version</h3>
+
+    <p>Some niches have built-in variations — awareness ribbons (10+ cancers), states (50), hobbies, countries. Instead of making one product and hoping, you make all the variations at once, list them individually, then bundle them together.</p>
+    
+    <p>Bailey's state designs bundle: $10,000+.</p>
+
+    <!-- Speed Card -->
+    <div class="speed-card" style="border-color: var(--teal);">
+      <div class="speed-card-header" style="background: var(--teal);">
+        <h3>Niche Pack Speed Card</h3>
+        <div class="speed-card-time">60-90 min</div>
+      </div>
+      <div class="speed-card-body">
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">0-5 min</div>
+            <div class="timeline-task">Pick niche with easy variations (awareness, states, hobbies)</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">5-15 min</div>
+            <div class="timeline-task">ChatGPT → get 10 variation prompts at once</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">15-35 min</div>
+            <div class="timeline-task">Batch generate in Kittl</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">35-45 min</div>
+            <div class="timeline-task">Batch seamless in Photoshop</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">45-50 min</div>
+            <div class="timeline-task">BulkMockup all at once</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">50-75 min</div>
+            <div class="timeline-task">Vela → duplicate base listing → bulk replace images/files/tags</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-time" style="color: var(--teal);">75-90 min</div>
+            <div class="timeline-task">Create bundle (PDF → Google Drive link)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Checklist</h3>
+    <ul class="checklist">
+      <li><div class="checkbox"></div> Picked niche with 10+ natural variations</li>
+      <li><div class="checkbox"></div> Got all prompts from ChatGPT in one conversation</li>
+      <li><div class="checkbox"></div> Batch generated designs</li>
+      <li><div class="checkbox"></div> Batch made seamless</li>
+      <li><div class="checkbox"></div> Bulk mockups</li>
+      <li><div class="checkbox"></div> Duplicated base listing for each variation</li>
+      <li><div class="checkbox"></div> Used Find & Replace for titles/tags</li>
+      <li><div class="checkbox"></div> Published all individual listings</li>
+      <li><div class="checkbox"></div> Created bundle with PDF + Google Drive</li>
+    </ul>
+
+    <h3>Niches that work for this</h3>
+
+    <table class="simple-table">
+      <tr>
+        <th>Niche</th>
+        <th>Variations</th>
+      </tr>
+      <tr>
+        <td>Cancer / Awareness</td>
+        <td>Breast, lung, colon, childhood, pancreatic, etc. (10+)</td>
+      </tr>
+      <tr>
+        <td>States</td>
+        <td>All 50</td>
+      </tr>
+      <tr>
+        <td>Countries</td>
+        <td>Flags, landmarks, "I love [country]"</td>
+      </tr>
+      <tr>
+        <td>Hobbies</td>
+        <td>Golf, fishing, camping, gardening, etc.</td>
+      </tr>
+      <tr>
+        <td>Professions</td>
+        <td>Nurse, teacher, firefighter, etc.</td>
+      </tr>
+      <tr>
+        <td>Animals</td>
+        <td>Dogs by breed, cats by breed, etc.</td>
+      </tr>
+    </table>
+
+    <p>Pick one where you can make 10+ variations without inventing new concepts.</p>
+
+    <h3>Where you'll get stuck</h3>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I can't pick a niche."</div>
+      <div class="stuck-solution">→ Start with awareness ribbons, states, or hobbies. These always have built-in variations.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"I'm recreating SEO for each listing."</div>
+      <div class="stuck-solution">→ No. Duplicate your base listing. Use Find & Replace in Vela. Only change the niche-specific words. Everything else stays.</div>
+    </div>
+
+    <div class="stuck-point">
+      <div class="stuck-label">"One prompt came out bad."</div>
+      <div class="stuck-solution">→ Skip it. Don't let 1 bad prompt stall 9 good ones. You can redo it later.</div>
+    </div>
+
+    <h3>Prompts</h3>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Get style ideas</div>
+      <div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche. It should not be word art like this one.</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Get all variation prompts at once</div>
+      <div class="prompt-text">Create 10 AI written prompts for the most widely known <span class="placeholder">[VARIATIONS like "cancers" or "states" or "dog breeds"]</span> for this type of style, with one prompt containing <span class="placeholder">[ALL COLORS/ALL ELEMENTS]</span> that says "<span class="placeholder">[MAIN TEXT like 'Cancer Comes in Many Colors']</span>". The other 9 should have the text "<span class="placeholder">[INDIVIDUAL TEXT like 'Survivor']</span>" along with its <span class="placeholder">[COLOR/THEME]</span>.</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">Make them more unique</div>
+      <div class="prompt-text">Rewrite prompts 2-10 to be more unique and trendy. Do not include the word "tumbler wrap design" or reference a tumbler. Include <span class="placeholder">[ELEMENT like "gold metallic elements"]</span> in all.</div>
+    </div>
+
+    <h3>Bailey's rules for Niche Packs</h3>
+
+    <ol class="rules-list">
+      <li>
+        <div class="rule-content"><strong>Start with awareness, states, or hobbies</strong> — these always have built-in variations. Don't overthink niche selection.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Don't let 1 bad prompt stall 9 good ones</strong> — skip it, come back later.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Use Find & Replace in Vela</strong> — only change the niche-specific words. Everything else stays.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Price new listings low to rank faster</strong> — Bailey starts at $1 for a short window. Just don't leave it there forever — set a date or sales count where you raise it.</div>
+      </li>
+      <li>
+        <div class="rule-content"><strong>Bundle delivery = PDF + Google Drive</strong> — Etsy's 5-slot / 20MB limit won't fit 10+ designs. Create a PDF in Canva with the Drive link.</div>
+      </li>
+    </ol>
+
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ============ PROMPT APPENDIX ============ -->
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="4" width="20" height="24" rx="2" stroke="#E8927C" stroke-width="2.5" fill="none"/>
+          <path d="M10 10H22" stroke="#E8927C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 15H22" stroke="#E8927C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 20H18" stroke="#E8927C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2>Prompt Appendix</h2>
+    </div>
+
+    <p>Use these as building blocks. Don't paste them blindly — plug in your own niche, style, and product type where you see the <span style="background: var(--coral-light); padding: 0.1rem 0.4rem; border-radius: 3px; color: var(--coral-dark); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">[BRACKETS]</span>.</p>
+
+    <div class="divider"></div>
+
+    <h4>Style Variations</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche.</div>
+    </div>
+
+    <h4>Screenshot → AI Prompt</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Create an AI art prompt based on this image.</div>
+    </div>
+
+    <h4>Rewrite with Style</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[STYLE]</span>. Make it <span class="placeholder">[DESCRIPTORS like "grungy" or "metallic" or "watercolor"]</span>. Do not include the words "tumbler wrap design."</div>
+    </div>
+
+    <h4>Make More Unique</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Rewrite this prompt to be more unique and trendy. Add <span class="placeholder">[ELEMENT]</span>. Remove any reference to tumblers.</div>
+    </div>
+
+    <h4>Batch Variations</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Create 10 AI written prompts for the most widely known <span class="placeholder">[VARIATIONS]</span> for this type of style, with one prompt containing <span class="placeholder">[ALL ELEMENTS]</span> that says "<span class="placeholder">[MAIN TEXT]</span>". The other 9 should have the text "<span class="placeholder">[INDIVIDUAL TEXT]</span>" along with its <span class="placeholder">[COLOR/THEME]</span>.</div>
+    </div>
+
+    <h4>Quick SEO (if needed)</h4>
+    <div class="prompt-block">
+      <div class="prompt-text">Generate the SEO formatted title and tags for an Etsy listing for this design. The title needs to be under 40 characters and the tags need to be 13 in total and they can't exceed 21 characters.</div>
+    </div>
+
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="doc-footer">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 1.5rem;">
+      <circle cx="24" cy="24" r="22" stroke="#E8927C" stroke-width="3" fill="none"/>
+      <path d="M24 12V24L32 32" stroke="#E8927C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p>The point isn't to be perfect.<br>The point is to ship.</p>
+    <p style="margin-top: 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text-light);">One listing out in the world beats ten listings stuck in your head.</p>
+  </div>
+
+</body>
+</html>
