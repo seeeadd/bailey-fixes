@@ -6811,7 +6811,37 @@ let stageChecks = {};   // Track individual stage checklist items
 function toggleStageBody(n) {
   const stage = document.getElementById('stage-' + n);
   if (!stage || stage.classList.contains('locked')) return;
-  stage.classList.toggle('expanded');
+
+  // If stage is completed and user clicks header, uncomplete it
+  if (stage.classList.contains('completed')) {
+    uncompleteStage(n);
+  } else {
+    stage.classList.toggle('expanded');
+  }
+}
+
+function uncompleteStage(n) {
+  glowupStages[n] = false;
+  const stage = document.getElementById('stage-' + n);
+  if (stage) {
+    stage.classList.remove('completed');
+    stage.classList.add('active', 'expanded');
+  }
+
+  // Re-lock any stages after this one that aren't independently completed
+  for (let i = n + 1; i <= 7; i++) {
+    if (!glowupStages[i]) {
+      const laterStage = document.getElementById('stage-' + i);
+      if (laterStage) {
+        laterStage.classList.remove('active', 'expanded');
+        laterStage.classList.add('locked');
+      }
+    }
+  }
+
+  // Update progress
+  updateGlowupProgress();
+  saveGlowupState();
 }
 
 function toggleStageCheck(stageNum, itemNum) {
