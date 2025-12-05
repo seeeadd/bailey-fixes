@@ -4,12 +4,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Speed-Launch System</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.cdnfonts.com/css/ogg" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts - Multiple sources for reliability -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* Ogg font fallback - using direct embed */
+    @import url('https://fonts.cdnfonts.com/css/ogg');
+
     /* ========================================
        CSS VARIABLES
        ======================================== */
@@ -26,6 +28,9 @@
       --text-medium: #5A5A5A;
       --text-light: #888888;
       --white: #FFFFFF;
+      --font-heading: 'Ogg', 'Playfair Display', Georgia, serif;
+      --font-body: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
     }
 
     /* ========================================
@@ -37,16 +42,17 @@
     }
 
     .sl-embed {
-      font-family: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-family: var(--font-body) !important;
       font-weight: 500 !important;
-      font-size: 16px !important;
-      line-height: 1.6 !important;
+      font-size: 18px !important;
+      line-height: 1.7 !important;
       color: var(--text-dark) !important;
       background: var(--white) !important;
       -webkit-font-smoothing: antialiased !important;
       width: 100% !important;
       max-width: 100% !important;
       overflow-x: hidden !important;
+      position: relative !important;
     }
 
     /* ========================================
@@ -64,10 +70,10 @@
     }
 
     body {
-      font-family: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-body);
       font-weight: 500;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 18px;
+      line-height: 1.7;
       color: var(--text-dark);
       background: var(--white);
       -webkit-font-smoothing: antialiased;
@@ -88,31 +94,36 @@
        TYPOGRAPHY
        ======================================== */
     .sl-embed h1, .sl-embed h2, .sl-embed h3 {
-      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
-      font-weight: 900 !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 700 !important;
       letter-spacing: -0.02em !important;
-      line-height: 1.2 !important;
+      line-height: 1.25 !important;
       color: var(--text-dark) !important;
+      margin-bottom: 0.5rem !important;
     }
 
-    .sl-embed h1 { font-size: 2rem !important; }
-    .sl-embed h2 { font-size: 1.5rem !important; }
-    .sl-embed h3 { font-size: 1.15rem !important; }
+    .sl-embed h1 { font-size: 2.5rem !important; }
+    .sl-embed h2 { font-size: 1.85rem !important; }
+    .sl-embed h3 { font-size: 1.35rem !important; }
 
     .sl-embed .label {
-      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-family: var(--font-body) !important;
       font-weight: 700 !important;
-      font-size: 0.65rem !important;
+      font-size: 0.75rem !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.1em !important;
+      letter-spacing: 0.12em !important;
       color: var(--text-light) !important;
+      display: block !important;
+      margin-bottom: 0.25rem !important;
     }
 
     .sl-embed p {
-      margin-bottom: 0.75rem !important;
+      margin-bottom: 1rem !important;
       color: var(--text-medium) !important;
-      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-family: var(--font-body) !important;
       font-weight: 500 !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
     }
 
     .sl-embed strong {
@@ -162,14 +173,14 @@
     }
 
     .mode-btn {
-      padding: 0.5rem 1rem !important;
+      padding: 0.75rem 1.5rem !important;
       border-radius: 50px !important;
       border: none !important;
       background: transparent !important;
       color: var(--text-medium) !important;
-      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-family: var(--font-body) !important;
       font-weight: 600 !important;
-      font-size: 0.8rem !important;
+      font-size: 1rem !important;
       cursor: pointer !important;
       transition: all 0.2s !important;
     }
@@ -198,12 +209,13 @@
     }
 
     .rule-box p {
-      font-family: 'Ogg', 'Playfair Display', serif !important;
-      font-weight: 700 !important;
-      font-size: 1rem !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 500 !important;
+      font-size: 1.15rem !important;
       line-height: 1.6 !important;
       color: var(--text-dark) !important;
       margin: 0 !important;
+      font-style: italic !important;
     }
 
     /* ========================================
@@ -295,18 +307,23 @@
        ======================================== */
     .checklist {
       background: var(--cream);
-      border-radius: 12px;
-      padding: 0.5rem;
-      margin: 1rem 0;
+      border-radius: 14px;
+      padding: 0.75rem;
+      margin: 1.25rem 0;
     }
 
     .checklist-item {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.6rem;
+      gap: 0.85rem;
+      padding: 0.85rem;
       border-bottom: 1px solid var(--cream-dark);
       cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .checklist-item:hover {
+      background: rgba(255,255,255,0.5);
     }
 
     .checklist-item:last-child {
@@ -314,10 +331,10 @@
     }
 
     .checkbox {
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      border-radius: 4px;
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 6px;
       border: 2px solid var(--coral);
       background: var(--white);
       display: flex;
@@ -341,8 +358,8 @@
 
     .checkbox svg {
       display: none;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
     }
 
     .checkbox.checked svg {
@@ -350,9 +367,10 @@
     }
 
     .checklist-text {
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       color: var(--text-dark);
       flex: 1;
+      font-family: var(--font-body);
     }
 
     /* ========================================
@@ -514,8 +532,8 @@
     .step-row {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.75rem 0;
+      gap: 0.75rem;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--cream-dark);
     }
 
@@ -528,11 +546,11 @@
     }
 
     .step-time {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
       color: var(--coral-dark);
       font-weight: 500;
-      min-width: 55px;
+      min-width: 65px;
       padding-top: 2px;
     }
 
@@ -542,24 +560,25 @@
 
     .step-content {
       flex: 1;
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--text-dark);
-      line-height: 1.4;
+      line-height: 1.5;
+      font-family: var(--font-body);
     }
 
     .step-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
       background: var(--coral-light);
       color: var(--coral-dark);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       font-weight: 600;
       border-radius: 50%;
-      margin-right: 0.35rem;
+      margin-right: 0.5rem;
     }
 
     .step-num.teal {
@@ -568,8 +587,8 @@
     }
 
     .step-check {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       min-width: 20px;
     }
 
@@ -578,29 +597,29 @@
        ======================================== */
     .prompt-block {
       background: var(--cream);
-      border-radius: 10px;
-      padding: 0.75rem;
-      margin-bottom: 0.75rem;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .prompt-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       gap: 0.5rem;
     }
 
     .copy-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.5rem;
+      gap: 0.4rem;
+      padding: 0.5rem 0.75rem;
       background: var(--cream-dark);
       color: var(--text-medium);
       border: none;
-      border-radius: 4px;
-      font-size: 0.65rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       font-family: 'Satoshi', 'DM Sans', sans-serif;
@@ -613,9 +632,9 @@
     }
 
     .prompt-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      line-height: 1.6;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.7;
       color: var(--text-dark);
       word-break: break-word;
     }
@@ -623,9 +642,9 @@
     .placeholder {
       background: var(--coral-light);
       color: var(--coral-dark);
-      padding: 0.1rem 0.35rem;
-      border-radius: 3px;
-      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
     }
 
     /* ========================================
@@ -842,20 +861,26 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 0.4rem !important;
-      padding: 0.75rem 1.5rem !important;
+      gap: 0.5rem !important;
+      padding: 1rem 2rem !important;
       background: var(--coral) !important;
       color: var(--white) !important;
       border: none !important;
       border-radius: 50px !important;
-      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      font-family: var(--font-body) !important;
       font-weight: 700 !important;
-      font-size: 0.9rem !important;
+      font-size: 1.1rem !important;
       cursor: pointer !important;
-      margin-top: 1rem !important;
+      margin-top: 1.5rem !important;
       width: 100% !important;
-      max-width: 300px !important;
+      max-width: 350px !important;
       text-decoration: none !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     }
 
     .btn.teal {
@@ -922,23 +947,23 @@
     }
 
     .wf-title {
-      font-family: 'Ogg', 'Playfair Display', serif !important;
-      font-weight: 900 !important;
-      font-size: 1.1rem !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 700 !important;
+      font-size: 1.35rem !important;
       color: var(--text-dark) !important;
       line-height: 1.2 !important;
     }
 
     .wf-desc {
-      font-size: 0.8rem !important;
+      font-size: 0.95rem !important;
       color: var(--text-medium) !important;
-      margin: 0 !important;
-      font-family: 'Satoshi', 'DM Sans', sans-serif !important;
+      margin: 0.25rem 0 0 0 !important;
+      font-family: var(--font-body) !important;
     }
 
     .wf-time {
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 0.75rem !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.85rem !important;
       color: var(--coral-dark);
       background: var(--coral-light);
       padding: 0.25rem 0.5rem;
@@ -1050,26 +1075,49 @@
        ======================================== */
     .celebration {
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      padding: 1rem;
+      z-index: 99999;
+      padding: 2rem;
+      backdrop-filter: blur(4px);
     }
 
     .celebration.show {
-      display: flex;
+      display: flex !important;
     }
 
     .celebration-box {
       background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
       text-align: center;
-      max-width: 300px;
-      width: 100%;
+      max-width: 380px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: celebrationPop 0.4s ease-out;
+    }
+
+    .celebration-box h2 {
+      font-size: 2rem !important;
+      margin-top: 1.25rem !important;
+    }
+
+    .celebration-box p {
+      font-size: 1.1rem !important;
+      margin-top: 0.5rem !important;
+    }
+
+    @keyframes celebrationPop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     /* ========================================
