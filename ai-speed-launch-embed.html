@@ -536,20 +536,13 @@
        VIDEO EMBED - Wider than text content
        ======================================== */
     .video-embed {
-      width: calc(100% + 3rem);
-      max-width: 800px;
-      margin: 2rem auto 2rem -1.5rem;
+      width: 100%;
+      max-width: 100%;
+      margin: 2.5rem auto 3rem auto;
       border-radius: 16px;
       overflow: hidden;
       background: #FFF9F0;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    }
-
-    @media (min-width: 700px) {
-      .video-embed {
-        width: calc(100% + 6rem);
-        margin-left: -3rem;
-      }
     }
 
     .video-embed-wrapper {
@@ -858,35 +851,46 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.15rem 1.25rem;
-      background: var(--white);
+      padding: 1.35rem 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #faf8f5 100%);
       cursor: pointer;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text-dark);
       gap: 1rem;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
     }
 
     .accordion-header span {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .accordion.open .accordion-header {
       background: var(--cream);
+      border-bottom: 1px solid var(--cream-dark);
     }
 
     .accordion-icon {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       background: var(--cream-dark);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s;
+      transition: all 0.3s;
       flex-shrink: 0;
+    }
+
+    .accordion:hover .accordion-icon {
+      background: var(--coral-light);
     }
 
     .accordion.open .accordion-icon {
@@ -6596,7 +6600,25 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </table>
         <p class="table-note">If it has 2-3 of these, it's good enough. Stop researching and start creating.</p>
 
-        <!-- Where You'll Get Stuck -->
+        <!-- Prompts - MOVED BEFORE Stuck Section -->
+        <div class="accordion" id="acc-trend-prompts">
+          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+          <div class="accordion-content"><div class="accordion-inner">
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Turn Screenshot Into Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Create an AI art prompt based on this image.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Theme Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Rewrite with Your Chosen Style</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to change the style to [THEME like \"Scandinavian glam gold\"]. Have lots of metallic effects. Keep [MAIN ELEMENT] super cute and watercolor. Add a magical matching background.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[THEME like "Scandinavian glam gold"]</span>. Have lots of metallic effects. Keep <span class="placeholder">[MAIN ELEMENT]</span> super cute and watercolor. Add a magical matching background.</div></div>
+          </div></div>
+        </div>
+
+        <h3 class="mt-2">Bailey's Rules for Trend → Listing</h3>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Stop at 5 minutes of trend research — if it has &lt;3-4 months age + high sales + badges, that's enough. Move on.</span></div>
+          <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Don't overthink SEO — copy keywords from successful listings + think like a buyer. Done.</span></div>
+          <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Ship one, then repeat — don't build 5 products. Build 1, publish, make the next one.</span></div>
+          <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Use your Vela templates — you shouldn't be writing descriptions from scratch every time.</span></div>
+        </div>
+
+        <!-- Where You'll Get Stuck - MOVED AFTER Prompts and Rules -->
         <div class="stuck-section">
           <div class="stuck-section-header">
             <div class="stuck-section-icon">
@@ -6662,23 +6684,6 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
               <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Etsy trends last 3-6 months minimum. Seasonal ones repeat yearly.</strong> You're probably not too late. Stop overthinking and start making.</div></div>
             </div>
           </div>
-        </div>
-
-        <div class="accordion" id="acc-trend-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-          <div class="accordion-content"><div class="accordion-inner">
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Turn Screenshot Into Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Create an AI art prompt based on this image.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Theme Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Rewrite with Your Chosen Style</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to change the style to [THEME like \"Scandinavian glam gold\"]. Have lots of metallic effects. Keep [MAIN ELEMENT] super cute and watercolor. Add a magical matching background.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[THEME like "Scandinavian glam gold"]</span>. Have lots of metallic effects. Keep <span class="placeholder">[MAIN ELEMENT]</span> super cute and watercolor. Add a magical matching background.</div></div>
-          </div></div>
-        </div>
-
-        <h3 class="mt-2">Bailey's Rules for Trend → Listing</h3>
-        <div class="rules-list">
-          <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Stop at 5 minutes of trend research — if it has &lt;3-4 months age + high sales + badges, that's enough. Move on.</span></div>
-          <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Don't overthink SEO — copy keywords from successful listings + think like a buyer. Done.</span></div>
-          <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Ship one, then repeat — don't build 5 products. Build 1, publish, make the next one.</span></div>
-          <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Use your Vela templates — you shouldn't be writing descriptions from scratch every time.</span></div>
         </div>
       </div>
     </div>
