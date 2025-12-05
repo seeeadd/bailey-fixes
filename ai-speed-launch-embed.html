@@ -395,6 +395,82 @@
       font-family: 'Satoshi', -apple-system, sans-serif !important;
     }
 
+    /* Stuck List */
+    .stuck-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      background: #fff8f5;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+
+    .stuck-list li {
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: var(--text-medium);
+      font-style: italic;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .stuck-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .stuck-list li:first-child {
+      padding-top: 0;
+    }
+
+    /* Rules List */
+    .rules-list {
+      margin: 1rem 0;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--cream);
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+    }
+
+    .rule-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .rule-num {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: var(--teal);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .rule-text {
+      flex: 1;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    /* Table note */
+    .table-note {
+      font-size: 0.9rem !important;
+      font-style: italic;
+      color: var(--text-light) !important;
+      margin-top: 0.5rem !important;
+    }
+
     /* ========================================
        TOOLS
        ======================================== */
@@ -457,16 +533,23 @@
     }
 
     /* ========================================
-       VIDEO EMBED
+       VIDEO EMBED - Wider than text content
        ======================================== */
     .video-embed {
-      width: 100%;
-      max-width: 700px;
-      margin: 1.5rem auto;
+      width: calc(100% + 3rem);
+      max-width: 800px;
+      margin: 2rem auto 2rem -1.5rem;
       border-radius: 16px;
       overflow: hidden;
       background: #FFF9F0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    @media (min-width: 700px) {
+      .video-embed {
+        width: calc(100% + 6rem);
+        margin-left: -3rem;
+      }
     }
 
     .video-embed-wrapper {
@@ -486,13 +569,13 @@
     }
 
     .video-embed-label {
-      font-size: 0.8rem !important;
+      font-size: 0.85rem !important;
       font-weight: 700 !important;
       font-family: 'Satoshi', -apple-system, sans-serif !important;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #D4735D;
-      padding: 1rem;
+      padding: 1rem 1.25rem;
       text-align: center;
       background: #FCE8E4;
     }
@@ -500,6 +583,16 @@
     .video-embed-label.teal {
       color: #1F6B6B;
       background: #E8F5F0;
+    }
+
+    .video-optional {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: none;
+      letter-spacing: normal;
+      display: block;
+      margin-top: 0.25rem;
     }
 
     /* ========================================
@@ -1301,32 +1394,66 @@
     .glowup-progress {
       background: white;
       border-radius: 8px;
-      padding: 0.5rem 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
-    .glowup-progress-bar {
-      width: 200px;
+    .glowup-progress .progress-bar {
+      width: 100%;
       height: 8px;
       background: var(--cream-dark);
       border-radius: 4px;
       overflow: hidden;
     }
 
-    .glowup-progress-fill {
+    .glowup-progress .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--coral) 0%, var(--teal) 100%);
       border-radius: 4px;
       transition: width 0.5s ease;
     }
 
-    .glowup-progress-text {
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .progress-text {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
       color: var(--text-medium);
+    }
+
+    .reset-btn-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      background: transparent;
+      border: 1px solid var(--cream-dark);
+      border-radius: 6px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .reset-btn-inline:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      background: var(--coral-light);
+    }
+
+    .reset-btn-inline svg {
+      width: 12px;
+      height: 12px;
     }
 
     /* Stage Divider */
@@ -1814,6 +1941,170 @@
 
     .sub-accordion-inner {
       padding: 1rem;
+    }
+
+    /* Prompt Step Cards - Better visual organization */
+    .prompt-step {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--coral);
+    }
+
+    .prompt-step.example {
+      background: #f8f8f8;
+      border-left-color: var(--teal);
+    }
+
+    .prompt-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .prompt-step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--coral);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .prompt-step.example .prompt-step-num {
+      background: var(--teal);
+    }
+
+    .prompt-step-title {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    .prompt-step .code-block {
+      margin: 1rem 0 0 0;
+    }
+
+    /* Improve Section - Collapsible */
+    .improve-section {
+      border: 1px solid var(--cream-dark);
+      border-radius: 12px;
+      margin-top: 2rem;
+      overflow: hidden;
+    }
+
+    .improve-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--cream);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .improve-section-header:hover {
+      background: var(--cream-dark);
+    }
+
+    .improve-section.open .improve-section-header {
+      background: #fff3e6;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .improve-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--coral-dark);
+    }
+
+    .improve-section-icon {
+      transition: transform 0.3s;
+    }
+
+    .improve-section.open .improve-section-icon {
+      transform: rotate(180deg);
+    }
+
+    .improve-section-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .improve-section.open .improve-section-body {
+      max-height: 3000px;
+    }
+
+    .improve-section-inner {
+      padding: 1.5rem;
+    }
+
+    .improve-item {
+      background: #fff8f5;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--coral-light);
+    }
+
+    .improve-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .improve-item-problem {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .improve-item .code-block {
+      margin: 0;
+    }
+
+    /* Expand body padding fix */
+    .stage-expand-body {
+      padding: 0;
+    }
+
+    .stage-expand-body > h4:first-child,
+    .stage-expand-body > ol:first-child,
+    .stage-expand-body > p:first-child {
+      padding: 1.25rem 1.5rem 0 1.5rem;
+    }
+
+    .stage-expand-body > h4,
+    .stage-expand-body > ol,
+    .stage-expand-body > p,
+    .stage-expand-body > ul {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .stage-expand-body .prompt-step,
+    .stage-expand-body .improve-section,
+    .stage-expand-body .example-box {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+
+    .stage-expand-body > hr.expand-divider {
+      margin: 1.5rem;
     }
 
     /* Complete Button */
@@ -2542,7 +2833,13 @@
             <div class="progress-bar">
               <div class="progress-fill" id="glowup-progress-fill" style="width: 0%"></div>
             </div>
-            <div class="progress-text"><span id="glowup-stages-done">0</span> / 8 stages complete</div>
+            <div class="progress-row">
+              <div class="progress-text"><span id="glowup-stages-done">0</span> / 8 stages complete</div>
+              <button class="reset-btn-inline" onclick="resetGlowup()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Reset
+              </button>
+            </div>
           </div>
 
           <!-- STAGE 0: Before You Start -->
@@ -4509,36 +4806,76 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
       <div class="section-inner">
         <span class="badge badge-teal">WORKFLOW 1</span>
         <h2>Trend → Listing</h2>
-        <p>Find what's selling, make your version, ship today.</p>
+        <p>New product from scratch. Find what's selling, make your version, ship it today.</p>
+        <p class="text-muted">You need a new product but you don't know what to make. Instead of guessing, you find something that's already selling right now, reverse-engineer the style, make your own version, and ship it the same day. No guessing. No hoping. Just data.</p>
 
         <div class="video-embed">
-          <div class="video-embed-label teal">WORKFLOW 1 — TREND → LISTING WALKTHROUGH</div>
+          <div class="video-embed-label teal">WORKFLOW 1 — TREND → LISTING WALKTHROUGH<span class="video-optional">(optional)</span></div>
           <div class="video-embed-wrapper">
             <iframe src="https://share.descript.com/embed/JcP2fOEKSwy" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="speed-card">
-          <div class="speed-header teal"><h3>Speed Card</h3><span class="speed-badge">45-60 min</span></div>
+          <div class="speed-header teal"><h3>Trend → Listing Speed Card</h3><span class="speed-badge">45-60 min</span></div>
           <div class="speed-body">
-            <div class="step-row"><span class="step-time teal">0-5</span><span class="step-content"><span class="step-num teal">1</span>Find listing &lt;3 months + badges</span><div class="checkbox step-check teal" onclick="toggleCheck('rt1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">5-10</span><span class="step-content"><span class="step-num teal">2</span>Screenshot → 10 variations</span><div class="checkbox step-check teal" onclick="toggleCheck('rt2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">10-30</span><span class="step-content"><span class="step-num teal">3</span>Generate in Kittl + seamless</span><div class="checkbox step-check teal" onclick="toggleCheck('rt3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">30-55</span><span class="step-content"><span class="step-num teal">4</span>Mockup → Vela template</span><div class="checkbox step-check teal" onclick="toggleCheck('rt4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">55-60</span><span class="step-content"><span class="step-num teal">5</span>Publish</span><div class="checkbox step-check teal" onclick="toggleCheck('rt5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">0-5 min</span><span class="step-content"><span class="step-num teal">1</span>Etsy + ProfitTree/EverBee → find listing &lt;3 months old with high sales + badges</span><div class="checkbox step-check teal" onclick="toggleCheck('rt1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">5-10 min</span><span class="step-content"><span class="step-num teal">2</span>Screenshot → ChatGPT → get AI prompt → ask for 10 theme variations → pick one</span><div class="checkbox step-check teal" onclick="toggleCheck('rt2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">10-20 min</span><span class="step-content"><span class="step-num teal">3</span>Generate in Kittl (2-3 generators) → pick best</span><div class="checkbox step-check teal" onclick="toggleCheck('rt3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">20-30 min</span><span class="step-content"><span class="step-num teal">4</span>Make seamless in Photoshop</span><div class="checkbox step-check teal" onclick="toggleCheck('rt4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">30-32 min</span><span class="step-content"><span class="step-num teal">5</span>BulkMockup</span><div class="checkbox step-check teal" onclick="toggleCheck('rt5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">32-55 min</span><span class="step-content"><span class="step-num teal">6</span>Vela → use template → add images, files, niche tags</span><div class="checkbox step-check teal" onclick="toggleCheck('rt6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">55-60 min</span><span class="step-content"><span class="step-num teal">7</span>Publish</span><div class="checkbox step-check teal" onclick="toggleCheck('rt7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
           </div>
         </div>
 
-        <h3 class="mt-2">What to Look For</h3>
+        <h3 class="mt-2">Checklist</h3>
+        <div class="checklist">
+          <div class="checklist-item" onclick="toggleCheck('tc1')"><div class="checkbox teal" id="check-tc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Found a trending design (&lt;3 months, high sales, badges)</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc2')"><div class="checkbox teal" id="check-tc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Screenshot → ChatGPT → got style variations</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc3')"><div class="checkbox teal" id="check-tc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Generated design in Kittl</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc4')"><div class="checkbox teal" id="check-tc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Made seamless</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc5')"><div class="checkbox teal" id="check-tc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Created mockups</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc6')"><div class="checkbox teal" id="check-tc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Used Vela template (not from scratch)</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc7')"><div class="checkbox teal" id="check-tc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Added niche-specific tags (only 3 needed)</span></div>
+          <div class="checklist-item" onclick="toggleCheck('tc8')"><div class="checkbox teal" id="check-tc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
+        </div>
+
+        <h3 class="mt-2">What to Look For in Trend Research</h3>
         <table class="data-table">
-          <thead><tr><th>Signal</th><th>Meaning</th></tr></thead>
+          <thead><tr><th>Signal</th><th>What It Means</th></tr></thead>
           <tbody>
-            <tr><td>Age</td><td>&lt;3 months</td></tr>
-            <tr><td>Sales</td><td>High for age</td></tr>
-            <tr><td>Badges</td><td>Bestseller / Popular</td></tr>
+            <tr><td>Listing age</td><td>Less than 3-4 months old (newer = trend is still hot)</td></tr>
+            <tr><td>Sales</td><td>High number relative to age</td></tr>
+            <tr><td>Badges</td><td>Bestseller or Popular Now</td></tr>
+            <tr><td>Social proof</td><td>"6 people bought this in the last 24 hours"</td></tr>
           </tbody>
         </table>
-        <p class="table-note">2-3 signals = good enough. Stop researching.</p>
+        <p class="table-note">If it has 2-3 of these, it's good enough. Stop researching and start creating.</p>
+
+        <h3 class="mt-2">Where You'll Get Stuck</h3>
+        <ul class="stuck-list">
+          <li>"I've been scrolling for 20 minutes looking for the perfect trend."</li>
+          <li>"I don't know what tags to use."</li>
+          <li>"I want to make 5 products."</li>
+        </ul>
+
+        <div class="accordion" id="acc-trend-prompts">
+          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+          <div class="accordion-content"><div class="accordion-inner">
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Turn Screenshot Into Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Create an AI art prompt based on this image.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Theme Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Rewrite with Your Chosen Style</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to change the style to [THEME like \"Scandinavian glam gold\"]. Have lots of metallic effects. Keep [MAIN ELEMENT] super cute and watercolor. Add a magical matching background.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[THEME like "Scandinavian glam gold"]</span>. Have lots of metallic effects. Keep <span class="placeholder">[MAIN ELEMENT]</span> super cute and watercolor. Add a magical matching background.</div></div>
+          </div></div>
+        </div>
+
+        <h3 class="mt-2">Bailey's Rules for Trend → Listing</h3>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Stop at 5 minutes of trend research — if it has &lt;3-4 months age + high sales + badges, that's enough. Move on.</span></div>
+          <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Don't overthink SEO — copy keywords from successful listings + think like a buyer. Done.</span></div>
+          <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Ship one, then repeat — don't build 5 products. Build 1, publish, make the next one.</span></div>
+          <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Use your Vela templates — you shouldn't be writing descriptions from scratch every time.</span></div>
+        </div>
       </div>
     </div>
 
@@ -4547,36 +4884,80 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
       <div class="section-inner">
         <span class="badge badge-teal">WORKFLOW 3</span>
         <h2>Niche Pack</h2>
-        <p>One concept, 10+ listings.</p>
+        <p>Own a niche with multiple products + a bundle. One design concept, 10+ listings.</p>
+        <p class="text-muted">Some niches have built-in variations — awareness ribbons (10+ cancers), states (50), hobbies, countries. Instead of making one product and hoping, you make all the variations at once, list them individually, then bundle them together. Bailey's state designs bundle: $10,000+.</p>
 
         <div class="video-embed">
-          <div class="video-embed-label teal">WORKFLOW 3 — NICHE PACK WALKTHROUGH</div>
+          <div class="video-embed-label teal">WORKFLOW 3 — NICHE PACK WALKTHROUGH<span class="video-optional">(optional)</span></div>
           <div class="video-embed-wrapper">
             <iframe src="https://share.descript.com/embed/iawCAVpOJ1c" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="speed-card">
-          <div class="speed-header teal"><h3>Speed Card</h3><span class="speed-badge">60-90 min</span></div>
+          <div class="speed-header teal"><h3>Niche Pack Speed Card</h3><span class="speed-badge">60-90 min</span></div>
           <div class="speed-body">
-            <div class="step-row"><span class="step-time teal">0-5</span><span class="step-content"><span class="step-num teal">1</span>Pick niche with 10+ variations</span><div class="checkbox step-check teal" onclick="toggleCheck('rn1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">5-15</span><span class="step-content"><span class="step-num teal">2</span>ChatGPT → 10 prompts</span><div class="checkbox step-check teal" onclick="toggleCheck('rn2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">15-45</span><span class="step-content"><span class="step-num teal">3</span>Batch generate + seamless</span><div class="checkbox step-check teal" onclick="toggleCheck('rn3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">45-75</span><span class="step-content"><span class="step-num teal">4</span>Bulk mockup → Vela duplicate</span><div class="checkbox step-check teal" onclick="toggleCheck('rn4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="step-row"><span class="step-time teal">75-90</span><span class="step-content"><span class="step-num teal">5</span>Publish + create bundle</span><div class="checkbox step-check teal" onclick="toggleCheck('rn5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">0-5 min</span><span class="step-content"><span class="step-num teal">1</span>Pick niche with easy variations (awareness, states, hobbies)</span><div class="checkbox step-check teal" onclick="toggleCheck('rn1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">5-15 min</span><span class="step-content"><span class="step-num teal">2</span>ChatGPT → get 10 variation prompts at once</span><div class="checkbox step-check teal" onclick="toggleCheck('rn2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">15-35 min</span><span class="step-content"><span class="step-num teal">3</span>Batch generate in Kittl</span><div class="checkbox step-check teal" onclick="toggleCheck('rn3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">35-45 min</span><span class="step-content"><span class="step-num teal">4</span>Batch seamless in Photoshop</span><div class="checkbox step-check teal" onclick="toggleCheck('rn4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">45-50 min</span><span class="step-content"><span class="step-num teal">5</span>BulkMockup all at once</span><div class="checkbox step-check teal" onclick="toggleCheck('rn5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">50-75 min</span><span class="step-content"><span class="step-num teal">6</span>Vela → duplicate base listing → bulk replace images/files/tags</span><div class="checkbox step-check teal" onclick="toggleCheck('rn6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="step-row"><span class="step-time teal">75-90 min</span><span class="step-content"><span class="step-num teal">7</span>Create bundle (PDF → Google Drive link)</span><div class="checkbox step-check teal" onclick="toggleCheck('rn7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
           </div>
         </div>
 
-        <h3 class="mt-2">Niches That Work</h3>
+        <h3 class="mt-2">Checklist</h3>
+        <div class="checklist">
+          <div class="checklist-item" onclick="toggleCheck('nc1')"><div class="checkbox teal" id="check-nc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Picked niche with 10+ natural variations</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc2')"><div class="checkbox teal" id="check-nc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Got all prompts from ChatGPT in one conversation</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc3')"><div class="checkbox teal" id="check-nc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Batch generated designs</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc4')"><div class="checkbox teal" id="check-nc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Batch made seamless</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc5')"><div class="checkbox teal" id="check-nc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Bulk mockups</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc6')"><div class="checkbox teal" id="check-nc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Duplicated base listing for each variation</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc7')"><div class="checkbox teal" id="check-nc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Used Find &amp; Replace for titles/tags</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc8')"><div class="checkbox teal" id="check-nc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published all individual listings</span></div>
+          <div class="checklist-item" onclick="toggleCheck('nc9')"><div class="checkbox teal" id="check-nc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Created bundle with PDF + Google Drive</span></div>
+        </div>
+
+        <h3 class="mt-2">Niches That Work for This</h3>
         <table class="data-table">
           <thead><tr><th>Niche</th><th>Variations</th></tr></thead>
           <tbody>
-            <tr><td>Awareness</td><td>Breast, lung, etc. (10+)</td></tr>
+            <tr><td>Cancer / Awareness</td><td>Breast, lung, colon, childhood, pancreatic, etc. (10+)</td></tr>
             <tr><td>States</td><td>All 50</td></tr>
-            <tr><td>Hobbies</td><td>Golf, fishing, etc.</td></tr>
-            <tr><td>Professions</td><td>Nurse, teacher, etc.</td></tr>
+            <tr><td>Countries</td><td>Flags, landmarks, "I love [country]"</td></tr>
+            <tr><td>Hobbies</td><td>Golf, fishing, camping, gardening, etc.</td></tr>
+            <tr><td>Professions</td><td>Nurse, teacher, firefighter, etc.</td></tr>
+            <tr><td>Animals</td><td>Dogs by breed, cats by breed, etc.</td></tr>
           </tbody>
         </table>
+        <p class="table-note">Pick one where you can make 10+ variations without inventing new concepts.</p>
+
+        <h3 class="mt-2">Where You'll Get Stuck</h3>
+        <ul class="stuck-list">
+          <li>"I can't pick a niche."</li>
+          <li>"I'm recreating SEO for each listing."</li>
+          <li>"One prompt came out bad."</li>
+        </ul>
+
+        <div class="accordion" id="acc-niche-prompts">
+          <div class="accordion-header" onclick="toggleAccordion('acc-niche-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+          <div class="accordion-content"><div class="accordion-inner">
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Style Ideas</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the [NICHE] niche. It should not be word art like this one.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche. It should not be word art like this one.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Get All Variation Prompts at Once</span><button class="copy-btn" onclick="copyPrompt(this,'Create 10 AI written prompts for the most widely known [VARIATIONS like \"cancers\" or \"states\" or \"dog breeds\"] for this type of style, with one prompt containing [ALL COLORS/ALL ELEMENTS] that says \"[MAIN TEXT like \'Cancer Comes in Many Colors\']\". The other 9 should have the text \"[INDIVIDUAL TEXT like \'Survivor\']\" along with its [COLOR/THEME].')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create 10 AI written prompts for the most widely known <span class="placeholder">[VARIATIONS like "cancers" or "states" or "dog breeds"]</span> for this type of style, with one prompt containing <span class="placeholder">[ALL COLORS/ALL ELEMENTS]</span> that says "<span class="placeholder">[MAIN TEXT like 'Cancer Comes in Many Colors']</span>". The other 9 should have the text "<span class="placeholder">[INDIVIDUAL TEXT like 'Survivor']</span>" along with its <span class="placeholder">[COLOR/THEME]</span>.</div></div>
+            <div class="prompt-block"><div class="prompt-header"><span class="label">Make Them More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite prompts 2-10 to be more unique and trendy. Do not include the word \"tumbler wrap design\" or reference a tumbler. Include [ELEMENT like \"gold metallic elements\"] in all.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite prompts 2-10 to be more unique and trendy. Do not include the word "tumbler wrap design" or reference a tumbler. Include <span class="placeholder">[ELEMENT like "gold metallic elements"]</span> in all.</div></div>
+          </div></div>
+        </div>
+
+        <h3 class="mt-2">Bailey's Rules for Niche Packs</h3>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Start with awareness, states, or hobbies — these always have built-in variations. Don't overthink niche selection.</span></div>
+          <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Don't let 1 bad prompt stall 9 good ones — skip it, come back later.</span></div>
+          <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Use Find &amp; Replace in Vela — only change the niche-specific words. Everything else stays.</span></div>
+          <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Price new listings low to rank faster — Bailey starts at $1 for a short window. Just don't leave it there forever — set a date or sales count where you raise it.</span></div>
+          <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Bundle delivery = PDF + Google Drive — Etsy's 5-slot / 20MB limit won't fit 10+ designs. Create a PDF in Canva with the Drive link.</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -4737,6 +5118,11 @@ function toggleStageCheck(stageNum, itemNum) {
 }
 
 function toggleExpand(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+
+function toggleImprove(id) {
   const el = document.getElementById(id);
   if (el) el.classList.toggle('open');
 }
