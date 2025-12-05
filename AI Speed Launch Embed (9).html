@@ -3689,6 +3689,316 @@
 
       .celebration-box { padding: 1.5rem; }
     }
+
+    /* ========================================
+       QUICK REFERENCE PROMPTS
+       ======================================== */
+    .quick-ref {
+      background: var(--white);
+      border: 2px solid var(--cream-dark);
+      border-radius: 16px;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .quick-ref-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--cream);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .quick-ref-header:hover {
+      background: var(--cream-dark);
+    }
+
+    .quick-ref-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .quick-ref-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .quick-ref-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      flex: 1;
+    }
+
+    .quick-ref-toggle {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .quick-ref.open .quick-ref-toggle {
+      transform: rotate(180deg);
+    }
+
+    .quick-ref-body {
+      display: none;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .quick-ref.open .quick-ref-body {
+      display: block;
+    }
+
+    /* How To Use Section */
+    .how-to-use {
+      background: linear-gradient(135deg, #f8f6f3 0%, #fff 100%);
+      border: 1px solid var(--cream-dark);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .how-to-use-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-medium);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .how-to-use-title svg {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+    }
+
+    .how-to-use-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .how-to-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.85rem;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .how-to-step-num {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .how-to-arrow {
+      color: var(--text-light);
+      font-size: 1.2rem;
+    }
+
+    .how-to-note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--cream-dark);
+      font-size: 0.85rem;
+      color: var(--text-medium);
+      font-style: italic;
+    }
+
+    /* Prompts Section Title */
+    .prompts-section-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-medium);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Individual Prompt Cards */
+    .prompt-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .prompt-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .prompt-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--cream);
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .prompt-card-header:hover {
+      background: var(--cream-dark);
+    }
+
+    .prompt-card-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      flex: 1;
+    }
+
+    .prompt-card-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-medium);
+      transition: transform 0.3s ease;
+    }
+
+    .prompt-card.open .prompt-card-toggle {
+      transform: rotate(180deg);
+    }
+
+    .prompt-card-body {
+      display: none;
+      padding: 1.25rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .prompt-card.open .prompt-card-body {
+      display: block;
+    }
+
+    .prompt-card-copy {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .prompt-card-text {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Placeholder styling - different colors for visibility */
+    .placeholder-input {
+      background: #E8F5F0;
+      color: #1F6B6B;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px dashed #2D8B8B;
+    }
+
+    .placeholder-example {
+      background: #FFF3E0;
+      color: #E65100;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    /* Prompt subsections */
+    .prompt-subsection {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--cream-dark);
+    }
+
+    .prompt-subsection-title {
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-medium);
+      margin-bottom: 0.75rem;
+    }
+
+    .prompt-element {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      padding: 0.5rem 0;
+    }
+
+    .prompt-element strong {
+      color: var(--teal-dark);
+    }
+
+    /* Quick Reference responsive */
+    @media (max-width: 600px) {
+      .quick-ref-header {
+        padding: 1rem;
+      }
+      .quick-ref-title {
+        font-size: 1.1rem;
+      }
+      .quick-ref-body {
+        padding: 0 1rem 1rem;
+      }
+      .how-to-use {
+        padding: 1rem;
+      }
+      .how-to-steps {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .how-to-arrow {
+        display: none;
+      }
+      .prompt-card-header {
+        padding: 0.85rem 1rem;
+      }
+      .prompt-card-body {
+        padding: 1rem;
+      }
+      .prompt-card-text {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
