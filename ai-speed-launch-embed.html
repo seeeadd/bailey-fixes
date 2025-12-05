@@ -2288,6 +2288,241 @@
       color: var(--text-dark);
     }
 
+    /* Floating Back to Paths Button */
+    .floating-back-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.25rem;
+      background: white;
+      color: var(--text-dark);
+      border: 2px solid var(--cream-dark);
+      border-radius: 50px;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 9998;
+      transition: all 0.3s ease;
+    }
+
+    .floating-back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.2);
+      border-color: var(--coral);
+      color: var(--coral-dark);
+    }
+
+    .floating-back-btn.visible {
+      display: flex;
+    }
+
+    .floating-back-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .floating-back-btn {
+        bottom: 16px;
+        left: 16px;
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ========================================
+       STUCK ITEMS - FAQ Style
+       ======================================== */
+    .stuck-section {
+      margin: 1.5rem 0;
+    }
+
+    .stuck-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .stuck-section-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stuck-section-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .stuck-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stuck-item {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--cream-dark);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .stuck-item:hover {
+      border-color: var(--coral-light);
+      box-shadow: 0 2px 12px rgba(232,146,124,0.1);
+    }
+
+    .stuck-item-q {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      background: var(--cream);
+      transition: background 0.2s;
+    }
+
+    .stuck-item-q:hover {
+      background: #fff5f3;
+    }
+
+    .stuck-item.open .stuck-item-q {
+      background: #fff5f3;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .stuck-item-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stuck-item-icon.thought {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+
+    .stuck-item-icon.time {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+
+    .stuck-item-icon.wrong {
+      background: linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%);
+    }
+
+    .stuck-item-icon.question {
+      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    }
+
+    .stuck-item-icon.error {
+      background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    }
+
+    .stuck-item-icon.choice {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+
+    .stuck-item-icon.doubt {
+      background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+    }
+
+    .stuck-item-icon.busy {
+      background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    }
+
+    .stuck-item-icon.overthink {
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    }
+
+    .stuck-item-text {
+      flex: 1;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .stuck-item-toggle {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .stuck-item.open .stuck-item-toggle {
+      transform: rotate(45deg);
+      background: var(--coral-light);
+    }
+
+    .stuck-item-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .stuck-item.open .stuck-item-a {
+      max-height: 500px;
+    }
+
+    .stuck-item-answer {
+      padding: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-medium);
+      background: white;
+    }
+
+    .stuck-item-answer strong {
+      color: var(--text-dark);
+    }
+
+    /* Path Card Custom Icons */
+    .path-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .path-icon.design {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+      border-radius: 12px;
+    }
+
+    .path-icon.listing {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      border-radius: 12px;
+    }
+
+    .path-icon.full {
+      background: linear-gradient(135deg, #ff9a9e 0%, #a8edea 100%);
+      border-radius: 12px;
+    }
+
     /* Design Glow-Up Section */
     .design-glowup-section {
       display: none;
@@ -3177,7 +3412,7 @@
     <div class="section dimmed" id="step-2">
       <div class="section-inner">
         <span class="badge badge-coral">WORKFLOW 2</span>
-        <h2>⭐ Glow-Up</h2>
+        <h2>Glow-Up</h2>
 
         <!-- PATH SELECTOR -->
         <div class="path-selector" id="path-selector">
@@ -3187,26 +3422,32 @@
 
           <div class="path-cards">
             <div class="path-card design" onclick="selectGlowupPath('design')">
-              <div class="path-card-icon">🎨</div>
+              <div class="path-icon design">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4735D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div class="path-card-title">DESIGN GLOW-UP</div>
               <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
-              <div class="path-card-time">⏱ 30-60 min</div>
+              <div class="path-card-time">30-60 min</div>
               <button class="path-card-btn">Start</button>
             </div>
 
             <div class="path-card listing" onclick="selectGlowupPath('listing')">
-              <div class="path-card-icon">📋</div>
+              <div class="path-icon listing">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div class="path-card-title">LISTING GLOW-UP</div>
               <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
-              <div class="path-card-time">⏱ 60 min</div>
+              <div class="path-card-time">60 min</div>
               <button class="path-card-btn">Start</button>
             </div>
 
             <div class="path-card full" onclick="selectGlowupPath('full')">
-              <div class="path-card-icon">🔥</div>
+              <div class="path-icon full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="url(#fullGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="fullGrad" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#D4735D"/><stop offset="1" stop-color="#1F6B6B"/></linearGradient></defs></svg>
+              </div>
               <div class="path-card-title">FULL GLOW-UP</div>
               <div class="path-card-desc">Do both. New design + full listing optimization.</div>
-              <div class="path-card-time">⏱ 90 min</div>
+              <div class="path-card-time">90 min</div>
               <button class="path-card-btn">Start</button>
             </div>
           </div>
@@ -3264,17 +3505,87 @@
           </div>
 
           <!-- Where You'll Get Stuck -->
-          <div class="accordion" id="acc-design-stuck">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-stuck')"><span>Where You'll Get Stuck</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <ul class="stuck-list">
-                <li>"I don't know how to write a good AI prompt."</li>
-                <li>"I'm trying to revive a listing that never sold."</li>
-                <li>"Should I rewrite the SEO?"</li>
-                <li>"The AI messed up the text."</li>
-                <li>"Do I edit the original listing or make a new one?"</li>
-              </ul>
-            </div></div>
+          <div class="stuck-section">
+            <div class="stuck-section-header">
+              <div class="stuck-section-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="stuck-section-title">Where You'll Get Stuck</h3>
+            </div>
+            <div class="stuck-items">
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon thought"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6-4.5 7.5L16 22h-8l-.5-3.5C5 17 3 14.5 3 11a9 9 0 0 1 9-9z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                  <span class="stuck-item-text">"I don't know what prompt to use for AI mockups."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Screenshot your old design → upload to ChatGPT → <strong>"Give me 10 style variations of this design"</strong> → pick one → <strong>"Now write me a Midjourney prompt for this."</strong> Done. AI writes the prompt for you.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"I spent 30 minutes trying to get the perfect mockup."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">You're decorating, not selling. <strong>First mockup that's better than your current one = done.</strong> Move on. You can always swap it later.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon wrong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"I'm trying to revive a listing that never sold."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Wrong listing.</strong> Glow-ups are for winners with momentum, not losers you're hoping will magically work. Pick something that already has sales.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon question"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/><path d="M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"Should I rewrite the title and tags too?"</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Only if they're broken. <strong>If the listing ranked before, the SEO is fine.</strong> Just fix the images and files. That's where the money is.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#5A5A5A" stroke-width="2"/><path d="M12 9v4M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"The AI messed up the text on my design."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>AI can't do text.</strong> Add it manually in Kittl or Canva. Pick a font, type the words, add a stroke or shadow. 2 minutes, looks better anyway.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon choice"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M16 3h5v5M21 3L9 15M8 3H3v18h18v-5" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <span class="stuck-item-text">"Edit the original listing or duplicate it?"</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Bailey duplicates and keeps the old SEO intact. <strong>If you edit the original, don't touch the keywords that were already ranking.</strong></div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon doubt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                  <span class="stuck-item-text">"My new mockup looks worse than the old one."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Then don't use it.</strong> This isn't about change for change's sake. Only swap if it's actually an upgrade. Trust your gut.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon busy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#5A5A5A" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"I don't have time to do all 7 steps."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Then just do <strong>Step 1 (thumbnail)</strong> and <strong>Step 3 (description)</strong>. Those two move the needle most. Come back for the rest tomorrow.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon overthink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"I keep second-guessing myself."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Set a timer. 60 minutes.</strong> When it goes off, hit publish, whatever state it's in. Done is better than perfect. You can always edit later.</div></div>
+              </div>
+            </div>
           </div>
 
           <!-- Prompts -->
@@ -5362,32 +5673,38 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
     <div class="section hidden" id="wf-glowup">
       <div class="section-inner">
         <span class="badge badge-coral">WORKFLOW 2</span>
-        <h2>⭐ Glow-Up</h2>
+        <h2>Glow-Up</h2>
 
         <!-- PATH SELECTOR (Reference Mode) -->
         <div class="path-selector" id="ref-path-selector">
           <div class="path-cards">
             <div class="path-card design" onclick="selectRefGlowupPath('design')">
-              <div class="path-card-icon">🎨</div>
+              <div class="path-icon design">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4735D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div class="path-card-title">DESIGN GLOW-UP</div>
               <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
-              <div class="path-card-time">⏱ 30-60 min</div>
+              <div class="path-card-time">30-60 min</div>
               <button class="path-card-btn">Start</button>
             </div>
 
             <div class="path-card listing" onclick="selectRefGlowupPath('listing')">
-              <div class="path-card-icon">📋</div>
+              <div class="path-icon listing">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div class="path-card-title">LISTING GLOW-UP</div>
               <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
-              <div class="path-card-time">⏱ 60 min</div>
+              <div class="path-card-time">60 min</div>
               <button class="path-card-btn">Start</button>
             </div>
 
             <div class="path-card full" onclick="selectRefGlowupPath('full')">
-              <div class="path-card-icon">🔥</div>
+              <div class="path-icon full">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="url(#fullGrad2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="fullGrad2" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#D4735D"/><stop offset="1" stop-color="#1F6B6B"/></linearGradient></defs></svg>
+              </div>
               <div class="path-card-title">FULL GLOW-UP</div>
               <div class="path-card-desc">Do both. New design + full listing optimization.</div>
-              <div class="path-card-time">⏱ 90 min</div>
+              <div class="path-card-time">90 min</div>
               <button class="path-card-btn">Start</button>
             </div>
           </div>
@@ -5445,17 +5762,55 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
           </div>
 
           <!-- Where You'll Get Stuck -->
-          <div class="accordion" id="acc-ref-design-stuck">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-stuck')"><span>Where You'll Get Stuck</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <ul class="stuck-list">
-                <li>"I don't know how to write a good AI prompt."</li>
-                <li>"I'm trying to revive a listing that never sold."</li>
-                <li>"Should I rewrite the SEO?"</li>
-                <li>"The AI messed up the text."</li>
-                <li>"Do I edit the original listing or make a new one?"</li>
-              </ul>
-            </div></div>
+          <div class="stuck-section">
+            <div class="stuck-section-header">
+              <div class="stuck-section-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="stuck-section-title">Where You'll Get Stuck</h3>
+            </div>
+            <div class="stuck-items">
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon thought"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6-4.5 7.5L16 22h-8l-.5-3.5C5 17 3 14.5 3 11a9 9 0 0 1 9-9z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                  <span class="stuck-item-text">"I don't know what prompt to use for AI mockups."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Screenshot your old design → upload to ChatGPT → <strong>"Give me 10 style variations of this design"</strong> → pick one → <strong>"Now write me a Midjourney prompt for this."</strong> Done. AI writes the prompt for you.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon wrong"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"I'm trying to revive a listing that never sold."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Wrong listing.</strong> Glow-ups are for winners with momentum, not losers you're hoping will magically work. Pick something that already has sales.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon question"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/><path d="M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"Should I rewrite the title and tags too?"</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Only if they're broken. <strong>If the listing ranked before, the SEO is fine.</strong> Just fix the images and files. That's where the money is.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#5A5A5A" stroke-width="2"/><path d="M12 9v4M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                  <span class="stuck-item-text">"The AI messed up the text on my design."</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer"><strong>AI can't do text.</strong> Add it manually in Kittl or Canva. Pick a font, type the words, add a stroke or shadow. 2 minutes, looks better anyway.</div></div>
+              </div>
+              <div class="stuck-item" onclick="toggleStuckItem(this)">
+                <div class="stuck-item-q">
+                  <div class="stuck-item-icon choice"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M16 3h5v5M21 3L9 15M8 3H3v18h18v-5" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <span class="stuck-item-text">"Edit the original listing or duplicate it?"</span>
+                  <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="stuck-item-a"><div class="stuck-item-answer">Bailey duplicates and keeps the old SEO intact. <strong>If you edit the original, don't touch the keywords that were already ranking.</strong></div></div>
+              </div>
+            </div>
           </div>
 
           <!-- Prompts -->
@@ -5597,12 +5952,73 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </table>
         <p class="table-note">If it has 2-3 of these, it's good enough. Stop researching and start creating.</p>
 
-        <h3 class="mt-2">Where You'll Get Stuck</h3>
-        <ul class="stuck-list">
-          <li>"I've been scrolling for 20 minutes looking for the perfect trend."</li>
-          <li>"I don't know what tags to use."</li>
-          <li>"I want to make 5 products."</li>
-        </ul>
+        <!-- Where You'll Get Stuck -->
+        <div class="stuck-section">
+          <div class="stuck-section-header">
+            <div class="stuck-section-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="stuck-section-title">Where You'll Get Stuck</h3>
+          </div>
+          <div class="stuck-items">
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"I've been scrolling for 20 minutes and can't find the right trend."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Stop at 5 minutes.</strong> You're not looking for perfect, you're looking for good enough. Listing age under 3-4 months + high sales + badge = that's your trend. Pick it and move.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon overthink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"There are too many trends. I don't know which one to pick."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Pick the one you could make in the next 30 minutes.</strong> Excitement fades. Speed wins. The best trend is the one you actually ship.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon question"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/><path d="M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"I found a trend but I don't know what tags to use."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer">Open the listing you got inspo from. <strong>Look at their title. Those are your keywords.</strong> Think like a buyer searching for this. That's your tag list.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon busy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#5A5A5A" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"I want to make 5 versions of this trend."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Make 1. List it. See if it sells. THEN make the variations.</strong> Don't batch create stuff that might flop.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon doubt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                <span class="stuck-item-text">"The trend feels oversaturated already."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>If it's still selling, it's not oversaturated. It's validated.</strong> Your version just needs a different angle: new niche, new color palette, new product type.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon thought"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6-4.5 7.5L16 22h-8l-.5-3.5C5 17 3 14.5 3 11a9 9 0 0 1 9-9z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                <span class="stuck-item-text">"I can't tell if this is a trend or just one viral listing."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer">Search the main keyword. <strong>If multiple sellers are getting sales on similar designs in the last 2-3 months = trend.</strong> If it's just one shop = maybe a fluke. Move on.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#5A5A5A" stroke-width="2"/><path d="M12 9v4M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"What if I'm too late?"</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Etsy trends last 3-6 months minimum. Seasonal ones repeat yearly.</strong> You're probably not too late. Stop overthinking and start making.</div></div>
+            </div>
+          </div>
+        </div>
 
         <div class="accordion" id="acc-trend-prompts">
           <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
@@ -5678,12 +6094,73 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </table>
         <p class="table-note">Pick one where you can make 10+ variations without inventing new concepts.</p>
 
-        <h3 class="mt-2">Where You'll Get Stuck</h3>
-        <ul class="stuck-list">
-          <li>"I can't pick a niche."</li>
-          <li>"I'm recreating SEO for each listing."</li>
-          <li>"One prompt came out bad."</li>
-        </ul>
+        <!-- Where You'll Get Stuck -->
+        <div class="stuck-section">
+          <div class="stuck-section-header">
+            <div class="stuck-section-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="stuck-section-title">Where You'll Get Stuck</h3>
+          </div>
+          <div class="stuck-items">
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon thought"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6-4.5 7.5L16 22h-8l-.5-3.5C5 17 3 14.5 3 11a9 9 0 0 1 9-9z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                <span class="stuck-item-text">"I can't pick a niche to expand into."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Start with awareness ribbons, states, or hobbies.</strong> These always have built-in variations (50 states = 50 listings from one template). Low creativity, high output.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon question"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/><path d="M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"Do I have to rewrite SEO for every single listing?"</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer">No. <strong>Duplicate your base listing. Use Find & Replace in Vela or eRank.</strong> Only swap the niche-specific words. Title structure, tags structure, description structure all stays the same.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#5A5A5A" stroke-width="2"/><path d="M12 9v4M12 17h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"One of my AI prompts came out terrible."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Skip it.</strong> Don't let 1 bad output stall 9 good ones. Mark it, move on, redo it at the end if you have time. Momentum matters more than perfection.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon doubt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
+                <span class="stuck-item-text">"I don't know which niches will actually sell."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer">Look at what's already selling in your product type. <strong>Search Etsy for "[product type] + [niche]"</strong> and see if there are listings with sales. If yes = validated. If ghost town = skip.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"I made 10 listings but none are getting views."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>Give it 2 weeks before you panic.</strong> New listings need time to index. If still nothing after 2 weeks, check: Are your tags what buyers actually search? Is your thumbnail competitive?</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon busy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#5A5A5A" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"This feels like a lot of repetitive work."</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>It is. That's why systems matter.</strong> Batch your mockups. Batch your listings. Template everything. Boring and consistent beats creative and random.</div></div>
+            </div>
+            <div class="stuck-item" onclick="toggleStuckItem(this)">
+              <div class="stuck-item-q">
+                <div class="stuck-item-icon overthink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5A5A5A" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <span class="stuck-item-text">"How many niche variations is too many?"</span>
+                <div class="stuck-item-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="stuck-item-a"><div class="stuck-item-answer"><strong>There's no too many if they're selling.</strong> Start with 10-20 variations. Double down on what gets traction. Kill what doesn't.</div></div>
+            </div>
+          </div>
+        </div>
 
         <div class="accordion" id="acc-niche-prompts">
           <div class="accordion-header" onclick="toggleAccordion('acc-niche-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
@@ -5738,6 +6215,12 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
       <button class="celebration-close" onclick="closeCelebration(event)">Nice!</button>
     </div>
   </div>
+
+  <!-- Floating Back to Paths Button -->
+  <button class="floating-back-btn" id="floating-back-btn" onclick="handleFloatingBackClick()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Back to Paths</span>
+  </button>
 
 </div>
 
@@ -6201,7 +6684,98 @@ function backToRefPathSelector() {
   if (designSection) designSection.classList.remove('active');
   if (listingSection) listingSection.classList.add('hidden');
   if (fullSection) fullSection.classList.add('hidden');
+
+  updateFloatingBackBtn();
 }
+
+// ========================================
+// STUCK ITEMS TOGGLE
+// ========================================
+
+function toggleStuckItem(el) {
+  // Close any other open items in the same section
+  const parent = el.closest('.stuck-items');
+  if (parent) {
+    parent.querySelectorAll('.stuck-item.open').forEach(item => {
+      if (item !== el) item.classList.remove('open');
+    });
+  }
+
+  // Toggle this item
+  el.classList.toggle('open');
+}
+
+// ========================================
+// FLOATING BACK BUTTON
+// ========================================
+
+function updateFloatingBackBtn() {
+  const btn = document.getElementById('floating-back-btn');
+  if (!btn) return;
+
+  // Show floating button when:
+  // 1. In challenge mode, step 2, with a path selected (design/listing/full)
+  // 2. In reference mode, viewing a Glow-Up path
+
+  const isChallenge = mode === 'challenge';
+  const isReference = mode === 'reference';
+
+  let showBtn = false;
+
+  if (isChallenge) {
+    // Check if step 2 (Glow-Up) has a path selected
+    const pathSelector = document.getElementById('path-selector');
+    if (pathSelector && pathSelector.style.display === 'none') {
+      showBtn = true;
+    }
+  }
+
+  if (isReference) {
+    // Check if Reference Glow-Up has a path selected
+    const refPathSelector = document.getElementById('ref-path-selector');
+    if (refPathSelector && refPathSelector.style.display === 'none') {
+      showBtn = true;
+    }
+  }
+
+  if (showBtn) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+}
+
+function handleFloatingBackClick() {
+  // Determine which path selector to go back to
+  const isChallenge = mode === 'challenge';
+
+  if (isChallenge) {
+    backToPathSelector();
+  } else {
+    backToRefPathSelector();
+  }
+
+  updateFloatingBackBtn();
+}
+
+// Update path selection functions to manage floating button
+const originalSelectGlowupPath = selectGlowupPath;
+selectGlowupPath = function(path) {
+  originalSelectGlowupPath(path);
+  updateFloatingBackBtn();
+};
+
+const originalBackToPathSelector = backToPathSelector;
+backToPathSelector = function() {
+  originalBackToPathSelector();
+  updateFloatingBackBtn();
+};
+
+const originalSelectRefGlowupPath = selectRefGlowupPath;
+selectRefGlowupPath = function(path) {
+  originalSelectRefGlowupPath(path);
+  updateFloatingBackBtn();
+};
 
 load();
 </script>
