@@ -4229,13 +4229,32 @@ Give me all 3 prompts ready to copy-paste.</pre>
 - Season: none</pre>
                   </div>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR MOCKUP</h4>
-
-                  <p><strong>Not happy with the result? First, diagnose the problem:</strong></p>
-                  <div class="code-block">
-                    <pre>Look at my mockup prompt and tell me what's wrong:
+                  <!-- Improve Your Mockup - Collapsible Section -->
+                  <div class="improve-section" id="improve-mockup">
+                    <div class="improve-header" onclick="toggleImprove('improve-mockup')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Mockup</div>
+                          <div class="improve-subtitle">Not happy with the results? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Look at my mockup prompt and tell me what's wrong:
 
 [PASTE YOUR PROMPT HERE]
 
@@ -4248,16 +4267,21 @@ The result I got feels off. Diagnose it:
 6. Would this fit on a top Etsy listing right now?
 
 What's the #1 thing killing this mockup? Then rewrite my prompt to fix it.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"It looks obviously AI / fake"</strong></p>
-                  <div class="code-block">
-                    <pre>Rewrite this mockup prompt to look photorealistic:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It looks obviously AI / fake"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Rewrite this mockup prompt to look photorealistic:
 
 [PASTE YOUR PROMPT]
 
@@ -4268,12 +4292,19 @@ It looks AI-generated. Fix it by adding:
 - Environmental grounding details
 
 Give me a prompt that produces something I'd mistake for a real product photo.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"The design looks flat / pasted on"</strong></p>
-                  <div class="code-block">
-                    <pre>Rewrite this prompt so the design looks printed ON the product:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"The design looks flat / pasted on"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Rewrite this prompt so the design looks printed ON the product:
 
 [PASTE YOUR PROMPT]
 
@@ -4284,12 +4315,19 @@ It looks like someone Photoshopped a flat image onto the product. Fix it by:
 - Describing the actual print technique (sublimation, screen print, etc.)
 
 Give me a prompt where the design looks physically printed, not floating.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"The vibe/aesthetic is wrong"</strong></p>
-                  <div class="code-block">
-                    <pre>Rewrite this prompt to match a different aesthetic:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"The vibe/aesthetic is wrong"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Rewrite this prompt to match a different aesthetic:
 
 [PASTE YOUR PROMPT]
 
@@ -4302,12 +4340,19 @@ Rewrite with:
 - Props and styling that signal this aesthetic
 - Color palette and lighting that fits
 - Composition that makes my target customer think "this is for ME"</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"It's boring / I've seen this 1000 times"</strong></p>
-                  <div class="code-block">
-                    <pre>Make this mockup concept unique and scroll-stopping:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's boring / I've seen this 1000 times"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Make this mockup concept unique and scroll-stopping:
 
 [PASTE YOUR PROMPT]
 
@@ -4319,12 +4364,19 @@ Give me 3 alternative concepts:
 3. A creative styling choice that adds interest without being gimmicky
 
 Explain WHY each would stand out. Then write the full prompt for the strongest one.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"The product proportions are wrong"</strong></p>
-                  <div class="code-block">
-                    <pre>Fix the product dimensions in this prompt:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"The product proportions are wrong"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Fix the product dimensions in this prompt:
 
 [PASTE YOUR PROMPT]
 
@@ -4334,7 +4386,13 @@ The product looks wrong. The actual product is:
 - Shape: [slim cylinder, tapered, straight-sided, etc.]
 
 Rewrite with exact dimensions and proportions. Include real-world objects for scale if helpful.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -4859,13 +4917,32 @@ Message me BEFORE purchasing if you have questions. If you have any issues after
                   <h4>STEP 3: Copy and paste into Etsy</h4>
                   <p>Done. Full professional description in 2 minutes.</p>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR DESCRIPTION</h4>
-
-                  <p><strong>Not happy with the description? First, diagnose the problem:</strong></p>
-                  <div class="code-block">
-                    <pre>Audit this Etsy description and tell me what's not working:
+                  <!-- Improve Your Description - Collapsible Section -->
+                  <div class="improve-section" id="improve-description">
+                    <div class="improve-header" onclick="toggleImprove('improve-description')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Description</div>
+                          <div class="improve-subtitle">Not happy with the results? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Audit this Etsy description and tell me what's not working:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4880,16 +4957,21 @@ Score it on:
 5. CLARITY: Is there ANY confusion about what they're getting?
 
 What's the biggest weakness costing me sales? Then rewrite to fix it.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"It's too long / nobody will read it"</strong></p>
-                  <div class="code-block">
-                    <pre>Cut this Etsy description in half while keeping what matters:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's too long / nobody will read it"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Cut this Etsy description in half while keeping what matters:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4901,12 +4983,19 @@ Buyers skim, not read. Make it tighter:
 - Keep all critical info (what's included, compatibility, usage rights)
 
 Give me a version that's half the length but twice as effective. Tell me what you cut and why.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"It's too short / missing key info"</strong></p>
-                  <div class="code-block">
-                    <pre>Expand this Etsy description with the critical info it's missing:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's too short / missing key info"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Expand this Etsy description with the critical info it's missing:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4921,12 +5010,19 @@ Add:
 - What they CAN'T do with it (restrictions)
 
 Fill the gaps while keeping it scannable. Add substance, not fluff.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"It sounds too corporate / robotic"</strong></p>
-                  <div class="code-block">
-                    <pre>Rewrite this Etsy description to sound human and warm:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It sounds too corporate / robotic"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Rewrite this Etsy description to sound human and warm:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4938,12 +5034,19 @@ Rewrite so it sounds like a real person talking to a friend. Keep all the info b
 - Match the tone my target customer expects
 
 Keep the structure, warm up the voice.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"The formatting is a mess / hard to scan"</strong></p>
-                  <div class="code-block">
-                    <pre>Restructure this Etsy description for maximum scannability:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"The formatting is a mess / hard to scan"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Restructure this Etsy description for maximum scannability:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4957,12 +5060,19 @@ Reorganize with:
 - Clear visual hierarchy
 
 Same content, restructured so buyers find what they need in 5 seconds.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"It doesn't handle objections"</strong></p>
-                  <div class="code-block">
-                    <pre>Add objection-handling to this Etsy description:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It doesn't handle objections"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Add objection-handling to this Etsy description:
 
 [PASTE YOUR DESCRIPTION]
 
@@ -4975,7 +5085,13 @@ Reasons someone might NOT buy:
 3. [Objection 3 - "what if it doesn't look right?"]
 
 Rewrite to address each objection BEFORE they ask. Be reassuring, not defensive. They should finish reading with zero hesitation.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                 </div>
