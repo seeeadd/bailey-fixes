@@ -163,7 +163,7 @@
 
     .section-inner {
       width: 100%;
-      max-width: 600px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
@@ -178,7 +178,7 @@
     }
 
     .header-inner {
-      max-width: 600px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
@@ -1401,7 +1401,7 @@
        PROGRESSIVE UNLOCK SYSTEM
        ======================================== */
     .glowup-wrapper {
-      max-width: 700px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 0 1rem;
     }
@@ -5234,13 +5234,32 @@ Give me all 13 tags in a numbered list, ready to copy into Etsy one by one.
                   <h4>STEP 3: Paste each tag into Etsy</h4>
                   <p>Copy them one by one into your 13 tag slots. Done in 60 seconds.</p>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR TAGS</h4>
-
-                  <p><strong>Not happy with the tags? First, diagnose the problem:</strong></p>
-                  <div class="code-block">
-                    <pre>Analyze these Etsy tags and tell me what's wrong:
+                  <!-- Improve Your Tags - Collapsible Section -->
+                  <div class="improve-section" id="improve-tags">
+                    <div class="improve-header" onclick="toggleImprove('improve-tags')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Tags</div>
+                          <div class="improve-subtitle">Not happy with the results? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Analyze these Etsy tags and tell me what's wrong:
 
 [PASTE YOUR 13 TAGS]
 
@@ -5256,16 +5275,21 @@ Check for:
 6. MISSED ANGLES: Seasonal, occasion, or niche opportunities I'm ignoring?
 
 What's my biggest tag mistake? Then give me 13 better tags.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"Tags are too broad / lost in competition"</strong></p>
-                  <div class="code-block">
-                    <pre>Replace my broad tags with more specific long-tail alternatives:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Tags are too broad / lost in competition"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Replace my broad tags with more specific long-tail alternatives:
 
 [PASTE YOUR TAGS]
 
@@ -5278,12 +5302,19 @@ Give me 13 revised tags that:
 - Still sound like things real people search
 
 For each tag, tell me why it's better than what I had.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"Tags are too niche / no search volume"</strong></p>
-                  <div class="code-block">
-                    <pre>Balance these tags with broader discovery terms:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Tags are too niche / no search volume"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Balance these tags with broader discovery terms:
 
 [PASTE YOUR TAGS]
 
@@ -5295,12 +5326,19 @@ Give me 13 revised tags with:
 - 2-3 seasonal or occasion terms if relevant
 
 I need a mix for BOTH discovery AND ready-to-buy shoppers. Explain the balance.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"Tags are too repetitive"</strong></p>
-                  <div class="code-block">
-                    <pre>Remove redundancy and maximize keyword coverage:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Tags are too repetitive"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Remove redundancy and maximize keyword coverage:
 
 [PASTE YOUR TAGS]
 
@@ -5313,12 +5351,19 @@ Give me 13 revised tags where:
 - I'm reaching adjacent niches I'm missing
 
 Show how the new tags expand my reach vs the old ones.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"Missing seasonal/occasion angles"</strong></p>
-                  <div class="code-block">
-                    <pre>Add seasonal and occasion opportunities to my tags:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Missing seasonal/occasion angles"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Add seasonal and occasion opportunities to my tags:
 
 [PASTE YOUR TAGS]
 
@@ -5331,7 +5376,13 @@ Give me 13 revised tags that include:
 - Evergreen tags for year-round traffic
 
 Tell me which tags will spike during which seasons.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -5477,13 +5528,32 @@ My product offers: includes a bonus matching background PNG</pre>
                     <li>Testing a new niche</li>
                   </ul>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR PRICING</h4>
-
-                  <p><strong>Not happy with the recommendation? First, diagnose the problem:</strong></p>
-                  <div class="code-block">
-                    <pre>Analyze my pricing strategy:
+                  <!-- Improve Your Pricing - Collapsible Section -->
+                  <div class="improve-section" id="improve-pricing">
+                    <div class="improve-header" onclick="toggleImprove('improve-pricing')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Pricing</div>
+                          <div class="improve-subtitle">Not happy with the results? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Analyze my pricing strategy:
 
 My product: [description]
 My current price: $[X]
@@ -5498,16 +5568,21 @@ Tell me:
 5. What would happen if I raised/lowered by 20%?
 
 What's my biggest pricing mistake? Then give me a better strategy.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"I'm underpricing / undervaluing my work"</strong></p>
-                  <div class="code-block">
-                    <pre>Help me justify a higher price:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"I'm underpricing / undervaluing my work"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Help me justify a higher price:
 
 My product: [description]
 Current price: $[X]
@@ -5522,12 +5597,19 @@ Help me:
 5. Create a sale strategy that makes the higher price feel like a deal
 
 I want to charge what I'm worth without scaring buyers.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"I'm overpricing for my situation"</strong></p>
-                  <div class="code-block">
-                    <pre>Help me find the right price for where I am right now:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"I'm overpricing for my situation"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Help me find the right price for where I am right now:
 
 My product: [description]
 Current price: $[X]
@@ -5541,12 +5623,19 @@ I think I'm priced too high for my stage. Help me:
 4. Figure out what signals (reviews, sales) mean I can charge more
 
 Give me a pricing roadmap from where I am to where I want to be.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"My sale strategy isn't working"</strong></p>
-                  <div class="code-block">
-                    <pre>Fix my sale/discount strategy:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"My sale strategy isn't working"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Fix my sale/discount strategy:
 
 My product: [description]
 Regular price: $[X]
@@ -5561,7 +5650,13 @@ Something isn't clicking. Help me:
 5. Give me psychological breakdown of why people will or won't bite
 
 I want my sales to drive action, not look like I'm struggling.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                   <hr class="expand-divider">
@@ -5720,13 +5815,32 @@ Product type: tumbler sublimation PNG</pre>
                     <li>Add text: "BONUS: Matching background included!"</li>
                   </ol>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR FREEBIE</h4>
-
-                  <p><strong>Not sure if your freebie is working? Diagnose it:</strong></p>
-                  <div class="code-block">
-                    <pre>Analyze my freebie/bonus strategy:
+                  <!-- Improve Your Freebie - Collapsible Section -->
+                  <div class="improve-section" id="improve-freebie">
+                    <div class="improve-header" onclick="toggleImprove('improve-freebie')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Freebie</div>
+                          <div class="improve-subtitle">Not sure if it's working? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Analyze my freebie/bonus strategy:
 
 My main product: [description]
 My current freebie: [what you're offering]
@@ -5740,16 +5854,21 @@ Tell me:
 5. Is it too much effort for too little impact?
 
 Is my freebie helping or just adding clutter? Give me a better approach if needed.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"Freebie feels random / doesn't add value"</strong></p>
-                  <div class="code-block">
-                    <pre>Help me create a better freebie that actually drives sales:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Freebie feels random / doesn't add value"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Help me create a better freebie that actually drives sales:
 
 My main product: [description]
 My target customer: [who buys this]
@@ -5762,12 +5881,19 @@ My freebie should:
 4. Make my listing clearly better than competitors
 
 Give me 3 freebie ideas that make someone think "wait, I get THAT too?" Then tell me how to present it so buyers notice.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"Freebie is too much work"</strong></p>
-                  <div class="code-block">
-                    <pre>Give me a simpler freebie option:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Freebie is too much work"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Give me a simpler freebie option:
 
 My main product: [description]
 Current freebie idea: [what you were going to do]
@@ -5780,12 +5906,19 @@ This is too complicated. Give me the laziest possible freebie that still adds va
 - Easy to add to my listing
 
 What's the minimum viable freebie that still works?</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
 
-                  <p><strong>"Not sure how to present it"</strong></p>
-                  <div class="code-block">
-                    <pre>Help me present my freebie so buyers actually notice:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"Not sure how to present it"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body">
+                            <div class="code-block">
+                              <pre>Help me present my freebie so buyers actually notice:
 
 My main product: [description]
 My freebie: [what you're offering]
@@ -5799,7 +5932,13 @@ Give me:
 4. How to make it feel valuable, not throwaway
 
 I want buyers to see the freebie and think "oh that's a nice bonus" not scroll past it.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                 </div>
