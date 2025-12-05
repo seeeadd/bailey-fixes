@@ -4,13 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Speed-Launch System</title>
 
-  <!-- Fonts - Multiple sources for reliability -->
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts ONLY - most reliable in embeds -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* Ogg font fallback - using direct embed */
-    @import url('https://fonts.cdnfonts.com/css/ogg');
 
     /* ========================================
        CSS VARIABLES
@@ -28,8 +27,8 @@
       --text-medium: #5A5A5A;
       --text-light: #888888;
       --white: #FFFFFF;
-      --font-heading: 'Ogg', 'Playfair Display', Georgia, serif;
-      --font-body: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
     }
 
@@ -39,7 +38,7 @@
     .sl-embed {
       all: initial;
       display: block;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-weight: 500 !important;
       font-size: 18px !important;
       line-height: 1.7 !important;
@@ -59,7 +58,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box !important;
-      font-family: inherit;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     html, body {
@@ -68,12 +67,12 @@
     }
 
     body {
-      font-family: var(--font-body);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 500;
       font-size: 18px;
       line-height: 1.7;
-      color: var(--text-dark);
-      background: var(--white);
+      color: #2D2D2D;
+      background: #FFFFFF;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -92,20 +91,20 @@
        TYPOGRAPHY
        ======================================== */
     .sl-embed h1, .sl-embed h2, .sl-embed h3 {
-      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
-      font-weight: 700 !important;
-      letter-spacing: -0.02em !important;
-      line-height: 1.25 !important;
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      line-height: 1.2 !important;
       color: #2D2D2D !important;
       margin-bottom: 0.5rem !important;
     }
 
-    .sl-embed h1 { font-size: 2.5rem !important; }
-    .sl-embed h2 { font-size: 1.85rem !important; }
-    .sl-embed h3 { font-size: 1.35rem !important; }
+    .sl-embed h1 { font-size: 2.75rem !important; }
+    .sl-embed h2 { font-size: 2rem !important; }
+    .sl-embed h3 { font-size: 1.5rem !important; }
 
     .sl-embed .label {
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 700 !important;
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
@@ -118,7 +117,7 @@
     .sl-embed p {
       margin-bottom: 1rem !important;
       color: #5A5A5A !important;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 500 !important;
       font-size: 1.05rem !important;
       line-height: 1.7 !important;
@@ -176,7 +175,7 @@
       border: none !important;
       background: transparent !important;
       color: #5A5A5A !important;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
       font-weight: 600 !important;
       font-size: 1rem !important;
       cursor: pointer !important;
@@ -207,9 +206,9 @@
     }
 
     .rule-box p {
-      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
       font-weight: 500 !important;
-      font-size: 1.2rem !important;
+      font-size: 1.25rem !important;
       line-height: 1.6 !important;
       color: #2D2D2D !important;
       margin: 0 !important;
@@ -239,7 +238,7 @@
       border-radius: 50px;
       background: transparent;
       color: var(--text-light);
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
+      font-family: 'DM Sans', -apple-system, sans-serif;
       font-weight: 600;
       font-size: 0.75rem;
       cursor: default;
@@ -368,7 +367,7 @@
       font-size: 1.05rem !important;
       color: #2D2D2D !important;
       flex: 1;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
     }
 
     /* ========================================
@@ -437,10 +436,12 @@
        ======================================== */
     .video-embed {
       width: 100%;
-      margin: 1rem 0;
-      border-radius: 12px;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      border-radius: 16px;
       overflow: hidden;
-      background: var(--cream);
+      background: #FFF9F0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     .video-embed-wrapper {
@@ -457,21 +458,23 @@
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 12px;
     }
 
     .video-embed-label {
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--coral-dark);
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+      color: #D4735D;
+      padding: 1rem;
       text-align: center;
+      background: #FCE8E4;
     }
 
     .video-embed-label.teal {
-      color: var(--teal-dark);
+      color: #1F6B6B;
+      background: #E8F5F0;
     }
 
     /* ========================================
@@ -561,7 +564,7 @@
       font-size: 1rem !important;
       color: #2D2D2D !important;
       line-height: 1.5 !important;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
     }
 
     .step-num {
@@ -620,7 +623,7 @@
       font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
+      font-family: 'DM Sans', -apple-system, sans-serif;
       white-space: nowrap;
     }
 
@@ -789,7 +792,7 @@
     }
 
     .rule-num {
-      font-family: 'Ogg', 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 1;
@@ -860,29 +863,37 @@
       align-items: center !important;
       justify-content: center !important;
       gap: 0.5rem !important;
-      padding: 1rem 2rem !important;
-      background: #E8927C !important;
+      padding: 1rem 2.5rem !important;
+      background: #D4735D !important;
       color: #FFFFFF !important;
       border: none !important;
-      border-radius: 50px !important;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
-      font-weight: 700 !important;
-      font-size: 1.1rem !important;
+      border-radius: 12px !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 1rem !important;
       cursor: pointer !important;
       margin-top: 1.5rem !important;
-      width: 100% !important;
-      max-width: 350px !important;
+      width: auto !important;
+      max-width: 100% !important;
       text-decoration: none !important;
-      transition: transform 0.2s, box-shadow 0.2s !important;
+      transition: all 0.2s !important;
+      box-shadow: 0 2px 8px rgba(212,115,93,0.3) !important;
     }
 
     .btn:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+      background: #C4634D !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 16px rgba(212,115,93,0.4) !important;
     }
 
     .btn.teal {
-      background: var(--teal);
+      background: #1F6B6B !important;
+      box-shadow: 0 2px 8px rgba(31,107,107,0.3) !important;
+    }
+
+    .btn.teal:hover {
+      background: #155555 !important;
+      box-shadow: 0 4px 16px rgba(31,107,107,0.4) !important;
     }
 
     .btn.small {
@@ -945,9 +956,9 @@
     }
 
     .wf-title {
-      font-family: 'Ogg', 'Playfair Display', Georgia, serif !important;
-      font-weight: 700 !important;
-      font-size: 1.35rem !important;
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 600 !important;
+      font-size: 1.5rem !important;
       color: #2D2D2D !important;
       line-height: 1.2 !important;
     }
@@ -956,11 +967,11 @@
       font-size: 0.95rem !important;
       color: #5A5A5A !important;
       margin: 0.25rem 0 0 0 !important;
-      font-family: 'Satoshi', 'DM Sans', -apple-system, sans-serif !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
     }
 
     .wf-time {
-      font-family: 'JetBrains Mono', 'SF Mono', Monaco, monospace !important;
+      font-family: 'JetBrains Mono', monospace !important;
       font-size: 0.85rem !important;
       color: var(--coral-dark);
       background: var(--coral-light);
@@ -1032,7 +1043,7 @@
     }
 
     .appendix-item h4 {
-      font-family: 'Satoshi', 'DM Sans', sans-serif;
+      font-family: 'DM Sans', -apple-system, sans-serif;
       font-weight: 700;
       font-size: 0.85rem;
       margin-bottom: 0.5rem;
@@ -1054,10 +1065,10 @@
     }
 
     .footer-quote {
-      font-family: 'Ogg', 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--text-dark);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: #2D2D2D;
       max-width: 400px;
       margin: 0 auto 0.5rem;
       line-height: 1.3;
@@ -1069,48 +1080,58 @@
     }
 
     /* ========================================
-       CELEBRATION
+       CELEBRATION - Works in Framer embed
        ======================================== */
-    .celebration {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      padding: 2rem;
-      backdrop-filter: blur(4px);
+    .sl-embed .celebration {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(0,0,0,0.7) !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 999999 !important;
+      padding: 2rem !important;
+      backdrop-filter: blur(6px) !important;
+      -webkit-backdrop-filter: blur(6px) !important;
     }
 
-    .celebration.show {
+    .sl-embed .celebration.show {
       display: flex !important;
     }
 
-    .celebration-box {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      max-width: 380px;
-      width: 90%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      animation: celebrationPop 0.4s ease-out;
+    .sl-embed .celebration-box {
+      background: #FFFFFF !important;
+      border-radius: 24px !important;
+      padding: 3rem 2.5rem !important;
+      text-align: center !important;
+      max-width: 380px !important;
+      width: 90% !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+      animation: celebrationPop 0.4s ease-out !important;
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
     }
 
-    .celebration-box h2 {
-      font-size: 2rem !important;
-      margin-top: 1.25rem !important;
+    .sl-embed .celebration-box h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-size: 2.25rem !important;
+      font-weight: 600 !important;
+      color: #2D2D2D !important;
+      margin: 1.25rem 0 0.5rem 0 !important;
+      line-height: 1.2 !important;
     }
 
-    .celebration-box p {
-      font-size: 1.1rem !important;
-      margin-top: 0.5rem !important;
+    .sl-embed .celebration-box p {
+      font-family: 'DM Sans', -apple-system, sans-serif !important;
+      font-size: 1.15rem !important;
+      font-weight: 500 !important;
+      color: #5A5A5A !important;
+      margin: 0 !important;
+      line-height: 1.5 !important;
     }
 
     @keyframes celebrationPop {
@@ -1561,15 +1582,15 @@
     <p class="footer-sub">One listing out beats ten stuck in your head.</p>
   </div>
 
-</div>
-
-<!-- CELEBRATION -->
-<div class="celebration" id="celebration">
-  <div class="celebration-box">
-    <svg width="64" height="64" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="32" fill="#E8F5F0"/><path d="M28 40L36 48L52 32" stroke="#2D8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <h2 style="margin-top:1rem;">You did it!</h2>
-    <p style="color:var(--text-medium);">Your listing is live.</p>
+  <!-- CELEBRATION - Inside sl-embed wrapper -->
+  <div class="celebration" id="celebration">
+    <div class="celebration-box">
+      <svg width="64" height="64" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="32" fill="#E8F5F0"/><path d="M28 40L36 48L52 32" stroke="#2D8B8B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2>You did it!</h2>
+      <p>Your listing is live.</p>
+    </div>
   </div>
+
 </div>
 
 <script>
