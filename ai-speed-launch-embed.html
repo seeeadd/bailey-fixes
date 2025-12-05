@@ -2107,6 +2107,375 @@
       margin: 1.5rem;
     }
 
+    /* ========================================
+       PATH SELECTOR
+       ======================================== */
+    .path-selector {
+      margin: 2rem 0;
+    }
+
+    .path-selector-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .path-selector-note {
+      background: var(--coral-light);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: var(--coral-dark);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .path-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .path-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .path-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 2px solid var(--cream-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .path-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .path-card.design {
+      border-color: var(--coral);
+    }
+
+    .path-card.design:hover {
+      background: var(--coral-light);
+    }
+
+    .path-card.listing {
+      border-color: var(--teal);
+    }
+
+    .path-card.listing:hover {
+      background: var(--teal-light);
+    }
+
+    .path-card.full {
+      border-image: linear-gradient(135deg, var(--coral), var(--teal)) 1;
+      border-style: solid;
+      border-width: 2px;
+    }
+
+    .path-card.full:hover {
+      background: linear-gradient(135deg, rgba(232,146,124,0.1), rgba(45,139,139,0.1));
+    }
+
+    .path-card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .path-card-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .path-card.design .path-card-title {
+      color: var(--coral-dark);
+    }
+
+    .path-card.listing .path-card-title {
+      color: var(--teal-dark);
+    }
+
+    .path-card.full .path-card-title {
+      background: linear-gradient(135deg, var(--coral-dark), var(--teal-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .path-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-medium);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .path-card-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .path-card-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .path-card.design .path-card-btn {
+      background: var(--coral);
+      color: white;
+    }
+
+    .path-card.design .path-card-btn:hover {
+      background: var(--coral-dark);
+    }
+
+    .path-card.listing .path-card-btn {
+      background: var(--teal);
+      color: white;
+    }
+
+    .path-card.listing .path-card-btn:hover {
+      background: var(--teal-dark);
+    }
+
+    .path-card.full .path-card-btn {
+      background: linear-gradient(135deg, var(--coral), var(--teal));
+      color: white;
+    }
+
+    .path-card.full .path-card-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Back to Path Selection */
+    .back-to-paths {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--cream);
+      border-radius: 8px;
+      border: none;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-medium);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-to-paths:hover {
+      background: var(--cream-dark);
+      color: var(--text-dark);
+    }
+
+    /* Design Glow-Up Section */
+    .design-glowup-section {
+      display: none;
+    }
+
+    .design-glowup-section.active {
+      display: block;
+    }
+
+    .design-intro {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .design-intro p {
+      margin-bottom: 0.5rem !important;
+    }
+
+    .design-intro p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    /* Loom Video Box */
+    .loom-box {
+      background: var(--coral-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .loom-box-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--coral-dark);
+      margin-bottom: 1rem;
+    }
+
+    .loom-note {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-medium);
+      margin-top: 1rem;
+    }
+
+    /* Transition Screen */
+    .transition-screen {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .transition-screen-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .transition-screen h3 {
+      margin-bottom: 1rem !important;
+    }
+
+    .transition-screen p {
+      margin-bottom: 1.5rem !important;
+    }
+
+    .transition-screen-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .transition-screen-buttons .btn {
+      min-width: 150px;
+    }
+
+    .btn.outline {
+      background: transparent;
+      border: 2px solid var(--cream-dark);
+      color: var(--text-medium);
+    }
+
+    .btn.outline:hover {
+      background: var(--cream);
+      border-color: var(--text-light);
+    }
+
+    /* Full Glow-Up Progress */
+    .full-glowup-progress {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .full-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .full-progress-labels .design-label {
+      color: var(--coral);
+    }
+
+    .full-progress-labels .listing-label {
+      color: var(--teal);
+    }
+
+    .full-progress-bar {
+      height: 8px;
+      background: var(--cream-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .full-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral) 0%, var(--coral) 50%, var(--teal) 50%, var(--teal) 100%);
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    .full-progress-text {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-medium);
+    }
+
+    /* Full Glow-Up Sections */
+    .full-glowup-section {
+      display: none;
+    }
+
+    .full-glowup-section:not(.hidden) {
+      display: block;
+    }
+
+    .full-design-phase,
+    .full-listing-phase {
+      margin-top: 1.5rem;
+    }
+
+    .full-design-phase.hidden,
+    .full-listing-phase.hidden {
+      display: none;
+    }
+
+    /* Speed Card Note */
+    .speed-note {
+      font-size: 0.85rem;
+      color: var(--text-medium);
+      font-style: italic;
+      padding: 0 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Listing Glow-Up Section */
+    .listing-glowup-section {
+      display: none;
+    }
+
+    .listing-glowup-section:not(.hidden) {
+      display: block;
+    }
+
     /* Complete Button */
     .stage-complete-btn {
       display: flex;
@@ -2807,40 +3176,176 @@
     <!-- Step 2 -->
     <div class="section dimmed" id="step-2">
       <div class="section-inner">
-        <span class="badge badge-coral">STEP 2</span>
-        <h2>Glow-Up — Fix That Listing</h2>
-        <p>You picked a listing. Now upgrade it with AI — new design, same SEO, back to selling.</p>
+        <span class="badge badge-coral">WORKFLOW 2</span>
+        <h2>⭐ Glow-Up</h2>
 
-        <!-- Video Embed -->
-        <div class="video-embed">
-          <div class="video-embed-label">WORKFLOW 2 — GLOW-UP WALKTHROUGH</div>
-          <div class="video-embed-wrapper">
-            <iframe src="https://share.descript.com/embed/7LNESaojmr9" allowfullscreen></iframe>
+        <!-- PATH SELECTOR -->
+        <div class="path-selector" id="path-selector">
+          <div class="path-selector-note" id="challenge-path-note">
+            For the challenge, start with <strong>Design Glow-Up</strong> — that's what the video covers.
+          </div>
+
+          <div class="path-cards">
+            <div class="path-card design" onclick="selectGlowupPath('design')">
+              <div class="path-card-icon">🎨</div>
+              <div class="path-card-title">DESIGN GLOW-UP</div>
+              <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
+              <div class="path-card-time">⏱ 30-60 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
+
+            <div class="path-card listing" onclick="selectGlowupPath('listing')">
+              <div class="path-card-icon">📋</div>
+              <div class="path-card-title">LISTING GLOW-UP</div>
+              <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
+              <div class="path-card-time">⏱ 60 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
+
+            <div class="path-card full" onclick="selectGlowupPath('full')">
+              <div class="path-card-icon">🔥</div>
+              <div class="path-card-title">FULL GLOW-UP</div>
+              <div class="path-card-desc">Do both. New design + full listing optimization.</div>
+              <div class="path-card-time">⏱ 90 min</div>
+              <button class="path-card-btn">Start</button>
+            </div>
           </div>
         </div>
-        <p class="text-center text-muted" style="font-style: italic;">Keep it playing. Follow along below.</p>
 
-        <!-- Progressive Unlock Glow-Up System -->
-        <div class="glowup-wrapper">
-          <!-- Intro -->
-          <div class="glowup-intro">
-            <h3>1-Hour Listing Glow-Up</h3>
-            <p><strong>Pick ONE listing from your FIX pile. Set a timer. Follow the steps. Don't overthink it.</strong></p>
+        <!-- DESIGN GLOW-UP PATH -->
+        <div class="design-glowup-section" id="design-glowup">
+          <button class="back-to-paths" onclick="backToPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <div class="design-intro">
+            <p><strong>Upgrade one existing listing with a fresh AI design. Same SEO, new art, more sales.</strong></p>
+            <p>You have listings that sold. They look dated now — old graphics, tired trends, non-AI designs from 2022. The demand is still there. The SEO already works. You duplicate the listing, swap in an upgraded design, and publish. That's it.</p>
           </div>
 
-          <!-- Progress Bar -->
-          <div class="glowup-progress">
-            <div class="progress-bar">
-              <div class="progress-fill" id="glowup-progress-fill" style="width: 0%"></div>
-            </div>
-            <div class="progress-row">
-              <div class="progress-text"><span id="glowup-stages-done">0</span> / 8 stages complete</div>
-              <button class="reset-btn-inline" onclick="resetGlowup()">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Reset
-              </button>
+          <!-- Video only for Design Glow-Up -->
+          <div class="video-embed">
+            <div class="video-embed-label">▶ WATCH THE LOOM<span class="video-optional">(optional)</span></div>
+            <div class="video-embed-wrapper">
+              <iframe src="https://share.descript.com/embed/7LNESaojmr9" allowfullscreen></iframe>
             </div>
           </div>
+          <p class="loom-note text-center">Keep the Loom playing. Follow along in this doc. Don't add steps.</p>
+
+          <!-- Design Glow-Up Speed Card -->
+          <div class="speed-card">
+            <div class="speed-header"><h3>Glow-Up Speed Card</h3><span class="speed-badge">30-60 min</span></div>
+            <p class="speed-note">Bailey can do this in ~30 minutes. Plan for up to 60 the first few times.</p>
+            <div class="speed-body">
+              <div class="step-row"><span class="step-time">0-5 min</span><span class="step-content"><span class="step-num">1</span>Pick one listing with consistent sales but dated design</span><div class="checkbox step-check" onclick="toggleCheck('dg1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">5-10 min</span><span class="step-content"><span class="step-num">2</span>Screenshot → ChatGPT → get 10 style variations</span><div class="checkbox step-check" onclick="toggleCheck('dg2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">10-15 min</span><span class="step-content"><span class="step-num">3</span>Pick one → have ChatGPT write the full Kittl prompt</span><div class="checkbox step-check" onclick="toggleCheck('dg3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">15-25 min</span><span class="step-content"><span class="step-num">4</span>Generate in Kittl (test 2-3 generators)</span><div class="checkbox step-check" onclick="toggleCheck('dg4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">25-30 min</span><span class="step-content"><span class="step-num">5</span>Add text manually if needed, upscale, download</span><div class="checkbox step-check" onclick="toggleCheck('dg5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">30-40 min</span><span class="step-content"><span class="step-num">6</span>Make seamless in Photoshop (skip if design doesn't need it)</span><div class="checkbox step-check" onclick="toggleCheck('dg6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">40-55 min</span><span class="step-content"><span class="step-num">7</span>BulkMockup → Vela → duplicate listing → swap images + files</span><div class="checkbox step-check" onclick="toggleCheck('dg7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+              <div class="step-row"><span class="step-time">55-60 min</span><span class="step-content"><span class="step-num">8</span>Final check → publish</span><div class="checkbox step-check" onclick="toggleCheck('dg8')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            </div>
+          </div>
+
+          <!-- Design Glow-Up Checklist -->
+          <h3 class="mt-2">Checklist</h3>
+          <div class="checklist">
+            <div class="checklist-item" onclick="toggleCheck('dgc1')"><div class="checkbox" id="check-dgc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Picked a listing with real sales history (not a dead one)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc2')"><div class="checkbox" id="check-dgc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Got style variations from ChatGPT</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc3')"><div class="checkbox" id="check-dgc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Generated upgraded design in Kittl</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc4')"><div class="checkbox" id="check-dgc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Made seamless (if needed)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc5')"><div class="checkbox" id="check-dgc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Created mockups</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc6')"><div class="checkbox" id="check-dgc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Duplicated listing in Vela</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc7')"><div class="checkbox" id="check-dgc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Swapped images + digital files (kept the SEO)</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc8')"><div class="checkbox" id="check-dgc8"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Set quantity back to 999</span></div>
+            <div class="checklist-item" onclick="toggleCheck('dgc9')"><div class="checkbox" id="check-dgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
+          </div>
+
+          <!-- Where You'll Get Stuck -->
+          <div class="accordion" id="acc-design-stuck">
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-stuck')"><span>Where You'll Get Stuck</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <ul class="stuck-list">
+                <li>"I don't know how to write a good AI prompt."</li>
+                <li>"I'm trying to revive a listing that never sold."</li>
+                <li>"Should I rewrite the SEO?"</li>
+                <li>"The AI messed up the text."</li>
+                <li>"Do I edit the original listing or make a new one?"</li>
+              </ul>
+            </div></div>
+          </div>
+
+          <!-- Prompts -->
+          <div class="accordion" id="acc-design-prompts">
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span>Prompts</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
+              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
+            </div></div>
+          </div>
+
+          <!-- Bailey's Rules -->
+          <div class="accordion" id="acc-design-rules">
+            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+            <div class="accordion-content"><div class="accordion-inner">
+              <div class="rules-list">
+                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
+                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
+                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
+                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
+                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+              </div>
+            </div></div>
+          </div>
+
+          <!-- Design Complete Button -->
+          <button class="btn" onclick="completeDesignGlowup()">✓ Design Glow-Up Done</button>
+
+          <!-- Transition Screen (hidden by default) -->
+          <div class="transition-screen hidden" id="design-complete-transition">
+            <div class="transition-screen-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2D8B8B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>✓ Design Glow-Up complete!</h3>
+            <p>Want to optimize the rest of your listing too?<br>(Title, tags, description, pricing, images)</p>
+            <div class="transition-screen-buttons">
+              <button class="btn teal" onclick="continueToListingGlowup()">Continue to Listing Glow-Up</button>
+              <button class="btn outline" onclick="finishGlowupPath()">I'm Done</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LISTING GLOW-UP PATH -->
+        <div class="listing-glowup-section hidden" id="listing-glowup">
+          <button class="back-to-paths" onclick="backToPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <!-- Progressive Unlock Glow-Up System -->
+          <div class="glowup-wrapper">
+            <!-- Intro -->
+            <div class="glowup-intro">
+              <h3>1-Hour Listing Glow-Up</h3>
+              <p><strong>Pick ONE listing from your FIX pile. Set a timer. Follow the steps. Don't overthink it.</strong></p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="glowup-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" id="glowup-progress-fill" style="width: 0%"></div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-text"><span id="glowup-stages-done">0</span> / 8 stages complete</div>
+                <button class="reset-btn-inline" onclick="resetGlowup()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Reset
+                </button>
+              </div>
+            </div>
 
           <!-- STAGE 0: Before You Start -->
           <div class="stage active" id="stage-0" data-stage="0">
@@ -4707,19 +5212,107 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
             <div class="complete-icon">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#2D8B8B" stroke-width="3"/><path d="M14 24l7 7 13-13" stroke="#2D8B8B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h3>You did it.</h3>
-            <p>One listing, one hour, actually improved.<br><strong>Now go do it again tomorrow.</strong></p>
+            <h3>✓ Listing Glow-Up complete!</h3>
+            <p>You did it. One listing, one hour, actually improved.<br><strong>Now go do it again tomorrow.</strong></p>
             <p class="complete-credit">VIP Implementation Hub • Bailey Vann</p>
             <div class="complete-buttons">
-              <button class="btn" onclick="completeStep(2,this)">Continue to What's Next →</button>
-              <button class="reset-btn" onclick="resetGlowup()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Do Another Listing
-              </button>
+              <button class="btn" onclick="doAnotherGlowup()">Do Another</button>
+              <button class="btn outline" onclick="backToWorkflows()">Back to Workflows</button>
             </div>
           </div>
 
-        </div><!-- end glowup-wrapper -->
+          </div><!-- end glowup-wrapper -->
+        </div><!-- end listing-glowup-section -->
+
+        <!-- FULL GLOW-UP PATH (Combined) -->
+        <div class="full-glowup-section hidden" id="full-glowup">
+          <button class="back-to-paths" onclick="backToPathSelector()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to path selection
+          </button>
+
+          <!-- Full Progress Bar -->
+          <div class="full-glowup-progress">
+            <div class="full-progress-labels">
+              <span class="design-label">Design</span>
+              <span class="listing-label">Listing</span>
+            </div>
+            <div class="full-progress-bar">
+              <div class="full-progress-fill" id="full-progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="full-progress-text"><span id="full-steps-done">0</span> / 14 steps complete</div>
+          </div>
+
+          <!-- Design Phase (shown first) -->
+          <div class="full-design-phase" id="full-design-phase">
+            <h3>🎨 Phase 1: Design Glow-Up</h3>
+            <div class="design-intro">
+              <p><strong>Upgrade one existing listing with a fresh AI design. Same SEO, new art, more sales.</strong></p>
+            </div>
+
+            <!-- Video for Full path too -->
+            <div class="video-embed">
+              <div class="video-embed-label">▶ WATCH THE LOOM<span class="video-optional">(optional)</span></div>
+              <div class="video-embed-wrapper">
+                <iframe src="https://share.descript.com/embed/7LNESaojmr9" allowfullscreen></iframe>
+              </div>
+            </div>
+
+            <!-- Design checklist for Full path -->
+            <div class="checklist">
+              <div class="checklist-item" onclick="toggleCheck('fdc1')"><div class="checkbox" id="check-fdc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Picked a listing with real sales history</span></div>
+              <div class="checklist-item" onclick="toggleCheck('fdc2')"><div class="checkbox" id="check-fdc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Got style variations from ChatGPT</span></div>
+              <div class="checklist-item" onclick="toggleCheck('fdc3')"><div class="checkbox" id="check-fdc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Generated upgraded design in Kittl</span></div>
+              <div class="checklist-item" onclick="toggleCheck('fdc4')"><div class="checkbox" id="check-fdc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Created mockups</span></div>
+              <div class="checklist-item" onclick="toggleCheck('fdc5')"><div class="checkbox" id="check-fdc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Duplicated listing and swapped files</span></div>
+              <div class="checklist-item" onclick="toggleCheck('fdc6')"><div class="checkbox" id="check-fdc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published new design</span></div>
+            </div>
+
+            <button class="btn" onclick="completeFullDesignPhase()">✓ Design Phase Done → Continue to Listing</button>
+          </div>
+
+          <!-- Transition between phases -->
+          <div class="transition-screen hidden" id="full-transition">
+            <div class="transition-screen-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2D8B8B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>✓ Design Glow-Up complete!</h3>
+            <p>Your new design is ready. Now let's optimize the rest of your listing to maximize sales.</p>
+            <button class="btn teal" onclick="startFullListingPhase()">Continue to Listing Optimization</button>
+          </div>
+
+          <!-- Listing Phase (shown after design complete) -->
+          <div class="full-listing-phase hidden" id="full-listing-phase">
+            <h3>📋 Phase 2: Listing Optimization</h3>
+            <p class="text-muted">Now optimize title, tags, description, pricing, and images.</p>
+            <!-- This will reference the same stages but in a simplified checklist format -->
+            <div class="checklist">
+              <div class="checklist-item" onclick="toggleCheck('flc1')"><div class="checkbox teal" id="check-flc1"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix thumbnail & images</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc2')"><div class="checkbox teal" id="check-flc2"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Upgrade title with keywords</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc3')"><div class="checkbox teal" id="check-flc3"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Fix description</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc4')"><div class="checkbox teal" id="check-flc4"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Optimize tags</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc5')"><div class="checkbox teal" id="check-flc5"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Review pricing</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc6')"><div class="checkbox teal" id="check-flc6"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Add freebie (optional)</span></div>
+              <div class="checklist-item" onclick="toggleCheck('flc7')"><div class="checkbox teal" id="check-flc7"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Final review & publish</span></div>
+            </div>
+
+            <button class="btn teal" onclick="completeFullGlowup()">✓ Full Glow-Up Done</button>
+          </div>
+
+          <!-- Full Complete Screen -->
+          <div class="transition-screen hidden" id="full-complete">
+            <div class="transition-screen-icon" style="background: linear-gradient(135deg, var(--coral-light), var(--teal-light));">
+              <span style="font-size: 2rem;">🎉</span>
+            </div>
+            <h3>🎉 Full Glow-Up complete!</h3>
+            <p>New design + fully optimized listing.<br><strong>That's a listing that's ready to sell.</strong></p>
+            <div class="transition-screen-buttons">
+              <button class="btn" onclick="doAnotherGlowup()">Do Another</button>
+              <button class="btn outline" onclick="backToWorkflows()">Back to Workflows</button>
+            </div>
+          </div>
+        </div><!-- end full-glowup-section -->
+
       </div>
     </div>
 
@@ -5267,7 +5860,153 @@ function resetGlowup() {
   // Scroll to top of section
   const section = document.getElementById('step-2');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Also go back to path selector
+  backToPathSelector();
 }
+
+// ========================================
+// PATH SELECTOR FUNCTIONS
+// ========================================
+
+let currentGlowupPath = null;
+
+function selectGlowupPath(path) {
+  currentGlowupPath = path;
+  localStorage.setItem('sl-glowup-path', path);
+
+  // Hide path selector
+  const selector = document.getElementById('path-selector');
+  if (selector) selector.style.display = 'none';
+
+  // Show appropriate section
+  const designSection = document.getElementById('design-glowup');
+  const listingSection = document.getElementById('listing-glowup');
+  const fullSection = document.getElementById('full-glowup');
+
+  if (designSection) designSection.classList.remove('active');
+  if (listingSection) listingSection.classList.add('hidden');
+  if (fullSection) fullSection.classList.add('hidden');
+
+  if (path === 'design') {
+    if (designSection) designSection.classList.add('active');
+  } else if (path === 'listing') {
+    if (listingSection) listingSection.classList.remove('hidden');
+  } else if (path === 'full') {
+    if (fullSection) fullSection.classList.remove('hidden');
+  }
+}
+
+function backToPathSelector() {
+  currentGlowupPath = null;
+
+  // Show path selector
+  const selector = document.getElementById('path-selector');
+  if (selector) selector.style.display = 'block';
+
+  // Hide all sections
+  const designSection = document.getElementById('design-glowup');
+  const listingSection = document.getElementById('listing-glowup');
+  const fullSection = document.getElementById('full-glowup');
+
+  if (designSection) designSection.classList.remove('active');
+  if (listingSection) listingSection.classList.add('hidden');
+  if (fullSection) fullSection.classList.add('hidden');
+}
+
+function completeDesignGlowup() {
+  // Hide the complete button and show transition screen
+  const transitionScreen = document.getElementById('design-complete-transition');
+  if (transitionScreen) transitionScreen.classList.remove('hidden');
+
+  // Save state
+  localStorage.setItem('sl-design-glowup-complete', 'true');
+}
+
+function continueToListingGlowup() {
+  // User chose to continue from Design to Listing
+  currentGlowupPath = 'listing';
+
+  // Hide design section and transition
+  const designSection = document.getElementById('design-glowup');
+  const transitionScreen = document.getElementById('design-complete-transition');
+  if (designSection) designSection.classList.remove('active');
+  if (transitionScreen) transitionScreen.classList.add('hidden');
+
+  // Show listing section
+  const listingSection = document.getElementById('listing-glowup');
+  if (listingSection) listingSection.classList.remove('hidden');
+
+  // Scroll to top
+  const section = document.getElementById('step-2');
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function finishGlowupPath() {
+  // User is done, go to What's Next
+  completeStep(2);
+}
+
+function doAnotherGlowup() {
+  // Reset and go back to path selector
+  resetGlowup();
+}
+
+function backToWorkflows() {
+  // Go back to workflow selection
+  setMode('reference');
+}
+
+// Full Glow-Up functions
+function completeFullDesignPhase() {
+  // Hide design phase, show transition
+  const designPhase = document.getElementById('full-design-phase');
+  const transition = document.getElementById('full-transition');
+  if (designPhase) designPhase.classList.add('hidden');
+  if (transition) transition.classList.remove('hidden');
+
+  // Update progress
+  updateFullProgress(6);
+  localStorage.setItem('sl-full-design-complete', 'true');
+}
+
+function startFullListingPhase() {
+  // Hide transition, show listing phase
+  const transition = document.getElementById('full-transition');
+  const listingPhase = document.getElementById('full-listing-phase');
+  if (transition) transition.classList.add('hidden');
+  if (listingPhase) listingPhase.classList.remove('hidden');
+}
+
+function completeFullGlowup() {
+  // Hide listing phase, show complete screen
+  const listingPhase = document.getElementById('full-listing-phase');
+  const completeScreen = document.getElementById('full-complete');
+  if (listingPhase) listingPhase.classList.add('hidden');
+  if (completeScreen) completeScreen.classList.remove('hidden');
+
+  updateFullProgress(14);
+  localStorage.setItem('sl-full-glowup-complete', 'true');
+}
+
+function updateFullProgress(steps) {
+  const fill = document.getElementById('full-progress-fill');
+  const text = document.getElementById('full-steps-done');
+  const pct = Math.round((steps / 14) * 100);
+  if (fill) fill.style.width = pct + '%';
+  if (text) text.textContent = steps;
+}
+
+// Load saved path on page load
+function loadGlowupPath() {
+  const savedPath = localStorage.getItem('sl-glowup-path');
+  if (savedPath) {
+    selectGlowupPath(savedPath);
+  }
+}
+
+// Call loadGlowupPath after main load
+setTimeout(loadGlowupPath, 100);
 
 load();
 </script>
