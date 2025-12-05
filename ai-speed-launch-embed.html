@@ -1921,6 +1921,200 @@
       background: white;
     }
 
+    /* Nested Improve Section */
+    .improve-section {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #f8f4f0 0%, #fff 100%);
+      border: 2px dashed var(--cream-dark);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .improve-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(135deg, #fff5f3 0%, #fef5ee 100%);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .improve-header:hover {
+      background: linear-gradient(135deg, #ffeee9 0%, #fff0e5 100%);
+    }
+
+    .improve-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .improve-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--coral) 0%, #f5576c 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .improve-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .improve-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .improve-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-medium);
+      margin-top: 0.15rem;
+    }
+
+    .improve-toggle {
+      width: 28px;
+      height: 28px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .improve-section.open .improve-toggle {
+      transform: rotate(180deg);
+    }
+
+    .improve-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .improve-section.open .improve-body {
+      max-height: 8000px;
+    }
+
+    .improve-inner {
+      padding: 1.5rem;
+    }
+
+    /* Fix Option Cards */
+    .fix-option {
+      background: white;
+      border: 1px solid var(--cream-dark);
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    .fix-option:last-child {
+      margin-bottom: 0;
+    }
+
+    .fix-option-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .fix-option-header:hover {
+      background: var(--cream);
+    }
+
+    .fix-option.open .fix-option-header {
+      background: var(--cream);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .fix-option-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .fix-option-toggle {
+      width: 24px;
+      height: 24px;
+      background: var(--cream-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .fix-option.open .fix-option-toggle {
+      background: var(--coral);
+      transform: rotate(45deg);
+    }
+
+    .fix-option.open .fix-option-toggle svg path {
+      stroke: white;
+    }
+
+    .fix-option-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .fix-option.open .fix-option-body {
+      max-height: 2000px;
+    }
+
+    .fix-option-inner {
+      padding: 1.25rem;
+    }
+
+    .diagnose-first {
+      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+      border: 1px solid #667eea30;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .diagnose-first-label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #667eea;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fix-options-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fix-options-label::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--coral) 0%, #f5576c 100%);
+      border-radius: 6px;
+    }
+
     /* Code Block */
     .code-block {
       background: var(--text-dark);
@@ -4278,13 +4472,32 @@ My product: [describe in plain English - "a tumbler design with butterflies for 
                   <h4>STEP 3: Pick one and paste into Etsy</h4>
                   <p>That's it. Done in 60 seconds.</p>
 
-                  <hr class="expand-divider">
-
-                  <h4>🔧 IMPROVE YOUR TITLE</h4>
-
-                  <p><strong>Not happy with the titles? First, diagnose the problem:</strong></p>
-                  <div class="code-block">
-                    <pre>Analyze this Etsy title and tell me what's weak:
+                  <!-- IMPROVE SECTION - Collapsible -->
+                  <div class="improve-section" id="improve-title">
+                    <div class="improve-header" onclick="toggleImprove('improve-title')">
+                      <div class="improve-header-left">
+                        <div class="improve-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                          <div class="improve-title">Improve Your Title</div>
+                          <div class="improve-subtitle">Not happy with the results? Diagnose &amp; fix.</div>
+                        </div>
+                      </div>
+                      <div class="improve-toggle">
+                        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                    </div>
+                    <div class="improve-body">
+                      <div class="improve-inner">
+                        <!-- Diagnose First -->
+                        <div class="diagnose-first">
+                          <div class="diagnose-first-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#667eea" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="#667eea" stroke-width="2" stroke-linecap="round"/></svg>
+                            First, diagnose the problem
+                          </div>
+                          <div class="code-block">
+                            <pre>Analyze this Etsy title and tell me what's weak:
 
 [PASTE YOUR TITLE]
 
@@ -4299,16 +4512,21 @@ Score it 1-10 on:
 5. KEYWORD EFFICIENCY: Am I using my 140 characters strategically?
 
 What's the #1 thing dragging this title down? Then rewrite it to fix that problem.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                            <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                          </div>
+                        </div>
 
-                  <hr class="expand-divider">
+                        <!-- Fix Options -->
+                        <div class="fix-options-label">Pick your problem, get the fix</div>
 
-                  <p><strong>Pick your problem, get the fix:</strong></p>
-
-                  <p><strong>"It's too generic / blends in with competitors"</strong></p>
-                  <div class="code-block">
-                    <pre>Make this Etsy title more unique and click-worthy:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's too generic / blends in"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body"><div class="fix-option-inner">
+                            <div class="code-block">
+                              <pre>Make this Etsy title more unique and click-worthy:
 
 [PASTE YOUR TITLE]
 
@@ -4321,12 +4539,19 @@ Rewrite with:
 - Words that create curiosity or emotional connection
 
 Give me 3 alternatives that would make someone choose MY listing. Explain what makes each one stand out.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div></div>
+                        </div>
 
-                  <p><strong>"It's keyword-stuffed / sounds like a robot"</strong></p>
-                  <div class="code-block">
-                    <pre>Make this Etsy title sound human while keeping SEO power:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's keyword-stuffed / sounds robotic"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body"><div class="fix-option-inner">
+                            <div class="code-block">
+                              <pre>Make this Etsy title sound human while keeping SEO power:
 
 [PASTE YOUR TITLE]
 
@@ -4337,12 +4562,19 @@ This reads like a robot wrote it. Fix it to:
 - Not feel desperate or spammy
 
 Rewrite so it works for BOTH the algorithm AND humans. Show me where you placed each keyword and why that order works.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div></div>
+                        </div>
 
-                  <p><strong>"It's boring / no emotional hook"</strong></p>
-                  <div class="code-block">
-                    <pre>Add emotional power to this Etsy title:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"It's boring / no emotional hook"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body"><div class="fix-option-inner">
+                            <div class="code-block">
+                              <pre>Add emotional power to this Etsy title:
 
 [PASTE YOUR TITLE]
 
@@ -4357,12 +4589,19 @@ Rewrite with:
 - Language that matches how THEY talk
 
 Give me a version that makes my customer think "this is exactly what I was looking for."</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
-                  </div>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div></div>
+                        </div>
 
-                  <p><strong>"The keyword priority is wrong"</strong></p>
-                  <div class="code-block">
-                    <pre>Restructure this Etsy title with better keyword priority:
+                        <div class="fix-option" onclick="toggleFixOption(this)">
+                          <div class="fix-option-header">
+                            <span class="fix-option-label">"The keyword priority is wrong"</span>
+                            <div class="fix-option-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div>
+                          </div>
+                          <div class="fix-option-body"><div class="fix-option-inner">
+                            <div class="code-block">
+                              <pre>Restructure this Etsy title with better keyword priority:
 
 [PASTE YOUR TITLE]
 
@@ -4376,7 +4615,13 @@ The current structure buries my important keywords. Rewrite using "niche to broa
 4. Then broader category terms
 
 Explain why your new word order will perform better in Etsy search.</pre>
-                    <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                              <button class="copy-btn small" onclick="copyCode(this)">Copy</button>
+                            </div>
+                          </div></div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -6471,6 +6716,17 @@ function toggleExpand(id) {
 function toggleImprove(id) {
   const el = document.getElementById(id);
   if (el) el.classList.toggle('open');
+}
+
+function toggleFixOption(el) {
+  // Close other open fix options in the same improve section
+  const parent = el.closest('.improve-inner');
+  if (parent) {
+    parent.querySelectorAll('.fix-option.open').forEach(item => {
+      if (item !== el) item.classList.remove('open');
+    });
+  }
+  el.classList.toggle('open');
 }
 
 function copyCode(btn) {
