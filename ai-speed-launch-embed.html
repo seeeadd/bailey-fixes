@@ -424,17 +424,17 @@
 
     /* Rules List */
     .rules-list {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
 
     .rule-item {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      padding: 1rem;
+      padding: 1.25rem 1.5rem;
       background: var(--cream);
-      border-radius: 10px;
-      margin-bottom: 0.75rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
     .rule-item:last-child {
@@ -718,8 +718,8 @@
       background: white;
       border: 2px solid var(--cream-dark);
       border-radius: 16px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
       position: relative;
     }
 
@@ -801,11 +801,29 @@
       border: 1px solid var(--cream-dark);
       border-radius: 12px;
       overflow: hidden;
-      margin-top: 1.75rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
 
     .accordion + .accordion {
-      margin-top: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    /* Section titles inside content */
+    .section-title,
+    .accordion-inner > h3,
+    .accordion-inner > h4,
+    .stage-expand-body h3,
+    .stage-expand-body h4 {
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .accordion-inner > h3:first-child,
+    .accordion-inner > h4:first-child,
+    .stage-expand-body h3:first-child,
+    .stage-expand-body h4:first-child {
+      margin-top: 0;
     }
 
     /* Custom accordion icons */
@@ -886,7 +904,7 @@
     }
 
     .accordion-inner {
-      padding: 1.5rem;
+      padding: 2rem;
       background: var(--cream);
     }
 
@@ -1685,11 +1703,11 @@
 
     /* Stage Body */
     .stage-body {
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
     .stage-part {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     .stage-part:last-child {
@@ -1703,14 +1721,15 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--coral-dark);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     /* Stage Checklist */
     .stage-checklist {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
     .stage-check-item {
@@ -1795,8 +1814,9 @@
     .stage-callout {
       background: var(--cream);
       border-radius: 12px;
-      padding: 1rem 1.25rem;
-      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
       font-style: italic;
       color: var(--text-medium);
       font-size: 0.95rem;
@@ -1857,10 +1877,15 @@
 
     /* Expandable Toggle */
     .stage-expand {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
       border: 1px solid var(--cream-dark);
       border-radius: 12px;
       overflow: hidden;
+    }
+
+    .stage-expand + .stage-expand {
+      margin-top: 1.5rem;
     }
 
     .stage-expand-header {
@@ -1917,13 +1942,14 @@
     }
 
     .stage-expand-inner {
-      padding: 1.5rem;
+      padding: 2rem;
       background: white;
     }
 
     /* Nested Improve Section */
     .improve-section {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2rem;
       background: linear-gradient(135deg, #f8f4f0 0%, #fff 100%);
       border: 2px dashed var(--cream-dark);
       border-radius: 16px;
@@ -2005,7 +2031,7 @@
     }
 
     .improve-inner {
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
     /* Fix Option Cards */
@@ -2013,7 +2039,7 @@
       background: white;
       border: 1px solid var(--cream-dark);
       border-radius: 12px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       overflow: hidden;
     }
 
@@ -2083,8 +2109,8 @@
       background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
       border: 1px solid #667eea30;
       border-radius: 12px;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .diagnose-first-label {
@@ -2682,6 +2708,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
+      margin-bottom: 2.5rem;
     }
 
     .stuck-item {
