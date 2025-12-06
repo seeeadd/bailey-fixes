@@ -1,37 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Rich black with subtle warmth -->
-    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" style="stop-color:#252525"/>
-      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    <!-- Cream background -->
+    <radialGradient id="creamBg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" style="stop-color:#FFFBF7"/>
+      <stop offset="100%" style="stop-color:#FFF5F0"/>
     </radialGradient>
-    <!-- Warm rich gold -->
-    <linearGradient id="warmGold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#F0D78C"/>
-      <stop offset="35%" style="stop-color:#D4A84B"/>
-      <stop offset="65%" style="stop-color:#B8893A"/>
-      <stop offset="100%" style="stop-color:#8C6B2E"/>
+    <!-- Coral gradient -->
+    <linearGradient id="coral" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4735D"/>
+      <stop offset="50%" style="stop-color:#C85C42"/>
+      <stop offset="100%" style="stop-color:#A34832"/>
     </linearGradient>
-    <!-- Highlight gold for border -->
-    <linearGradient id="borderGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#E8C872"/>
-      <stop offset="50%" style="stop-color:#D4A84B"/>
-      <stop offset="100%" style="stop-color:#9A7234"/>
+    <!-- Teal gradient -->
+    <linearGradient id="teal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3AA3A3"/>
+      <stop offset="50%" style="stop-color:#2D8B8B"/>
+      <stop offset="100%" style="stop-color:#1F6B6B"/>
     </linearGradient>
-    <!-- Crown special gradient -->
-    <linearGradient id="crownGold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5E1A4"/>
-      <stop offset="30%" style="stop-color:#D4A84B"/>
-      <stop offset="70%" style="stop-color:#C49A42"/>
-      <stop offset="100%" style="stop-color:#8C6B2E"/>
+    <!-- Gold accent for VIP feel -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="50%" style="stop-color:#C49A42"/>
+      <stop offset="100%" style="stop-color:#A07D35"/>
     </linearGradient>
     <!-- Shadow -->
     <filter id="shadow">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#C85C42" flood-opacity="0.25"/>
     </filter>
-    <!-- Glow for crown -->
-    <filter id="crownGlow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <!-- Subtle glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -39,46 +37,47 @@
     </filter>
   </defs>
 
-  <!-- Main circle -->
-  <circle cx="256" cy="256" r="244" fill="url(#bgGrad)" filter="url(#shadow)"/>
+  <!-- Main circle - cream -->
+  <circle cx="256" cy="256" r="244" fill="url(#creamBg)" filter="url(#shadow)"/>
 
-  <!-- Outer gold border -->
-  <circle cx="256" cy="256" r="244" fill="none" stroke="url(#borderGold)" stroke-width="10"/>
+  <!-- Outer coral border -->
+  <circle cx="256" cy="256" r="244" fill="none" stroke="url(#coral)" stroke-width="10"/>
 
-  <!-- Subtle inner ring -->
-  <circle cx="256" cy="256" r="218" fill="none" stroke="#D4A84B" stroke-width="0.75" opacity="0.35"/>
+  <!-- Inner teal ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="url(#teal)" stroke-width="2" opacity="0.5"/>
 
-  <!-- Subtle radial lines for depth -->
-  <g opacity="0.06">
-    <line x1="256" y1="50" x2="256" y2="462" stroke="#D4A84B" stroke-width="1"/>
-    <line x1="50" y1="256" x2="462" y2="256" stroke="#D4A84B" stroke-width="1"/>
-    <line x1="110" y1="110" x2="402" y2="402" stroke="#D4A84B" stroke-width="1"/>
-    <line x1="402" y1="110" x2="110" y2="402" stroke="#D4A84B" stroke-width="1"/>
-  </g>
-
-  <!-- Crown - centered properly -->
-  <g transform="translate(256, 175)" filter="url(#crownGlow)">
-    <path d="M-95 45 L-70 -25 L-35 20 L0 -45 L35 20 L70 -25 L95 45 Z"
-          fill="url(#crownGold)"/>
+  <!-- Crown in gold - premium but warm -->
+  <g transform="translate(256, 165)" filter="url(#glow)">
+    <path d="M-85 50 L-60 -15 L-30 25 L0 -35 L30 25 L60 -15 L85 50 Z"
+          fill="url(#gold)"/>
     <!-- Crown band -->
-    <rect x="-85" y="45" width="170" height="22" rx="2" fill="url(#crownGold)"/>
-    <!-- Three subtle dots on band -->
-    <circle cx="-42" cy="56" r="4" fill="#0d0d0d" opacity="0.2"/>
-    <circle cx="0" cy="56" r="5" fill="#0d0d0d" opacity="0.25"/>
-    <circle cx="42" cy="56" r="4" fill="#0d0d0d" opacity="0.2"/>
+    <rect x="-75" y="50" width="150" height="20" rx="3" fill="url(#gold)"/>
+    <!-- Coral gem center -->
+    <circle cx="0" cy="60" r="6" fill="#C85C42"/>
+    <!-- Teal side gems -->
+    <circle cx="-38" cy="60" r="4" fill="#2D8B8B"/>
+    <circle cx="38" cy="60" r="4" fill="#2D8B8B"/>
   </g>
 
-  <!-- VIP Text - centered -->
-  <text x="256" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="85" font-weight="400" fill="url(#warmGold)" letter-spacing="12">VIP</text>
+  <!-- VIP Text in coral -->
+  <text x="256" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="600" fill="url(#coral)" letter-spacing="10">VIP</text>
 
-  <!-- Decorative dots -->
-  <circle cx="155" cy="322" r="3" fill="url(#warmGold)" opacity="0.7"/>
-  <circle cx="357" cy="322" r="3" fill="url(#warmGold)" opacity="0.7"/>
+  <!-- Decorative dots in teal -->
+  <circle cx="148" cy="312" r="4" fill="#2D8B8B" opacity="0.8"/>
+  <circle cx="364" cy="312" r="4" fill="#2D8B8B" opacity="0.8"/>
 
-  <!-- ACCESS text -->
-  <text x="256" y="385" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="url(#warmGold)" letter-spacing="14" opacity="0.75">ACCESS</text>
+  <!-- ACCESS text in teal -->
+  <text x="256" y="375" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="url(#teal)" letter-spacing="12">ACCESS</text>
 
-  <!-- Bottom accent line -->
-  <line x1="180" y1="410" x2="332" y2="410" stroke="url(#warmGold)" stroke-width="1.5" opacity="0.4"/>
+  <!-- Bottom accent - coral line -->
+  <line x1="185" y1="400" x2="327" y2="400" stroke="url(#coral)" stroke-width="2" opacity="0.5"/>
+
+  <!-- Corner sparkles in brand colors -->
+  <g opacity="0.6">
+    <path d="M100 100 L103 108 L111 111 L103 114 L100 122 L97 114 L89 111 L97 108 Z" fill="#C85C42"/>
+    <path d="M412 100 L415 108 L423 111 L415 114 L412 122 L409 114 L401 111 L409 108 Z" fill="#2D8B8B"/>
+    <path d="M100 412 L103 420 L111 423 L103 426 L100 434 L97 426 L89 423 L97 420 Z" fill="#2D8B8B"/>
+    <path d="M412 412 L415 420 L423 423 L415 426 L412 434 L409 426 L401 423 L409 420 Z" fill="#C85C42"/>
+  </g>
 
 </svg>
