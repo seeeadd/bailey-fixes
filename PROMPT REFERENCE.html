@@ -983,53 +983,163 @@
     }
 
     /* ========================================
-       SPEED CARD
+       SPEED CARD - Redesigned with Energy
        ======================================== */
     .speed-card {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
       margin: 1.5rem 0;
+      border: 2px solid transparent;
     }
 
     .speed-header {
-      background: var(--coral);
+      background: linear-gradient(135deg, var(--coral) 0%, #D4735D 100%);
       color: var(--white);
-      padding: 1rem;
+      padding: 1.25rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .speed-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));
     }
 
     .speed-header.teal {
-      background: var(--teal);
+      background: linear-gradient(135deg, var(--teal) 0%, #1F6B6B 100%);
+    }
+
+    .speed-header-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .speed-header-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .speed-header-icon svg {
+      width: 20px;
+      height: 20px;
     }
 
     .speed-header h3 {
       color: var(--white);
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      font-family: 'Ogg', Georgia, serif;
     }
 
     .speed-badge {
       font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.25);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+    }
+
+    .speed-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Progress bar at top of body */
+    .speed-progress {
+      padding: 1rem 1.5rem;
+      background: #FAFAF8;
+      border-bottom: 1px solid #E8DFD3;
+    }
+
+    .speed-progress-bar {
+      height: 6px;
+      background: #E8DFD3;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .speed-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral), #E8927C);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .speed-progress-fill.teal {
+      background: linear-gradient(90deg, var(--teal), #4A9B8B);
+    }
+
+    .speed-progress-text {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-family: 'Satoshi', sans-serif;
       font-size: 0.8rem;
-      background: rgba(255,255,255,0.2);
-      padding: 0.3rem 0.6rem;
-      border-radius: 8px;
+      color: var(--text-light);
     }
 
     .speed-note {
       font-size: 0.8rem;
       color: var(--text-light);
-      padding: 0.75rem 1rem 0;
+      padding: 0.75rem 1.5rem 0;
     }
 
     .speed-body {
-      padding: 0.5rem 1rem 1rem;
+      padding: 0.5rem 1.5rem 1.5rem;
+    }
+
+    /* Phase dividers */
+    .speed-phase {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 0 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .speed-phase-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .speed-phase-label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+    }
+
+    .speed-phase-line {
+      flex: 1;
+      height: 1px;
+      background: #E8DFD3;
     }
 
     /* ========================================
@@ -1705,24 +1815,218 @@
     }
 
     /* ========================================
-       OPTION CARDS
+       CELEBRATION CALLOUT - What's Next
        ======================================== */
-    .option-card {
-      padding: 1rem;
-      border: 1px solid var(--cream-dark);
-      border-radius: 10px;
+    .celebration-callout {
+      position: relative;
+      background: linear-gradient(135deg, #E8F5F0 0%, #D4EDE6 100%);
+      border: 2px solid #2D8B8B;
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .celebration-callout::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(45, 139, 139, 0.2) 0%, transparent 70%);
+    }
+
+    .celebration-icon {
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      background: #2D8B8B;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(45, 139, 139, 0.3);
+    }
+
+    .celebration-icon svg {
+      width: 24px;
+      height: 24px;
+      color: white;
+    }
+
+    .celebration-content {
+      padding-top: 1rem;
+    }
+
+    .celebration-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #1F6B6B;
+      margin-bottom: 0.5rem;
+    }
+
+    .celebration-text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      color: #2D5B4E;
+    }
+
+    /* Sparkles */
+    .celebration-sparkles {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .celebration-sparkle {
+      position: absolute;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+
+    .celebration-sparkle:nth-child(1) { top: 15px; right: 50px; animation-delay: 0s; }
+    .celebration-sparkle:nth-child(2) { top: 40px; right: 20px; animation-delay: 0.5s; }
+    .celebration-sparkle:nth-child(3) { bottom: 20px; right: 80px; animation-delay: 1s; }
+
+    /* ========================================
+       OPTION CARDS - Redesigned with Hierarchy
+       ======================================== */
+    .options-container {
+      margin-top: 1.5rem;
+    }
+
+    .options-label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
       margin-bottom: 0.75rem;
     }
 
-    .option-card strong {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-size: 0.9rem;
+    /* Primary Option - Do Another (Recommended) */
+    .option-card-primary {
+      position: relative;
+      background: linear-gradient(135deg, #FFFBF7 0%, #FFF5F0 100%);
+      border: 2px solid #C85C42;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .option-card p {
-      margin: 0 0 0.5rem;
+    .option-card-primary::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: linear-gradient(135deg, #C85C42, #D4735D);
+      color: white;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+    }
+
+    .option-card-primary .option-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .option-card-primary .option-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: linear-gradient(135deg, #FFF5F2, #FFEEE8);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-card-primary .option-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .option-card-primary .option-desc {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-medium);
+      margin-bottom: 1rem;
+    }
+
+    .option-card-primary .btn {
+      background: linear-gradient(135deg, #C85C42, #D4735D);
+    }
+
+    /* Secondary Options - Side by Side */
+    .options-secondary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .options-secondary {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-card-secondary {
+      background: white;
+      border: 1px solid #E8DFD3;
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .option-card-secondary:hover {
+      border-color: #2D8B8B;
+      box-shadow: 0 4px 12px rgba(45, 139, 139, 0.1);
+    }
+
+    .option-card-secondary .option-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.75rem;
+    }
+
+    .option-card-secondary .option-title {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .option-card-secondary .option-desc {
+      font-family: 'Satoshi', sans-serif;
       font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .option-card-secondary .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* Legacy option-card for backwards compat */
+    .option-card {
+      display: none;
     }
 
     /* ========================================
@@ -5552,17 +5856,67 @@
           </div>
           <p class="loom-note text-center">Keep the Loom playing. Follow along in this doc. Don't add steps.</p>
 
-          <!-- Design Glow-Up Speed Card -->
-          <div class="speed-card">
-            <div class="speed-header"><h3>Glow-Up Speed Card</h3><span class="speed-badge">30-60 min</span></div>
-            <p class="speed-note">Bailey can do this in ~30 minutes. Plan for up to 60 the first few times.</p>
+          <!-- Design Glow-Up Speed Card - Enhanced -->
+          <div class="speed-card" id="speed-card-glowup-cm">
+            <div class="speed-header">
+              <div class="speed-header-content">
+                <div class="speed-header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/>
+                  </svg>
+                </div>
+                <h3>Glow-Up Speed Card</h3>
+              </div>
+              <span class="speed-badge">
+                <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4V8L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                30-60 min
+              </span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="speed-progress">
+              <div class="speed-progress-bar">
+                <div class="speed-progress-fill" id="glowup-cm-progress" style="width: 0%"></div>
+              </div>
+              <div class="speed-progress-text">
+                <span>0/8 steps</span>
+                <span>Bailey time: ~30 min</span>
+              </div>
+            </div>
+
             <div class="speed-body">
+              <!-- PHASE: PREP -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/></svg>
+                </div>
+                <span class="speed-phase-label">PREP</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">0-5 min</span><span class="step-content"><span class="step-num">1</span>Pick one listing with consistent sales but dated design</span><div class="checkbox step-check" onclick="toggleCheck('dg1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+              <!-- PHASE: CREATE -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M13.586 3.586a2 2 0 112.828 2.828l-10 10a2 2 0 01-.702.453l-3 1a.5.5 0 01-.636-.636l1-3a2 2 0 01.453-.702l10-10z"/></svg>
+                </div>
+                <span class="speed-phase-label">CREATE</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">5-10 min</span><span class="step-content"><span class="step-num">2</span>Screenshot → ChatGPT → get 10 style variations</span><div class="checkbox step-check" onclick="toggleCheck('dg2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">10-15 min</span><span class="step-content"><span class="step-num">3</span>Pick one → have ChatGPT write the full Kittl prompt</span><div class="checkbox step-check" onclick="toggleCheck('dg3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">15-25 min</span><span class="step-content"><span class="step-num">4</span>Generate in Kittl (test 2-3 generators)</span><div class="checkbox step-check" onclick="toggleCheck('dg4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">25-30 min</span><span class="step-content"><span class="step-num">5</span>Add text manually if needed, upscale, download</span><div class="checkbox step-check" onclick="toggleCheck('dg5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">30-40 min</span><span class="step-content"><span class="step-num">6</span>Make seamless in Photoshop (skip if design doesn't need it)</span><div class="checkbox step-check" onclick="toggleCheck('dg6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+              <!-- PHASE: PUBLISH -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                </div>
+                <span class="speed-phase-label">PUBLISH</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">40-55 min</span><span class="step-content"><span class="step-num">7</span>BulkMockup → Vela → duplicate listing → swap images + files</span><div class="checkbox step-check" onclick="toggleCheck('dg7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">55-60 min</span><span class="step-content"><span class="step-num">8</span>Final check → publish</span><div class="checkbox step-check" onclick="toggleCheck('dg8')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             </div>
@@ -8216,14 +8570,78 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
       <div class="section-inner">
         <span class="badge badge-teal">STEP 3</span>
         <h2>What's Next</h2>
-        <div class="callout callout-teal">
-          <p><strong>You just upgraded a listing using AI.</strong> That's the core skill. Everything else is variations.</p>
+
+        <!-- Celebration Callout -->
+        <div class="celebration-callout">
+          <div class="celebration-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+          </div>
+          <div class="celebration-sparkles">
+            <svg class="celebration-sparkle" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0L7 4.5L12 6L7 7.5L6 12L5 7.5L0 6L5 4.5Z" fill="#2D8B8B"/></svg>
+            <svg class="celebration-sparkle" width="10" height="10" viewBox="0 0 12 12"><path d="M6 0L7 4.5L12 6L7 7.5L6 12L5 7.5L0 6L5 4.5Z" fill="#3AA3A3"/></svg>
+            <svg class="celebration-sparkle" width="8" height="8" viewBox="0 0 12 12"><path d="M6 0L7 4.5L12 6L7 7.5L6 12L5 7.5L0 6L5 4.5Z" fill="#2D8B8B"/></svg>
+          </div>
+          <div class="celebration-content">
+            <div class="celebration-title">You just upgraded a listing using AI! 🎉</div>
+            <div class="celebration-text">That's the core skill. Everything else is just variations on this theme.</div>
+          </div>
         </div>
 
-        <h3 class="mt-2">Your Options</h3>
-        <div class="option-card"><strong>Option A: Do Another Glow-Up</strong><p>Go back to your FIX pile, pick another listing.</p><button class="btn small" onclick="goToStep(2)">Do Another</button></div>
-        <div class="option-card"><strong>Option B: Trend → Listing</strong><p>Need a new product? Use Workflow 1.</p><button class="btn small teal" onclick="setMode('reference');selectWorkflow('trend')">Try It</button></div>
-        <div class="option-card"><strong>Option C: Niche Pack</strong><p>Own a niche with 10+ products.</p><button class="btn small teal" onclick="setMode('reference');selectWorkflow('nichepack')">Try It</button></div>
+        <!-- Options Container -->
+        <div class="options-container">
+          <div class="options-label">What would you like to do next?</div>
+
+          <!-- Primary Option: Do Another Glow-Up -->
+          <div class="option-card-primary">
+            <div class="option-header">
+              <div class="option-icon">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <circle cx="16" cy="16" r="14" fill="#FFF5F2" stroke="#C85C42" stroke-width="1.5"/>
+                  <path d="M12 16L15 19L21 13" stroke="#C85C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 8L11 10L13 11L11 12L10 14L9 12L7 11L9 10Z" fill="#E8927C"/>
+                </svg>
+              </div>
+              <div class="option-title">Do Another Glow-Up</div>
+            </div>
+            <div class="option-desc">Go back to your FIX pile and transform another listing. Build the muscle memory!</div>
+            <button class="btn" onclick="goToStep(2)">Pick Next Listing →</button>
+          </div>
+
+          <!-- Secondary Options -->
+          <div class="options-secondary">
+            <!-- Trend → Listing -->
+            <div class="option-card-secondary">
+              <div class="option-icon">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <path d="M12 26L18 20L22 24L28 16" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="16" r="2" fill="#2D8B8B"/>
+                </svg>
+              </div>
+              <div class="option-title">Trend → Listing</div>
+              <div class="option-desc">Need a new product idea? Find what's selling now.</div>
+              <button class="btn teal small" onclick="setMode('reference');selectWorkflow('trend')">Explore Trends</button>
+            </div>
+
+            <!-- Niche Pack -->
+            <div class="option-card-secondary">
+              <div class="option-icon">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <rect x="11" y="14" width="6" height="8" rx="1" fill="#2D8B8B"/>
+                  <rect x="19" y="12" width="6" height="10" rx="1" fill="#3AA3A3"/>
+                  <rect x="27" y="16" width="6" height="6" rx="1" fill="#5BC4C4"/>
+                  <path d="M14 26L20 26L26 26" stroke="#2D8B8B" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+                </svg>
+              </div>
+              <div class="option-title">Niche Pack</div>
+              <div class="option-desc">Own a niche with 10+ coordinated products.</div>
+              <button class="btn teal small" onclick="setMode('reference');selectWorkflow('nichepack')">Build a Pack</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -8521,17 +8939,67 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
           </div>
           <p class="loom-note text-center">Keep the Loom playing. Follow along in this doc. Don't add steps.</p>
 
-          <!-- Design Glow-Up Speed Card -->
-          <div class="speed-card">
-            <div class="speed-header"><h3>Glow-Up Speed Card</h3><span class="speed-badge">30-60 min</span></div>
-            <p class="speed-note">Bailey can do this in ~30 minutes. Plan for up to 60 the first few times.</p>
+          <!-- Design Glow-Up Speed Card - Enhanced -->
+          <div class="speed-card" id="speed-card-glowup-rm">
+            <div class="speed-header">
+              <div class="speed-header-content">
+                <div class="speed-header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/>
+                  </svg>
+                </div>
+                <h3>Glow-Up Speed Card</h3>
+              </div>
+              <span class="speed-badge">
+                <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4V8L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                30-60 min
+              </span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="speed-progress">
+              <div class="speed-progress-bar">
+                <div class="speed-progress-fill" id="glowup-rm-progress" style="width: 0%"></div>
+              </div>
+              <div class="speed-progress-text">
+                <span>0/8 steps</span>
+                <span>Bailey time: ~30 min</span>
+              </div>
+            </div>
+
             <div class="speed-body">
+              <!-- PHASE: PREP -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/></svg>
+                </div>
+                <span class="speed-phase-label">PREP</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">0-5 min</span><span class="step-content"><span class="step-num">1</span>Pick one listing with consistent sales but dated design</span><div class="checkbox step-check" onclick="toggleCheck('rdg1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+              <!-- PHASE: CREATE -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M13.586 3.586a2 2 0 112.828 2.828l-10 10a2 2 0 01-.702.453l-3 1a.5.5 0 01-.636-.636l1-3a2 2 0 01.453-.702l10-10z"/></svg>
+                </div>
+                <span class="speed-phase-label">CREATE</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">5-10 min</span><span class="step-content"><span class="step-num">2</span>Screenshot → ChatGPT → get 10 style variations</span><div class="checkbox step-check" onclick="toggleCheck('rdg2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">10-15 min</span><span class="step-content"><span class="step-num">3</span>Pick one → have ChatGPT write the full Kittl prompt</span><div class="checkbox step-check" onclick="toggleCheck('rdg3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">15-25 min</span><span class="step-content"><span class="step-num">4</span>Generate in Kittl (test 2-3 generators)</span><div class="checkbox step-check" onclick="toggleCheck('rdg4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">25-30 min</span><span class="step-content"><span class="step-num">5</span>Add text manually if needed, upscale, download</span><div class="checkbox step-check" onclick="toggleCheck('rdg5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">30-40 min</span><span class="step-content"><span class="step-num">6</span>Make seamless in Photoshop (skip if design doesn't need it)</span><div class="checkbox step-check" onclick="toggleCheck('rdg6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+              <!-- PHASE: PUBLISH -->
+              <div class="speed-phase">
+                <div class="speed-phase-icon">
+                  <svg viewBox="0 0 20 20" fill="#C85C42"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                </div>
+                <span class="speed-phase-label">PUBLISH</span>
+                <div class="speed-phase-line"></div>
+              </div>
               <div class="step-row"><span class="step-time">40-55 min</span><span class="step-content"><span class="step-num">7</span>BulkMockup → Vela → duplicate listing → swap images + files</span><div class="checkbox step-check" onclick="toggleCheck('rdg7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
               <div class="step-row"><span class="step-time">55-60 min</span><span class="step-content"><span class="step-num">8</span>Final check → publish</span><div class="checkbox step-check" onclick="toggleCheck('rdg8')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             </div>
@@ -8895,13 +9363,65 @@ Keep it simple. I just need to add text that looks like it belongs.</div>
           </div>
         </div>
 
-        <div class="speed-card">
-          <div class="speed-header teal"><h3>Trend → Listing Speed Card</h3><span class="speed-badge">45-60 min</span></div>
+        <!-- Trend → Listing Speed Card - Enhanced -->
+        <div class="speed-card" id="speed-card-trend">
+          <div class="speed-header teal">
+            <div class="speed-header-content">
+              <div class="speed-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/><path d="M21 21L16.65 16.65"/>
+                </svg>
+              </div>
+              <h3>Trend → Listing Speed Card</h3>
+            </div>
+            <span class="speed-badge">
+              <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4V8L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              45-60 min
+            </span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="speed-progress">
+            <div class="speed-progress-bar">
+              <div class="speed-progress-fill teal" id="trend-progress" style="width: 0%"></div>
+            </div>
+            <div class="speed-progress-text">
+              <span>0/7 steps</span>
+              <span>Bailey time: ~45 min</span>
+            </div>
+          </div>
+
           <div class="speed-body">
+            <!-- PHASE: RESEARCH -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg>
+              </div>
+              <span class="speed-phase-label">RESEARCH</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">0-5 min</span><span class="step-content"><span class="step-num teal">1</span>Etsy + ProfitTree/EverBee → find listing &lt;3 months old with high sales + badges</span><div class="checkbox step-check teal" onclick="toggleCheck('rt1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+            <!-- PHASE: CREATE -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M13.586 3.586a2 2 0 112.828 2.828l-10 10a2 2 0 01-.702.453l-3 1a.5.5 0 01-.636-.636l1-3a2 2 0 01.453-.702l10-10z"/></svg>
+              </div>
+              <span class="speed-phase-label">CREATE</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">5-10 min</span><span class="step-content"><span class="step-num teal">2</span>Screenshot → ChatGPT → get AI prompt → ask for 10 theme variations → pick one</span><div class="checkbox step-check teal" onclick="toggleCheck('rt2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">10-20 min</span><span class="step-content"><span class="step-num teal">3</span>Generate in Kittl (2-3 generators) → pick best</span><div class="checkbox step-check teal" onclick="toggleCheck('rt3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">20-30 min</span><span class="step-content"><span class="step-num teal">4</span>Make seamless in Photoshop</span><div class="checkbox step-check teal" onclick="toggleCheck('rt4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+            <!-- PHASE: PUBLISH -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+              </div>
+              <span class="speed-phase-label">PUBLISH</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">30-32 min</span><span class="step-content"><span class="step-num teal">5</span>BulkMockup</span><div class="checkbox step-check teal" onclick="toggleCheck('rt5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">32-55 min</span><span class="step-content"><span class="step-num teal">6</span>Vela → use template → add images, files, niche tags</span><div class="checkbox step-check teal" onclick="toggleCheck('rt6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">55-60 min</span><span class="step-content"><span class="step-num teal">7</span>Publish</span><div class="checkbox step-check teal" onclick="toggleCheck('rt7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
@@ -9332,14 +9852,66 @@ For each variation, give me the full prompt ready to paste into Midjourney.</div
           </div>
         </div>
 
-        <div class="speed-card">
-          <div class="speed-header teal"><h3>Niche Pack Speed Card</h3><span class="speed-badge">60-90 min</span></div>
+        <!-- Niche Pack Speed Card - Enhanced -->
+        <div class="speed-card" id="speed-card-niche">
+          <div class="speed-header teal">
+            <div class="speed-header-content">
+              <div class="speed-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                </svg>
+              </div>
+              <h3>Niche Pack Speed Card</h3>
+            </div>
+            <span class="speed-badge">
+              <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4V8L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              60-90 min
+            </span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="speed-progress">
+            <div class="speed-progress-bar">
+              <div class="speed-progress-fill teal" id="niche-progress" style="width: 0%"></div>
+            </div>
+            <div class="speed-progress-text">
+              <span>0/7 steps</span>
+              <span>Batch mode: 10+ listings</span>
+            </div>
+          </div>
+
           <div class="speed-body">
+            <!-- PHASE: PLAN -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z"/></svg>
+              </div>
+              <span class="speed-phase-label">PLAN</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">0-5 min</span><span class="step-content"><span class="step-num teal">1</span>Pick niche with easy variations (awareness, states, hobbies)</span><div class="checkbox step-check teal" onclick="toggleCheck('rn1')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">5-15 min</span><span class="step-content"><span class="step-num teal">2</span>ChatGPT → get 10 variation prompts at once</span><div class="checkbox step-check teal" onclick="toggleCheck('rn2')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+            <!-- PHASE: BATCH CREATE -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/><path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/></svg>
+              </div>
+              <span class="speed-phase-label">BATCH CREATE</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">15-35 min</span><span class="step-content"><span class="step-num teal">3</span>Batch generate in Kittl</span><div class="checkbox step-check teal" onclick="toggleCheck('rn3')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">35-45 min</span><span class="step-content"><span class="step-num teal">4</span>Batch seamless in Photoshop</span><div class="checkbox step-check teal" onclick="toggleCheck('rn4')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">45-50 min</span><span class="step-content"><span class="step-num teal">5</span>BulkMockup all at once</span><div class="checkbox step-check teal" onclick="toggleCheck('rn5')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+
+            <!-- PHASE: PUBLISH ALL -->
+            <div class="speed-phase">
+              <div class="speed-phase-icon">
+                <svg viewBox="0 0 20 20" fill="#2D8B8B"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+              </div>
+              <span class="speed-phase-label">PUBLISH ALL</span>
+              <div class="speed-phase-line"></div>
+            </div>
             <div class="step-row"><span class="step-time teal">50-75 min</span><span class="step-content"><span class="step-num teal">6</span>Vela → duplicate base listing → bulk replace images/files/tags</span><div class="checkbox step-check teal" onclick="toggleCheck('rn6')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
             <div class="step-row"><span class="step-time teal">75-90 min</span><span class="step-content"><span class="step-num teal">7</span>Create bundle (PDF → Google Drive link)</span><div class="checkbox step-check teal" onclick="toggleCheck('rn7')"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
           </div>
