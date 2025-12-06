@@ -1,61 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Deep black -->
-    <linearGradient id="deepBlack" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1c1c1c"/>
-      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    <!-- Rich black with subtle warmth -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#252525"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </radialGradient>
+    <!-- Warm rich gold -->
+    <linearGradient id="warmGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0D78C"/>
+      <stop offset="35%" style="stop-color:#D4A84B"/>
+      <stop offset="65%" style="stop-color:#B8893A"/>
+      <stop offset="100%" style="stop-color:#8C6B2E"/>
     </linearGradient>
-    <!-- Refined gold - more muted, sophisticated -->
-    <linearGradient id="richGold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#C9A961"/>
-      <stop offset="40%" style="stop-color:#E5D4A1"/>
-      <stop offset="60%" style="stop-color:#C9A961"/>
-      <stop offset="100%" style="stop-color:#8B7335"/>
+    <!-- Highlight gold for border -->
+    <linearGradient id="borderGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C872"/>
+      <stop offset="50%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#9A7234"/>
     </linearGradient>
-    <!-- Subtle gold for accents -->
-    <linearGradient id="subtleGold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#A08940"/>
-      <stop offset="100%" style="stop-color:#7A6830"/>
+    <!-- Crown special gradient -->
+    <linearGradient id="crownGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5E1A4"/>
+      <stop offset="30%" style="stop-color:#D4A84B"/>
+      <stop offset="70%" style="stop-color:#C49A42"/>
+      <stop offset="100%" style="stop-color:#8C6B2E"/>
     </linearGradient>
     <!-- Shadow -->
     <filter id="shadow">
-      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.5"/>
     </filter>
-    <!-- Subtle inner shadow for depth -->
-    <filter id="innerDepth">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-      <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
-      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+    <!-- Glow for crown -->
+    <filter id="crownGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
 
-  <!-- Main circle - deep black -->
-  <circle cx="256" cy="256" r="245" fill="url(#deepBlack)" filter="url(#shadow)"/>
+  <!-- Main circle -->
+  <circle cx="256" cy="256" r="244" fill="url(#bgGrad)" filter="url(#shadow)"/>
 
-  <!-- Outer gold ring - thick and refined -->
-  <circle cx="256" cy="256" r="245" fill="none" stroke="url(#richGold)" stroke-width="12"/>
+  <!-- Outer gold border -->
+  <circle cx="256" cy="256" r="244" fill="none" stroke="url(#borderGold)" stroke-width="10"/>
 
-  <!-- Inner accent ring - subtle -->
-  <circle cx="256" cy="256" r="220" fill="none" stroke="url(#subtleGold)" stroke-width="1.5" opacity="0.5"/>
+  <!-- Subtle inner ring -->
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#D4A84B" stroke-width="0.75" opacity="0.35"/>
 
-  <!-- Crown - simplified, elegant, monochrome gold -->
-  <g filter="url(#innerDepth)">
-    <!-- Crown body - cleaner shape -->
-    <path d="M152 235 L176 295 L256 260 L336 295 L360 235 L320 265 L256 210 L192 265 Z"
-          fill="url(#richGold)"/>
-    <!-- Crown band -->
-    <rect x="172" y="290" width="168" height="24" rx="3" fill="url(#richGold)"/>
-    <!-- Single center jewel detail - subtle -->
-    <ellipse cx="256" cy="302" rx="8" ry="6" fill="#0a0a0a" opacity="0.3"/>
+  <!-- Subtle radial lines for depth -->
+  <g opacity="0.06">
+    <line x1="256" y1="50" x2="256" y2="462" stroke="#D4A84B" stroke-width="1"/>
+    <line x1="50" y1="256" x2="462" y2="256" stroke="#D4A84B" stroke-width="1"/>
+    <line x1="110" y1="110" x2="402" y2="402" stroke="#D4A84B" stroke-width="1"/>
+    <line x1="402" y1="110" x2="110" y2="402" stroke="#D4A84B" stroke-width="1"/>
   </g>
 
-  <!-- VIP Typography - elegant serif -->
-  <text x="256" y="385" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="400" fill="url(#richGold)" letter-spacing="16">VIP</text>
+  <!-- Crown - centered properly -->
+  <g transform="translate(256, 175)" filter="url(#crownGlow)">
+    <path d="M-95 45 L-70 -25 L-35 20 L0 -45 L35 20 L70 -25 L95 45 Z"
+          fill="url(#crownGold)"/>
+    <!-- Crown band -->
+    <rect x="-85" y="45" width="170" height="22" rx="2" fill="url(#crownGold)"/>
+    <!-- Three subtle dots on band -->
+    <circle cx="-42" cy="56" r="4" fill="#0d0d0d" opacity="0.2"/>
+    <circle cx="0" cy="56" r="5" fill="#0d0d0d" opacity="0.25"/>
+    <circle cx="42" cy="56" r="4" fill="#0d0d0d" opacity="0.2"/>
+  </g>
 
-  <!-- Thin elegant line -->
-  <line x1="175" y1="405" x2="337" y2="405" stroke="url(#subtleGold)" stroke-width="1" opacity="0.6"/>
+  <!-- VIP Text - centered -->
+  <text x="256" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="85" font-weight="400" fill="url(#warmGold)" letter-spacing="12">VIP</text>
 
-  <!-- ACCESS text - refined, spaced -->
-  <text x="256" y="435" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="300" fill="url(#subtleGold)" letter-spacing="10" opacity="0.8">ACCESS</text>
+  <!-- Decorative dots -->
+  <circle cx="155" cy="322" r="3" fill="url(#warmGold)" opacity="0.7"/>
+  <circle cx="357" cy="322" r="3" fill="url(#warmGold)" opacity="0.7"/>
+
+  <!-- ACCESS text -->
+  <text x="256" y="385" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="url(#warmGold)" letter-spacing="14" opacity="0.75">ACCESS</text>
+
+  <!-- Bottom accent line -->
+  <line x1="180" y1="410" x2="332" y2="410" stroke="url(#warmGold)" stroke-width="1.5" opacity="0.4"/>
 
 </svg>
