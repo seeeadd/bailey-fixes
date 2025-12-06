@@ -210,28 +210,35 @@
     }
 
     /* ========================================
-       HERO HEADER - Redesigned
+       HERO HEADER - Redesigned v2
        ======================================== */
     .hero-header {
       width: 100%;
       background: #FFFBF7;
-      padding: 3rem 1.5rem 2.5rem;
+      padding: 3.5rem 1.5rem 2.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
+    /* Treasure map texture - subtle grid pattern */
     .hero-header::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 60%;
-      height: 200%;
-      background: radial-gradient(ellipse, rgba(200, 92, 66, 0.06) 0%, transparent 70%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(200, 92, 66, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(45, 91, 78, 0.06) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23E8DFD3' stroke-width='0.5' fill='none' opacity='0.4'/%3E%3C/svg%3E");
+      background-size: 100% 100%, 100% 100%, 60px 60px;
       pointer-events: none;
+      opacity: 0.6;
     }
 
+    /* Decorative corner elements */
     .hero-header::after {
       content: '';
       position: absolute;
@@ -239,7 +246,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(200, 92, 66, 0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(200, 92, 66, 0.25), transparent);
     }
 
     .hero-inner {
@@ -249,95 +256,105 @@
       z-index: 1;
     }
 
-    /* Title Treatment */
-    .hero-title {
+    /* Title Lockup - One cohesive mark */
+    .hero-title-lockup {
+      position: relative;
+      display: inline-block;
       margin-bottom: 1.5rem;
     }
 
-    .hero-title-top {
+    /* AI Stamp - Wax seal style, positioned */
+    .hero-ai-stamp {
+      position: absolute;
+      top: -8px;
+      right: -45px;
+      width: 72px;
+      height: 72px;
+      transform: rotate(12deg);
+      z-index: 2;
+    }
+
+    .hero-ai-stamp svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 4px rgba(45, 91, 78, 0.2));
+    }
+
+    .hero-main-title {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-ai-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: linear-gradient(135deg, #2D5B4E 0%, #1F6B6B 100%);
-      color: white;
-      font-family: 'Satoshi', sans-serif;
-      font-weight: 700;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      padding: 0.4rem 0.65rem;
-      border-radius: 6px;
-      text-transform: uppercase;
-    }
-
-    .hero-ai-badge svg {
-      width: 12px;
-      height: 12px;
-    }
-
-    .hero-speed-launch {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
     }
 
     .hero-word-speed {
       font-family: 'Ogg', Georgia, serif;
       font-weight: 700;
-      font-size: 3.5rem;
+      font-size: 3.75rem;
       color: #1A1A1A;
       position: relative;
       display: inline-block;
+      line-height: 1;
     }
 
     .hero-word-speed::after {
       content: '';
       position: absolute;
-      bottom: 0.15em;
-      left: -2%;
-      width: 104%;
-      height: 0.12em;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5 Q 30 2, 60 5 T 118 4' stroke='%23C85C42' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      bottom: 0.08em;
+      left: -3%;
+      width: 106%;
+      height: 0.14em;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6 Q 20 3, 40 6 T 80 5 T 118 6' stroke='%23C85C42' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='118' cy='6' r='2.5' fill='%23C85C42'/%3E%3C/svg%3E") no-repeat center;
       background-size: 100% 100%;
-    }
-
-    .hero-word-launch {
-      font-family: 'Ogg', Georgia, serif;
-      font-weight: 700;
-      font-size: 3.5rem;
-      color: #1A1A1A;
-      position: relative;
     }
 
     .hero-transform-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      margin: 0 0.25rem;
+      width: 48px;
+      height: 48px;
+      margin: 0 0.15rem;
       position: relative;
-      top: 0.1em;
+      top: 0.05em;
     }
 
-    .hero-word-system {
-      display: block;
+    .hero-word-launch {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 3.75rem;
+      color: #1A1A1A;
+      position: relative;
+      line-height: 1;
+    }
+
+    /* Subtitle lockup */
+    .hero-subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 0.6rem;
+    }
+
+    .hero-subtitle-line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C4B5A5, transparent);
+    }
+
+    .hero-subtitle-text {
       font-family: 'Satoshi', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #888;
-      margin-top: 0.5rem;
+      color: #2D5B4E;
+      background: linear-gradient(135deg, #2D5B4E, #1F6B6B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     /* Mode Selector - Physical Switch */
@@ -1492,106 +1509,138 @@
     }
 
     /* ========================================
-       WORKFLOW CARDS - Substantial & Clickable
-       Like Linear, Stripe - solid white, soft shadows
+       WORKFLOW CARDS - Illustration-Forward Adventure Cards
+       Each card is a distinct path with personality
        ======================================== */
     .workflow-cards {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       margin: 1.5rem 0;
     }
 
     .wf-card {
+      position: relative;
       display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1.5rem;
+      align-items: stretch;
       background: #fff;
-      border: none;
-      border-radius: 16px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.08),
-        0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid #F0E8DD;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
     }
 
     .wf-card:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.1),
-        0 12px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      border-color: #E0D5C8;
     }
 
     .wf-card.selected {
-      background: #fff;
-      box-shadow:
-        0 0 0 2px var(--coral),
-        0 4px 12px rgba(232, 146, 124, 0.15),
-        0 12px 32px rgba(0, 0, 0, 0.06);
+      border-color: var(--coral);
+      box-shadow: 0 8px 24px rgba(200, 92, 66, 0.15);
     }
 
     .wf-card.teal.selected {
-      box-shadow:
-        0 0 0 2px var(--teal),
-        0 4px 12px rgba(45, 139, 139, 0.15),
-        0 12px 32px rgba(0, 0, 0, 0.06);
+      border-color: var(--teal);
+      box-shadow: 0 8px 24px rgba(45, 139, 139, 0.15);
     }
 
-    /* Clean icon */
-    .wf-icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      background: var(--cream);
-      border-radius: 12px;
+    /* Illustration panel - left side */
+    .wf-illustration {
+      width: 130px;
+      min-width: 130px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1.25rem 0.75rem;
+      position: relative;
     }
 
-    .wf-card.teal .wf-icon {
-      background: var(--teal-light);
+    .wf-illustration svg {
+      width: 90px;
+      height: 90px;
+      transition: transform 0.3s ease;
     }
 
-    .wf-card.selected .wf-icon {
-      background: var(--coral-light);
+    .wf-card:hover .wf-illustration svg {
+      transform: scale(1.08);
     }
 
-    .wf-card.teal.selected .wf-icon {
-      background: var(--teal-light);
+    /* Trend card - treasure hunt/discovery */
+    .wf-card.teal .wf-illustration {
+      background: linear-gradient(145deg, #E8F5F0 0%, #D4EDE6 100%);
     }
 
+    .wf-card.teal.selected .wf-illustration {
+      background: linear-gradient(145deg, #D4EDE6 0%, #C0E0D6 100%);
+    }
+
+    /* Glowup card - transformation/sparkle */
+    .wf-card:not(.teal) .wf-illustration {
+      background: linear-gradient(145deg, #FFF5F2 0%, #FCE8E4 100%);
+    }
+
+    .wf-card:not(.teal).selected .wf-illustration {
+      background: linear-gradient(145deg, #FCE8E4 0%, #F8D8D0 100%);
+    }
+
+    /* Content area */
     .wf-content {
       flex: 1;
       min-width: 0;
+      padding: 1.25rem 1.25rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .wf-content .label {
+      font-size: 0.6rem !important;
+      letter-spacing: 0.14em !important;
+      color: #999 !important;
+      margin-bottom: 0.3rem !important;
+    }
+
+    .wf-card.selected .wf-content .label {
+      color: var(--coral-dark) !important;
+    }
+
+    .wf-card.teal.selected .wf-content .label {
+      color: var(--teal-dark) !important;
     }
 
     .wf-title {
       font-family: 'Ogg', Georgia, serif !important;
       font-weight: 600 !important;
-      font-size: 1.35rem !important;
+      font-size: 1.4rem !important;
       color: #1a1a1a !important;
-      line-height: 1.3 !important;
+      line-height: 1.25 !important;
+      margin-bottom: 0.25rem !important;
     }
 
     .wf-desc {
       font-size: 0.9rem !important;
       color: #666 !important;
-      margin: 0.25rem 0 0 0 !important;
+      margin: 0 !important;
       font-family: 'Satoshi', sans-serif !important;
+      line-height: 1.5 !important;
     }
 
-    /* Time badge - minimal */
+    /* Time badge */
     .wf-time {
       font-family: 'JetBrains Mono', monospace !important;
-      font-size: 0.75rem !important;
+      font-size: 0.7rem !important;
       color: #888;
       background: #f5f5f5;
-      padding: 0.4rem 0.75rem;
+      padding: 0.35rem 0.6rem;
       border-radius: 6px;
       white-space: nowrap;
+      margin-top: 0.6rem;
+      display: inline-flex;
+      align-self: flex-start;
     }
 
     .wf-card.selected .wf-time {
@@ -1604,7 +1653,49 @@
       color: var(--teal-dark);
     }
 
-    /* Section Heading - clean */
+    /* Selection checkmark */
+    .wf-check {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .wf-check svg {
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      color: white;
+    }
+
+    .wf-card.selected .wf-check {
+      border-color: var(--coral);
+      background: var(--coral);
+    }
+
+    .wf-card.teal.selected .wf-check {
+      border-color: var(--teal);
+      background: var(--teal);
+    }
+
+    .wf-card.selected .wf-check svg {
+      opacity: 1;
+    }
+
+    /* Hide old icon */
+    .wf-icon {
+      display: none;
+    }
+
+    /* Section Heading */
     .workflow-heading {
       font-family: 'Ogg', Georgia, serif !important;
       font-size: 1.5rem !important;
@@ -4514,40 +4605,59 @@
   <div class="hero-header">
     <div class="hero-inner">
 
-      <!-- Title Treatment -->
-      <div class="hero-title">
-        <div class="hero-ai-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
+      <!-- Title Lockup - Integrated Design -->
+      <div class="hero-title-lockup">
+        <!-- AI Stamp - Wax seal style -->
+        <div class="hero-ai-stamp">
+          <svg viewBox="0 0 72 72" fill="none">
+            <!-- Outer ring with notches -->
+            <circle cx="36" cy="36" r="32" fill="#2D5B4E"/>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="#3D7B6E" stroke-width="1" stroke-dasharray="4 3"/>
+            <!-- Inner content -->
+            <circle cx="36" cy="36" r="24" fill="#2D5B4E"/>
+            <!-- AI text -->
+            <text x="36" y="34" text-anchor="middle" fill="white" font-family="Satoshi, sans-serif" font-weight="700" font-size="14">AI</text>
+            <!-- Decorative line -->
+            <line x1="24" y1="40" x2="48" y2="40" stroke="#4A9B8B" stroke-width="1"/>
+            <!-- POWERED text -->
+            <text x="36" y="50" text-anchor="middle" fill="#8BBBB0" font-family="Satoshi, sans-serif" font-weight="600" font-size="6" letter-spacing="1">POWERED</text>
+            <!-- Small decorative dots -->
+            <circle cx="20" cy="36" r="1.5" fill="#4A9B8B"/>
+            <circle cx="52" cy="36" r="1.5" fill="#4A9B8B"/>
           </svg>
-          AI-Powered
         </div>
-        <div class="hero-speed-launch">
+
+        <!-- Main Title -->
+        <div class="hero-main-title">
           <span class="hero-word-speed">Speed</span>
           <span class="hero-transform-icon">
-            <!-- Custom "duplicate + transform" illustration -->
-            <svg viewBox="0 0 44 44" fill="none">
-              <!-- Back card (original listing) -->
-              <rect x="6" y="8" width="18" height="22" rx="2" fill="#F5EDE0" stroke="#D4C5B5" stroke-width="1.5"/>
-              <rect x="9" y="12" width="12" height="6" rx="1" fill="#E8DFD3"/>
-              <line x1="9" y1="21" x2="21" y2="21" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="9" y1="25" x2="17" y2="25" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Front card (upgraded listing) with sparkle -->
-              <rect x="20" y="14" width="18" height="22" rx="2" fill="white" stroke="#C85C42" stroke-width="1.5"/>
-              <rect x="23" y="18" width="12" height="6" rx="1" fill="#FFF5F2" stroke="#C85C42" stroke-width="1"/>
-              <line x1="23" y1="27" x2="35" y2="27" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="23" y1="31" x2="31" y2="31" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Sparkle -->
-              <path d="M36 10L37.5 13L41 14L37.5 15L36 18L34.5 15L31 14L34.5 13Z" fill="#C85C42"/>
-              <!-- Arrow showing transformation -->
-              <path d="M15 35L29 35" stroke="#2D5B4E" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-              <path d="M26 32L29 35L26 38" stroke="#2D5B4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Listing transformation icon -->
+            <svg viewBox="0 0 48 48" fill="none">
+              <!-- Back card (old listing) -->
+              <rect x="4" y="8" width="20" height="26" rx="3" fill="#F5EDE0" stroke="#D4C5B5" stroke-width="1.5"/>
+              <rect x="7" y="12" width="14" height="8" rx="1.5" fill="#E8DFD3"/>
+              <line x1="7" y1="23" x2="21" y2="23" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="7" y1="28" x2="16" y2="28" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Front card (upgraded) -->
+              <rect x="22" y="14" width="22" height="28" rx="3" fill="white" stroke="#C85C42" stroke-width="2"/>
+              <rect x="26" y="19" width="14" height="8" rx="1.5" fill="#FFF5F2" stroke="#E8927C" stroke-width="1"/>
+              <line x1="26" y1="31" x2="40" y2="31" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="26" y1="36" x2="35" y2="36" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Sparkle burst -->
+              <path d="M42 8L43.5 12L47.5 13L43.5 14L42 18L40.5 14L36.5 13L40.5 12Z" fill="#C85C42"/>
+              <circle cx="38" cy="6" r="1" fill="#E8927C"/>
+              <circle cx="46" cy="10" r="0.75" fill="#E8927C"/>
             </svg>
           </span>
           <span class="hero-word-launch">Launch</span>
         </div>
-        <span class="hero-word-system">System</span>
+
+        <!-- Subtitle -->
+        <div class="hero-subtitle">
+          <span class="hero-subtitle-line"></span>
+          <span class="hero-subtitle-text">System</span>
+          <span class="hero-subtitle-line"></span>
+        </div>
       </div>
 
       <!-- Mode Selector -->
@@ -7412,22 +7522,119 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
   <div id="reference-mode" class="hidden">
     <div class="section">
       <div class="section-inner">
-        <h3 class="workflow-heading text-center">Choose Your Workflow</h3>
+        <h3 class="workflow-heading text-center">Choose Your Adventure</h3>
         <div class="workflow-cards">
+          <!-- TREND → LISTING: Treasure Hunt Card -->
           <div class="wf-card teal selected" id="card-trend" onclick="selectWorkflow('trend')">
-            <div class="wf-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M4 22L10 14L15 18L24 6" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 6H24V13" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="wf-content"><span class="label">I NEED A BRAND NEW PRODUCT IDEA</span><div class="wf-title">Trend → Listing</div><p class="wf-desc">Find what's selling, ship today</p></div>
-            <span class="wf-time">45-60 min</span>
+            <div class="wf-illustration">
+              <!-- Treasure hunt scene: binoculars + trend chart + X marks the spot -->
+              <svg viewBox="0 0 90 90" fill="none">
+                <!-- Background map texture -->
+                <rect x="10" y="15" width="70" height="60" rx="4" fill="#D4EDE6" stroke="#2D8B8B" stroke-width="1" stroke-dasharray="3 2"/>
+                <!-- Trend line going up -->
+                <path d="M20 55 L35 45 L50 50 L65 30 L75 25" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="75" cy="25" r="4" fill="#2D8B8B"/>
+                <!-- Binoculars -->
+                <circle cx="28" cy="28" r="10" fill="white" stroke="#1F6B6B" stroke-width="2"/>
+                <circle cx="42" cy="28" r="10" fill="white" stroke="#1F6B6B" stroke-width="2"/>
+                <rect x="35" y="24" width="4" height="8" rx="1" fill="#1F6B6B"/>
+                <circle cx="28" cy="28" r="5" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                <circle cx="42" cy="28" r="5" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                <!-- X marks the spot -->
+                <path d="M68 52L78 62M78 52L68 62" stroke="#C85C42" stroke-width="3" stroke-linecap="round"/>
+                <!-- Dotted path to X -->
+                <path d="M55 55 Q60 50 65 57" stroke="#888" stroke-width="1.5" stroke-dasharray="2 2" fill="none"/>
+                <!-- Small sparkle -->
+                <path d="M80 40L81 43L84 44L81 45L80 48L79 45L76 44L79 43Z" fill="#2D8B8B" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="wf-content">
+              <span class="label">I NEED A BRAND NEW PRODUCT IDEA</span>
+              <div class="wf-title">Trend → Listing</div>
+              <p class="wf-desc">Hunt for hidden gems. Find what's selling, ship today.</p>
+              <span class="wf-time">45-60 min</span>
+            </div>
+            <div class="wf-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
+
+          <!-- GLOW-UP: Transformation Card -->
           <div class="wf-card" id="card-glowup" onclick="selectWorkflow('glowup')">
-            <div class="wf-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 2L16.5 11.5L26 14L16.5 16.5L14 26L11.5 16.5L2 14L11.5 11.5L14 2Z" stroke="#D4735D" stroke-width="2" fill="none"/></svg></div>
-            <div class="wf-content"><span class="label">I NEED TO FIX AN OLD LISTING</span><div class="wf-title">Glow-Up</div><p class="wf-desc">Same SEO, new art, more sales</p></div>
-            <span class="wf-time">30-60 min</span>
+            <div class="wf-illustration">
+              <!-- Before/after transformation scene -->
+              <svg viewBox="0 0 90 90" fill="none">
+                <!-- Before side (faded, old) -->
+                <rect x="8" y="20" width="30" height="40" rx="3" fill="#F0E8E0" stroke="#C4B5A5" stroke-width="1.5"/>
+                <rect x="12" y="25" width="22" height="12" rx="2" fill="#E5DDD5"/>
+                <line x1="12" y1="42" x2="30" y2="42" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="12" y1="48" x2="24" y2="48" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+                <text x="23" y="68" text-anchor="middle" fill="#B0A090" font-family="Satoshi" font-size="6" font-weight="600">OLD</text>
+                <!-- Arrow -->
+                <path d="M42 45L50 45" stroke="#C85C42" stroke-width="2" stroke-linecap="round"/>
+                <path d="M47 41L51 45L47 49" stroke="#C85C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- After side (vibrant, new) -->
+                <rect x="52" y="18" width="32" height="44" rx="3" fill="white" stroke="#C85C42" stroke-width="2"/>
+                <rect x="56" y="23" width="24" height="14" rx="2" fill="#FFF5F2" stroke="#E8927C" stroke-width="1"/>
+                <line x1="56" y1="42" x2="76" y2="42" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="56" y1="48" x2="70" y2="48" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="56" y1="54" x2="66" y2="54" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Sparkles around new card -->
+                <path d="M80 14L81.5 18L85.5 19L81.5 20L80 24L78.5 20L74.5 19L78.5 18Z" fill="#C85C42"/>
+                <path d="M86 30L87 32.5L89.5 33L87 33.5L86 36L85 33.5L82.5 33L85 32.5Z" fill="#E8927C"/>
+                <circle cx="75" cy="12" r="1.5" fill="#E8927C"/>
+                <text x="68" y="70" text-anchor="middle" fill="#C85C42" font-family="Satoshi" font-size="6" font-weight="700">NEW!</text>
+              </svg>
+            </div>
+            <div class="wf-content">
+              <span class="label">I NEED TO FIX AN OLD LISTING</span>
+              <div class="wf-title">Glow-Up</div>
+              <p class="wf-desc">Polish your diamonds. Same SEO, new art, more sales.</p>
+              <span class="wf-time">30-60 min</span>
+            </div>
+            <div class="wf-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
+
+          <!-- NICHE PACK: Collection Card -->
           <div class="wf-card teal" id="card-nichepack" onclick="selectWorkflow('nichepack')">
-            <div class="wf-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="9" height="9" rx="2" stroke="#2D8B8B" stroke-width="2" fill="none"/><rect x="16" y="3" width="9" height="9" rx="2" stroke="#2D8B8B" stroke-width="2" fill="none"/><rect x="3" y="16" width="9" height="9" rx="2" stroke="#2D8B8B" stroke-width="2" fill="none"/><rect x="16" y="16" width="9" height="9" rx="2" stroke="#2D8B8B" stroke-width="2" fill="none"/></svg></div>
-            <div class="wf-content"><span class="label">I WANT TO OWN A NICHE WITH 10+ PRODUCTS</span><div class="wf-title">Niche Pack</div><p class="wf-desc">One concept, 10+ listings</p></div>
-            <span class="wf-time">60-90 min</span>
+            <div class="wf-illustration">
+              <!-- Grid of product cards multiplying -->
+              <svg viewBox="0 0 90 90" fill="none">
+                <!-- Grid of listing cards -->
+                <rect x="10" y="12" width="20" height="24" rx="2" fill="white" stroke="#2D8B8B" stroke-width="1.5"/>
+                <rect x="13" y="16" width="14" height="8" rx="1" fill="#E8F5F0"/>
+                <line x1="13" y1="28" x2="27" y2="28" stroke="#B8E0D6" stroke-width="1.5" stroke-linecap="round"/>
+
+                <rect x="35" y="12" width="20" height="24" rx="2" fill="white" stroke="#2D8B8B" stroke-width="1.5"/>
+                <rect x="38" y="16" width="14" height="8" rx="1" fill="#E8F5F0"/>
+                <line x1="38" y1="28" x2="52" y2="28" stroke="#B8E0D6" stroke-width="1.5" stroke-linecap="round"/>
+
+                <rect x="60" y="12" width="20" height="24" rx="2" fill="white" stroke="#2D8B8B" stroke-width="1.5"/>
+                <rect x="63" y="16" width="14" height="8" rx="1" fill="#E8F5F0"/>
+                <line x1="63" y1="28" x2="77" y2="28" stroke="#B8E0D6" stroke-width="1.5" stroke-linecap="round"/>
+
+                <rect x="10" y="42" width="20" height="24" rx="2" fill="white" stroke="#2D8B8B" stroke-width="1.5"/>
+                <rect x="13" y="46" width="14" height="8" rx="1" fill="#E8F5F0"/>
+                <line x1="13" y1="58" x2="27" y2="58" stroke="#B8E0D6" stroke-width="1.5" stroke-linecap="round"/>
+
+                <rect x="35" y="42" width="20" height="24" rx="2" fill="white" stroke="#2D8B8B" stroke-width="1.5"/>
+                <rect x="38" y="46" width="14" height="8" rx="1" fill="#E8F5F0"/>
+                <line x1="38" y1="58" x2="52" y2="58" stroke="#B8E0D6" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- Plus sign for more -->
+                <rect x="60" y="42" width="20" height="24" rx="2" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <path d="M70 50V58M66 54H74" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- "10+" badge -->
+                <circle cx="78" cy="72" r="10" fill="#2D8B8B"/>
+                <text x="78" y="75" text-anchor="middle" fill="white" font-family="Satoshi" font-size="8" font-weight="700">10+</text>
+              </svg>
+            </div>
+            <div class="wf-content">
+              <span class="label">I WANT TO OWN A NICHE</span>
+              <div class="wf-title">Niche Pack</div>
+              <p class="wf-desc">Build an empire. One concept, 10+ listings.</p>
+              <span class="wf-time">60-90 min</span>
+            </div>
+            <div class="wf-check"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
         </div>
       </div>
