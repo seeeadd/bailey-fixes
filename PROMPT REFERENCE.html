@@ -3274,6 +3274,458 @@
       color: var(--text-dark);
     }
 
+    /* ========================================
+       SECTION HIERARCHY REDESIGN
+       ======================================== */
+
+    /* PROMPTS - THE STAR (Vault/Treasure treatment) */
+    .prompts-vault {
+      background: linear-gradient(145deg, #FFFBF7 0%, #FFF5F0 100%);
+      border: 3px solid;
+      border-image: linear-gradient(135deg, #C85C42 0%, #E8927C 50%, #2D8B8B 100%) 1;
+      border-radius: 20px;
+      margin: 2.5rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .prompts-vault::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #C85C42, #E8927C, #2D8B8B);
+    }
+
+    .prompts-vault-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.75rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .prompts-vault-header:hover {
+      background: rgba(200, 92, 66, 0.05);
+    }
+
+    .prompts-vault-illustration {
+      width: 72px;
+      height: 72px;
+      min-width: 72px;
+    }
+
+    .prompts-vault-content {
+      flex: 1;
+    }
+
+    .prompts-vault-label {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #C85C42;
+      margin-bottom: 0.25rem;
+    }
+
+    .prompts-vault-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .prompts-vault-subtitle {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-medium);
+    }
+
+    .prompts-vault-action {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #C85C42 0%, #D4735D 100%);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .prompts-vault-action:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(200, 92, 66, 0.3);
+    }
+
+    .prompts-vault-action svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s;
+    }
+
+    .prompts-vault.open .prompts-vault-action svg {
+      transform: rotate(180deg);
+    }
+
+    .prompts-vault-preview {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0 2rem 1.5rem;
+      overflow-x: auto;
+    }
+
+    .prompt-preview-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 1px solid #E8DFD3;
+      border-radius: 20px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-medium);
+      white-space: nowrap;
+    }
+
+    .prompt-preview-chip svg {
+      width: 14px;
+      height: 14px;
+      color: #C85C42;
+    }
+
+    .prompts-vault-body {
+      display: none;
+      padding: 0 2rem 2rem;
+      border-top: 1px solid #E8DFD3;
+    }
+
+    .prompts-vault.open .prompts-vault-body {
+      display: block;
+    }
+
+    .prompts-vault.open .prompts-vault-preview {
+      display: none;
+    }
+
+    /* BAILEY'S RULES - Personal sticky note style */
+    .baileys-rules {
+      position: relative;
+      background: #FFFEF5;
+      border: none;
+      border-radius: 4px;
+      margin: 2rem 0;
+      padding: 0;
+      box-shadow:
+        2px 3px 8px rgba(0,0,0,0.08),
+        inset 0 -2px 0 rgba(0,0,0,0.03);
+      transform: rotate(-0.5deg);
+    }
+
+    .baileys-rules::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 24px;
+      background: linear-gradient(180deg, rgba(200, 92, 66, 0.4) 0%, rgba(200, 92, 66, 0.2) 100%);
+      border-radius: 2px;
+    }
+
+    .baileys-rules-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 1.75rem 1.25rem;
+      cursor: pointer;
+    }
+
+    .baileys-rules-header:hover {
+      background: rgba(255, 250, 240, 0.5);
+    }
+
+    .baileys-rules-avatar {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: linear-gradient(135deg, #E8927C 0%, #C85C42 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    .baileys-rules-title {
+      flex: 1;
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .baileys-rules-title .handwritten {
+      font-style: italic;
+      color: #C85C42;
+    }
+
+    .baileys-rules-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+
+    .baileys-rules.open .baileys-rules-toggle {
+      transform: rotate(180deg);
+    }
+
+    .baileys-rules-body {
+      display: none;
+      padding: 0 1.75rem 1.75rem;
+    }
+
+    .baileys-rules.open .baileys-rules-body {
+      display: block;
+    }
+
+    .baileys-rule {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed #E8DFD3;
+    }
+
+    .baileys-rule:last-child {
+      border-bottom: none;
+    }
+
+    .baileys-rule-num {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      background: #C85C42;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .baileys-rule-text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    /* FAQ ZONE - Clear separated container */
+    .faq-zone {
+      background: linear-gradient(180deg, #F8F6F3 0%, #FDFCFB 100%);
+      border-radius: 24px;
+      padding: 2rem;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .faq-zone::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #E8DFD3, transparent);
+    }
+
+    .faq-zone-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-zone-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faq-zone-title {
+      font-family: 'Ogg', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .faq-zone-subtitle {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-left: auto;
+    }
+
+    .faq-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 700px) {
+      .faq-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #EDE8E3;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .faq-item:hover {
+      border-color: #E8927C;
+      box-shadow: 0 2px 12px rgba(232, 146, 124, 0.1);
+    }
+
+    .faq-item-q {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      background: white;
+      transition: background 0.2s;
+    }
+
+    .faq-item-q:hover {
+      background: #FFFBF7;
+    }
+
+    .faq-item.open .faq-item-q {
+      background: #FFFBF7;
+      border-bottom: 1px solid #EDE8E3;
+    }
+
+    .faq-item-icon {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Meaningful icon colors */
+    .faq-item-icon.thought { background: #E8F4FA; }
+    .faq-item-icon.thought svg { color: #4A90A4; }
+    .faq-item-icon.time { background: #FFF2E8; }
+    .faq-item-icon.time svg { color: #D4735D; }
+    .faq-item-icon.wrong { background: #E8F5F0; }
+    .faq-item-icon.wrong svg { color: #2D8B8B; }
+    .faq-item-icon.question { background: #F0E8FA; }
+    .faq-item-icon.question svg { color: #7E5BA5; }
+    .faq-item-icon.error { background: #FFE8E8; }
+    .faq-item-icon.error svg { color: #C85C42; }
+    .faq-item-icon.choice { background: #FFF8E8; }
+    .faq-item-icon.choice svg { color: #B8860B; }
+
+    .faq-item-text {
+      flex: 1;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .faq-item-toggle {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #B0A090;
+    }
+
+    .faq-item.open .faq-item-toggle svg path:first-child {
+      display: none;
+    }
+
+    .faq-item-a {
+      display: none;
+      padding: 1rem 1.25rem;
+      background: white;
+    }
+
+    .faq-item.open .faq-item-a {
+      display: block;
+    }
+
+    .faq-item-answer {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-medium);
+      line-height: 1.6;
+    }
+
+    .faq-item-answer strong {
+      color: var(--text-dark);
+    }
+
+    /* Apply faq-item styles to stuck-items inside faq-zone */
+    .faq-zone .stuck-item {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #EDE8E3;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .faq-zone .stuck-item:hover {
+      border-color: #E8927C;
+      box-shadow: 0 2px 12px rgba(232, 146, 124, 0.1);
+    }
+
+    .faq-zone .stuck-item-q {
+      background: white;
+    }
+
+    .faq-zone .stuck-item-q:hover {
+      background: #FFFBF7;
+    }
+
+    .faq-zone .stuck-item.open .stuck-item-q {
+      background: #FFFBF7;
+      border-bottom: 1px solid #EDE8E3;
+    }
+
     /* Path Card Custom Icons */
     /* Glow-Up Illustration Containers */
     .glow-illustration {
@@ -5130,18 +5582,49 @@
             <div class="checklist-item" onclick="toggleCheck('dgc9')"><div class="checkbox" id="check-dgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
           </div>
 
-          <!-- Quick Reference: Design Glow Up Prompts -->
-          <div class="quick-ref" id="qr-glowup-prompts">
-            <div class="quick-ref-header" onclick="document.getElementById('qr-glowup-prompts').classList.toggle('open')">
-              <div class="quick-ref-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <!-- PROMPTS VAULT - THE STAR -->
+          <div class="prompts-vault" id="qr-glowup-prompts">
+            <div class="prompts-vault-header" onclick="document.getElementById('qr-glowup-prompts').classList.toggle('open')">
+              <div class="prompts-vault-illustration">
+                <!-- Treasure chest / vault illustration -->
+                <svg viewBox="0 0 72 72" fill="none">
+                  <!-- Chest base -->
+                  <rect x="8" y="32" width="56" height="32" rx="4" fill="#E8DFD3" stroke="#C4B5A5" stroke-width="2"/>
+                  <!-- Chest lid -->
+                  <path d="M8 32C8 28 12 20 36 20C60 20 64 28 64 32" fill="#F5EDE0" stroke="#C4B5A5" stroke-width="2"/>
+                  <!-- Lid arc detail -->
+                  <path d="M12 30C12 26 18 22 36 22C54 22 60 26 60 30" fill="none" stroke="#D4C5B5" stroke-width="1"/>
+                  <!-- Lock plate -->
+                  <rect x="28" y="36" width="16" height="12" rx="2" fill="#C85C42"/>
+                  <!-- Keyhole -->
+                  <circle cx="36" cy="40" r="2" fill="#8B3D2B"/>
+                  <path d="M36 42V46" stroke="#8B3D2B" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Gold trim -->
+                  <rect x="10" y="48" width="52" height="3" rx="1" fill="#D4A574"/>
+                  <!-- Sparkles -->
+                  <path d="M18 26L19.5 29L23 30L19.5 31L18 34L16.5 31L13 30L16.5 29Z" fill="#C85C42" class="sparkle"/>
+                  <path d="M54 24L55 27L58 28L55 29L54 32L53 29L50 28L53 27Z" fill="#E8927C" class="sparkle"/>
+                  <circle cx="62" cy="18" r="2" fill="#2D8B8B" class="sparkle"/>
+                </svg>
               </div>
-              <span class="quick-ref-title">Prompts</span>
-              <div class="quick-ref-toggle">
-                <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="prompts-vault-content">
+                <div class="prompts-vault-label">YOUR CHEAT CODES</div>
+                <div class="prompts-vault-title">Prompt Library</div>
+                <div class="prompts-vault-subtitle">Copy-paste prompts for every step</div>
+              </div>
+              <div class="prompts-vault-action">
+                Open Vault
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
               </div>
             </div>
-            <div class="quick-ref-body">
+            <!-- Preview chips (visible when closed) -->
+            <div class="prompts-vault-preview">
+              <div class="prompt-preview-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>Get Style Variations</div>
+              <div class="prompt-preview-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Write The Full Prompt</div>
+              <div class="prompt-preview-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Fix / Make It Better</div>
+              <div class="prompt-preview-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>Text Help</div>
+            </div>
+            <div class="prompts-vault-body">
               <!-- How To Use -->
               <div class="how-to-use">
                 <div class="how-to-use-title">
@@ -5304,29 +5787,34 @@ Keep it simple. I just need to add text that looks like it belongs.</div>
             </div>
           </div>
 
-          <!-- Bailey's Rules - MOVED BEFORE Stuck -->
-          <div class="accordion" id="acc-design-rules">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-rules')"><span><div class="accordion-visual rules"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Bailey's Rules for Glow-Ups</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="rules-list">
-                <div class="rule-item"><span class="rule-num">1</span><span class="rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
-                <div class="rule-item"><span class="rule-num">2</span><span class="rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
-                <div class="rule-item"><span class="rule-num">3</span><span class="rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
-                <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
-                <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+          <!-- BAILEY'S RULES - Sticky Note Style -->
+          <div class="baileys-rules" id="acc-design-rules">
+            <div class="baileys-rules-header" onclick="document.getElementById('acc-design-rules').classList.toggle('open')">
+              <div class="baileys-rules-avatar">B</div>
+              <div class="baileys-rules-title"><span class="handwritten">Bailey's</span> Rules for Glow-Ups</div>
+              <div class="baileys-rules-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
-            </div></div>
+            </div>
+            <div class="baileys-rules-body">
+              <div class="baileys-rule"><span class="baileys-rule-num">1</span><span class="baileys-rule-text">Pick listings with consistent sales and high conversion — these have proven demand.</span></div>
+              <div class="baileys-rule"><span class="baileys-rule-num">2</span><span class="baileys-rule-text">Cross-niche for broader appeal — combine trending styles (watercolor + metallic, etc.)</span></div>
+              <div class="baileys-rule"><span class="baileys-rule-num">3</span><span class="baileys-rule-text">Men prefer realistic, women prefer graphic — know your audience.</span></div>
+              <div class="baileys-rule"><span class="baileys-rule-num">4</span><span class="baileys-rule-text">Duplicate, don't edit from scratch — keep the SEO, swap the art.</span></div>
+              <div class="baileys-rule"><span class="baileys-rule-num">5</span><span class="baileys-rule-text">Check your quantity in Vela — duplicates reset to 1. Set back to 999.</span></div>
+            </div>
           </div>
 
-          <!-- Where You'll Get Stuck - MOVED AFTER Prompts and Rules -->
-          <div class="stuck-section">
-            <div class="stuck-section-header">
-              <div class="stuck-section-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          <!-- FAQ ZONE - Contained Section -->
+          <div class="faq-zone">
+            <div class="faq-zone-header">
+              <div class="faq-zone-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
-              <h3 class="stuck-section-title">Where You'll Get Stuck</h3>
+              <h3 class="faq-zone-title">Where You'll Get Stuck</h3>
+              <span class="faq-zone-subtitle">Here if you need it</span>
             </div>
-            <div class="stuck-items">
+            <div class="faq-items">
               <div class="stuck-item" onclick="toggleStuckItem(this)">
                 <div class="stuck-item-q">
                   <div class="stuck-item-icon thought"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6-4.5 7.5L16 22h-8l-.5-3.5C5 17 3 14.5 3 11a9 9 0 0 1 9-9z" stroke="#5A5A5A" stroke-width="2"/></svg></div>
