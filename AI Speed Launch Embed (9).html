@@ -168,136 +168,454 @@
     }
 
     /* ========================================
-       HEADER
+       HERO HEADER - Redesigned
        ======================================== */
-    .header {
+    .hero-header {
       width: 100%;
-      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
-      padding: 2rem 1rem;
+      background: #FFFBF7;
+      padding: 3rem 1.5rem 2.5rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .header-inner {
-      max-width: 820px;
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(200, 92, 66, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(200, 92, 66, 0.2), transparent);
+    }
+
+    .hero-inner {
+      max-width: 720px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
-    /* ========================================
-       MODE TOGGLE
-       ======================================== */
-    .mode-toggle {
+    /* Title Treatment */
+    .hero-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-ai-badge {
       display: inline-flex;
-      background: var(--cream-dark);
-      border-radius: 8px;
-      padding: 3px;
-      gap: 3px;
-      margin-top: 1rem;
+      align-items: center;
+      gap: 0.35rem;
+      background: linear-gradient(135deg, #2D5B4E 0%, #1F6B6B 100%);
+      color: white;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .hero-ai-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .hero-speed-launch {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-word-speed {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 3.5rem;
+      color: #1A1A1A;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-word-speed::after {
+      content: '';
+      position: absolute;
+      bottom: 0.15em;
+      left: -2%;
+      width: 104%;
+      height: 0.12em;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5 Q 30 2, 60 5 T 118 4' stroke='%23C85C42' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      background-size: 100% 100%;
+    }
+
+    .hero-word-launch {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 700;
+      font-size: 3.5rem;
+      color: #1A1A1A;
+      position: relative;
+    }
+
+    .hero-transform-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin: 0 0.25rem;
+      position: relative;
+      top: 0.1em;
+    }
+
+    .hero-word-system {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+
+    /* Mode Selector - Physical Switch */
+    .mode-selector {
+      margin: 2rem auto 0;
+      max-width: 440px;
+    }
+
+    .mode-switch-container {
+      background: #F5EDE0;
+      border-radius: 16px;
+      padding: 6px;
+      display: flex;
+      position: relative;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    }
+
+    .mode-switch-track {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: calc(50% - 6px);
+      height: calc(100% - 12px);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+    }
+
+    .mode-switch-track.reference {
+      transform: translateX(100%);
     }
 
     .mode-btn {
-      padding: 0.75rem 1.5rem !important;
-      border-radius: 8px !important;
-      border: none !important;
-      background: transparent !important;
-      color: #5A5A5A !important;
-      font-family: 'Satoshi', -apple-system, sans-serif !important;
-      font-weight: 600 !important;
-      font-size: 1rem !important;
-      cursor: pointer !important;
-      transition: all 0.2s !important;
-    }
-
-    .mode-btn.active-coral {
-      background: #E8927C !important;
-      color: #FFFFFF !important;
-    }
-
-    .mode-btn.active-teal {
-      background: #2D8B8B !important;
-      color: #FFFFFF !important;
-    }
-
-    /* ========================================
-       RULE BOX
-       ======================================== */
-    .rule-box {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin-top: 1.5rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      border-left: 3px solid var(--coral);
-      text-align: left;
-    }
-
-    .rule-box p {
-      font-family: 'Ogg', Georgia, serif !important;
-      font-weight: 500 !important;
-      font-size: 1.25rem !important;
-      line-height: 1.6 !important;
-      color: #2D2D2D !important;
-      margin: 0 !important;
-      font-style: italic !important;
-    }
-
-    /* ========================================
-       PROGRESS BAR
-       ======================================== */
-    .progress-bar {
-      width: 100%;
+      flex: 1;
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      padding: 0.75rem;
-      background: var(--cream);
-      border-bottom: 1px solid var(--cream-dark);
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 1.25rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+      border-radius: 12px;
     }
 
-    .progress-step {
-      display: inline-flex;
+    .mode-btn-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .mode-btn-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .mode-btn-text {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #888;
+      transition: color 0.3s;
+    }
+
+    .mode-btn.active .mode-btn-text {
+      color: #1A1A1A;
+    }
+
+    .mode-btn.active.challenge .mode-btn-icon svg {
+      color: #C85C42;
+    }
+
+    .mode-btn.active.reference .mode-btn-icon svg {
+      color: #1F6B6B;
+    }
+
+    .mode-btn-subtitle {
+      display: none;
+      font-size: 0.7rem;
+      color: #999;
+      margin-top: 0.15rem;
+    }
+
+    /* Mode descriptions that appear below */
+    .mode-description {
+      margin-top: 1rem;
+      padding: 0 1rem;
+      min-height: 1.5rem;
+    }
+
+    .mode-desc-text {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.9rem;
+      color: #666;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s;
+    }
+
+    .mode-desc-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Golden Rule Box */
+    .golden-rule {
+      background: white;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+      text-align: left;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .golden-rule::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #C85C42, #E8927C);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .golden-rule-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: #FFF5F2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+
+    .golden-rule-icon svg {
+      width: 20px;
+      height: 20px;
+      color: #C85C42;
+    }
+
+    .golden-rule-content {
+      flex: 1;
+    }
+
+    .golden-rule-label {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C85C42;
+      margin-bottom: 0.35rem;
+    }
+
+    .golden-rule p {
+      font-family: 'Ogg', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      line-height: 1.55;
+      color: #2D2D2D;
+      margin: 0;
+    }
+
+    .golden-rule strong {
+      color: #1A1A1A;
+      font-weight: 600;
+    }
+
+    /* ========================================
+       PROGRESS JOURNEY - Stamp-Based
+       ======================================== */
+    .progress-journey {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(180deg, #FFFBF7 0%, white 100%);
+      border-bottom: 1px solid #F0E8DD;
+    }
+
+    .progress-journey-inner {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .progress-stamp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      position: relative;
+      border: none;
       background: transparent;
-      color: var(--text-light);
-      font-family: 'Satoshi', -apple-system, sans-serif;
+      transition: transform 0.2s;
+    }
+
+    .progress-stamp:hover {
+      transform: translateY(-2px);
+    }
+
+    .progress-stamp-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2.5px dashed #D4C5B5;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .progress-stamp-circle svg {
+      width: 20px;
+      height: 20px;
+      color: #C4B5A5;
+      transition: all 0.3s;
+    }
+
+    .progress-stamp.active .progress-stamp-circle {
+      border: 2.5px solid #C85C42;
+      background: #FFF5F2;
+      box-shadow: 0 4px 12px rgba(200, 92, 66, 0.2);
+    }
+
+    .progress-stamp.active .progress-stamp-circle svg {
+      color: #C85C42;
+    }
+
+    .progress-stamp.completed .progress-stamp-circle {
+      border: 2.5px solid #2D5B4E;
+      background: #2D5B4E;
+    }
+
+    .progress-stamp.completed .progress-stamp-circle svg {
+      color: white;
+    }
+
+    .progress-stamp-label {
+      font-family: 'Satoshi', sans-serif;
       font-weight: 600;
       font-size: 0.75rem;
-      cursor: default;
-      border: none;
-      white-space: nowrap;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
     }
 
-    .progress-step.active {
-      background: var(--coral);
-      color: var(--white);
-      cursor: pointer;
+    .progress-stamp.active .progress-stamp-label {
+      color: #C85C42;
     }
 
-    .progress-step.completed {
-      background: var(--teal-light);
-      color: var(--teal);
-      cursor: pointer;
+    .progress-stamp.completed .progress-stamp-label {
+      color: #2D5B4E;
     }
 
-    .progress-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ccc;
+    .progress-connector {
+      width: 50px;
+      height: 2px;
+      background: #E8DFD3;
+      position: relative;
+      margin: 0 -0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .progress-step.completed .progress-dot {
-      background: var(--teal);
+    .progress-connector::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: #2D5B4E;
+      transition: width 0.5s ease;
     }
 
-    .progress-arrow {
-      color: #ccc;
-      font-size: 0.7rem;
-      margin: 0 0.1rem;
+    .progress-connector.filled::after {
+      width: 100%;
+    }
+
+    /* Legacy support - hide old elements */
+    .header {
+      display: none !important;
+    }
+
+    .progress-bar {
+      display: none !important;
+    }
+
+    .progress-step, .progress-arrow, .progress-dot {
+      display: none !important;
+    }
+
+    /* Old rule-box hidden */
+    .rule-box {
+      display: none !important;
+    }
+
+    /* Old mode-toggle hidden */
+    .mode-toggle {
+      display: none !important;
     }
 
     /* ========================================
@@ -3968,6 +4286,169 @@
       color: var(--teal-dark);
     }
 
+    /* ========================================
+       HERO RESPONSIVE STYLES
+       ======================================== */
+    @media (max-width: 768px) {
+      .hero-header {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .hero-word-speed,
+      .hero-word-launch {
+        font-size: 2.75rem;
+      }
+
+      .hero-transform-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero-word-system {
+        font-size: 0.75rem;
+      }
+
+      .mode-selector {
+        margin: 1.5rem auto 0;
+      }
+
+      .mode-btn {
+        padding: 0.85rem 1rem;
+        gap: 0.4rem;
+      }
+
+      .mode-btn-text {
+        font-size: 0.85rem;
+      }
+
+      .golden-rule {
+        padding: 1rem 1.25rem;
+        gap: 0.75rem;
+      }
+
+      .golden-rule p {
+        font-size: 1.05rem;
+      }
+
+      .progress-journey {
+        padding: 0.75rem 1rem;
+      }
+
+      .progress-stamp-circle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .progress-stamp-circle svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .progress-stamp-label {
+        font-size: 0.7rem;
+      }
+
+      .progress-connector {
+        width: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-header {
+        padding: 2rem 0.75rem 1.5rem;
+      }
+
+      .hero-ai-badge {
+        font-size: 0.6rem;
+        padding: 0.35rem 0.5rem;
+      }
+
+      .hero-word-speed,
+      .hero-word-launch {
+        font-size: 2.25rem;
+      }
+
+      .hero-transform-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 0.15rem;
+      }
+
+      .hero-word-system {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+      }
+
+      .mode-switch-container {
+        flex-direction: column;
+        border-radius: 14px;
+      }
+
+      .mode-switch-track {
+        width: calc(100% - 12px);
+        height: calc(50% - 6px);
+      }
+
+      .mode-switch-track.reference {
+        transform: translateY(100%);
+      }
+
+      .mode-btn {
+        padding: 0.75rem 1rem;
+        justify-content: center;
+      }
+
+      .mode-description {
+        margin-top: 0.75rem;
+      }
+
+      .mode-desc-text {
+        font-size: 0.8rem;
+      }
+
+      .golden-rule {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        align-items: center;
+      }
+
+      .golden-rule-label {
+        text-align: center;
+      }
+
+      .golden-rule p {
+        font-size: 0.95rem;
+      }
+
+      .progress-journey-inner {
+        gap: 0;
+      }
+
+      .progress-stamp {
+        padding: 0.35rem 0.5rem;
+      }
+
+      .progress-stamp-circle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .progress-stamp-circle svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .progress-stamp-label {
+        font-size: 0.6rem;
+      }
+
+      .progress-connector {
+        width: 24px;
+        margin-bottom: 1.25rem;
+      }
+    }
+
     /* Quick Reference responsive */
     @media (max-width: 600px) {
       .quick-ref-header {
@@ -4005,7 +4486,146 @@
 
 <div class="sl-embed main-wrapper">
 
-  <!-- HEADER -->
+  <!-- NEW HERO HEADER -->
+  <div class="hero-header">
+    <div class="hero-inner">
+
+      <!-- Title Treatment -->
+      <div class="hero-title">
+        <div class="hero-ai-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          AI-Powered
+        </div>
+        <div class="hero-speed-launch">
+          <span class="hero-word-speed">Speed</span>
+          <span class="hero-transform-icon">
+            <!-- Custom "duplicate + transform" illustration -->
+            <svg viewBox="0 0 44 44" fill="none">
+              <!-- Back card (original listing) -->
+              <rect x="6" y="8" width="18" height="22" rx="2" fill="#F5EDE0" stroke="#D4C5B5" stroke-width="1.5"/>
+              <rect x="9" y="12" width="12" height="6" rx="1" fill="#E8DFD3"/>
+              <line x1="9" y1="21" x2="21" y2="21" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="9" y1="25" x2="17" y2="25" stroke="#D4C5B5" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Front card (upgraded listing) with sparkle -->
+              <rect x="20" y="14" width="18" height="22" rx="2" fill="white" stroke="#C85C42" stroke-width="1.5"/>
+              <rect x="23" y="18" width="12" height="6" rx="1" fill="#FFF5F2" stroke="#C85C42" stroke-width="1"/>
+              <line x1="23" y1="27" x2="35" y2="27" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="23" y1="31" x2="31" y2="31" stroke="#E8927C" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Sparkle -->
+              <path d="M36 10L37.5 13L41 14L37.5 15L36 18L34.5 15L31 14L34.5 13Z" fill="#C85C42"/>
+              <!-- Arrow showing transformation -->
+              <path d="M15 35L29 35" stroke="#2D5B4E" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+              <path d="M26 32L29 35L26 38" stroke="#2D5B4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="hero-word-launch">Launch</span>
+        </div>
+        <span class="hero-word-system">System</span>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="mode-selector">
+        <div class="mode-switch-container">
+          <div class="mode-switch-track" id="mode-track"></div>
+          <button class="mode-btn active challenge" id="btn-challenge-new" onclick="setModeNew('challenge')">
+            <span class="mode-btn-icon">
+              <!-- Compass/guided path icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <span class="mode-btn-text">Challenge Mode</span>
+          </button>
+          <button class="mode-btn reference" id="btn-reference-new" onclick="setModeNew('reference')">
+            <span class="mode-btn-icon">
+              <!-- Quick reference/checklist icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="9" y1="13" x2="15" y2="13"/>
+                <line x1="9" y1="17" x2="13" y2="17"/>
+              </svg>
+            </span>
+            <span class="mode-btn-text">Quick Reference</span>
+          </button>
+        </div>
+        <div class="mode-description">
+          <p class="mode-desc-text visible" id="mode-desc-challenge">Step-by-step guidance. Perfect for your first time through.</p>
+          <p class="mode-desc-text" id="mode-desc-reference" style="display:none;">Just the prompts and frameworks. For when you know the drill.</p>
+        </div>
+      </div>
+
+      <!-- Golden Rule -->
+      <div class="golden-rule">
+        <div class="golden-rule-icon">
+          <!-- Key/treasure icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+        </div>
+        <div class="golden-rule-content">
+          <div class="golden-rule-label">The Golden Rule</div>
+          <p><strong>Don't start from zero.</strong> Find what's already working and make your version. Duplicate listings. Keep the SEO. Swap the art. Ship.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NEW PROGRESS JOURNEY -->
+  <div class="progress-journey" id="progress-journey">
+    <div class="progress-journey-inner">
+      <!-- Step 1: Get Ready -->
+      <button class="progress-stamp active" id="stamp-1" onclick="goToStepNew(1)">
+        <div class="progress-stamp-circle">
+          <!-- Scissors/tools icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"/>
+            <circle cx="6" cy="18" r="3"/>
+            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <span class="progress-stamp-label">Get Ready</span>
+      </button>
+
+      <div class="progress-connector" id="connector-1"></div>
+
+      <!-- Step 2: Upgrade -->
+      <button class="progress-stamp" id="stamp-2" onclick="goToStepNew(2)">
+        <div class="progress-stamp-circle">
+          <!-- Sparkles/upgrade icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3L14 9L20 9L15 13L17 20L12 16L7 20L9 13L4 9L10 9Z"/>
+          </svg>
+        </div>
+        <span class="progress-stamp-label">Upgrade</span>
+      </button>
+
+      <div class="progress-connector" id="connector-2"></div>
+
+      <!-- Step 3: Ship It -->
+      <button class="progress-stamp" id="stamp-3" onclick="goToStepNew(3)">
+        <div class="progress-stamp-circle">
+          <!-- Package/ship icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/>
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <span class="progress-stamp-label">Ship It</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- OLD HEADER (hidden by CSS) -->
   <div class="header">
     <div class="header-inner">
       <h1>AI Speed-Launch System</h1>
@@ -4022,7 +4642,7 @@
   <!-- CHALLENGE MODE -->
   <div id="challenge-mode">
 
-    <!-- Progress -->
+    <!-- Old Progress (hidden by CSS) -->
     <div class="progress-bar">
       <button class="progress-step active" id="prog-1" onclick="goToStep(1)"><span class="progress-dot"></span>Setup</button>
       <span class="progress-arrow">→</span>
@@ -7197,6 +7817,9 @@ function apply(){
   Object.keys(checks).forEach(id=>{if(checks[id]){const el=document.getElementById('check-'+id);if(el)el.classList.add('checked');const row=document.getElementById('row-'+id);if(row)row.classList.add('checked');}});
   updateProgress();
   selectWorkflow(workflow,false);
+  // Initialize new hero components
+  updateNewModeSelector(mode);
+  updateNewProgress();
 }
 
 function setMode(m,sv=true){
@@ -7207,7 +7830,84 @@ function setMode(m,sv=true){
   document.getElementById('reference-mode').className=m==='reference'?'':'hidden';
   if(sv)save();
   if(typeof updateDeepDiveBtn==='function')updateDeepDiveBtn();
+  // Sync new mode selector
+  updateNewModeSelector(m);
 }
+
+// ===== NEW HERO COMPONENTS =====
+function setModeNew(m) {
+  setMode(m, true);
+  updateNewModeSelector(m);
+}
+
+function updateNewModeSelector(m) {
+  const track = document.getElementById('mode-track');
+  const btnChallenge = document.getElementById('btn-challenge-new');
+  const btnReference = document.getElementById('btn-reference-new');
+  const descChallenge = document.getElementById('mode-desc-challenge');
+  const descReference = document.getElementById('mode-desc-reference');
+
+  if (!track) return;
+
+  if (m === 'reference') {
+    track.classList.add('reference');
+    btnChallenge.classList.remove('active');
+    btnReference.classList.add('active');
+    if (descChallenge) { descChallenge.classList.remove('visible'); descChallenge.style.display = 'none'; }
+    if (descReference) { descReference.style.display = 'block'; setTimeout(() => descReference.classList.add('visible'), 10); }
+  } else {
+    track.classList.remove('reference');
+    btnChallenge.classList.add('active');
+    btnReference.classList.remove('active');
+    if (descReference) { descReference.classList.remove('visible'); descReference.style.display = 'none'; }
+    if (descChallenge) { descChallenge.style.display = 'block'; setTimeout(() => descChallenge.classList.add('visible'), 10); }
+  }
+
+  // Show/hide progress journey based on mode
+  const progressJourney = document.getElementById('progress-journey');
+  if (progressJourney) {
+    progressJourney.style.display = m === 'challenge' ? 'block' : 'none';
+  }
+}
+
+function goToStepNew(s) {
+  goToStep(s);
+  updateNewProgress();
+}
+
+function updateNewProgress() {
+  // Update stamp states
+  for (let i = 1; i <= 3; i++) {
+    const stamp = document.getElementById('stamp-' + i);
+    if (stamp) {
+      stamp.classList.remove('active', 'completed');
+      if (i === step) stamp.classList.add('active');
+      if (completed[i]) stamp.classList.add('completed');
+    }
+  }
+
+  // Update connectors
+  for (let i = 1; i <= 2; i++) {
+    const conn = document.getElementById('connector-' + i);
+    if (conn) {
+      conn.classList.toggle('filled', completed[i]);
+    }
+  }
+}
+
+// Override completeStep to also update new progress
+const origCompleteStep = completeStep;
+completeStep = function(s, btn) {
+  origCompleteStep(s, btn);
+  updateNewProgress();
+};
+
+// Override updateProgress to also update new progress
+const origUpdateProgress = updateProgress;
+updateProgress = function() {
+  origUpdateProgress();
+  updateNewProgress();
+};
 
 function toggleCheck(id){
   checks[id]=!checks[id];
