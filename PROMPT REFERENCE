@@ -58,6 +58,24 @@
     }
 
     /* ========================================
+       $10K DESIGN SYSTEM
+       Notion meets Linear meets Stripe — with editorial warmth
+       ======================================== */
+
+    /* Subtle background gradient orbs - purposeful, not decorative */
+    .sl-embed::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232, 146, 124, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================
        CSS ISOLATION - Blocks Framer styles
        ======================================== */
     .sl-embed {
@@ -121,22 +139,41 @@
       letter-spacing: -0.01em !important;
       line-height: 1.2 !important;
       color: #2D2D2D !important;
-      margin-bottom: 0.5rem !important;
+      margin-bottom: 1rem !important;
     }
 
-    .sl-embed h1 { font-size: 2.75rem !important; }
-    .sl-embed h2 { font-size: 2rem !important; }
-    .sl-embed h3 { font-size: 1.5rem !important; }
+    .sl-embed h1 { font-size: 2.75rem !important; margin-bottom: 1.25rem !important; }
+    .sl-embed h2 {
+      font-size: 2rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .sl-embed h3 { font-size: 1.5rem !important; margin-top: 2.5rem !important; margin-bottom: 1.25rem !important; }
+    .sl-embed h3:first-child { margin-top: 0 !important; }
 
     .sl-embed .label {
       font-family: 'Satoshi', -apple-system, sans-serif !important;
       font-weight: 700 !important;
-      font-size: 0.75rem !important;
+      font-size: 0.7rem !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.12em !important;
+      letter-spacing: 0.14em !important;
       color: #888888 !important;
       display: block !important;
-      margin-bottom: 0.25rem !important;
+      margin-bottom: 0.35rem !important;
+    }
+
+    /* Enhanced label in workflow cards */
+    .wf-content .label {
+      color: var(--text-light) !important;
+      font-size: 0.65rem !important;
+      letter-spacing: 0.16em !important;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .wf-card:hover .wf-content .label {
+      opacity: 1;
+      color: var(--text-medium) !important;
     }
 
     .sl-embed p {
@@ -158,13 +195,18 @@
        ======================================== */
     .section {
       width: 100%;
-      padding: 2rem 1rem;
+      padding: 3.5rem 1.5rem;
     }
 
     .section-inner {
       width: 100%;
       max-width: 820px;
       margin: 0 auto;
+    }
+
+    /* Add breathing room between major sections */
+    .section + .section {
+      border-top: 1px solid var(--cream-dark);
     }
 
     /* ========================================
@@ -329,7 +371,7 @@
       transform: translateX(100%);
     }
 
-    .mode-btn {
+    .mode-btn-new {
       flex: 1;
       display: flex;
       align-items: center;
@@ -367,23 +409,16 @@
       transition: color 0.3s;
     }
 
-    .mode-btn.active .mode-btn-text {
+    .mode-btn-new.active .mode-btn-text {
       color: #1A1A1A;
     }
 
-    .mode-btn.active.challenge .mode-btn-icon svg {
+    .mode-btn-new.active.challenge .mode-btn-icon svg {
       color: #C85C42;
     }
 
-    .mode-btn.active.reference .mode-btn-icon svg {
+    .mode-btn-new.active.reference .mode-btn-icon svg {
       color: #1F6B6B;
-    }
-
-    .mode-btn-subtitle {
-      display: none;
-      font-size: 0.7rem;
-      color: #999;
-      margin-top: 0.15rem;
     }
 
     /* Mode descriptions that appear below */
@@ -470,7 +505,7 @@
       font-size: 1.15rem;
       line-height: 1.55;
       color: #2D2D2D;
-      margin: 0;
+      margin: 0 !important;
     }
 
     .golden-rule strong {
@@ -619,7 +654,7 @@
     }
 
     /* ========================================
-       BADGE
+       BADGE - Clean Step Labels
        ======================================== */
     .badge {
       display: inline-block;
@@ -627,9 +662,9 @@
       font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
     }
 
     .badge-coral {
@@ -642,58 +677,81 @@
       background: var(--teal-light);
     }
 
+    /* Clean section divider */
+    .section + .section {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
     /* ========================================
-       CHECKLIST
+       CHECKLIST - Premium Interactive
        ======================================== */
     .checklist {
-      background: var(--cream);
-      border-radius: 14px;
-      padding: 0.75rem;
-      margin: 1.25rem 0;
+      background: linear-gradient(180deg, var(--cream) 0%, rgba(255,249,240,0.5) 100%);
+      border-radius: 16px;
+      padding: 0.5rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid var(--cream-dark);
     }
 
     .checklist-item {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      padding: 0.85rem;
-      border-bottom: 1px solid var(--cream-dark);
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s ease;
+      margin-bottom: 2px;
     }
 
     .checklist-item:hover {
-      background: rgba(255,255,255,0.5);
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
 
     .checklist-item:last-child {
-      border-bottom: none;
+      margin-bottom: 0;
     }
 
     .checkbox {
-      width: 24px;
-      height: 24px;
-      min-width: 24px;
-      border-radius: 6px;
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border-radius: 8px;
       border: 2px solid var(--coral);
       background: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(232, 146, 124, 0.15);
+    }
+
+    .checkbox:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2px 6px rgba(232, 146, 124, 0.25);
     }
 
     .checkbox.teal {
       border-color: var(--teal);
+      box-shadow: 0 1px 3px rgba(45, 139, 139, 0.15);
+    }
+
+    .checkbox.teal:hover {
+      box-shadow: 0 2px 6px rgba(45, 139, 139, 0.25);
     }
 
     .checkbox.checked {
-      background: var(--coral);
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+      border-color: var(--coral-dark);
+      box-shadow: 0 2px 8px rgba(232, 146, 124, 0.35);
     }
 
     .checkbox.teal.checked {
-      background: var(--teal);
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      border-color: var(--teal-dark);
+      box-shadow: 0 2px 8px rgba(45, 139, 139, 0.35);
     }
 
     .checkbox svg {
@@ -711,6 +769,7 @@
       color: #2D2D2D !important;
       flex: 1;
       font-family: 'Satoshi', -apple-system, sans-serif !important;
+      line-height: 1.5 !important;
     }
 
     /* Stuck List */
@@ -742,17 +801,17 @@
 
     /* Rules List */
     .rules-list {
-      margin: 1.5rem 0;
+      margin: 2rem 0 2.5rem;
     }
 
     .rule-item {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
+      gap: 1.25rem;
+      padding: 1.5rem 1.75rem;
       background: var(--cream);
       border-radius: 12px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     .rule-item:last-child {
@@ -856,7 +915,7 @@
     .video-embed {
       width: 100%;
       max-width: 100%;
-      margin: 2.5rem auto 3rem auto;
+      margin: 3rem auto 3.5rem auto;
       border-radius: 16px;
       overflow: hidden;
       background: #FFF9F0;
@@ -1226,7 +1285,7 @@
     }
 
     .accordion-inner {
-      padding: 2rem;
+      padding: 2.5rem;
       background: var(--cream);
     }
 
@@ -1255,8 +1314,8 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.75rem;
+      gap: 0.75rem;
+      padding: 1.25rem;
       cursor: pointer;
       background: var(--white);
     }
@@ -1296,10 +1355,10 @@
     }
 
     .faq-a-inner {
-      padding: 0 0.75rem 0.75rem 0.75rem;
+      padding: 0 1.25rem 1.25rem 1.25rem;
       color: var(--teal-dark);
-      font-size: 0.85rem;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* ========================================
@@ -1349,7 +1408,7 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 1px 8px rgba(0,0,0,0.04);
-      margin: 1rem 0;
+      margin: 1.75rem 0 2rem;
       font-size: 0.85rem;
     }
 
@@ -1360,12 +1419,12 @@
       letter-spacing: 0.08em;
       color: var(--text-light);
       text-align: left;
-      padding: 0.75rem;
+      padding: 1rem;
       background: var(--cream);
     }
 
     .data-table td {
-      padding: 0.75rem;
+      padding: 1rem;
       border-bottom: 1px solid var(--cream-dark);
     }
 
@@ -1433,49 +1492,74 @@
     }
 
     /* ========================================
-       WORKFLOW CARDS
+       WORKFLOW CARDS - Substantial & Clickable
+       Like Linear, Stripe - solid white, soft shadows
        ======================================== */
     .workflow-cards {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin: 1rem 0;
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
 
     .wf-card {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      background: var(--white);
-      border: 2px solid var(--cream-dark);
-      border-radius: 12px;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: none;
+      border-radius: 16px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
-    .wf-card:hover, .wf-card.selected {
-      border-color: var(--coral);
-      background: var(--coral-light);
+    .wf-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 12px 32px rgba(0, 0, 0, 0.08);
     }
 
-    .wf-card.teal:hover, .wf-card.teal.selected {
-      border-color: var(--teal);
-      background: var(--teal-light);
+    .wf-card.selected {
+      background: #fff;
+      box-shadow:
+        0 0 0 2px var(--coral),
+        0 4px 12px rgba(232, 146, 124, 0.15),
+        0 12px 32px rgba(0, 0, 0, 0.06);
     }
 
+    .wf-card.teal.selected {
+      box-shadow:
+        0 0 0 2px var(--teal),
+        0 4px 12px rgba(45, 139, 139, 0.15),
+        0 12px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Clean icon */
     .wf-icon {
       width: 48px;
       height: 48px;
       min-width: 48px;
-      background: var(--coral-light);
-      border-radius: 10px;
+      background: var(--cream);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .wf-card.teal .wf-icon {
+      background: var(--teal-light);
+    }
+
+    .wf-card.selected .wf-icon {
+      background: var(--coral-light);
+    }
+
+    .wf-card.teal.selected .wf-icon {
       background: var(--teal-light);
     }
 
@@ -1487,31 +1571,46 @@
     .wf-title {
       font-family: 'Ogg', Georgia, serif !important;
       font-weight: 600 !important;
-      font-size: 1.5rem !important;
-      color: #2D2D2D !important;
-      line-height: 1.2 !important;
+      font-size: 1.35rem !important;
+      color: #1a1a1a !important;
+      line-height: 1.3 !important;
     }
 
     .wf-desc {
-      font-size: 0.95rem !important;
-      color: #5A5A5A !important;
+      font-size: 0.9rem !important;
+      color: #666 !important;
       margin: 0.25rem 0 0 0 !important;
-      font-family: 'Satoshi', -apple-system, sans-serif !important;
+      font-family: 'Satoshi', sans-serif !important;
     }
 
+    /* Time badge - minimal */
     .wf-time {
       font-family: 'JetBrains Mono', monospace !important;
-      font-size: 0.85rem !important;
-      color: var(--coral-dark);
-      background: var(--coral-light);
-      padding: 0.25rem 0.5rem;
-      border-radius: 8px;
+      font-size: 0.75rem !important;
+      color: #888;
+      background: #f5f5f5;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
       white-space: nowrap;
     }
 
-    .wf-card.teal .wf-time {
-      color: var(--teal-dark);
+    .wf-card.selected .wf-time {
+      background: var(--coral-light);
+      color: var(--coral-dark);
+    }
+
+    .wf-card.teal.selected .wf-time {
       background: var(--teal-light);
+      color: var(--teal-dark);
+    }
+
+    /* Section Heading - clean */
+    .workflow-heading {
+      font-family: 'Ogg', Georgia, serif !important;
+      font-size: 1.5rem !important;
+      font-weight: 500 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 1.5rem !important;
     }
 
     /* ========================================
@@ -2764,7 +2863,7 @@
     .path-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     @media (max-width: 700px) {
@@ -2920,92 +3019,18 @@
       color: var(--text-dark);
     }
 
-    /* Floating Back to Paths Button */
-    .floating-back-btn {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1.1rem 2.5rem;
-      background: linear-gradient(135deg, #fff 0%, #fff5f3 100%);
-      color: var(--coral-dark);
-      border: 3px solid var(--coral);
-      border-radius: 60px;
-      font-family: 'Satoshi', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 8px 32px rgba(232,146,124,0.35), 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 9998;
-      transition: all 0.3s ease;
-      min-width: 220px;
-      justify-content: center;
-    }
-
-    .floating-back-btn:hover {
-      transform: translateX(-50%) translateY(-3px);
-      box-shadow: 0 12px 40px rgba(232,146,124,0.45), 0 4px 12px rgba(0,0,0,0.15);
-      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-      color: white;
-      border-color: var(--coral-dark);
-    }
-
-    .floating-back-btn.visible {
-      display: flex;
-    }
-
-    .floating-back-btn .btn-icon {
-      width: 28px;
-      height: 28px;
-      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-
-    .floating-back-btn:hover .btn-icon {
-      background: white;
-    }
-
-    .floating-back-btn .btn-icon svg {
-      width: 14px;
-      height: 14px;
-      stroke: white;
-    }
-
-    .floating-back-btn:hover .btn-icon svg {
-      stroke: var(--coral-dark);
-    }
-
-    @media (max-width: 768px) {
-      .floating-back-btn {
-        bottom: 16px;
-        padding: 1rem 2rem;
-        font-size: 0.95rem;
-        min-width: 200px;
-      }
-      .floating-back-btn:hover {
-        transform: translateX(-50%) translateY(-3px);
-      }
-    }
-
     /* ========================================
        STUCK ITEMS - FAQ Style
        ======================================== */
     .stuck-section {
-      margin: 2.5rem 0;
+      margin: 3rem 0;
     }
 
     .stuck-section-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .stuck-section-icon {
@@ -3029,8 +3054,8 @@
     .stuck-items {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
 
     .stuck-item {
@@ -3049,8 +3074,8 @@
     .stuck-item-q {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 1.25rem;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
       cursor: pointer;
       background: var(--cream);
       transition: background 0.2s;
@@ -3147,7 +3172,7 @@
     }
 
     .stuck-item-answer {
-      padding: 1.25rem;
+      padding: 1.5rem 1.75rem;
       font-size: 0.95rem;
       line-height: 1.7;
       color: var(--text-medium);
@@ -3672,7 +3697,72 @@
       right: 0;
     }
 
+    /* ========================================
+       HERO RESPONSIVE STYLES
+       ======================================== */
     @media (max-width: 768px) {
+      .hero-header {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .hero-word-speed,
+      .hero-word-launch {
+        font-size: 2.75rem;
+      }
+
+      .hero-transform-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero-word-system {
+        font-size: 0.75rem;
+      }
+
+      .mode-selector {
+        margin: 1.5rem auto 0;
+      }
+
+      .mode-btn-new {
+        padding: 0.85rem 1rem;
+        gap: 0.4rem;
+      }
+
+      .mode-btn-text {
+        font-size: 0.85rem;
+      }
+
+      .golden-rule {
+        padding: 1rem 1.25rem;
+        gap: 0.75rem;
+      }
+
+      .golden-rule p {
+        font-size: 1.05rem;
+      }
+
+      .progress-journey {
+        padding: 0.75rem 1rem;
+      }
+
+      .progress-stamp-circle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .progress-stamp-circle svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .progress-stamp-label {
+        font-size: 0.7rem;
+      }
+
+      .progress-connector {
+        width: 35px;
+      }
+
       .slide-panel {
         width: 100%;
         max-width: 100%;
@@ -3682,6 +3772,102 @@
         right: 16px;
         padding: 0.85rem 1.25rem;
         font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-header {
+        padding: 2rem 0.75rem 1.5rem;
+      }
+
+      .hero-ai-badge {
+        font-size: 0.6rem;
+        padding: 0.35rem 0.5rem;
+      }
+
+      .hero-word-speed,
+      .hero-word-launch {
+        font-size: 2.25rem;
+      }
+
+      .hero-transform-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 0.15rem;
+      }
+
+      .hero-word-system {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+      }
+
+      .mode-switch-container {
+        flex-direction: column;
+        border-radius: 14px;
+      }
+
+      .mode-switch-track {
+        width: calc(100% - 12px);
+        height: calc(50% - 6px);
+      }
+
+      .mode-switch-track.reference {
+        transform: translateY(100%);
+      }
+
+      .mode-btn-new {
+        padding: 0.75rem 1rem;
+        justify-content: center;
+      }
+
+      .mode-description {
+        margin-top: 0.75rem;
+      }
+
+      .mode-desc-text {
+        font-size: 0.8rem;
+      }
+
+      .golden-rule {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        align-items: center;
+      }
+
+      .golden-rule-label {
+        text-align: center;
+      }
+
+      .golden-rule p {
+        font-size: 0.95rem;
+      }
+
+      .progress-journey-inner {
+        gap: 0;
+      }
+
+      .progress-stamp {
+        padding: 0.35rem 0.5rem;
+      }
+
+      .progress-stamp-circle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .progress-stamp-circle svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .progress-stamp-label {
+        font-size: 0.6rem;
+      }
+
+      .progress-connector {
+        width: 24px;
+        margin-bottom: 1.25rem;
       }
     }
 
@@ -3914,9 +4100,11 @@
       h3 { font-size: 1.05rem; }
 
       .section { padding: 1.5rem 0.75rem; }
-      .header { padding: 1.5rem 0.75rem; }
-
-      .mode-btn { padding: 0.4rem 0.75rem; font-size: 0.7rem; }
+      .header { padding: 3.5rem 1rem 3rem; }
+      .header h1 { font-size: 2.5rem !important; letter-spacing: 0.04em !important; }
+      .header-tagline { font-size: 1rem !important; margin-bottom: 2.5rem !important; }
+      .header .mode-toggle { flex-direction: column; gap: 0.25rem; width: 100%; max-width: 260px; }
+      .header .mode-btn { width: 100%; text-align: center; padding: 0.7rem 1rem !important; }
 
       .tools-grid { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
       .tool-item { padding: 0.4rem; font-size: 0.7rem; }
@@ -3943,10 +4131,9 @@
       h3 { font-size: 1rem; }
 
       .section { padding: 1.25rem 0.5rem; }
-      .header { padding: 1.25rem 0.5rem; }
-
-      .mode-toggle { flex-direction: column; gap: 2px; }
-      .mode-btn { width: 100%; text-align: center; }
+      .header { padding: 2.5rem 0.75rem 2rem; }
+      .header h1 { font-size: 2rem !important; letter-spacing: 0.03em !important; }
+      .header-tagline { font-size: 0.95rem !important; margin-bottom: 2rem !important; }
 
       .progress-bar { flex-direction: column; gap: 0.25rem; }
       .progress-arrow { display: none; }
@@ -4015,15 +4202,15 @@
       background: var(--white);
       border: 2px solid var(--cream-dark);
       border-radius: 16px;
-      margin: 2rem 0;
+      margin: 2.5rem 0 3rem;
       overflow: hidden;
     }
 
     .quick-ref-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1.25rem 1.5rem;
+      gap: 1rem;
+      padding: 1.5rem 1.75rem;
       background: var(--cream);
       cursor: pointer;
       transition: background 0.2s;
@@ -4072,7 +4259,7 @@
 
     .quick-ref-body {
       display: none;
-      padding: 0 1.5rem 1.5rem;
+      padding: 1.5rem 2rem 2rem;
     }
 
     .quick-ref.open .quick-ref-body {
@@ -4084,8 +4271,8 @@
       background: linear-gradient(135deg, #f8f6f3 0%, #fff 100%);
       border: 1px solid var(--cream-dark);
       border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
     }
 
     .how-to-use-title {
@@ -4162,7 +4349,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-medium);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     /* Individual Prompt Cards */
@@ -4170,7 +4357,7 @@
       background: var(--white);
       border: 1px solid var(--cream-dark);
       border-radius: 12px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       overflow: hidden;
     }
 
@@ -4182,7 +4369,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      padding: 1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
       background: var(--cream);
       gap: 1rem;
       cursor: pointer;
@@ -4216,7 +4403,7 @@
 
     .prompt-card-body {
       display: none;
-      padding: 1.25rem;
+      padding: 1.5rem 1.75rem;
       border-top: 1px solid var(--cream-dark);
     }
 
@@ -4227,13 +4414,13 @@
     .prompt-card-copy {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     .prompt-card-text {
       font-family: var(--font-mono);
       font-size: 0.9rem;
-      line-height: 1.8;
+      line-height: 1.9;
       color: var(--text-dark);
       white-space: pre-wrap;
       word-break: break-word;
@@ -4284,169 +4471,6 @@
 
     .prompt-element strong {
       color: var(--teal-dark);
-    }
-
-    /* ========================================
-       HERO RESPONSIVE STYLES
-       ======================================== */
-    @media (max-width: 768px) {
-      .hero-header {
-        padding: 2.5rem 1rem 2rem;
-      }
-
-      .hero-word-speed,
-      .hero-word-launch {
-        font-size: 2.75rem;
-      }
-
-      .hero-transform-icon {
-        width: 36px;
-        height: 36px;
-      }
-
-      .hero-word-system {
-        font-size: 0.75rem;
-      }
-
-      .mode-selector {
-        margin: 1.5rem auto 0;
-      }
-
-      .mode-btn {
-        padding: 0.85rem 1rem;
-        gap: 0.4rem;
-      }
-
-      .mode-btn-text {
-        font-size: 0.85rem;
-      }
-
-      .golden-rule {
-        padding: 1rem 1.25rem;
-        gap: 0.75rem;
-      }
-
-      .golden-rule p {
-        font-size: 1.05rem;
-      }
-
-      .progress-journey {
-        padding: 0.75rem 1rem;
-      }
-
-      .progress-stamp-circle {
-        width: 40px;
-        height: 40px;
-      }
-
-      .progress-stamp-circle svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .progress-stamp-label {
-        font-size: 0.7rem;
-      }
-
-      .progress-connector {
-        width: 35px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-header {
-        padding: 2rem 0.75rem 1.5rem;
-      }
-
-      .hero-ai-badge {
-        font-size: 0.6rem;
-        padding: 0.35rem 0.5rem;
-      }
-
-      .hero-word-speed,
-      .hero-word-launch {
-        font-size: 2.25rem;
-      }
-
-      .hero-transform-icon {
-        width: 30px;
-        height: 30px;
-        margin: 0 0.15rem;
-      }
-
-      .hero-word-system {
-        font-size: 0.7rem;
-        letter-spacing: 0.2em;
-      }
-
-      .mode-switch-container {
-        flex-direction: column;
-        border-radius: 14px;
-      }
-
-      .mode-switch-track {
-        width: calc(100% - 12px);
-        height: calc(50% - 6px);
-      }
-
-      .mode-switch-track.reference {
-        transform: translateY(100%);
-      }
-
-      .mode-btn {
-        padding: 0.75rem 1rem;
-        justify-content: center;
-      }
-
-      .mode-description {
-        margin-top: 0.75rem;
-      }
-
-      .mode-desc-text {
-        font-size: 0.8rem;
-      }
-
-      .golden-rule {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-        align-items: center;
-      }
-
-      .golden-rule-label {
-        text-align: center;
-      }
-
-      .golden-rule p {
-        font-size: 0.95rem;
-      }
-
-      .progress-journey-inner {
-        gap: 0;
-      }
-
-      .progress-stamp {
-        padding: 0.35rem 0.5rem;
-      }
-
-      .progress-stamp-circle {
-        width: 36px;
-        height: 36px;
-      }
-
-      .progress-stamp-circle svg {
-        width: 16px;
-        height: 16px;
-      }
-
-      .progress-stamp-label {
-        font-size: 0.6rem;
-      }
-
-      .progress-connector {
-        width: 24px;
-        margin-bottom: 1.25rem;
-      }
     }
 
     /* Quick Reference responsive */
@@ -4530,7 +4554,7 @@
       <div class="mode-selector">
         <div class="mode-switch-container">
           <div class="mode-switch-track" id="mode-track"></div>
-          <button class="mode-btn active challenge" id="btn-challenge-new" onclick="setModeNew('challenge')">
+          <button class="mode-btn-new active challenge" id="btn-challenge-new" onclick="setModeNew('challenge')">
             <span class="mode-btn-icon">
               <!-- Compass/guided path icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -4540,7 +4564,7 @@
             </span>
             <span class="mode-btn-text">Challenge Mode</span>
           </button>
-          <button class="mode-btn reference" id="btn-reference-new" onclick="setModeNew('reference')">
+          <button class="mode-btn-new reference" id="btn-reference-new" onclick="setModeNew('reference')">
             <span class="mode-btn-icon">
               <!-- Quick reference/checklist icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -4629,12 +4653,10 @@
   <div class="header">
     <div class="header-inner">
       <h1>AI Speed-Launch System</h1>
+      <p class="header-tagline">Don't start from zero. Find what's already working and make your version.</p>
       <div class="mode-toggle">
         <button class="mode-btn active-coral" id="btn-challenge" onclick="setMode('challenge')">Challenge Mode</button>
         <button class="mode-btn" id="btn-reference" onclick="setMode('reference')">Quick Reference</button>
-      </div>
-      <div class="rule-box">
-        <p>Don't start from zero. Find what's already working and make your version. Duplicate listings. Keep the SEO. Swap the art. Ship.</p>
       </div>
     </div>
   </div>
@@ -4776,14 +4798,178 @@
             <div class="checklist-item" onclick="toggleCheck('dgc9')"><div class="checkbox" id="check-dgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
           </div>
 
-          <!-- Prompts - MOVED BEFORE Stuck -->
-          <div class="accordion" id="acc-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
-            </div></div>
+          <!-- Quick Reference: Design Glow Up Prompts -->
+          <div class="quick-ref" id="qr-glowup-prompts">
+            <div class="quick-ref-header" onclick="document.getElementById('qr-glowup-prompts').classList.toggle('open')">
+              <div class="quick-ref-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="quick-ref-title">Prompts</span>
+              <div class="quick-ref-toggle">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="quick-ref-body">
+              <!-- How To Use -->
+              <div class="how-to-use">
+                <div class="how-to-use-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                  How To Use
+                </div>
+                <div class="how-to-use-steps">
+                  <div class="how-to-step"><span class="how-to-step-num">1</span>Copy the prompt</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">2</span>Fill <span class="placeholder-input">[My thoughts]</span> with literally anything</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">3</span>Paste into ChatGPT</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">4</span>Paste ChatGPT's output into Kittl</div>
+                </div>
+                <div class="how-to-note">If the result sucks, use Prompt #3 and just tell it why you hate it. Repeat until good.</div>
+              </div>
+
+              <!-- The Prompts -->
+              <div class="prompts-section-title">The Prompts</div>
+
+              <!-- Prompt 1: Get Style Variations -->
+              <div class="prompt-card" id="pc-glowup-1">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-glowup-1').classList.toggle('open')">
+                  <span class="prompt-card-title">Get Style Variations</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `I'm uploading a screenshot of my current design. It sells but looks dated. Give me 10 trendier style variations I could remake it in.\n\nMy thoughts: [dump anything - \"it's basic\" / \"needs to look more expensive\" / \"maybe add metallics?\" / \"something more modern\" / \"idk just make it better\" / or leave blank]\n\nFor each variation give me:\n\nSTYLE NAME: Specific, not generic (not \"modern\" but \"soft boho with gold foil accents and muted terracotta\")\n\nWHAT CHANGES: Colors, textures, effects, overall vibe\n\nWHAT STAYS: Which elements from my original to keep\n\nWHY IT'S BETTER: What makes this version more sellable right now\n\nMake each variation actually different. Show me 10 real directions I could take this.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">I'm uploading a screenshot of my current design. It sells but looks dated. Give me 10 trendier style variations I could remake it in.
+
+My thoughts: <span class="placeholder-input">[dump anything - "it's basic" / "needs to look more expensive" / "maybe add metallics?" / "something more modern" / "idk just make it better" / or leave blank]</span>
+
+For each variation give me:
+
+<strong>STYLE NAME:</strong> Specific, not generic (not "modern" but "soft boho with gold foil accents and muted terracotta")
+
+<strong>WHAT CHANGES:</strong> Colors, textures, effects, overall vibe
+
+<strong>WHAT STAYS:</strong> Which elements from my original to keep
+
+<strong>WHY IT'S BETTER:</strong> What makes this version more sellable right now
+
+Make each variation actually different. Show me 10 real directions I could take this.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 2: Write The Full Prompt -->
+              <div class="prompt-card" id="pc-glowup-2">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-glowup-2').classList.toggle('open')">
+                  <span class="prompt-card-title">Write The Full Prompt</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Write me a full AI art prompt for Kittl based on the style I picked.\n\nThe style I want: [say however - \"the boho gold one\" / \"#3 from the list\" / \"soft watercolor with metallics\" / just describe it]\n\nMy original design had: [say whatever - \"flowers and a quote\" / \"a ribbon design\" / \"cute animals\" / \"florals around text\" / or say \"you saw it\"]\n\nMy thoughts: [anything - \"keep it cute\" / \"make the gold subtle not tacky\" / \"i want it to feel luxe\" / \"add some sparkle\" / or leave blank]\n\nBuild the prompt with:\n\nART STYLE: Exact technique that works in Kittl (watercolor, vector, illustrated, etc.)\n\nCOLORS: Specific colors (not \"earthy tones\" but \"dusty rose, warm terracotta, creamy off-white, antique gold accents\")\n\nMAIN ELEMENTS: What's in the design and how arranged (keep what worked from my original)\n\nEFFECTS: Specific effects that elevate it (gold foil, subtle texture, soft shadows, glitter accents, etc.)\n\nBACKGROUND: What's behind the main elements (transparent, seamless pattern, solid color, subtle texture, etc.)\n\nDo NOT reference tumbler or any product. Keep it as a standalone design I can apply to anything.\n\nFormat ready to paste into Kittl's AI generator.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">Write me a full AI art prompt for Kittl based on the style I picked.
+
+The style I want: <span class="placeholder-input">[say however - "the boho gold one" / "#3 from the list" / "soft watercolor with metallics" / just describe it]</span>
+
+My original design had: <span class="placeholder-input">[say whatever - "flowers and a quote" / "a ribbon design" / "cute animals" / "florals around text" / or say "you saw it"]</span>
+
+My thoughts: <span class="placeholder-input">[anything - "keep it cute" / "make the gold subtle not tacky" / "i want it to feel luxe" / "add some sparkle" / or leave blank]</span>
+
+Build the prompt with:
+
+<strong>ART STYLE:</strong> Exact technique that works in Kittl (watercolor, vector, illustrated, etc.)
+
+<strong>COLORS:</strong> Specific colors (not "earthy tones" but "dusty rose, warm terracotta, creamy off-white, antique gold accents")
+
+<strong>MAIN ELEMENTS:</strong> What's in the design and how arranged (keep what worked from my original)
+
+<strong>EFFECTS:</strong> Specific effects that elevate it (gold foil, subtle texture, soft shadows, glitter accents, etc.)
+
+<strong>BACKGROUND:</strong> What's behind the main elements (transparent, seamless pattern, solid color, subtle texture, etc.)
+
+Do NOT reference tumbler or any product. Keep it as a standalone design I can apply to anything.
+
+Format ready to paste into Kittl's AI generator.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 3: Fix / Make It Better -->
+              <div class="prompt-card" id="pc-glowup-3">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-glowup-3').classList.toggle('open')">
+                  <span class="prompt-card-title">Fix / Make It Better</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `This output isn't working. Help me fix it.\n\nThe prompt I used: [paste it or describe what you got]\n\nMy honest reaction: [dump whatever:\n• \"looks like AI garbage\"\n• \"too busy\"\n• \"boring, seen this everywhere\"\n• \"colors are ugly\"\n• \"not trendy enough\"\n• \"close but something's off\"\n• \"looks cheap\"\n• \"meh\"\nwhatever you're feeling]\n\nFigure out what's actually wrong based on my feedback, then rewrite the prompt to fix it.\n\nMake it:\n• More unique (not something I've seen on every Etsy listing)\n• More polished (looks designer-made, not AI-generated)\n• More trendy (would sell in 2024/2025, not 2020)\n\nGive me the fixed prompt ready to paste into Kittl.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">This output isn't working. Help me fix it.
+
+The prompt I used: <span class="placeholder-input">[paste it or describe what you got]</span>
+
+My honest reaction: <span class="placeholder-input">[dump whatever:
+• "looks like AI garbage"
+• "too busy"
+• "boring, seen this everywhere"
+• "colors are ugly"
+• "not trendy enough"
+• "close but something's off"
+• "looks cheap"
+• "meh"
+whatever you're feeling]</span>
+
+Figure out what's actually wrong based on my feedback, then rewrite the prompt to fix it.
+
+Make it:
+• More unique (not something I've seen on every Etsy listing)
+• More polished (looks designer-made, not AI-generated)
+• More trendy (would sell in 2024/2025, not 2020)
+
+Give me the fixed prompt ready to paste into Kittl.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 4: Text Help -->
+              <div class="prompt-card" id="pc-glowup-4">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-glowup-4').classList.toggle('open')">
+                  <span class="prompt-card-title">Text Help (if Kittl messed up the text)</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `The AI messed up the text in my design. I need to add it manually in Kittl.\n\nMy design style: [describe it - \"soft watercolor florals with gold\" / \"boho muted colors\" / whatever]\n\nThe text I need: [what it should say - \"Be Still and Know\" / \"Survivor\" / \"Dog Mom\" / etc.]\n\nGive me:\n\nFONT STYLE: What type of font matches this design (hand-lettered script, clean sans-serif, vintage serif, etc.) and specific free fonts in Kittl that would work\n\nTEXT EFFECTS: What to add to make it match (gold foil effect, subtle shadow, outline stroke, etc.)\n\nPLACEMENT: Where the text should go and how big relative to other elements\n\nCOLOR: Exact color for the text that fits the palette\n\nKeep it simple. I just need to add text that looks like it belongs.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">The AI messed up the text in my design. I need to add it manually in Kittl.
+
+My design style: <span class="placeholder-input">[describe it - "soft watercolor florals with gold" / "boho muted colors" / whatever]</span>
+
+The text I need: <span class="placeholder-input">[what it should say - "Be Still and Know" / "Survivor" / "Dog Mom" / etc.]</span>
+
+Give me:
+
+<strong>FONT STYLE:</strong> What type of font matches this design (hand-lettered script, clean sans-serif, vintage serif, etc.) and specific free fonts in Kittl that would work
+
+<strong>TEXT EFFECTS:</strong> What to add to make it match (gold foil effect, subtle shadow, outline stroke, etc.)
+
+<strong>PLACEMENT:</strong> Where the text should go and how big relative to other elements
+
+<strong>COLOR:</strong> Exact color for the text that fits the palette
+
+Keep it simple. I just need to add text that looks like it belongs.</div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <!-- Bailey's Rules - MOVED BEFORE Stuck -->
@@ -7226,7 +7412,7 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
   <div id="reference-mode" class="hidden">
     <div class="section">
       <div class="section-inner">
-        <h3 class="text-center">Choose Your Workflow</h3>
+        <h3 class="workflow-heading text-center">Choose Your Workflow</h3>
         <div class="workflow-cards">
           <div class="wf-card teal selected" id="card-trend" onclick="selectWorkflow('trend')">
             <div class="wf-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M4 22L10 14L15 18L24 6" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 6H24V13" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -7339,14 +7525,178 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
             <div class="checklist-item" onclick="toggleCheck('rdgc9')"><div class="checkbox" id="check-rdgc9"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7L6 10L11 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="checklist-text">Published</span></div>
           </div>
 
-          <!-- Prompts -->
-          <div class="accordion" id="acc-ref-design-prompts">
-            <div class="accordion-header" onclick="toggleAccordion('acc-ref-design-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-            <div class="accordion-content"><div class="accordion-inner">
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 1 — Get Style Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 style variation ideas for [NICHE] niche.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 2 — Get the Full Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Write full AI art prompt for variation [NUMBER]. Make it [STYLE]. No tumbler references.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Write full AI art prompt for variation <span class="placeholder">[NUMBER]</span>. Make it <span class="placeholder">[STYLE]</span>. No tumbler references.</div></div>
-              <div class="prompt-block"><div class="prompt-header"><span class="label">Step 3 — Make It More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to be more unique and trendy. Include [ELEMENT like gold metallic elements]. Do not include the word tumbler wrap design or reference a tumbler.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to be more unique and trendy. Include <span class="placeholder">[ELEMENT like gold metallic elements]</span>. Do not include the word tumbler wrap design or reference a tumbler.</div></div>
-            </div></div>
+          <!-- Quick Reference: Design Glow Up Prompts (Reference Mode) -->
+          <div class="quick-ref" id="qr-ref-glowup-prompts">
+            <div class="quick-ref-header" onclick="document.getElementById('qr-ref-glowup-prompts').classList.toggle('open')">
+              <div class="quick-ref-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="quick-ref-title">Prompts</span>
+              <div class="quick-ref-toggle">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="quick-ref-body">
+              <!-- How To Use -->
+              <div class="how-to-use">
+                <div class="how-to-use-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                  How To Use
+                </div>
+                <div class="how-to-use-steps">
+                  <div class="how-to-step"><span class="how-to-step-num">1</span>Copy the prompt</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">2</span>Fill <span class="placeholder-input">[My thoughts]</span> with literally anything</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">3</span>Paste into ChatGPT</div>
+                  <span class="how-to-arrow">→</span>
+                  <div class="how-to-step"><span class="how-to-step-num">4</span>Paste ChatGPT's output into Kittl</div>
+                </div>
+                <div class="how-to-note">If the result sucks, use Prompt #3 and just tell it why you hate it. Repeat until good.</div>
+              </div>
+
+              <!-- The Prompts -->
+              <div class="prompts-section-title">The Prompts</div>
+
+              <!-- Prompt 1: Get Style Variations -->
+              <div class="prompt-card" id="pc-ref-glowup-1">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-ref-glowup-1').classList.toggle('open')">
+                  <span class="prompt-card-title">Get Style Variations</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `I'm uploading a screenshot of my current design. It sells but looks dated. Give me 10 trendier style variations I could remake it in.\n\nMy thoughts: [dump anything - \"it's basic\" / \"needs to look more expensive\" / \"maybe add metallics?\" / \"something more modern\" / \"idk just make it better\" / or leave blank]\n\nFor each variation give me:\n\nSTYLE NAME: Specific, not generic (not \"modern\" but \"soft boho with gold foil accents and muted terracotta\")\n\nWHAT CHANGES: Colors, textures, effects, overall vibe\n\nWHAT STAYS: Which elements from my original to keep\n\nWHY IT'S BETTER: What makes this version more sellable right now\n\nMake each variation actually different. Show me 10 real directions I could take this.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">I'm uploading a screenshot of my current design. It sells but looks dated. Give me 10 trendier style variations I could remake it in.
+
+My thoughts: <span class="placeholder-input">[dump anything - "it's basic" / "needs to look more expensive" / "maybe add metallics?" / "something more modern" / "idk just make it better" / or leave blank]</span>
+
+For each variation give me:
+
+<strong>STYLE NAME:</strong> Specific, not generic (not "modern" but "soft boho with gold foil accents and muted terracotta")
+
+<strong>WHAT CHANGES:</strong> Colors, textures, effects, overall vibe
+
+<strong>WHAT STAYS:</strong> Which elements from my original to keep
+
+<strong>WHY IT'S BETTER:</strong> What makes this version more sellable right now
+
+Make each variation actually different. Show me 10 real directions I could take this.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 2: Write The Full Prompt -->
+              <div class="prompt-card" id="pc-ref-glowup-2">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-ref-glowup-2').classList.toggle('open')">
+                  <span class="prompt-card-title">Write The Full Prompt</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Write me a full AI art prompt for Kittl based on the style I picked.\n\nThe style I want: [say however - \"the boho gold one\" / \"#3 from the list\" / \"soft watercolor with metallics\" / just describe it]\n\nMy original design had: [say whatever - \"flowers and a quote\" / \"a ribbon design\" / \"cute animals\" / \"florals around text\" / or say \"you saw it\"]\n\nMy thoughts: [anything - \"keep it cute\" / \"make the gold subtle not tacky\" / \"i want it to feel luxe\" / \"add some sparkle\" / or leave blank]\n\nBuild the prompt with:\n\nART STYLE: Exact technique that works in Kittl (watercolor, vector, illustrated, etc.)\n\nCOLORS: Specific colors (not \"earthy tones\" but \"dusty rose, warm terracotta, creamy off-white, antique gold accents\")\n\nMAIN ELEMENTS: What's in the design and how arranged (keep what worked from my original)\n\nEFFECTS: Specific effects that elevate it (gold foil, subtle texture, soft shadows, glitter accents, etc.)\n\nBACKGROUND: What's behind the main elements (transparent, seamless pattern, solid color, subtle texture, etc.)\n\nDo NOT reference tumbler or any product. Keep it as a standalone design I can apply to anything.\n\nFormat ready to paste into Kittl's AI generator.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">Write me a full AI art prompt for Kittl based on the style I picked.
+
+The style I want: <span class="placeholder-input">[say however - "the boho gold one" / "#3 from the list" / "soft watercolor with metallics" / just describe it]</span>
+
+My original design had: <span class="placeholder-input">[say whatever - "flowers and a quote" / "a ribbon design" / "cute animals" / "florals around text" / or say "you saw it"]</span>
+
+My thoughts: <span class="placeholder-input">[anything - "keep it cute" / "make the gold subtle not tacky" / "i want it to feel luxe" / "add some sparkle" / or leave blank]</span>
+
+Build the prompt with:
+
+<strong>ART STYLE:</strong> Exact technique that works in Kittl (watercolor, vector, illustrated, etc.)
+
+<strong>COLORS:</strong> Specific colors (not "earthy tones" but "dusty rose, warm terracotta, creamy off-white, antique gold accents")
+
+<strong>MAIN ELEMENTS:</strong> What's in the design and how arranged (keep what worked from my original)
+
+<strong>EFFECTS:</strong> Specific effects that elevate it (gold foil, subtle texture, soft shadows, glitter accents, etc.)
+
+<strong>BACKGROUND:</strong> What's behind the main elements (transparent, seamless pattern, solid color, subtle texture, etc.)
+
+Do NOT reference tumbler or any product. Keep it as a standalone design I can apply to anything.
+
+Format ready to paste into Kittl's AI generator.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 3: Fix / Make It Better -->
+              <div class="prompt-card" id="pc-ref-glowup-3">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-ref-glowup-3').classList.toggle('open')">
+                  <span class="prompt-card-title">Fix / Make It Better</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `This output isn't working. Help me fix it.\n\nThe prompt I used: [paste it or describe what you got]\n\nMy honest reaction: [dump whatever:\n• \"looks like AI garbage\"\n• \"too busy\"\n• \"boring, seen this everywhere\"\n• \"colors are ugly\"\n• \"not trendy enough\"\n• \"close but something's off\"\n• \"looks cheap\"\n• \"meh\"\nwhatever you're feeling]\n\nFigure out what's actually wrong based on my feedback, then rewrite the prompt to fix it.\n\nMake it:\n• More unique (not something I've seen on every Etsy listing)\n• More polished (looks designer-made, not AI-generated)\n• More trendy (would sell in 2024/2025, not 2020)\n\nGive me the fixed prompt ready to paste into Kittl.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">This output isn't working. Help me fix it.
+
+The prompt I used: <span class="placeholder-input">[paste it or describe what you got]</span>
+
+My honest reaction: <span class="placeholder-input">[dump whatever:
+• "looks like AI garbage"
+• "too busy"
+• "boring, seen this everywhere"
+• "colors are ugly"
+• "not trendy enough"
+• "close but something's off"
+• "looks cheap"
+• "meh"
+whatever you're feeling]</span>
+
+Figure out what's actually wrong based on my feedback, then rewrite the prompt to fix it.
+
+Make it:
+• More unique (not something I've seen on every Etsy listing)
+• More polished (looks designer-made, not AI-generated)
+• More trendy (would sell in 2024/2025, not 2020)
+
+Give me the fixed prompt ready to paste into Kittl.</div>
+                </div>
+              </div>
+
+              <!-- Prompt 4: Text Help -->
+              <div class="prompt-card" id="pc-ref-glowup-4">
+                <div class="prompt-card-header" onclick="document.getElementById('pc-ref-glowup-4').classList.toggle('open')">
+                  <span class="prompt-card-title">Text Help (if Kittl messed up the text)</span>
+                  <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+                </div>
+                <div class="prompt-card-body">
+                  <div class="prompt-card-copy">
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `The AI messed up the text in my design. I need to add it manually in Kittl.\n\nMy design style: [describe it - \"soft watercolor florals with gold\" / \"boho muted colors\" / whatever]\n\nThe text I need: [what it should say - \"Be Still and Know\" / \"Survivor\" / \"Dog Mom\" / etc.]\n\nGive me:\n\nFONT STYLE: What type of font matches this design (hand-lettered script, clean sans-serif, vintage serif, etc.) and specific free fonts in Kittl that would work\n\nTEXT EFFECTS: What to add to make it match (gold foil effect, subtle shadow, outline stroke, etc.)\n\nPLACEMENT: Where the text should go and how big relative to other elements\n\nCOLOR: Exact color for the text that fits the palette\n\nKeep it simple. I just need to add text that looks like it belongs.`)">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                    </button>
+                  </div>
+                  <div class="prompt-card-text">The AI messed up the text in my design. I need to add it manually in Kittl.
+
+My design style: <span class="placeholder-input">[describe it - "soft watercolor florals with gold" / "boho muted colors" / whatever]</span>
+
+The text I need: <span class="placeholder-input">[what it should say - "Be Still and Know" / "Survivor" / "Dog Mom" / etc.]</span>
+
+Give me:
+
+<strong>FONT STYLE:</strong> What type of font matches this design (hand-lettered script, clean sans-serif, vintage serif, etc.) and specific free fonts in Kittl that would work
+
+<strong>TEXT EFFECTS:</strong> What to add to make it match (gold foil effect, subtle shadow, outline stroke, etc.)
+
+<strong>PLACEMENT:</strong> Where the text should go and how big relative to other elements
+
+<strong>COLOR:</strong> Exact color for the text that fits the palette
+
+Keep it simple. I just need to add text that looks like it belongs.</div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <!-- Bailey's Rules -->
@@ -7530,14 +7880,280 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
         </table>
         <p class="table-note">If it has 2-3 of these, it's good enough. Stop researching and start creating.</p>
 
-        <!-- Prompts - MOVED BEFORE Stuck Section -->
-        <div class="accordion" id="acc-trend-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-trend-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-          <div class="accordion-content"><div class="accordion-inner">
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Turn Screenshot Into Prompt</span><button class="copy-btn" onclick="copyPrompt(this,'Create an AI art prompt based on this image.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Theme Variations</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different holiday/style themes I could apply to this design that would sell well on Etsy.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Rewrite with Your Chosen Style</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite this prompt to change the style to [THEME like \"Scandinavian glam gold\"]. Have lots of metallic effects. Keep [MAIN ELEMENT] super cute and watercolor. Add a magical matching background.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite this prompt to change the style to <span class="placeholder">[THEME like "Scandinavian glam gold"]</span>. Have lots of metallic effects. Keep <span class="placeholder">[MAIN ELEMENT]</span> super cute and watercolor. Add a magical matching background.</div></div>
-          </div></div>
+        <!-- Quick Reference: Trend to Listing Prompts -->
+        <div class="quick-ref" id="qr-trend-prompts">
+          <div class="quick-ref-header" onclick="document.getElementById('qr-trend-prompts').classList.toggle('open')">
+            <div class="quick-ref-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="quick-ref-title">Prompts</span>
+            <div class="quick-ref-toggle">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="quick-ref-body">
+            <!-- How To Use -->
+            <div class="how-to-use">
+              <div class="how-to-use-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                How To Use
+              </div>
+              <div class="how-to-use-steps">
+                <div class="how-to-step"><span class="how-to-step-num">1</span>Copy the prompt</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">2</span>Fill <span class="placeholder-input">[My thoughts]</span> with literally anything</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">3</span>Paste into ChatGPT</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">4</span>Paste ChatGPT's output into Midjourney</div>
+              </div>
+              <div class="how-to-note">Fill "My thoughts" with a comment, a rant, a brain dump, "idk", whatever — AI will figure out what you mean.</div>
+            </div>
+
+            <!-- The Prompts -->
+            <div class="prompts-section-title">The Prompts</div>
+
+            <!-- Prompt 1: Turn Screenshot Into Prompt -->
+            <div class="prompt-card" id="pc-trend-1">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-1').classList.toggle('open')">
+                <span class="prompt-card-title">Turn Screenshot Into Prompt</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `I'm uploading a design. Create a detailed AI art prompt that would recreate this style.\n\nMy thoughts: [just say whatever - \"love the sparkles\" / \"ignore the text\" / \"focus on the flowers\" / \"idk i just like it\" / or leave blank]\n\nBuild the prompt with these elements:\n\nART STYLE: Name the exact technique (hand-painted watercolor, flat vector, 3D render, digital illustration, etc.) and reference a specific aesthetic if possible (Studio Ghibli style, Rifle Paper Co aesthetic, 90s Lisa Frank, etc.)\n\nCOLORS: List the actual colors, not just \"colorful\" (soft blush pink, dusty sage green, warm gold metallic, creamy off-white, etc.)\n\nMAIN ELEMENTS: Describe each element, its size relative to others, and exact placement (centered, bottom third, wrapping around, scattered, etc.)\n\nEFFECTS & TEXTURE: Specify any effects with detail (gold foil with subtle shine, chunky glitter accents, soft watercolor bleeds at edges, hand-drawn black outlines, etc.)\n\nBACKGROUND: Describe specifically (seamless pattern, solid with subtle texture, gradient from X to Y, transparent, etc.)\n\nTECHNICAL: Include specs (seamless repeating pattern, high resolution, 300dpi, square format, etc.) and what to avoid (no text, no human hands, etc.)\n\nFormat the final prompt ready to paste into Midjourney with --v 6 and appropriate --ar.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">I'm uploading a design. Create a detailed AI art prompt that would recreate this style.
+
+My thoughts: <span class="placeholder-input">[just say whatever - "love the sparkles" / "ignore the text" / "focus on the flowers" / "idk i just like it" / or leave blank]</span>
+
+Build the prompt with these elements:
+
+<strong>ART STYLE:</strong> Name the exact technique (hand-painted watercolor, flat vector, 3D render, digital illustration, etc.) and reference a specific aesthetic if possible (Studio Ghibli style, Rifle Paper Co aesthetic, 90s Lisa Frank, etc.)
+
+<strong>COLORS:</strong> List the actual colors, not just "colorful" (soft blush pink, dusty sage green, warm gold metallic, creamy off-white, etc.)
+
+<strong>MAIN ELEMENTS:</strong> Describe each element, its size relative to others, and exact placement (centered, bottom third, wrapping around, scattered, etc.)
+
+<strong>EFFECTS & TEXTURE:</strong> Specify any effects with detail (gold foil with subtle shine, chunky glitter accents, soft watercolor bleeds at edges, hand-drawn black outlines, etc.)
+
+<strong>BACKGROUND:</strong> Describe specifically (seamless pattern, solid with subtle texture, gradient from X to Y, transparent, etc.)
+
+<strong>TECHNICAL:</strong> Include specs (seamless repeating pattern, high resolution, 300dpi, square format, etc.) and what to avoid (no text, no human hands, etc.)
+
+Format the final prompt ready to paste into Midjourney with --v 6 and appropriate --ar.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 2: Get Style Variations -->
+            <div class="prompt-card" id="pc-trend-2">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-2').classList.toggle('open')">
+                <span class="prompt-card-title">Get Style Variations</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Based on this design, give me 10 style/theme variations I could remake it in that would sell on Etsy.\n\nMy thoughts: [dump whatever - \"want something trendy\" / \"sick of the same stuff\" / \"maybe gold?\" / \"boho? cottagecore? idk\" / \"needs to look expensive\" / or leave blank]\n\nFor each variation, give me:\n\nSTYLE NAME: Specific and descriptive (not \"minimalist\" but \"Scandinavian hygge with muted neutrals\" or \"Y2K cyber pink with chrome effects\")\n\nCOLOR SHIFT: Exact new palette (ex: swap pink florals → dusty terracotta + sage + cream + antique gold accents)\n\nTEXTURE/EFFECTS CHANGE: What gets added or removed (ex: add gold foil outlines, remove gradients, add grain texture, make it more hand-drawn)\n\nELEMENT TWEAKS: How the main elements transform (ex: flowers become more abstract, animal gets cuter/rounder, layout shifts to asymmetrical)\n\nBACKGROUND TREATMENT: Specific new background (ex: switch to seamless ditsy pattern, add subtle linen texture, go transparent)\n\nWHO BUYS THIS: Specific customer (ex: millennial mom who shops at Target and follows boho accounts on Instagram)\n\nWHY IT SELLS: What trend or demand this taps into (ex: quiet luxury trend, cottagecore still strong in home decor, Y2K nostalgia with Gen Z)\n\nMake each variation distinctly different, not 10 versions of the same thing.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Based on this design, give me 10 style/theme variations I could remake it in that would sell on Etsy.
+
+My thoughts: <span class="placeholder-input">[dump whatever - "want something trendy" / "sick of the same stuff" / "maybe gold?" / "boho? cottagecore? idk" / "needs to look expensive" / or leave blank]</span>
+
+For each variation, give me:
+
+<strong>STYLE NAME:</strong> Specific and descriptive (not "minimalist" but "Scandinavian hygge with muted neutrals" or "Y2K cyber pink with chrome effects")
+
+<strong>COLOR SHIFT:</strong> Exact new palette (ex: swap pink florals → dusty terracotta + sage + cream + antique gold accents)
+
+<strong>TEXTURE/EFFECTS CHANGE:</strong> What gets added or removed (ex: add gold foil outlines, remove gradients, add grain texture, make it more hand-drawn)
+
+<strong>ELEMENT TWEAKS:</strong> How the main elements transform (ex: flowers become more abstract, animal gets cuter/rounder, layout shifts to asymmetrical)
+
+<strong>BACKGROUND TREATMENT:</strong> Specific new background (ex: switch to seamless ditsy pattern, add subtle linen texture, go transparent)
+
+<strong>WHO BUYS THIS:</strong> Specific customer (ex: millennial mom who shops at Target and follows boho accounts on Instagram)
+
+<strong>WHY IT SELLS:</strong> What trend or demand this taps into (ex: quiet luxury trend, cottagecore still strong in home decor, Y2K nostalgia with Gen Z)
+
+Make each variation distinctly different, not 10 versions of the same thing.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 3: Rewrite In New Style -->
+            <div class="prompt-card" id="pc-trend-3">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-3').classList.toggle('open')">
+                <span class="prompt-card-title">Rewrite In New Style</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Rewrite this AI art prompt in a new style.\n\nOriginal prompt: [paste your prompt]\n\nMy thoughts on what I want: [say it however - \"the scandinavian gold one\" / \"more boho\" / \"make it less girly\" / \"luxe vibes\" / \"idk just better\" / whatever]\n\nRebuild the prompt with:\n\nNEW ART STYLE: Name the specific technique and aesthetic reference that matches what I'm going for\n\nNEW COLOR PALETTE: List 4-6 specific colors that fit this style (not \"earthy tones\" but \"warm terracotta, dusty olive, creamy ivory, antique brass metallic\")\n\nKEEP VS CHANGE: Keep my main element but transform it to fit the new style (ex: same floral wreath shape but now hand-painted watercolor instead of vector, looser and more organic)\n\nEFFECTS TO ADD: Pick 2-3 specific effects that elevate this style:\n• Metallic: specify type (gold foil, rose gold shimmer, chrome, brushed brass, etc.)\n• Texture: specify type (watercolor paper grain, subtle noise, hand-drawn linework, etc.)\n• Dimension: specify how (soft drop shadows, subtle emboss, layered elements, etc.)\n\nBACKGROUND THAT MATCHES: Design a background that elevates, not competes (specify: color, texture, pattern if any, how it interacts with main element)\n\nVIBE WORDS: Add 3-5 descriptive words that set the mood (whimsical, luxe, cozy, bold, delicate, editorial, handcrafted, etc.)\n\nFormat the final prompt ready for Midjourney with --v 6 and --ar.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Rewrite this AI art prompt in a new style.
+
+Original prompt: <span class="placeholder-input">[paste your prompt]</span>
+
+My thoughts on what I want: <span class="placeholder-input">[say it however - "the scandinavian gold one" / "more boho" / "make it less girly" / "luxe vibes" / "idk just better" / whatever]</span>
+
+Rebuild the prompt with:
+
+<strong>NEW ART STYLE:</strong> Name the specific technique and aesthetic reference that matches what I'm going for
+
+<strong>NEW COLOR PALETTE:</strong> List 4-6 specific colors that fit this style (not "earthy tones" but "warm terracotta, dusty olive, creamy ivory, antique brass metallic")
+
+<strong>KEEP VS CHANGE:</strong> Keep my main element but transform it to fit the new style (ex: same floral wreath shape but now hand-painted watercolor instead of vector, looser and more organic)
+
+<strong>EFFECTS TO ADD:</strong> Pick 2-3 specific effects that elevate this style:
+• Metallic: specify type (gold foil, rose gold shimmer, chrome, brushed brass, etc.)
+• Texture: specify type (watercolor paper grain, subtle noise, hand-drawn linework, etc.)
+• Dimension: specify how (soft drop shadows, subtle emboss, layered elements, etc.)
+
+<strong>BACKGROUND THAT MATCHES:</strong> Design a background that elevates, not competes (specify: color, texture, pattern if any, how it interacts with main element)
+
+<strong>VIBE WORDS:</strong> Add 3-5 descriptive words that set the mood (whimsical, luxe, cozy, bold, delicate, editorial, handcrafted, etc.)
+
+Format the final prompt ready for Midjourney with --v 6 and --ar.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 4: Fix / Improve Output -->
+            <div class="prompt-card" id="pc-trend-4">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-4').classList.toggle('open')">
+                <span class="prompt-card-title">Fix / Improve Output</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `This design isn't working. Help me fix it.\n\nThe prompt I used: [paste it or describe the design]\n\nMy honest reaction: [dump whatever - \"looks like AI garbage\" / \"too busy\" / \"colors are ugly\" / \"boring\" / \"something's off\" / \"meh\" / \"hate the background\" / whatever]\n\nFirst, translate my feedback into specific problems:\n• If I said \"looks AI\" → identify what's making it look artificial (too perfect, weird artifacts, uncanny elements, etc.)\n• If I said \"too busy\" → identify what's cluttering it (too many elements, competing focal points, no breathing room, etc.)\n• If I said \"boring/generic\" → identify what's basic (overused style, no unique twist, template vibes, etc.)\n• If I said \"colors are off\" → identify the color problem (clashing, dated palette, too saturated, no contrast, etc.)\n• If I said \"something's off\" → look for composition issues, style inconsistencies, or elements that don't match\n\nThen rewrite the prompt fixing each problem:\n\nSTYLE FIX: [adjusted art style with specific technique]\nCOLOR FIX: [new palette with specific colors that work together]\nCOMPOSITION FIX: [clearer layout, better element placement, breathing room]\nEFFECTS FIX: [refined effects that enhance not overwhelm]\nREALISM FIX: [if it looked too AI - add imperfections, hand-drawn qualities, organic variation]\n\nGive me the fixed prompt ready to paste.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">This design isn't working. Help me fix it.
+
+The prompt I used: <span class="placeholder-input">[paste it or describe the design]</span>
+
+My honest reaction: <span class="placeholder-input">[dump whatever - "looks like AI garbage" / "too busy" / "colors are ugly" / "boring" / "something's off" / "meh" / "hate the background" / whatever]</span>
+
+First, translate my feedback into specific problems:
+• If I said "looks AI" → identify what's making it look artificial (too perfect, weird artifacts, uncanny elements, etc.)
+• If I said "too busy" → identify what's cluttering it (too many elements, competing focal points, no breathing room, etc.)
+• If I said "boring/generic" → identify what's basic (overused style, no unique twist, template vibes, etc.)
+• If I said "colors are off" → identify the color problem (clashing, dated palette, too saturated, no contrast, etc.)
+• If I said "something's off" → look for composition issues, style inconsistencies, or elements that don't match
+
+Then rewrite the prompt fixing each problem:
+
+<strong>STYLE FIX:</strong> [adjusted art style with specific technique]
+<strong>COLOR FIX:</strong> [new palette with specific colors that work together]
+<strong>COMPOSITION FIX:</strong> [clearer layout, better element placement, breathing room]
+<strong>EFFECTS FIX:</strong> [refined effects that enhance not overwhelm]
+<strong>REALISM FIX:</strong> [if it looked too AI - add imperfections, hand-drawn qualities, organic variation]
+
+Give me the fixed prompt ready to paste.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 5: Make Mockup Prompts -->
+            <div class="prompt-card" id="pc-trend-5">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-5').classList.toggle('open')">
+                <span class="prompt-card-title">Make Mockup Prompts</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Write me 3 product mockup prompts for Midjourney.\n\nMy design: [describe however - \"floral tumbler wrap\" / \"cancer ribbon design\" / \"cute cow\" / or paste the prompt]\n\nProduct type: [tumbler / mug / shirt / tote / etc.]\n\nMy vibe: [say anything - \"Christian moms\" / \"cozy fall\" / \"clean minimal\" / \"pinterest girl\" / \"idk make it good\" / or leave blank]\n\nBuild each mockup with:\n\n1. CLEAN/WHITE STUDIO SHOT\n• Product: [product type] centered on pure white seamless background\n• Camera: straight-on or slight 3/4 angle, product fills 70% of frame\n• Lighting: soft diffused studio lighting, subtle shadow beneath for grounding\n• Design placement: clearly visible, wrapped realistically with 3D contour\n• Realism: slight reflection on surface, accurate material texture (stainless steel, ceramic, cotton, etc.)\n• Add: professional product photography, commercial quality, sharp focus\n\n2. LIFESTYLE CONTEXT SHOT\n• Setting: specific location that matches my target customer (ex: cozy reading nook, busy mom's kitchen counter, aesthetic desk setup, outdoor picnic blanket)\n• Product position: being held, sitting on surface, or in use - not just floating\n• Props: 2-3 items that fit the vibe and don't compete (ex: open book + reading glasses, coffee beans + linen napkin)\n• Lighting: natural light that matches setting (morning window light, golden hour, soft overcast)\n• Human element if needed: partial hand holding product, or clear sign of human presence\n• Mood: capture the feeling of my customer's life\n\n3. STYLED FLAT LAY\n• Surface: specific material (marble, warm wood, linen fabric, concrete, terrazzo, etc.)\n• Arrangement: product as hero, surrounded by 3-5 coordinating props\n• Props: specific items that match aesthetic (ex: dried eucalyptus + gold scissors + wax seal for boho, or succulents + geometric holder + copper accents for modern)\n• Color story: props and surface complement the design colors\n• Lighting: soft top-down natural light, subtle shadows for depth\n• Style: editorial, Pinterest-worthy, would-save-this-immediately quality\n\nFor all: make photorealistic not AI-looking, design printed ON product with dimension not pasted flat, include --ar 4:5 --v 6`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Write me 3 product mockup prompts for Midjourney.
+
+My design: <span class="placeholder-input">[describe however - "floral tumbler wrap" / "cancer ribbon design" / "cute cow" / or paste the prompt]</span>
+
+Product type: <span class="placeholder-input">[tumbler / mug / shirt / tote / etc.]</span>
+
+My vibe: <span class="placeholder-input">[say anything - "Christian moms" / "cozy fall" / "clean minimal" / "pinterest girl" / "idk make it good" / or leave blank]</span>
+
+Build each mockup with:
+
+<strong>1. CLEAN/WHITE STUDIO SHOT</strong>
+• Product: [product type] centered on pure white seamless background
+• Camera: straight-on or slight 3/4 angle, product fills 70% of frame
+• Lighting: soft diffused studio lighting, subtle shadow beneath for grounding
+• Design placement: clearly visible, wrapped realistically with 3D contour
+• Realism: slight reflection on surface, accurate material texture (stainless steel, ceramic, cotton, etc.)
+• Add: professional product photography, commercial quality, sharp focus
+
+<strong>2. LIFESTYLE CONTEXT SHOT</strong>
+• Setting: specific location that matches my target customer (ex: cozy reading nook, busy mom's kitchen counter, aesthetic desk setup, outdoor picnic blanket)
+• Product position: being held, sitting on surface, or in use - not just floating
+• Props: 2-3 items that fit the vibe and don't compete (ex: open book + reading glasses, coffee beans + linen napkin)
+• Lighting: natural light that matches setting (morning window light, golden hour, soft overcast)
+• Human element if needed: partial hand holding product, or clear sign of human presence
+• Mood: capture the feeling of my customer's life
+
+<strong>3. STYLED FLAT LAY</strong>
+• Surface: specific material (marble, warm wood, linen fabric, concrete, terrazzo, etc.)
+• Arrangement: product as hero, surrounded by 3-5 coordinating props
+• Props: specific items that match aesthetic (ex: dried eucalyptus + gold scissors + wax seal for boho, or succulents + geometric holder + copper accents for modern)
+• Color story: props and surface complement the design colors
+• Lighting: soft top-down natural light, subtle shadows for depth
+• Style: editorial, Pinterest-worthy, would-save-this-immediately quality
+
+For all: make photorealistic not AI-looking, design printed ON product with dimension not pasted flat, include --ar 4:5 --v 6</div>
+              </div>
+            </div>
+
+            <!-- Prompt 6: Make Design Variations -->
+            <div class="prompt-card" id="pc-trend-6">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-trend-6').classList.toggle('open')">
+                <span class="prompt-card-title">Make Design Variations</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `I have a design that's working. Help me create variations to get more listings from it.\n\nMy original design: [describe it or paste the prompt - \"floral tumbler with pink roses\" / \"cancer ribbon survivor design\" / whatever]\n\nWhat kind of variations I want: [say whatever - \"different colors\" / \"holiday versions\" / \"different niches\" / \"all of the above\" / \"idk just give me ideas\" / or leave blank]\n\nGive me 5-10 variation prompts, mixing these types:\n\nCOLOR SWAPS\n• Take the exact same design, change the color palette\n• Give me specific colors for each (not \"make it blue\" but \"navy + dusty rose + gold accents\")\n• Make each palette feel intentional and sellable, not just a hue shift\n\nSEASONAL/HOLIDAY VERSIONS\n• Same core design, adapted for specific occasions\n• Add seasonal elements that fit naturally (not just slapping a santa hat on it)\n• Specify: which holiday, what elements change, what colors shift\n\nNICHE PIVOTS\n• Same style/layout, different audience\n• Swap the theme to target a different buyer (ex: nurse version, teacher version, dog mom version)\n• Keep what's working (style, effects, quality) but change the subject matter\n\nSTYLE UPGRADES\n• Same concept, elevated execution\n• Add trending elements (metallics, new textures, updated color trends)\n• Make it feel fresh for 2024/2025\n\nFor each variation, give me the full prompt ready to paste into Midjourney.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">I have a design that's working. Help me create variations to get more listings from it.
+
+My original design: <span class="placeholder-input">[describe it or paste the prompt - "floral tumbler with pink roses" / "cancer ribbon survivor design" / whatever]</span>
+
+What kind of variations I want: <span class="placeholder-input">[say whatever - "different colors" / "holiday versions" / "different niches" / "all of the above" / "idk just give me ideas" / or leave blank]</span>
+
+Give me 5-10 variation prompts, mixing these types:
+
+<strong>COLOR SWAPS</strong>
+• Take the exact same design, change the color palette
+• Give me specific colors for each (not "make it blue" but "navy + dusty rose + gold accents")
+• Make each palette feel intentional and sellable, not just a hue shift
+
+<strong>SEASONAL/HOLIDAY VERSIONS</strong>
+• Same core design, adapted for specific occasions
+• Add seasonal elements that fit naturally (not just slapping a santa hat on it)
+• Specify: which holiday, what elements change, what colors shift
+
+<strong>NICHE PIVOTS</strong>
+• Same style/layout, different audience
+• Swap the theme to target a different buyer (ex: nurse version, teacher version, dog mom version)
+• Keep what's working (style, effects, quality) but change the subject matter
+
+<strong>STYLE UPGRADES</strong>
+• Same concept, elevated execution
+• Add trending elements (metallics, new textures, updated color trends)
+• Make it feel fresh for 2024/2025
+
+For each variation, give me the full prompt ready to paste into Midjourney.</div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <h3 class="mt-2">Bailey's Rules for Trend → Listing</h3>
@@ -7741,13 +8357,222 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
           </div>
         </div>
 
-        <div class="accordion" id="acc-niche-prompts">
-          <div class="accordion-header" onclick="toggleAccordion('acc-niche-prompts')"><span><div class="accordion-visual prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prompts</span><div class="accordion-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg></div></div>
-          <div class="accordion-content"><div class="accordion-inner">
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Get Style Ideas</span><button class="copy-btn" onclick="copyPrompt(this,'Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the [NICHE] niche. It should not be word art like this one.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Give me 10 different style variation ideas to remake this design that would sell well on Etsy in the <span class="placeholder">[NICHE]</span> niche. It should not be word art like this one.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Get All Variation Prompts at Once</span><button class="copy-btn" onclick="copyPrompt(this,'Create 10 AI written prompts for the most widely known [VARIATIONS like \"cancers\" or \"states\" or \"dog breeds\"] for this type of style, with one prompt containing [ALL COLORS/ALL ELEMENTS] that says \"[MAIN TEXT like \'Cancer Comes in Many Colors\']\". The other 9 should have the text \"[INDIVIDUAL TEXT like \'Survivor\']\" along with its [COLOR/THEME].')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Create 10 AI written prompts for the most widely known <span class="placeholder">[VARIATIONS like "cancers" or "states" or "dog breeds"]</span> for this type of style, with one prompt containing <span class="placeholder">[ALL COLORS/ALL ELEMENTS]</span> that says "<span class="placeholder">[MAIN TEXT like 'Cancer Comes in Many Colors']</span>". The other 9 should have the text "<span class="placeholder">[INDIVIDUAL TEXT like 'Survivor']</span>" along with its <span class="placeholder">[COLOR/THEME]</span>.</div></div>
-            <div class="prompt-block"><div class="prompt-header"><span class="label">Make Them More Unique</span><button class="copy-btn" onclick="copyPrompt(this,'Rewrite prompts 2-10 to be more unique and trendy. Do not include the word \"tumbler wrap design\" or reference a tumbler. Include [ELEMENT like \"gold metallic elements\"] in all.')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy</button></div><div class="prompt-text">Rewrite prompts 2-10 to be more unique and trendy. Do not include the word "tumbler wrap design" or reference a tumbler. Include <span class="placeholder">[ELEMENT like "gold metallic elements"]</span> in all.</div></div>
-          </div></div>
+        <!-- Quick Reference: Niche Pack Prompts -->
+        <div class="quick-ref" id="qr-niche-prompts">
+          <div class="quick-ref-header" onclick="document.getElementById('qr-niche-prompts').classList.toggle('open')">
+            <div class="quick-ref-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="quick-ref-title">Prompts</span>
+            <div class="quick-ref-toggle">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="quick-ref-body">
+            <!-- How To Use -->
+            <div class="how-to-use">
+              <div class="how-to-use-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                How To Use
+              </div>
+              <div class="how-to-use-steps">
+                <div class="how-to-step"><span class="how-to-step-num">1</span>Copy the prompt</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">2</span>Fill <span class="placeholder-input">[My thoughts]</span> with literally anything</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">3</span>Paste into ChatGPT</div>
+                <span class="how-to-arrow">→</span>
+                <div class="how-to-step"><span class="how-to-step-num">4</span>Batch generate in Kittl</div>
+              </div>
+              <div class="how-to-note">If the results suck, use Prompt #3 and just tell it why you hate them. Repeat until good.</div>
+            </div>
+
+            <!-- The Prompts -->
+            <div class="prompts-section-title">The Prompts</div>
+
+            <!-- Prompt 1: Get Style Ideas -->
+            <div class="prompt-card" id="pc-niche-1">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-niche-1').classList.toggle('open')">
+                <span class="prompt-card-title">Get Style Ideas</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `I want to create a niche pack with 10+ variations. Give me style ideas for this niche.\n\nMy niche: [say whatever - \"cancer awareness ribbons\" / \"US states\" / \"dog breeds\" / \"nurse stuff\" / or \"help me pick a niche that has easy variations\"]\n\nMy thoughts: [dump anything - \"not the basic stuff everyone has\" / \"needs to look trendy\" / \"maybe watercolor?\" / \"something with metallics\" / \"i want it to look expensive\" / \"idk surprise me\" / or leave blank]\n\nGive me 10 different style directions I could take this niche:\n\nFor each style:\nSTYLE NAME: Specific and descriptive (not \"cute\" but \"soft watercolor with gold foil accents and muted pastels\")\n\nWHAT IT LOOKS LIKE: Colors, textures, effects, vibe\n\nWHY IT WORKS: Why this style sells for this niche\n\nWHAT MAKES IT DIFFERENT: How it stands out from the basic versions everyone else has\n\nMake each one actually different. I want real options, not 10 versions of the same thing.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">I want to create a niche pack with 10+ variations. Give me style ideas for this niche.
+
+My niche: <span class="placeholder-input">[say whatever - "cancer awareness ribbons" / "US states" / "dog breeds" / "nurse stuff" / or "help me pick a niche that has easy variations"]</span>
+
+My thoughts: <span class="placeholder-input">[dump anything - "not the basic stuff everyone has" / "needs to look trendy" / "maybe watercolor?" / "something with metallics" / "i want it to look expensive" / "idk surprise me" / or leave blank]</span>
+
+Give me 10 different style directions I could take this niche:
+
+For each style:
+<strong>STYLE NAME:</strong> Specific and descriptive (not "cute" but "soft watercolor with gold foil accents and muted pastels")
+
+<strong>WHAT IT LOOKS LIKE:</strong> Colors, textures, effects, vibe
+
+<strong>WHY IT WORKS:</strong> Why this style sells for this niche
+
+<strong>WHAT MAKES IT DIFFERENT:</strong> How it stands out from the basic versions everyone else has
+
+Make each one actually different. I want real options, not 10 versions of the same thing.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 2: Get All Variation Prompts At Once -->
+            <div class="prompt-card" id="pc-niche-2">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-niche-2').classList.toggle('open')">
+                <span class="prompt-card-title">Get All Variation Prompts At Once</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Write me AI prompts for ALL variations in this niche at once. I want to batch generate these.\n\nMy niche: [say it - \"cancer types\" / \"US states\" / \"dog breeds\" / \"professions\" / etc.]\n\nThe style I picked: [describe it or say which one - \"the watercolor gold one\" / \"#3 soft boho\" / \"trendy with metallics\" / etc.]\n\nMy thoughts: [dump anything - \"main text should say Survivor\" / \"include the ribbon color for each cancer\" / \"one design should have all colors together\" / \"keep the same vibe across all\" / or leave blank]\n\nGive me prompts for:\n\nONE \"ALL TOGETHER\" DESIGN: [if it makes sense - all cancer colors in one, all 50 states together, etc.] with text like \"[suggest main text]\"\n\n9-10 INDIVIDUAL VARIATIONS: Each with its own [color/theme/element] and text like \"[suggest individual text]\"\n\nFor each prompt include:\n• The specific variation (which cancer, which state, which breed, etc.)\n• Correct colors/elements for that variation (pink for breast cancer, orange for leukemia, etc.)\n• The text that goes on it\n• Full prompt ready to paste into Kittl\n\nDo NOT reference tumbler or any product in the prompts. Keep them as standalone designs.\n\nFormat so I can copy each prompt one by one into Kittl.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Write me AI prompts for ALL variations in this niche at once. I want to batch generate these.
+
+My niche: <span class="placeholder-input">[say it - "cancer types" / "US states" / "dog breeds" / "professions" / etc.]</span>
+
+The style I picked: <span class="placeholder-input">[describe it or say which one - "the watercolor gold one" / "#3 soft boho" / "trendy with metallics" / etc.]</span>
+
+My thoughts: <span class="placeholder-input">[dump anything - "main text should say Survivor" / "include the ribbon color for each cancer" / "one design should have all colors together" / "keep the same vibe across all" / or leave blank]</span>
+
+Give me prompts for:
+
+<strong>ONE "ALL TOGETHER" DESIGN:</strong> [if it makes sense - all cancer colors in one, all 50 states together, etc.] with text like "[suggest main text]"
+
+<strong>9-10 INDIVIDUAL VARIATIONS:</strong> Each with its own [color/theme/element] and text like "[suggest individual text]"
+
+For each prompt include:
+• The specific variation (which cancer, which state, which breed, etc.)
+• Correct colors/elements for that variation (pink for breast cancer, orange for leukemia, etc.)
+• The text that goes on it
+• Full prompt ready to paste into Kittl
+
+Do NOT reference tumbler or any product in the prompts. Keep them as standalone designs.
+
+Format so I can copy each prompt one by one into Kittl.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 3: Fix / Make Them More Unique -->
+            <div class="prompt-card" id="pc-niche-3">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-niche-3').classList.toggle('open')">
+                <span class="prompt-card-title">Fix / Make Them More Unique</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Some of these prompts came out too basic. Help me fix them.\n\nThe prompts that need fixing: [say which ones - \"2, 5, and 7\" / \"all of them\" / \"the breast cancer one\" / \"most of them look the same\"]\n\nMy honest reaction: [dump whatever:\n• \"too generic\"\n• \"looks like everything else on Etsy\"\n• \"boring\"\n• \"not trendy enough\"\n• \"they all look the same\"\n• \"needs more personality\"\n• \"looks cheap\"\nwhatever]\n\nRewrite the prompts to be:\n• More unique (not the basic version everyone has)\n• More trendy (would sell in 2024/2025)\n• More cohesive (still look like a matching set)\n\nAdd these elements to all: [say whatever - \"gold metallic accents\" / \"more texture\" / \"make them cuter\" / \"more luxe feeling\" / or leave blank]\n\nDo NOT include \"tumbler wrap design\" or reference any product.\n\nGive me the fixed prompts ready to paste into Kittl.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Some of these prompts came out too basic. Help me fix them.
+
+The prompts that need fixing: <span class="placeholder-input">[say which ones - "2, 5, and 7" / "all of them" / "the breast cancer one" / "most of them look the same"]</span>
+
+My honest reaction: <span class="placeholder-input">[dump whatever:
+• "too generic"
+• "looks like everything else on Etsy"
+• "boring"
+• "not trendy enough"
+• "they all look the same"
+• "needs more personality"
+• "looks cheap"
+whatever]</span>
+
+Rewrite the prompts to be:
+• More unique (not the basic version everyone has)
+• More trendy (would sell in 2024/2025)
+• More cohesive (still look like a matching set)
+
+Add these elements to all: <span class="placeholder-input">[say whatever - "gold metallic accents" / "more texture" / "make them cuter" / "more luxe feeling" / or leave blank]</span>
+
+Do NOT include "tumbler wrap design" or reference any product.
+
+Give me the fixed prompts ready to paste into Kittl.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 4: Quick SEO For All Variations -->
+            <div class="prompt-card" id="pc-niche-4">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-niche-4').classList.toggle('open')">
+                <span class="prompt-card-title">Quick SEO For All Variations</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Generate SEO for all my niche pack listings at once.\n\nMy niche pack: [describe it - \"10 cancer awareness ribbon designs\" / \"12 dog breed designs\" / \"8 state designs\" / etc.]\n\nThe variations: [list them or say \"you know them from the prompts\"]\n\nProduct type: [tumbler / mug / shirt / etc.]\n\nFor EACH variation give me:\n\nTITLE: Under 140 characters, niche-specific keyword first, includes product type and \"PNG Digital Download\"\n\nTAGS: Exactly 13 tags, each under 20 characters, mix of broad + niche-specific\n\nFormat so I can:\n• Copy the base title/tags structure\n• Use Find & Replace in Vela to swap just the variation-specific words\n\nTell me which words to swap for each variation so I can bulk edit fast.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Generate SEO for all my niche pack listings at once.
+
+My niche pack: <span class="placeholder-input">[describe it - "10 cancer awareness ribbon designs" / "12 dog breed designs" / "8 state designs" / etc.]</span>
+
+The variations: <span class="placeholder-input">[list them or say "you know them from the prompts"]</span>
+
+Product type: <span class="placeholder-input">[tumbler / mug / shirt / etc.]</span>
+
+For EACH variation give me:
+
+<strong>TITLE:</strong> Under 140 characters, niche-specific keyword first, includes product type and "PNG Digital Download"
+
+<strong>TAGS:</strong> Exactly 13 tags, each under 20 characters, mix of broad + niche-specific
+
+Format so I can:
+• Copy the base title/tags structure
+• Use Find & Replace in Vela to swap just the variation-specific words
+
+Tell me which words to swap for each variation so I can bulk edit fast.</div>
+              </div>
+            </div>
+
+            <!-- Prompt 5: Bundle Description -->
+            <div class="prompt-card" id="pc-niche-5">
+              <div class="prompt-card-header" onclick="document.getElementById('pc-niche-5').classList.toggle('open')">
+                <span class="prompt-card-title">Bundle Description</span>
+                <div class="prompt-card-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              </div>
+              <div class="prompt-card-body">
+                <div class="prompt-card-copy">
+                  <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this, `Write a description for my niche pack bundle listing.\n\nWhat's in the bundle: [say whatever - \"10 cancer awareness designs\" / \"all 50 states\" / \"12 dog breeds\" / etc.]\n\nWhat they get: [number of files, file types, sizes - or say \"idk figure it out for a typical bundle\"]\n\nMy thoughts: [anything - \"emphasize the value\" / \"make it sound like a deal\" / \"target crafters\" / or leave blank]\n\nWrite:\n\nHOOK: 1-2 sentences that make them want this bundle\n\nWHAT'S INCLUDED: Clear list of everything (number of designs, file types, sizes)\n\nWHO IT'S FOR: Who buys this and why\n\nHOW TO USE: What they can make with these\n\nPLEASE NOTE: Digital file, no refunds, etc.\n\nLICENSE: Personal + small commercial use\n\nKeep it scannable. Short paragraphs. Make the value obvious.`)">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>Copy
+                  </button>
+                </div>
+                <div class="prompt-card-text">Write a description for my niche pack bundle listing.
+
+What's in the bundle: <span class="placeholder-input">[say whatever - "10 cancer awareness designs" / "all 50 states" / "12 dog breeds" / etc.]</span>
+
+What they get: <span class="placeholder-input">[number of files, file types, sizes - or say "idk figure it out for a typical bundle"]</span>
+
+My thoughts: <span class="placeholder-input">[anything - "emphasize the value" / "make it sound like a deal" / "target crafters" / or leave blank]</span>
+
+Write:
+
+<strong>HOOK:</strong> 1-2 sentences that make them want this bundle
+
+<strong>WHAT'S INCLUDED:</strong> Clear list of everything (number of designs, file types, sizes)
+
+<strong>WHO IT'S FOR:</strong> Who buys this and why
+
+<strong>HOW TO USE:</strong> What they can make with these
+
+<strong>PLEASE NOTE:</strong> Digital file, no refunds, etc.
+
+<strong>LICENSE:</strong> Personal + small commercial use
+
+Keep it scannable. Short paragraphs. Make the value obvious.</div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <h3 class="mt-2">Bailey's Rules for Niche Packs</h3>
@@ -7758,22 +8583,6 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
           <div class="rule-item"><span class="rule-num">4</span><span class="rule-text">Price new listings low to rank faster — Bailey starts at $1 for a short window. Just don't leave it there forever — set a date or sales count where you raise it.</span></div>
           <div class="rule-item"><span class="rule-num">5</span><span class="rule-text">Bundle delivery = PDF + Google Drive — Etsy's 5-slot / 20MB limit won't fit 10+ designs. Create a PDF in Canva with the Drive link.</span></div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- APPENDIX -->
-  <div class="appendix">
-    <div class="appendix-inner">
-      <div class="appendix-title">
-        <h2>All Prompts</h2>
-        <p>Fill in the <span class="placeholder">[BRACKETS]</span> for your niche.</p>
-      </div>
-      <div class="appendix-grid">
-        <div class="appendix-item"><h4>Style Variations</h4><div class="prompt-text">Give me 10 style variation ideas for <span class="placeholder">[NICHE]</span> niche.</div></div>
-        <div class="appendix-item"><h4>Screenshot → Prompt</h4><div class="prompt-text">Create an AI art prompt based on this image.</div></div>
-        <div class="appendix-item"><h4>Make Unique</h4><div class="prompt-text">Rewrite to be more unique. Add <span class="placeholder">[ELEMENT]</span>. Remove tumbler references.</div></div>
-        <div class="appendix-item"><h4>Quick SEO</h4><div class="prompt-text">Generate title (&lt;40 chars) and 13 tags (&lt;21 chars each) for Etsy.</div></div>
       </div>
     </div>
   </div>
@@ -7795,13 +8604,6 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
     </div>
   </div>
 
-  <!-- Floating Back to Paths Button -->
-  <button class="floating-back-btn" id="floating-back-btn" onclick="handleFloatingBackClick()">
-    <div class="btn-icon">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <span>Switch Glow-Up Path</span>
-  </button>
 
 </div>
 
@@ -8386,8 +9188,6 @@ function backToRefPathSelector() {
   if (designSection) designSection.classList.remove('active');
   if (listingSection) listingSection.classList.add('hidden');
   if (fullSection) fullSection.classList.add('hidden');
-
-  updateFloatingBackBtn();
 }
 
 // ========================================
@@ -8406,78 +9206,6 @@ function toggleStuckItem(el) {
   // Toggle this item
   el.classList.toggle('open');
 }
-
-// ========================================
-// FLOATING BACK BUTTON
-// ========================================
-
-function updateFloatingBackBtn() {
-  const btn = document.getElementById('floating-back-btn');
-  if (!btn) return;
-
-  // Show floating button when:
-  // 1. In challenge mode, step 2, with a path selected (design/listing/full)
-  // 2. In reference mode, viewing a Glow-Up path
-
-  const isChallenge = mode === 'challenge';
-  const isReference = mode === 'reference';
-
-  let showBtn = false;
-
-  if (isChallenge) {
-    // Check if step 2 (Glow-Up) has a path selected
-    const pathSelector = document.getElementById('path-selector');
-    if (pathSelector && pathSelector.style.display === 'none') {
-      showBtn = true;
-    }
-  }
-
-  if (isReference) {
-    // Check if Reference Glow-Up has a path selected
-    const refPathSelector = document.getElementById('ref-path-selector');
-    if (refPathSelector && refPathSelector.style.display === 'none') {
-      showBtn = true;
-    }
-  }
-
-  if (showBtn) {
-    btn.classList.add('visible');
-  } else {
-    btn.classList.remove('visible');
-  }
-}
-
-function handleFloatingBackClick() {
-  // Determine which path selector to go back to
-  const isChallenge = mode === 'challenge';
-
-  if (isChallenge) {
-    backToPathSelector();
-  } else {
-    backToRefPathSelector();
-  }
-
-  updateFloatingBackBtn();
-}
-
-// Update path selection functions to manage floating button
-const originalSelectGlowupPath = selectGlowupPath;
-selectGlowupPath = function(path) {
-  originalSelectGlowupPath(path);
-  updateFloatingBackBtn();
-};
-
-const originalBackToPathSelector = backToPathSelector;
-backToPathSelector = function() {
-  originalBackToPathSelector();
-  updateFloatingBackBtn();
-};
-
-const originalSelectRefGlowupPath = selectRefGlowupPath;
-selectRefGlowupPath = function(path) {
-  originalSelectRefGlowupPath(path);
-  updateFloatingBackBtn();
-};
 
 load();
 </script>
