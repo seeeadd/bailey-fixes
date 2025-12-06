@@ -3275,28 +3275,141 @@
     }
 
     /* Path Card Custom Icons */
-    .path-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 0.75rem;
+    /* Glow-Up Illustration Containers */
+    .glow-illustration {
+      width: 100%;
+      height: 120px;
+      margin: 0 auto 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
-    .path-icon.design {
-      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-      border-radius: 12px;
+    .glow-illustration svg {
+      width: 100%;
+      height: 100%;
     }
 
-    .path-icon.listing {
-      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    /* DESIGN card: before/after visual style */
+    .path-card.design .glow-illustration {
+      background: linear-gradient(135deg, #FFF5F2 0%, #FFEEE8 100%);
       border-radius: 12px;
+      padding: 0.75rem;
     }
 
-    .path-icon.full {
-      background: linear-gradient(135deg, #ff9a9e 0%, #a8edea 100%);
+    /* LISTING card: SEO text editing style */
+    .path-card.listing .glow-illustration {
+      background: linear-gradient(135deg, #F0FAF8 0%, #E5F5F0 100%);
       border-radius: 12px;
+      padding: 0.75rem;
+    }
+
+    /* FULL card: premium combo style */
+    .path-card.full .glow-illustration {
+      background: linear-gradient(135deg, #FFF5F2 0%, #F0FAF8 100%);
+      border-radius: 12px;
+      padding: 0.75rem;
+    }
+
+    /* Sparkle animation for glow effect */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(200, 92, 66, 0.3)); }
+      50% { filter: drop-shadow(0 0 12px rgba(200, 92, 66, 0.6)); }
+    }
+
+    .glow-illustration .sparkle {
+      animation: sparkle 2s ease-in-out infinite;
+    }
+
+    .glow-illustration .sparkle:nth-child(2) { animation-delay: 0.3s; }
+    .glow-illustration .sparkle:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Premium card treatment for Full Glow-Up */
+    .path-card.full {
+      position: relative;
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(200, 92, 66, 0.15), 0 4px 16px rgba(45, 139, 139, 0.1);
+    }
+
+    .path-card.full::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #C85C42, #2D8B8B);
+      color: white;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    .path-card.full:hover {
+      transform: scale(1.04) translateY(-2px);
+    }
+
+    /* Hover sparkle burst effect */
+    .path-card:hover .glow-illustration .sparkle {
+      animation-duration: 0.8s;
+    }
+
+    /* Glow-Up Title with actual glow */
+    .glow-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glow-title::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 150%;
+      background: radial-gradient(ellipse at center,
+        rgba(232, 146, 124, 0.3) 0%,
+        rgba(232, 146, 124, 0.1) 40%,
+        transparent 70%);
+      z-index: -1;
+      animation: title-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes title-glow {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    /* Sparkles around the Glow-Up title */
+    .glow-title-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .title-sparkle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+
+    .title-sparkle:nth-child(1) { top: -8px; right: -15px; animation-delay: 0s; }
+    .title-sparkle:nth-child(2) { top: 5px; right: -25px; animation-delay: 0.5s; }
+    .title-sparkle:nth-child(3) { bottom: -5px; left: -20px; animation-delay: 1s; }
+
+    /* Legacy .path-icon for backwards compatibility */
+    .path-icon {
+      display: none;
     }
 
     /* Design Glow-Up Section */
@@ -4816,7 +4929,12 @@
     <div class="section dimmed" id="step-2">
       <div class="section-inner">
         <span class="badge badge-coral">WORKFLOW 2</span>
-        <h2>Glow-Up</h2>
+        <h2 class="glow-title-wrapper">
+          <span class="glow-title">Glow-Up</span>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#C85C42"/></svg>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#E8927C"/></svg>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#E8927C"/></svg>
+        </h2>
 
         <!-- PATH SELECTOR -->
         <div class="path-selector" id="path-selector">
@@ -4825,34 +4943,138 @@
           </div>
 
           <div class="path-cards">
+            <!-- DESIGN GLOW-UP: Visual transformation -->
             <div class="path-card design" onclick="selectGlowupPath('design')">
-              <div class="path-icon design">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4735D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Faded "before" image frame -->
+                  <rect x="8" y="15" width="45" height="55" rx="4" fill="#F5EDE0" stroke="#D4C5B5" stroke-width="1.5"/>
+                  <rect x="14" y="22" width="33" height="22" rx="2" fill="#E8DFD3"/>
+                  <circle cx="22" cy="30" r="4" fill="#D4C5B5"/>
+                  <path d="M18 40L25 33L35 38L43 28" stroke="#D4C5B5" stroke-width="1.5" stroke-linejoin="round"/>
+                  <text x="30" y="60" text-anchor="middle" fill="#B0A090" font-family="Satoshi" font-size="6" font-weight="600">DATED</text>
+
+                  <!-- Arrow with paint brush effect -->
+                  <path d="M58 45L72 45" stroke="#C85C42" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M68 40L74 45L68 50" stroke="#C85C42" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Paint splatter -->
+                  <circle cx="65" cy="38" r="2" fill="#E8927C" opacity="0.6"/>
+                  <circle cx="62" cy="52" r="1.5" fill="#E8927C" opacity="0.4"/>
+
+                  <!-- Vibrant "after" image frame -->
+                  <rect x="82" y="12" width="50" height="60" rx="4" fill="white" stroke="#C85C42" stroke-width="2"/>
+                  <rect x="88" y="19" width="38" height="26" rx="2" fill="#FFF5F2" stroke="#E8927C" stroke-width="1"/>
+                  <!-- Colorful image preview -->
+                  <circle cx="98" cy="28" r="5" fill="#E8927C"/>
+                  <path d="M92 42L102 32L118 40L122 35" stroke="#C85C42" stroke-width="2" stroke-linejoin="round"/>
+                  <text x="107" y="62" text-anchor="middle" fill="#C85C42" font-family="Satoshi" font-size="6" font-weight="700">FRESH!</text>
+
+                  <!-- Sparkles around new design -->
+                  <path class="sparkle" d="M130 8L131.5 12L135.5 13L131.5 14L130 18L128.5 14L124.5 13L128.5 12Z" fill="#C85C42"/>
+                  <path class="sparkle" d="M78 8L79 11L82 12L79 13L78 16L77 13L74 12L77 11Z" fill="#E8927C"/>
+                  <circle class="sparkle" cx="135" cy="25" r="2" fill="#E8927C"/>
+                </svg>
               </div>
               <div class="path-card-title">DESIGN GLOW-UP</div>
               <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
               <div class="path-card-time">30-60 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Refresh My Art</button>
             </div>
 
+            <!-- LISTING GLOW-UP: SEO surgery -->
             <div class="path-card listing" onclick="selectGlowupPath('listing')">
-              <div class="path-icon listing">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Text document being edited -->
+                  <rect x="20" y="10" width="100" height="75" rx="4" fill="white" stroke="#2D8B8B" stroke-width="2"/>
+
+                  <!-- Title being highlighted/edited -->
+                  <rect x="28" y="18" width="65" height="10" rx="2" fill="#FFFBCC" stroke="#E8B800" stroke-width="1"/>
+                  <line x1="32" y1="23" x2="88" y2="23" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Cursor line -->
+                  <line x1="90" y1="19" x2="90" y2="27" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round">
+                    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+                  </line>
+
+                  <!-- Tags being optimized -->
+                  <rect x="28" y="34" width="22" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <rect x="54" y="34" width="28" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <rect x="86" y="34" width="18" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+
+                  <!-- Description lines -->
+                  <line x1="28" y1="52" x2="105" y2="52" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="28" y1="60" x2="90" y2="60" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="28" y1="68" x2="75" y2="68" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+
+                  <!-- Search/SEO icon with checkmark -->
+                  <circle cx="115" cy="22" r="12" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="2"/>
+                  <path d="M110 22L114 26L121 18" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <!-- Sparkles for optimization -->
+                  <path class="sparkle" d="M125 45L126.5 49L130.5 50L126.5 51L125 55L123.5 51L119.5 50L123.5 49Z" fill="#2D8B8B"/>
+                  <circle class="sparkle" cx="12" cy="35" r="2" fill="#2D8B8B"/>
+                </svg>
               </div>
               <div class="path-card-title">LISTING GLOW-UP</div>
               <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
               <div class="path-card-time">60 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Fix My Listing</button>
             </div>
 
+            <!-- FULL GLOW-UP: Complete transformation (Premium) -->
             <div class="path-card full" onclick="selectGlowupPath('full')">
-              <div class="path-icon full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="url(#fullGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="fullGrad" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#D4735D"/><stop offset="1" stop-color="#1F6B6B"/></linearGradient></defs></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Caterpillar/cocoon (before) -->
+                  <ellipse cx="25" cy="50" rx="18" ry="12" fill="#E5DDD5" stroke="#C4B5A5" stroke-width="1.5"/>
+                  <ellipse cx="25" cy="50" rx="12" ry="8" fill="#D8D0C8"/>
+                  <text x="25" y="72" text-anchor="middle" fill="#A09080" font-family="Satoshi" font-size="5" font-weight="600">BEFORE</text>
+
+                  <!-- Transformation arrow/magic wand -->
+                  <path d="M48 50L62 50" stroke="url(#fullGradCh)" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M58 45L64 50L58 55" stroke="url(#fullGradCh)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Magic dust -->
+                  <circle cx="52" cy="42" r="1.5" fill="#C85C42" opacity="0.7"/>
+                  <circle cx="56" cy="58" r="2" fill="#2D8B8B" opacity="0.6"/>
+                  <circle cx="48" cy="55" r="1" fill="#C85C42" opacity="0.5"/>
+
+                  <!-- Butterfly (after) - complete transformation -->
+                  <g transform="translate(95, 50)">
+                    <!-- Left wing -->
+                    <ellipse cx="-18" cy="-5" rx="16" ry="20" fill="#FFF5F2" stroke="#C85C42" stroke-width="1.5"/>
+                    <ellipse cx="-18" cy="-5" rx="10" ry="14" fill="#FFEEE8" stroke="#E8927C" stroke-width="1"/>
+                    <!-- Right wing -->
+                    <ellipse cx="18" cy="-5" rx="16" ry="20" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1.5"/>
+                    <ellipse cx="18" cy="-5" rx="10" ry="14" fill="#D4EDE6" stroke="#4A9B8B" stroke-width="1"/>
+                    <!-- Body -->
+                    <ellipse cx="0" cy="0" rx="3" ry="12" fill="#3D3D3D"/>
+                    <!-- Antennae -->
+                    <path d="M-2 -10Q-5 -16 -8 -18" stroke="#3D3D3D" stroke-width="1.5" fill="none"/>
+                    <path d="M2 -10Q5 -16 8 -18" stroke="#3D3D3D" stroke-width="1.5" fill="none"/>
+                    <circle cx="-8" cy="-18" r="1.5" fill="#3D3D3D"/>
+                    <circle cx="8" cy="-18" r="1.5" fill="#3D3D3D"/>
+                  </g>
+                  <text x="95" y="80" text-anchor="middle" fill="#3D3D3D" font-family="Satoshi" font-size="5" font-weight="700">TRANSFORMED</text>
+
+                  <!-- Lots of sparkles for premium feel -->
+                  <path class="sparkle" d="M130 15L132 20L137 21L132 22L130 27L128 22L123 21L128 20Z" fill="#C85C42"/>
+                  <path class="sparkle" d="M70 12L71.5 16L75.5 17L71.5 18L70 22L68.5 18L64.5 17L68.5 16Z" fill="#2D8B8B"/>
+                  <circle class="sparkle" cx="120" cy="75" r="2.5" fill="#E8927C"/>
+                  <circle class="sparkle" cx="75" cy="85" r="2" fill="#4A9B8B"/>
+                  <path class="sparkle" d="M45 25L46 28L49 29L46 30L45 33L44 30L41 29L44 28Z" fill="#D4735D"/>
+
+                  <defs>
+                    <linearGradient id="fullGradCh" x1="48" y1="50" x2="64" y2="50">
+                      <stop stop-color="#C85C42"/>
+                      <stop offset="1" stop-color="#2D8B8B"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
               <div class="path-card-title">FULL GLOW-UP</div>
               <div class="path-card-desc">Do both. New design + full listing optimization.</div>
               <div class="path-card-time">90 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Full Makeover</button>
             </div>
           </div>
         </div>
@@ -7644,39 +7866,148 @@ Just tell me: Is this good enough to publish? Yes or no, and one thing to fix if
     <div class="section hidden" id="wf-glowup">
       <div class="section-inner">
         <span class="badge badge-coral">WORKFLOW 2</span>
-        <h2>Glow-Up</h2>
+        <h2 class="glow-title-wrapper">
+          <span class="glow-title">Glow-Up</span>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#C85C42"/></svg>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#E8927C"/></svg>
+          <svg class="title-sparkle" viewBox="0 0 12 12" fill="none"><path d="M6 0L7 4L11 5L7 6L6 10L5 6L1 5L5 4Z" fill="#E8927C"/></svg>
+        </h2>
 
         <!-- PATH SELECTOR (Reference Mode) -->
         <div class="path-selector" id="ref-path-selector">
           <div class="path-cards">
+            <!-- DESIGN GLOW-UP: Visual transformation -->
             <div class="path-card design" onclick="selectRefGlowupPath('design')">
-              <div class="path-icon design">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4735D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Faded "before" image frame -->
+                  <rect x="8" y="15" width="45" height="55" rx="4" fill="#F5EDE0" stroke="#D4C5B5" stroke-width="1.5"/>
+                  <rect x="14" y="22" width="33" height="22" rx="2" fill="#E8DFD3"/>
+                  <circle cx="22" cy="30" r="4" fill="#D4C5B5"/>
+                  <path d="M18 40L25 33L35 38L43 28" stroke="#D4C5B5" stroke-width="1.5" stroke-linejoin="round"/>
+                  <text x="30" y="60" text-anchor="middle" fill="#B0A090" font-family="Satoshi" font-size="6" font-weight="600">DATED</text>
+
+                  <!-- Arrow with paint brush effect -->
+                  <path d="M58 45L72 45" stroke="#C85C42" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M68 40L74 45L68 50" stroke="#C85C42" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Paint splatter -->
+                  <circle cx="65" cy="38" r="2" fill="#E8927C" opacity="0.6"/>
+                  <circle cx="62" cy="52" r="1.5" fill="#E8927C" opacity="0.4"/>
+
+                  <!-- Vibrant "after" image frame -->
+                  <rect x="82" y="12" width="50" height="60" rx="4" fill="white" stroke="#C85C42" stroke-width="2"/>
+                  <rect x="88" y="19" width="38" height="26" rx="2" fill="#FFF5F2" stroke="#E8927C" stroke-width="1"/>
+                  <!-- Colorful image preview -->
+                  <circle cx="98" cy="28" r="5" fill="#E8927C"/>
+                  <path d="M92 42L102 32L118 40L122 35" stroke="#C85C42" stroke-width="2" stroke-linejoin="round"/>
+                  <text x="107" y="62" text-anchor="middle" fill="#C85C42" font-family="Satoshi" font-size="6" font-weight="700">FRESH!</text>
+
+                  <!-- Sparkles around new design -->
+                  <path class="sparkle" d="M130 8L131.5 12L135.5 13L131.5 14L130 18L128.5 14L124.5 13L128.5 12Z" fill="#C85C42"/>
+                  <path class="sparkle" d="M78 8L79 11L82 12L79 13L78 16L77 13L74 12L77 11Z" fill="#E8927C"/>
+                  <circle class="sparkle" cx="135" cy="25" r="2" fill="#E8927C"/>
+                </svg>
               </div>
               <div class="path-card-title">DESIGN GLOW-UP</div>
               <div class="path-card-desc">My design looks dated. Fresh AI art, same SEO.</div>
               <div class="path-card-time">30-60 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Refresh My Art</button>
             </div>
 
+            <!-- LISTING GLOW-UP: SEO surgery -->
             <div class="path-card listing" onclick="selectRefGlowupPath('listing')">
-              <div class="path-icon listing">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#1F6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Text document being edited -->
+                  <rect x="20" y="10" width="100" height="75" rx="4" fill="white" stroke="#2D8B8B" stroke-width="2"/>
+
+                  <!-- Title being highlighted/edited -->
+                  <rect x="28" y="18" width="65" height="10" rx="2" fill="#FFFBCC" stroke="#E8B800" stroke-width="1"/>
+                  <line x1="32" y1="23" x2="88" y2="23" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Cursor line -->
+                  <line x1="90" y1="19" x2="90" y2="27" stroke="#2D8B8B" stroke-width="2" stroke-linecap="round">
+                    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+                  </line>
+
+                  <!-- Tags being optimized -->
+                  <rect x="28" y="34" width="22" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <rect x="54" y="34" width="28" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+                  <rect x="86" y="34" width="18" height="8" rx="4" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1"/>
+
+                  <!-- Description lines -->
+                  <line x1="28" y1="52" x2="105" y2="52" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="28" y1="60" x2="90" y2="60" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="28" y1="68" x2="75" y2="68" stroke="#B8E0D6" stroke-width="2" stroke-linecap="round"/>
+
+                  <!-- Search/SEO icon with checkmark -->
+                  <circle cx="115" cy="22" r="12" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="2"/>
+                  <path d="M110 22L114 26L121 18" stroke="#2D8B8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <!-- Sparkles for optimization -->
+                  <path class="sparkle" d="M125 45L126.5 49L130.5 50L126.5 51L125 55L123.5 51L119.5 50L123.5 49Z" fill="#2D8B8B"/>
+                  <circle class="sparkle" cx="12" cy="35" r="2" fill="#2D8B8B"/>
+                </svg>
               </div>
               <div class="path-card-title">LISTING GLOW-UP</div>
               <div class="path-card-desc">My listing needs work. Title, tags, images, description, pricing.</div>
               <div class="path-card-time">60 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Fix My Listing</button>
             </div>
 
+            <!-- FULL GLOW-UP: Complete transformation (Premium) -->
             <div class="path-card full" onclick="selectRefGlowupPath('full')">
-              <div class="path-icon full">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="url(#fullGrad2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="fullGrad2" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#D4735D"/><stop offset="1" stop-color="#1F6B6B"/></linearGradient></defs></svg>
+              <div class="glow-illustration">
+                <svg viewBox="0 0 140 100" fill="none">
+                  <!-- Caterpillar/cocoon (before) -->
+                  <ellipse cx="25" cy="50" rx="18" ry="12" fill="#E5DDD5" stroke="#C4B5A5" stroke-width="1.5"/>
+                  <ellipse cx="25" cy="50" rx="12" ry="8" fill="#D8D0C8"/>
+                  <text x="25" y="72" text-anchor="middle" fill="#A09080" font-family="Satoshi" font-size="5" font-weight="600">BEFORE</text>
+
+                  <!-- Transformation arrow/magic wand -->
+                  <path d="M48 50L62 50" stroke="url(#fullGradRef)" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M58 45L64 50L58 55" stroke="url(#fullGradRef)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Magic dust -->
+                  <circle cx="52" cy="42" r="1.5" fill="#C85C42" opacity="0.7"/>
+                  <circle cx="56" cy="58" r="2" fill="#2D8B8B" opacity="0.6"/>
+                  <circle cx="48" cy="55" r="1" fill="#C85C42" opacity="0.5"/>
+
+                  <!-- Butterfly (after) - complete transformation -->
+                  <g transform="translate(95, 50)">
+                    <!-- Left wing -->
+                    <ellipse cx="-18" cy="-5" rx="16" ry="20" fill="#FFF5F2" stroke="#C85C42" stroke-width="1.5"/>
+                    <ellipse cx="-18" cy="-5" rx="10" ry="14" fill="#FFEEE8" stroke="#E8927C" stroke-width="1"/>
+                    <!-- Right wing -->
+                    <ellipse cx="18" cy="-5" rx="16" ry="20" fill="#E8F5F0" stroke="#2D8B8B" stroke-width="1.5"/>
+                    <ellipse cx="18" cy="-5" rx="10" ry="14" fill="#D4EDE6" stroke="#4A9B8B" stroke-width="1"/>
+                    <!-- Body -->
+                    <ellipse cx="0" cy="0" rx="3" ry="12" fill="#3D3D3D"/>
+                    <!-- Antennae -->
+                    <path d="M-2 -10Q-5 -16 -8 -18" stroke="#3D3D3D" stroke-width="1.5" fill="none"/>
+                    <path d="M2 -10Q5 -16 8 -18" stroke="#3D3D3D" stroke-width="1.5" fill="none"/>
+                    <circle cx="-8" cy="-18" r="1.5" fill="#3D3D3D"/>
+                    <circle cx="8" cy="-18" r="1.5" fill="#3D3D3D"/>
+                  </g>
+                  <text x="95" y="80" text-anchor="middle" fill="#3D3D3D" font-family="Satoshi" font-size="5" font-weight="700">TRANSFORMED</text>
+
+                  <!-- Lots of sparkles for premium feel -->
+                  <path class="sparkle" d="M130 15L132 20L137 21L132 22L130 27L128 22L123 21L128 20Z" fill="#C85C42"/>
+                  <path class="sparkle" d="M70 12L71.5 16L75.5 17L71.5 18L70 22L68.5 18L64.5 17L68.5 16Z" fill="#2D8B8B"/>
+                  <circle class="sparkle" cx="120" cy="75" r="2.5" fill="#E8927C"/>
+                  <circle class="sparkle" cx="75" cy="85" r="2" fill="#4A9B8B"/>
+                  <path class="sparkle" d="M45 25L46 28L49 29L46 30L45 33L44 30L41 29L44 28Z" fill="#D4735D"/>
+
+                  <defs>
+                    <linearGradient id="fullGradRef" x1="48" y1="50" x2="64" y2="50">
+                      <stop stop-color="#C85C42"/>
+                      <stop offset="1" stop-color="#2D8B8B"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
               <div class="path-card-title">FULL GLOW-UP</div>
               <div class="path-card-desc">Do both. New design + full listing optimization.</div>
               <div class="path-card-time">90 min</div>
-              <button class="path-card-btn">Start</button>
+              <button class="path-card-btn">Full Makeover</button>
             </div>
           </div>
         </div>
